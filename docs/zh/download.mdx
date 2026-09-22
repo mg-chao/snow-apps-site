@@ -1,16 +1,12 @@
 ---
 title: 下载 Snow Shot
-description: 下载适用于 Windows x64 的 Snow Shot。在线版本按需安装部分功能，离线版本包含软件全部功能，另提供便携版本。
+description: 下载适用于 Windows x64 或 macOS ARM64 的 Snow Shot。Windows 提供在线安装包、离线安装包和便携版，macOS 可通过终端脚本或磁盘映像安装。
 pageType: doc-wide
 sidebar: false
 outline: false
 footer: true
 ---
 
-import { IconArrowDown } from '@rspress/core/theme';
+import { DownloadPage } from '@rspress/core/theme';
 
-<main className="snow-download-page">
-  <section className="snow-download-hero"><div className="snow-download-hero__copy"><p className="snow-download-kicker">SNOW SHOT / WINDOWS</p><h1>让每一处画面<br /><em>都值得分享。</em></h1><p className="snow-download-hero__intro">截图、录屏、标注和文字识别，一套专注而快速的工具。</p><div className="snow-download-hero__meta"><span>Windows x64</span><span>免费下载</span><span>几分钟即可开始</span></div></div><div className="snow-download-hero__badge" aria-hidden="true"><img src="/app-icon.svg" alt="" /><span>SS</span></div></section>
-  <section className="snow-download-options" aria-labelledby="download-options-title"><div className="snow-download-section-head"><p className="snow-download-kicker">选择安装方式</p><h2 id="download-options-title">三种下载方式。<br />选择适合你的版本。</h2></div><div className="snow-download-grid"><article className="snow-download-card snow-download-card--online"><div className="snow-download-card__top"><span className="snow-download-card__number">01</span><span className="snow-download-tag">按需安装</span></div><h3>在线安装包</h3><p>先下载基础包，部分功能会在首次使用时完成安装。</p><ul><li>初始下载体积更小</li><li>使用功能时自动完成安装</li><li>按需获取功能</li></ul><a className="snow-download-button snow-download-button--dark" href="/setup/snow-shot_windows-x64-online.exe" download="snow-shot_windows-x64-online.exe"><IconArrowDown />下载在线安装包</a><p className="snow-download-file">snow-shot_windows-x64-online.exe</p></article><article className="snow-download-card snow-download-card--offline"><div className="snow-download-card__top"><span className="snow-download-card__number">02</span><span className="snow-download-tag">完整功能</span></div><h3>离线安装包</h3><p>安装包包含软件的全部功能，可在离线环境中安装和使用。</p><ul><li>包含全部功能</li><li>适合离线环境</li><li>安装一次，随时使用</li></ul><a className="snow-download-button snow-download-button--light" href="/setup/snow-shot_windows-x64-offline.exe" download="snow-shot_windows-x64-offline.exe"><IconArrowDown />下载离线安装包</a><p className="snow-download-file">snow-shot_windows-x64-offline.exe</p></article><article className="snow-download-card snow-download-card--portable"><div className="snow-download-card__top"><span className="snow-download-card__number">03</span><span className="snow-download-tag">便携版本</span></div><h3>便携版</h3><p>无需安装或修改系统设置，直接运行 Snow Shot。</p><ul><li>无需安装即可使用</li><li>可保存到 U 盘随身携带</li><li>适用于任意 Windows x64 电脑</li></ul><a className="snow-download-button snow-download-button--dark" href="/setup/snow-shot_windows-x64-portable.exe" download="snow-shot_windows-x64-portable.exe"><IconArrowDown />下载便携版</a><p className="snow-download-file">snow-shot_windows-x64-portable.exe</p></article></div></section>
-  <section className="snow-download-note"><div className="snow-download-note__mark">?</div><div><p className="snow-download-kicker">还在犹豫？</p><h2>想要更快，就选在线。<br />想要安心，就选离线。</h2></div><p className="snow-download-note__body">三种下载方式提供完全相同的 Snow Shot 体验，区别只在于 Snow Shot 如何安装或启动。</p></section>
-</main>
+<DownloadPage locale="zh" />

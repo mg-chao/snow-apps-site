@@ -159,14 +159,9 @@ body {
     0 8px 18px rgba(0, 0, 0, 0.08),
     0 22px 48px rgba(0, 0, 0, 0.12);
 }
-.snow-hero__image-shell img {
+.snow-hero__image-shell .snow-app-preview {
   display: block;
-  /* Crop the dark pixels baked into the screenshot's outer edge. */
-  width: calc(100% + 6px);
-  height: auto;
-  max-width: none;
-  margin: -3px;
-  clip-path: inset(3px);
+  width: 100%;
 }
 .snow-button {
   display: inline-flex;
@@ -965,6 +960,79 @@ html.dark {
   border: 1px solid var(--snow-line);
   border-radius: 999px;
 }
+.snow-os-select {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 22px;
+  color: var(--snow-ink);
+  color-scheme: light;
+}
+.snow-os-select label {
+  margin: 0;
+  color: var(--snow-muted);
+  font:
+    500 11px / 1 "DM Mono",
+    monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.snow-os-select__field {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  border: 1px solid var(--snow-line);
+  border-radius: 8px;
+  background: var(--snow-surface);
+  transition: border-color 180ms ease;
+}
+.snow-os-select__field:hover {
+  border-color: var(--snow-violet);
+}
+.snow-os-select__field:focus-within {
+  outline: 2px solid var(--snow-blue);
+  outline-offset: 3px;
+}
+.snow-os-select__field::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  width: 7px;
+  height: 7px;
+  margin-top: -6px;
+  border-right: 1.6px solid currentColor;
+  border-bottom: 1.6px solid currentColor;
+  transform: rotate(45deg);
+  pointer-events: none;
+  opacity: 0.72;
+}
+.snow-os-select select {
+  -webkit-appearance: none;
+  appearance: none;
+  min-width: 196px;
+  min-height: 44px;
+  margin: 0;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 40px 10px 14px;
+  color: var(--snow-ink);
+  background: transparent;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+}
+.snow-os-select select:focus {
+  outline: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .snow-os-select__field {
+    transition: none;
+  }
+}
 .snow-download-hero__badge {
   position: relative;
   display: grid;
@@ -1018,7 +1086,15 @@ html.dark {
 .snow-download-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
   gap: 16px;
+}
+.snow-download-grid--single {
+  grid-template-columns: minmax(0, 380px);
+  justify-content: center;
 }
 .snow-download-card {
   display: grid;
@@ -1031,6 +1107,7 @@ html.dark {
   border-radius: 8px;
 }
 .snow-download-card--online {
+  color: #1a2140;
   background: #c8c0f2;
 }
 .snow-download-card--offline {
@@ -1213,8 +1290,21 @@ html.dark {
   .snow-download-section-head h2 {
     margin-top: 24px;
   }
-  .snow-download-grid {
+  .snow-download-grid,
+  .snow-download-grid--single {
     grid-template-columns: 1fr;
+  }
+  .snow-os-select {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .snow-os-select__field,
+  .snow-os-select select {
+    width: 100%;
+  }
+  .snow-os-select select {
+    font-size: 16px;
   }
   .snow-download-card {
     min-height: 0;
@@ -1489,10 +1579,102 @@ html.dark .snow-open-source__panel {
   }
 }
 
+html.dark .snow-os-select,
+html.dark .snow-os-select select {
+  color: var(--snow-ink);
+  color-scheme: dark;
+  background-color: transparent;
+}
+html.dark .snow-os-select__field {
+  background: var(--snow-surface);
+}
+
 html.dark .snow-theme-switch__sun {
   display: none;
 }
 
 html.dark .snow-theme-switch__moon {
   display: block;
+}
+
+.snow-macos-install {
+  margin: 0 0 24px;
+  padding: 28px;
+  border: 1px solid var(--snow-line);
+  border-radius: 8px;
+  background: var(--snow-surface);
+}
+.snow-macos-install__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.snow-macos-install h3 {
+  margin: 8px 0 0;
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1.2;
+}
+.snow-macos-install__heading button {
+  margin-top: 0;
+  cursor: pointer;
+  border: 0;
+}
+.snow-macos-install > p,
+.snow-macos-install__footer p {
+  color: var(--snow-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.snow-macos-install .snow-macos-install__status {
+  min-height: 1.6em;
+  margin: 4px 0;
+  color: var(--snow-ink);
+}
+.snow-macos-install textarea {
+  display: block;
+  width: 100%;
+  min-height: 130px;
+  resize: vertical;
+  border: 0;
+  font:
+    13px/1.7 "DM Mono",
+    monospace;
+  margin: 0;
+  padding: 20px;
+  border-radius: 6px;
+  background: var(--snow-navy);
+  color: #eff3ff;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.snow-macos-install__footer {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-top: 16px;
+}
+.snow-macos-install__footer p {
+  flex: 1 1 320px;
+  margin: 0;
+}
+.snow-macos-install__footer a {
+  font-size: 13px;
+  text-decoration: underline;
+}
+.snow-macos-install textarea:focus-visible,
+.snow-macos-install a:focus-visible {
+  outline: 2px solid var(--snow-blue);
+  outline-offset: 4px;
+}
+@media (max-width: 600px) {
+  .snow-macos-install {
+    padding: 20px;
+  }
+  .snow-macos-install textarea {
+    min-height: 250px;
+  }
 }

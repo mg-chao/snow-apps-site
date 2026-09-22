@@ -5,6 +5,7 @@ import { useLang } from '@rspress/core/runtime';
 import { Layout as OriginalLayout } from '@rspress/core/theme-original';
 
 export * from '@rspress/core/theme-original';
+export { DownloadPage } from './components/DownloadPage';
 export { HomeLayout } from './components/HomeLayout';
 export { SwitchAppearance } from './components/SwitchAppearance';
 

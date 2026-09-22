@@ -1,0 +1,510 @@
+.snow-app-preview {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1372 / 890;
+  overflow: hidden;
+  container-type: inline-size;
+  color-scheme: light;
+}
+
+.snow-app-preview--dark {
+  color-scheme: dark;
+}
+
+.snow-app-window {
+  --sap-primary: #1677ff;
+  --sap-success: #52c41a;
+  --sap-success-bg: #f6ffed;
+  --sap-text: #1f1f1f;
+  --sap-text-secondary: rgba(0, 0, 0, 0.65);
+  --sap-text-tertiary: rgba(0, 0, 0, 0.45);
+  --sap-text-placeholder: rgba(0, 0, 0, 0.25);
+  --sap-icon: rgba(0, 0, 0, 0.88);
+  --sap-container: #ffffff;
+  --sap-layout: #f5f5f5;
+  --sap-fill: #f5f5f5;
+  --sap-fill-alter: #fafafa;
+  --sap-border: #d9d9d9;
+  --sap-split: #f0f0f0;
+  --sap-selected-bg: #e6f4ff;
+  --sap-selected-text: #1677ff;
+  --sap-collapse-bg: #ffffff;
+  --sap-submenu-bg: #fafafa;
+  --sap-row-border: #d9d9d9;
+  --sap-hotkey-set-border: #52c41a;
+  --sap-hotkey-set-bg: #ffffff;
+  --sap-hotkey-set-text: #52c41a;
+  --sap-scrollbar: #737373;
+  --sap-control: #434343;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 1372px;
+  height: 890px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 12px;
+  background: var(--sap-container);
+  color: var(--sap-text);
+  font-family:
+    "Segoe UI", "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei",
+    system-ui, sans-serif;
+  font-size: 21px;
+  line-height: 1.57142857;
+  transform: scale(calc(100cqi / 1372));
+  transform-origin: top left;
+}
+
+.snow-app-preview--dark .snow-app-window {
+  --sap-primary: #1677ff;
+  --sap-success: #49aa19;
+  --sap-success-bg: #213a15;
+  --sap-text: rgba(255, 255, 255, 0.85);
+  --sap-text-secondary: rgba(255, 255, 255, 0.65);
+  --sap-text-tertiary: rgba(255, 255, 255, 0.45);
+  --sap-text-placeholder: rgba(255, 255, 255, 0.25);
+  --sap-icon: rgba(255, 255, 255, 0.85);
+  --sap-container: #141414;
+  --sap-layout: #000000;
+  --sap-fill: #262626;
+  --sap-fill-alter: #1f1f1f;
+  --sap-border: #424242;
+  --sap-split: #303030;
+  --sap-selected-bg: #1668dc;
+  --sap-selected-text: #ffffff;
+  --sap-collapse-bg: #00203f;
+  --sap-submenu-bg: #000c17;
+  --sap-row-border: #373737;
+  --sap-hotkey-set-border: #49aa19;
+  --sap-hotkey-set-bg: #141414;
+  --sap-hotkey-set-text: #48aa18;
+  --sap-scrollbar: #8c8c8c;
+  --sap-control: #dcdcdc;
+}
+
+.snow-app-titlebar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  height: 46px;
+  background: var(--sap-container);
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.039);
+}
+
+.snow-app-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 101px;
+  height: 18px;
+  color: var(--sap-text);
+  transform: translate(-50%, -50%);
+}
+
+.snow-app-titlebar--windows .snow-app-logo {
+  left: 71px;
+  transform: translateY(-50%);
+}
+
+.snow-app-sys-icon {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  width: 24px;
+  height: 24px;
+  transform: translateY(-50%);
+}
+
+.snow-app-caption {
+  display: flex;
+  align-items: stretch;
+  margin-left: auto;
+  height: 100%;
+}
+
+.snow-app-caption__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 100%;
+  color: var(--sap-control);
+}
+
+.snow-app-caption__btn svg {
+  width: 15px;
+  height: 15px;
+}
+
+.snow-app-traffic {
+  position: absolute;
+  top: 50%;
+  left: 21px;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  transform: translateY(-50%);
+}
+
+.snow-app-traffic__btn {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 0.75px rgba(0, 0, 0, 0.22);
+}
+
+.snow-app-traffic__btn--close {
+  background: #ff5f57;
+}
+
+.snow-app-traffic__btn--min {
+  background: #febc2e;
+}
+
+.snow-app-traffic__btn--zoom {
+  background: #28c840;
+}
+
+.snow-app-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  background: var(--sap-container);
+}
+
+.snow-app-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 328px;
+  min-width: 328px;
+  background: var(--sap-container);
+  border-right: 1px solid #f0f0f0;
+}
+
+.snow-app-preview--dark .snow-app-sidebar {
+  border-right-color: #303030;
+}
+
+.snow-app-menu {
+  flex: 1;
+  min-height: 0;
+  padding: 12px 0 0;
+  overflow: hidden auto;
+  scrollbar-color: var(--sap-scrollbar) transparent;
+  scrollbar-width: thin;
+}
+
+.snow-app-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+.snow-app-menu::-webkit-scrollbar-thumb {
+  background: var(--sap-scrollbar);
+  border-radius: 4px;
+}
+
+.snow-app-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.snow-app-nav-item {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  height: 60px;
+  margin: 6px;
+  padding: 0 24px;
+  border-radius: 12px;
+  color: var(--sap-text);
+}
+
+.snow-app-nav-item--active {
+  color: var(--sap-selected-text);
+  background: var(--sap-selected-bg);
+}
+
+.snow-app-nav-item__icon {
+  flex: 0 0 21px;
+  width: 21px;
+  height: 21px;
+}
+
+.snow-app-nav-item__label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 60px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.snow-app-nav-item__chevron {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  color: var(--sap-text-secondary);
+}
+
+.snow-app-nav-item__chevron--open {
+  transform: rotate(180deg);
+}
+
+.snow-app-submenu {
+  margin: 0 6px;
+  overflow: hidden;
+  background: var(--sap-submenu-bg);
+  border-radius: 12px;
+}
+
+.snow-app-subitem {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  margin: 6px 0;
+  padding: 0 24px 0 60px;
+  overflow: hidden;
+  color: var(--sap-text);
+  font-size: 21px;
+  line-height: 60px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.snow-app-collapse {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  height: 72px;
+  color: var(--sap-icon);
+  background: var(--sap-collapse-bg);
+}
+
+.snow-app-collapse svg {
+  width: 27px;
+  height: 27px;
+}
+
+.snow-app-main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--sap-container);
+}
+
+.snow-app-header {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 12px 24px 0;
+  background: var(--sap-container);
+}
+
+.snow-app-search {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  width: 416px;
+  max-width: 100%;
+  height: 43px;
+  margin: 0 auto;
+  padding: 0 18px;
+  color: var(--sap-text-placeholder);
+  background: var(--sap-fill);
+  border-radius: 9px;
+}
+
+.snow-app-search__prefix,
+.snow-app-search__suffix {
+  flex: 0 0 21px;
+  width: 21px;
+  height: 21px;
+}
+
+.snow-app-search__suffix {
+  width: 18px;
+  height: 18px;
+}
+
+.snow-app-search__placeholder {
+  flex: 1;
+  overflow: hidden;
+  font-size: 21px;
+  line-height: 43px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.snow-app-tabs {
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+  margin-top: 4px;
+  border-bottom: 1px solid var(--sap-split);
+}
+
+.snow-app-tab {
+  position: relative;
+  padding: 8px 0 16px;
+  margin-right: 48px;
+  color: var(--sap-text);
+  font-size: 21px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.snow-app-tab--active {
+  color: var(--sap-primary);
+  font-weight: 500;
+}
+
+.snow-app-tab--active::after {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 3px;
+  background: var(--sap-primary);
+  border-radius: 3px 3px 0 0;
+  content: "";
+}
+
+.snow-app-content {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  padding: 24px;
+  background: var(--sap-layout);
+}
+
+.snow-app-card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--sap-container);
+  border-radius: 15px;
+}
+
+.snow-app-card__header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  height: 113px;
+  padding: 0 36px;
+}
+
+.snow-app-card__title {
+  color: var(--sap-text);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.snow-app-reset {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: var(--sap-icon);
+}
+
+.snow-app-reset svg {
+  width: 24px;
+  height: 24px;
+}
+
+.snow-app-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 25px;
+  min-height: 0;
+  padding: 0 36px 36px;
+  overflow: hidden auto;
+  scrollbar-color: var(--sap-scrollbar) transparent;
+  scrollbar-width: thin;
+}
+
+.snow-app-card__body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.snow-app-card__body::-webkit-scrollbar-thumb {
+  background: var(--sap-scrollbar);
+  border-radius: 4px;
+}
+
+.snow-app-card__body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.snow-app-row {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  height: 65px;
+  padding: 0 24px;
+  border: 1.5px solid var(--sap-row-border);
+  border-radius: 15px;
+}
+
+.snow-app-row__label {
+  display: flex;
+  flex: 1;
+  gap: 12px;
+  align-items: center;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--sap-text);
+  font-size: 24px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.snow-app-row__icon {
+  flex: 0 0 27px;
+  width: 27px;
+  height: 27px;
+  color: var(--sap-icon);
+}
+
+.snow-app-hotkey {
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 12px;
+  align-items: center;
+  height: 48px;
+  padding: 0 18px;
+  color: var(--sap-text-tertiary);
+  font-size: 21px;
+  white-space: nowrap;
+  background: transparent;
+  border: 1.5px dashed var(--sap-border);
+  border-radius: 9px;
+}
+
+.snow-app-hotkey svg {
+  width: 21px;
+  height: 21px;
+}
+
+.snow-app-hotkey--set {
+  color: var(--sap-hotkey-set-text);
+  background: var(--sap-hotkey-set-bg);
+  border-color: var(--sap-hotkey-set-border);
+}

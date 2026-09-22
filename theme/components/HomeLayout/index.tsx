@@ -1,5 +1,7 @@
 import { useDark, useLang } from '@rspress/core/runtime';
+import { useDownloadPlatform } from '../../platform';
 import { SnowCanvas } from '../SnowCanvas';
+import { HeroAppPreview } from './HeroAppPreview';
 
 type Feature = {
   eyebrow: string;
@@ -427,14 +429,24 @@ function FeatureVisual({ kind }: { kind: Feature['visual'] }) {
 }
 
 function DownloadButton({ isZh }: { isZh: boolean }) {
+  const platform = useDownloadPlatform();
+  const label =
+    platform === 'macos'
+      ? isZh
+        ? '下载 macOS 版'
+        : 'Download for macOS'
+      : isZh
+        ? '下载 Windows 版'
+        : 'Download for Windows';
+
   return (
     <div className="snow-download-wrap">
       <a
         className="snow-button snow-button--primary"
-        href={isZh ? '/zh/download' : '/download'}
+        href={`${isZh ? '/zh/download' : '/download'}?os=${platform}`}
       >
         <DownloadIcon />
-        {isZh ? '立即下载' : 'Download now'}
+        {label}
       </a>
     </div>
   );
@@ -529,17 +541,7 @@ export function HomeLayout() {
         </div>
         <div className="snow-hero__preview">
           <div className="snow-hero__image-shell">
-            <img
-              alt={
-                isZh
-                  ? 'Snow Shot 截图设置界面'
-                  : 'Snow Shot screenshot settings interface'
-              }
-              fetchPriority="high"
-              width="1372"
-              height="891"
-              src={`/images/${isZh ? 'zh' : 'en'}/main${isDark ? '-dark' : ''}.webp`}
-            />
+            <HeroAppPreview isDark={isDark} isZh={isZh} />
           </div>
         </div>
       </section>
