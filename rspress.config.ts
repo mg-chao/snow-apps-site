@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import * as path from 'node:path';
 import { defineConfig } from '@rspress/core';
 
@@ -9,7 +10,36 @@ export default defineConfig({
   lang: 'en',
   icon: '/app-icon.ico',
   route: {
-    localeRedirect: 'auto',
+    // Our redirect checks every visit and handles Chromium's Chinese regional
+    // locale even when its content-language list contains only English.
+    localeRedirect: 'never',
+  },
+  builderConfig: {
+    html: {
+      tags: [
+        {
+          tag: 'script',
+          attrs: {
+            id: 'snow-shot-locale-debug',
+            'data-revision': 'locale-debug-4',
+          },
+          children: readFileSync(
+            path.join(__dirname, 'scripts/locale-debug.js'),
+            'utf8',
+          ),
+          append: false,
+        },
+        {
+          tag: 'script',
+          attrs: { id: 'snow-shot-locale', 'data-revision': 'locale-debug-4' },
+          children: readFileSync(
+            path.join(__dirname, 'scripts/locale-redirect.js'),
+            'utf8',
+          ),
+          append: false,
+        },
+      ],
+    },
   },
   logo: {
     light: '/app-icon.svg',

@@ -9,6 +9,7 @@
     "dev": "rspress dev",
     "lint": "biome lint",
     "format": "biome format --write",
+    "test": "node --test",
     "preview": "rspress preview"
   },
   "dependencies": {

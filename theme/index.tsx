@@ -11,8 +11,14 @@ export { HomeLayout } from './components/HomeLayout';
 export { SwitchAppearance } from './components/SwitchAppearance';
 
 function SnowNavTitle() {
+  const lang = useLang();
+
   return (
-    <a aria-label="Snow Shot home" className="snow-nav-brand" href="/">
+    <a
+      aria-label={lang === 'zh' ? 'Snow Shot 首页' : 'Snow Shot home'}
+      className="snow-nav-brand"
+      href={lang === 'zh' ? '/zh/' : '/'}
+    >
       <img
         alt=""
         aria-hidden="true"
