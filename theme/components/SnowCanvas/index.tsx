@@ -124,7 +124,6 @@ export function SnowCanvas() {
           const left = imageRect.left - canvasRect.left;
           const right = imageRect.right - canvasRect.left;
           const top = imageRect.top - canvasRect.top;
-          const bottom = imageRect.bottom - canvasRect.top;
           if (p.x >= left && p.x <= right && p.y >= top - 3 && p.y <= top + 8) {
             p.y = top - 3;
             p.vy = 0;
@@ -138,7 +137,6 @@ export function SnowCanvas() {
           const left = buttonRect.left - canvasRect.left;
           const right = buttonRect.right - canvasRect.left;
           const top = buttonRect.top - canvasRect.top;
-          const bottom = buttonRect.bottom - canvasRect.top;
           if (p.x >= left && p.x <= right && p.y >= top - 3 && p.y <= top + 8) {
             p.y = top - 3;
             // Buttons collect snow instead of bouncing it between adjacent surfaces.

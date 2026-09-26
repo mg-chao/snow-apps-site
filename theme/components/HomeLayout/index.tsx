@@ -108,17 +108,6 @@ const features: Record<'en' | 'zh', Feature[]> = {
   ],
 };
 
-function LogoMark() {
-  return (
-    <img
-      alt=""
-      aria-hidden="true"
-      className="snow-logo-mark"
-      src="/app-icon.svg"
-    />
-  );
-}
-
 function DownloadIcon() {
   return (
     <svg aria-hidden="true" className="snow-button-icon" viewBox="0 0 18 18">

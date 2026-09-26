@@ -3,5 +3,10 @@
     "text": "Download",
     "link": "/download",
     "activeMatch": "/download"
+  },
+  {
+    "text": "About",
+    "link": "/about",
+    "activeMatch": "/about"
   }
 ]
