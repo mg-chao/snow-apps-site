@@ -99,7 +99,8 @@ body {
 }
 .snow-hero__inner a,
 .snow-hero__preview a,
-.snow-hero__preview button {
+.snow-hero__preview button,
+.snow-app-preview {
   pointer-events: auto;
 }
 .snow-hero__inner {
@@ -1639,7 +1640,7 @@ html.dark .snow-theme-switch__moon {
   resize: vertical;
   border: 0;
   font:
-    13px/1.7 "DM Mono",
+    13px / 1.7 "DM Mono",
     monospace;
   margin: 0;
   padding: 20px;

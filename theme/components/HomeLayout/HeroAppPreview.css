@@ -29,6 +29,8 @@
   --sap-split: #f0f0f0;
   --sap-selected-bg: #e6f4ff;
   --sap-selected-text: #1677ff;
+  --sap-sidebar: #ffffff;
+  --sap-menu-text: var(--sap-text);
   --sap-collapse-bg: #ffffff;
   --sap-submenu-bg: #fafafa;
   --sap-row-border: #d9d9d9;
@@ -76,7 +78,9 @@
   --sap-split: #303030;
   --sap-selected-bg: #1668dc;
   --sap-selected-text: #ffffff;
-  --sap-collapse-bg: #00203f;
+  --sap-sidebar: #001529;
+  --sap-menu-text: rgba(255, 255, 255, 0.65);
+  --sap-collapse-bg: #001529;
   --sap-submenu-bg: #000c17;
   --sap-row-border: #373737;
   --sap-hotkey-set-border: #49aa19;
@@ -93,7 +97,7 @@
   flex-shrink: 0;
   align-items: center;
   height: 46px;
-  background: var(--sap-container);
+  background: var(--sap-sidebar);
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.039);
 }
 
@@ -181,14 +185,14 @@
 .snow-app-sidebar {
   display: flex;
   flex-direction: column;
-  width: 328px;
-  min-width: 328px;
-  background: var(--sap-container);
+  width: 330px;
+  min-width: 330px;
+  background: var(--sap-sidebar);
   border-right: 1px solid #f0f0f0;
 }
 
 .snow-app-preview--dark .snow-app-sidebar {
-  border-right-color: #303030;
+  border-right-color: transparent;
 }
 
 .snow-app-menu {
@@ -221,7 +225,7 @@
   margin: 6px;
   padding: 0 24px;
   border-radius: 12px;
-  color: var(--sap-text);
+  color: var(--sap-menu-text);
 }
 
 .snow-app-nav-item--active {
@@ -249,12 +253,7 @@
 .snow-app-nav-item__chevron {
   flex: 0 0 18px;
   width: 18px;
-  height: 18px;
-  color: var(--sap-text-secondary);
-}
-
-.snow-app-nav-item__chevron--open {
-  transform: rotate(180deg);
+  height: 21px;
 }
 
 .snow-app-submenu {
@@ -271,7 +270,7 @@
   margin: 6px 0;
   padding: 0 24px 0 60px;
   overflow: hidden;
-  color: var(--sap-text);
+  color: var(--sap-menu-text);
   font-size: 21px;
   line-height: 60px;
   text-overflow: ellipsis;
@@ -284,7 +283,7 @@
   align-items: center;
   justify-content: center;
   height: 72px;
-  color: var(--sap-icon);
+  color: var(--sap-menu-text);
   background: var(--sap-collapse-bg);
 }
 
@@ -356,10 +355,14 @@
   position: relative;
   padding: 8px 0 16px;
   margin-right: 48px;
+  border: 0;
+  background: none;
   color: var(--sap-text);
+  font: inherit;
   font-size: 21px;
   line-height: 1.2;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .snow-app-tab--active {
@@ -431,12 +434,18 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 25px;
   min-height: 0;
-  padding: 0 36px 36px;
+  padding: 0 0 36px;
   overflow: hidden auto;
   scrollbar-color: var(--sap-scrollbar) transparent;
   scrollbar-width: thin;
+}
+
+.snow-app-section__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 0 36px;
 }
 
 .snow-app-card__body::-webkit-scrollbar {
@@ -476,6 +485,12 @@
   white-space: nowrap;
 }
 
+.snow-app-row__label span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .snow-app-row__icon {
   flex: 0 0 27px;
   width: 27px;
@@ -507,4 +522,19 @@
   color: var(--sap-hotkey-set-text);
   background: var(--sap-hotkey-set-bg);
   border-color: var(--sap-hotkey-set-border);
+}
+
+.snow-app-window--capturing,
+.snow-app-window--capturing * {
+  cursor: crosshair;
+}
+
+.snow-capture {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
