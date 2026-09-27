@@ -1,10 +1,11 @@
 import { IconArrowDown } from '@rspress/core/theme-original';
 import { useState } from 'react';
-import { MacInstallOption } from './MacInstallOption';
 import {
   type DownloadPlatform,
   useResolvedDownloadPlatform,
 } from '../../platform';
+import { MacInstallOption } from './MacInstallOption';
+import { MirrorLink } from './MirrorLink';
 
 type Locale = 'en' | 'zh';
 type CardTone = 'online' | 'offline' | 'portable';
@@ -378,6 +379,7 @@ export function DownloadPage({ locale }: { locale: Locale }) {
             </article>
           ))}
         </div>
+        <MirrorLink locale={locale} />
       </section>
       <section className="snow-download-note">
         <div className="snow-download-note__mark">?</div>

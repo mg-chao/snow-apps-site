@@ -1679,3 +1679,101 @@ html.dark .snow-theme-switch__moon {
     min-height: 250px;
   }
 }
+
+.snow-mirror {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px 28px;
+  margin-top: 16px;
+  padding: 18px 20px 18px 18px;
+  border: 1px solid var(--snow-line);
+  border-radius: 12px;
+  background:
+    radial-gradient(
+      220px 120px at 0% 0%,
+      color-mix(in srgb, var(--snow-violet) 18%, transparent),
+      transparent 72%
+    ),
+    var(--snow-surface);
+}
+.snow-mirror__mark {
+  display: grid;
+  width: 56px;
+  height: 56px;
+  place-items: center;
+  border-radius: 16px;
+  color: #1a2140;
+  background: linear-gradient(145deg, #f3efff 0%, #c8c0f2 46%, #b9dcff 100%);
+  box-shadow: 0 10px 22px
+    color-mix(in srgb, var(--snow-violet) 24%, transparent);
+}
+.snow-mirror__mark svg {
+  display: block;
+  width: 26px;
+  height: 26px;
+}
+.snow-mirror__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+.snow-mirror .snow-download-kicker,
+.snow-mirror h3,
+.snow-mirror__copy > p {
+  margin: 0;
+}
+.snow-mirror .snow-download-kicker {
+  line-height: 1.2;
+}
+.snow-mirror h3 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.snow-mirror__copy > p:last-child {
+  max-width: 460px;
+  color: var(--snow-muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+.snow-mirror__action {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.snow-mirror__systems {
+  display: flex;
+  gap: 6px;
+  margin: 0;
+}
+.snow-mirror .snow-mirror__systems span {
+  padding: 6px 8px;
+  border: 1px solid var(--snow-line);
+  border-radius: 999px;
+  color: var(--snow-muted);
+  font:
+    11px / 1 "DM Mono",
+    monospace;
+  letter-spacing: 0.03em;
+}
+.snow-mirror .snow-download-button {
+  margin-top: 0;
+  white-space: nowrap;
+}
+@media (max-width: 760px) {
+  .snow-mirror {
+    grid-template-columns: auto minmax(0, 1fr);
+    padding: 16px;
+  }
+  .snow-mirror__action {
+    grid-column: 1 / -1;
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .snow-mirror .snow-download-button {
+    width: 100%;
+  }
+}
