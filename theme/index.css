@@ -1680,12 +1680,17 @@ html.dark .snow-theme-switch__moon {
   }
 }
 
+.snow-mirrors {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
 .snow-mirror {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 18px 28px;
-  margin-top: 16px;
+  margin: 0;
   padding: 18px 20px 18px 18px;
   border: 1px solid var(--snow-line);
   border-radius: 12px;
@@ -1693,6 +1698,15 @@ html.dark .snow-theme-switch__moon {
     radial-gradient(
       220px 120px at 0% 0%,
       color-mix(in srgb, var(--snow-violet) 18%, transparent),
+      transparent 72%
+    ),
+    var(--snow-surface);
+}
+.snow-mirror.snow-mirror--github {
+  background:
+    radial-gradient(
+      220px 120px at 0% 0%,
+      color-mix(in srgb, var(--snow-blue) 16%, transparent),
       transparent 72%
     ),
     var(--snow-surface);
@@ -1712,6 +1726,11 @@ html.dark .snow-theme-switch__moon {
   display: block;
   width: 26px;
   height: 26px;
+}
+.snow-mirror__mark--github {
+  color: #f7f8fb;
+  background: var(--snow-navy);
+  box-shadow: 0 10px 22px color-mix(in srgb, var(--snow-navy) 22%, transparent);
 }
 .snow-mirror__copy {
   display: flex;
