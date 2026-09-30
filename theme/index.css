@@ -1796,3 +1796,8 @@ html.dark .snow-theme-switch__moon {
     width: 100%;
   }
 }
+
+#download-channels {
+  margin-bottom: 24px;
+  scroll-margin-top: 88px;
+}

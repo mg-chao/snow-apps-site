@@ -1,16 +1,15 @@
-const feijipanShare = 'https://share.feijipan.com/s/n0v5tV1O';
-const githubReleases = 'https://github.com/mg-chao/snow-apps/releases/latest';
+import { giteeReleases, githubReleases } from './releaseLinks';
 
 const text = {
   en: {
     windows: 'Windows',
     macos: 'macOS',
-    feijipan: {
+    gitee: {
       kicker: 'MIRROR',
-      title: 'Feijipan',
-      body: 'Windows and macOS builds are both in this share.',
-      button: 'Open Feijipan',
-      aria: 'Open Feijipan in a new tab. Windows and macOS builds are available.',
+      title: 'Gitee',
+      body: 'Windows and macOS builds are mirrored on the latest release.',
+      button: 'Open Gitee',
+      aria: 'Open the latest Gitee release in a new tab. Windows and macOS builds are available.',
     },
     github: {
       kicker: 'RELEASES',
@@ -23,12 +22,12 @@ const text = {
   zh: {
     windows: 'Windows',
     macos: 'macOS',
-    feijipan: {
+    gitee: {
       kicker: '国内分流',
-      title: '小飞机网盘',
-      body: '同一分享同时提供 Windows 与 macOS 安装包。',
-      button: '前往小飞机网盘',
-      aria: '前往小飞机网盘，在新标签页打开。支持 Windows 与 macOS。',
+      title: 'Gitee',
+      body: '最新发布页同步提供 Windows 与 macOS 安装包。',
+      button: '前往 Gitee',
+      aria: '前往 Gitee 最新发布页，在新标签页打开。支持 Windows 与 macOS。',
     },
     github: {
       kicker: '官方发布',
@@ -55,18 +54,12 @@ function ExternalIcon() {
   );
 }
 
-function PlaneMark() {
+function GiteeMark() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
       <path
-        d="M21.1 3.5 2.9 10.2c-.8.3-.7 1.4.1 1.6l7 1.5 1.5 7c.2.8 1.3.9 1.6.1L21.4 4.8c.3-.8-.5-1.6-1.3-1.3Z"
+        d="M5 3h14v4H7v10h10v-4h-5V9h9v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"
         fill="currentColor"
-      />
-      <path
-        d="m9.9 13.2 10.4-8.5"
-        stroke="#f4f2fb"
-        strokeLinecap="round"
-        strokeWidth="1.6"
       />
     </svg>
   );
@@ -87,10 +80,10 @@ export function MirrorLink({ locale }: { locale: 'en' | 'zh' }) {
   const content = text[locale];
   const mirrors = [
     {
-      id: 'feijipan',
-      href: feijipanShare,
-      copy: content.feijipan,
-      mark: <PlaneMark />,
+      id: 'gitee',
+      href: giteeReleases,
+      copy: content.gitee,
+      mark: <GiteeMark />,
     },
     {
       id: 'github',

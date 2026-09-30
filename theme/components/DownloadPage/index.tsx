@@ -4,8 +4,12 @@ import {
   type DownloadPlatform,
   useResolvedDownloadPlatform,
 } from '../../platform';
-import { MacInstallOption } from './MacInstallOption';
 import { MirrorLink } from './MirrorLink';
+import {
+  type ReleaseAsset,
+  releaseAssets,
+  releaseDownloadUrl,
+} from './releaseLinks';
 
 type Locale = 'en' | 'zh';
 type CardTone = 'online' | 'offline' | 'portable';
@@ -18,9 +22,7 @@ type DownloadCard = {
   title: string;
   body: string;
   points: readonly [string, string, string];
-  href: string;
-  fileName: string;
-  button: string;
+  asset: ReleaseAsset;
   buttonTone: ButtonTone;
 };
 
@@ -37,14 +39,10 @@ type PlatformCopy = {
   noteBody: string;
 };
 
-const windowsOnline = '/setup/snow-shot_windows-x64-online.exe';
-const windowsOffline = '/setup/snow-shot_windows-x64-offline.exe';
-const windowsPortable = '/setup/snow-shot_windows-x64-portable.zip';
-const macosDmg = '/setup/snow-shot_macos-arm64.dmg';
-
 const copy = {
   en: {
     selectLabel: 'System',
+    downloadButton: 'Download from GitHub',
     windowsOption: 'Windows x64',
     macosOption: 'macOS ARM64',
     windows: {
@@ -67,9 +65,7 @@ const copy = {
             'Features install on first use',
             'Get features as needed',
           ],
-          href: windowsOnline,
-          fileName: 'snow-shot_windows-x64-online.exe',
-          button: 'Download online installer',
+          asset: 'windowsOnline',
           buttonTone: 'dark',
         },
         {
@@ -83,9 +79,7 @@ const copy = {
             'Ready for offline environments',
             'Install once, use anywhere',
           ],
-          href: windowsOffline,
-          fileName: 'snow-shot_windows-x64-offline.exe',
-          button: 'Download offline installer',
+          asset: 'windowsOffline',
           buttonTone: 'light',
         },
         {
@@ -99,9 +93,7 @@ const copy = {
             'Keep it on a USB drive',
             'Use it on any Windows x64 PC',
           ],
-          href: windowsPortable,
-          fileName: 'snow-shot_windows-x64-portable.zip',
-          button: 'Download portable version',
+          asset: 'windowsPortable',
           buttonTone: 'dark',
         },
       ],
@@ -117,7 +109,7 @@ const copy = {
         'A fast, focused toolkit for screenshots, recordings, annotations, and text recognition.',
       meta: ['Free to download', 'Ready in minutes'],
       sectionKicker: 'CHOOSE YOUR SETUP',
-      sectionTitle: ['Install from Terminal.', 'Or download the disk image.'],
+      sectionTitle: ['Download the disk image.', 'Install on your Mac.'],
       cards: [
         {
           tone: 'online',
@@ -130,9 +122,7 @@ const copy = {
             'Drag Snow Shot into Applications',
             'Open it and start capturing',
           ],
-          href: macosDmg,
-          fileName: 'snow-shot_macos-arm64.dmg',
-          button: 'Download for macOS',
+          asset: 'macosDmg',
           buttonTone: 'dark',
         },
       ],
@@ -144,6 +134,7 @@ const copy = {
   },
   zh: {
     selectLabel: '系统',
+    downloadButton: '从 Gitee 下载',
     windowsOption: 'Windows x64',
     macosOption: 'macOS ARM64',
     windows: {
@@ -165,9 +156,7 @@ const copy = {
             '使用功能时自动完成安装',
             '按需获取功能',
           ],
-          href: windowsOnline,
-          fileName: 'snow-shot_windows-x64-online.exe',
-          button: '下载在线安装包',
+          asset: 'windowsOnline',
           buttonTone: 'dark',
         },
         {
@@ -177,9 +166,7 @@ const copy = {
           title: '离线安装包',
           body: '安装包包含软件的全部功能，可在离线环境中安装和使用。',
           points: ['包含全部功能', '适合离线环境', '安装一次，随时使用'],
-          href: windowsOffline,
-          fileName: 'snow-shot_windows-x64-offline.exe',
-          button: '下载离线安装包',
+          asset: 'windowsOffline',
           buttonTone: 'light',
         },
         {
@@ -193,9 +180,7 @@ const copy = {
             '可保存到 U 盘随身携带',
             '适用于任意 Windows x64 电脑',
           ],
-          href: windowsPortable,
-          fileName: 'snow-shot_windows-x64-portable.zip',
-          button: '下载便携版',
+          asset: 'windowsPortable',
           buttonTone: 'dark',
         },
       ],
@@ -210,7 +195,7 @@ const copy = {
       intro: '截图、录屏、标注和文字识别，一套专注而快速的工具。',
       meta: ['免费下载', '几分钟即可开始'],
       sectionKicker: '选择安装方式',
-      sectionTitle: ['通过终端安装。', '也可下载磁盘映像。'],
+      sectionTitle: ['下载磁盘映像。', '安装到你的 Mac。'],
       cards: [
         {
           tone: 'online',
@@ -223,9 +208,7 @@ const copy = {
             '拖入应用程序文件夹',
             '打开即可开始使用',
           ],
-          href: macosDmg,
-          fileName: 'snow-shot_macos-arm64.dmg',
-          button: '下载 macOS 版',
+          asset: 'macosDmg',
           buttonTone: 'dark',
         },
       ],
@@ -239,6 +222,7 @@ const copy = {
   Locale,
   {
     selectLabel: string;
+    downloadButton: string;
     windowsOption: string;
     macosOption: string;
     windows: PlatformCopy;
@@ -339,9 +323,13 @@ export function DownloadPage({ locale }: { locale: Locale }) {
             {content.sectionTitle[1]}
           </h2>
         </div>
-        {platform === 'macos' && (
-          <MacInstallOption key={locale} locale={locale} />
-        )}
+        <div id="download-channels">
+          <p className="snow-download-hero__intro">
+            {locale === 'zh'
+              ? '选择安装方式，直接从 Gitee 下载对应安装包。也可通过下方 GitHub 发布页下载。'
+              : 'Choose an installation method to download the matching package directly from GitHub. You can also browse the Gitee release below.'}
+          </p>
+        </div>
         <div
           className={
             content.cards.length === 1
@@ -352,7 +340,7 @@ export function DownloadPage({ locale }: { locale: Locale }) {
           {content.cards.map((card) => (
             <article
               className={`snow-download-card snow-download-card--${card.tone}`}
-              key={card.fileName}
+              key={card.asset}
             >
               <div className="snow-download-card__top">
                 <span className="snow-download-card__number">
@@ -369,13 +357,13 @@ export function DownloadPage({ locale }: { locale: Locale }) {
               </ul>
               <a
                 className={`snow-download-button snow-download-button--${card.buttonTone}`}
-                download={card.fileName}
-                href={card.href}
+                href={releaseDownloadUrl(locale, card.asset)}
+                aria-label={`${page.downloadButton}: ${card.title}`}
               >
                 <IconArrowDown />
-                {card.button}
+                {page.downloadButton}
               </a>
-              <p className="snow-download-file">{card.fileName}</p>
+              <p className="snow-download-file">{releaseAssets[card.asset]}</p>
             </article>
           ))}
         </div>
