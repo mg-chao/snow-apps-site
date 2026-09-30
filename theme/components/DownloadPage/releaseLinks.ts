@@ -4,7 +4,7 @@ const githubRepository = 'https://github.com/mg-chao/snow-apps';
 export const giteeReleases = `${giteeRepository}/releases/latest`;
 export const githubReleases = `${githubRepository}/releases/latest`;
 
-// Update this version when publishing a new Snow Shot release.
+// scripts/publish-release.ps1 synchronizes this with the target Snow Shot release.
 export const releaseVersion = '1.1.8';
 const releaseTag = `v${releaseVersion}_snow-shot`;
 
