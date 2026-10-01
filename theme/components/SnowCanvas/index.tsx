@@ -55,14 +55,19 @@ export function SnowCanvas() {
     let barrier = { x: 0, y: 0, r: 0, active: false };
     let frame = 0;
     let last = performance.now();
-    const resize = () => {
-      const rect = canvas.getBoundingClientRect();
+    let points = new Float32Array(0);
+    let sizesData = new Float32Array(0);
+    const resize = (rect: DOMRect) => {
       dpr = Math.min(devicePixelRatio || 1, 2);
       width = rect.width;
       height = rect.height;
-      canvas.width = width * dpr;
-      canvas.height = height * dpr;
-      gl.viewport(0, 0, canvas.width, canvas.height);
+      const bitmapWidth = Math.round(width * dpr);
+      const bitmapHeight = Math.round(height * dpr);
+      if (canvas.width !== bitmapWidth || canvas.height !== bitmapHeight) {
+        canvas.width = bitmapWidth;
+        canvas.height = bitmapHeight;
+        gl.viewport(0, 0, bitmapWidth, bitmapHeight);
+      }
       while (
         particles.length < Math.max(90, Math.floor((width * height) / 9000))
       )
@@ -75,6 +80,10 @@ export function SnowCanvas() {
           drift: Math.random() * 6.28,
           resting: 0,
         });
+      if (sizesData.length !== particles.length) {
+        points = new Float32Array(particles.length * 2);
+        sizesData = new Float32Array(particles.length);
+      }
     };
     const move = (e: MouseEvent) => {
       const r = canvas.getBoundingClientRect();
@@ -91,7 +100,14 @@ export function SnowCanvas() {
     const render = (now: number) => {
       const dt = Math.min((now - last) / 16.67, 2);
       last = now;
-      resize();
+      // Snapshot collision geometry once, before updating any particles.
+      const canvasRect = canvas.getBoundingClientRect();
+      resize(canvasRect);
+      const imageRect = imageShell?.getBoundingClientRect();
+      const buttonRects = Array.from(actionButtons ?? [], (button) =>
+        button.getBoundingClientRect(),
+      );
+      gl.clear(gl.COLOR_BUFFER_BIT);
       // biome-ignore lint/correctness/useHookAtTopLevel: WebGL API method is named useProgram.
       gl.useProgram(bg);
       gl.uniform2f(
@@ -101,9 +117,7 @@ export function SnowCanvas() {
       );
       gl.uniform1f(gl.getUniformLocation(bg, 'u_dark'), dark ? 1 : 0);
       gl.drawArrays(gl.TRIANGLES, 0, 0);
-      const points: number[] = [];
-      const sizesData: number[] = [];
-      particles.forEach((p) => {
+      particles.forEach((p, index) => {
         p.vx += Math.sin(now * 0.0007 + p.drift) * 0.006 * dt;
         p.vx *= 0.995;
         p.vy = Math.min(p.vy + 0.006 * dt, 1.8);
@@ -118,9 +132,7 @@ export function SnowCanvas() {
         }
         if (p.x < -8) p.x = width + 8;
         if (p.x > width + 8) p.x = -8;
-        if (imageShell && p.vy > 0) {
-          const imageRect = imageShell.getBoundingClientRect();
-          const canvasRect = canvas.getBoundingClientRect();
+        if (imageRect && p.vy > 0) {
           const left = imageRect.left - canvasRect.left;
           const right = imageRect.right - canvasRect.left;
           const top = imageRect.top - canvasRect.top;
@@ -131,9 +143,7 @@ export function SnowCanvas() {
             p.vx = 0;
           }
         }
-        actionButtons?.forEach((button) => {
-          const buttonRect = button.getBoundingClientRect();
-          const canvasRect = canvas.getBoundingClientRect();
+        buttonRects.forEach((buttonRect) => {
           const left = buttonRect.left - canvasRect.left;
           const right = buttonRect.right - canvasRect.left;
           const top = buttonRect.top - canvasRect.top;
@@ -171,8 +181,9 @@ export function SnowCanvas() {
           p.vy = 0.35 + Math.random() * 0.8;
           p.resting = 0;
         }
-        points.push(p.x * dpr, p.y * dpr);
-        sizesData.push(p.size * dpr);
+        points[index * 2] = p.x * dpr;
+        points[index * 2 + 1] = p.y * dpr;
+        sizesData[index] = p.size * dpr;
       });
       // biome-ignore lint/correctness/useHookAtTopLevel: WebGL API method is named useProgram.
       gl.useProgram(snow);
@@ -182,16 +193,12 @@ export function SnowCanvas() {
         canvas.height,
       );
       gl.bindBuffer(gl.ARRAY_BUFFER, pos);
-      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(points), gl.DYNAMIC_DRAW);
+      gl.bufferData(gl.ARRAY_BUFFER, points, gl.DYNAMIC_DRAW);
       const a = gl.getAttribLocation(snow, 'a_position');
       gl.enableVertexAttribArray(a);
       gl.vertexAttribPointer(a, 2, gl.FLOAT, false, 0, 0);
       gl.bindBuffer(gl.ARRAY_BUFFER, sizes);
-      gl.bufferData(
-        gl.ARRAY_BUFFER,
-        new Float32Array(sizesData),
-        gl.DYNAMIC_DRAW,
-      );
+      gl.bufferData(gl.ARRAY_BUFFER, sizesData, gl.DYNAMIC_DRAW);
       const s = gl.getAttribLocation(snow, 'a_size');
       gl.enableVertexAttribArray(s);
       gl.vertexAttribPointer(s, 1, gl.FLOAT, false, 0, 0);
@@ -200,14 +207,12 @@ export function SnowCanvas() {
     };
     canvas.addEventListener('mousemove', move);
     canvas.addEventListener('mouseleave', leave);
-    window.addEventListener('resize', resize);
-    resize();
+    resize(canvas.getBoundingClientRect());
     frame = requestAnimationFrame(render);
     return () => {
       cancelAnimationFrame(frame);
       canvas.removeEventListener('mousemove', move);
       canvas.removeEventListener('mouseleave', leave);
-      window.removeEventListener('resize', resize);
     };
   }, []);
   return <canvas ref={ref} className="snow-canvas" />;

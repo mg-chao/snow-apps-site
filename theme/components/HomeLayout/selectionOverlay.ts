@@ -36,6 +36,14 @@ type ClientBox = {
   height: number;
 };
 
+type OverlayMetrics = {
+  bitmapWidth: number;
+  bitmapHeight: number;
+  layoutWidth: number;
+  layoutHeight: number;
+  scale: number;
+};
+
 export function easeOutQuad(progress: number): number {
   const t = Math.min(1, Math.max(0, progress));
   return t * (2 - t);
@@ -351,12 +359,18 @@ export class PreviewSelectionOverlay {
   private unit: SelectionUnit = 'px';
   private reducedMotion = false;
   private fontFamily = '';
+  private metrics: OverlayMetrics | null = null;
+  private pixelRatio = 0;
+  private targetEl: HTMLElement | null = null;
+  private targetDirty = false;
+  private paintPending = false;
 
   constructor(
     private readonly canvas: HTMLCanvasElement,
     private readonly windowEl: HTMLElement,
   ) {
     this.context = canvas.getContext('2d', { alpha: true });
+    this.resize();
   }
 
   setUnit(unit: SelectionUnit) {
@@ -364,7 +378,8 @@ export class PreviewSelectionOverlay {
       return;
     }
     this.unit = unit;
-    this.render();
+    this.paintPending = true;
+    this.syncFrame();
   }
 
   setReducedMotion(reduced: boolean) {
@@ -373,27 +388,49 @@ export class PreviewSelectionOverlay {
     }
     this.reducedMotion = reduced;
     this.transition.setEnabled(!reduced);
-    this.render();
+    this.paintPending = true;
     this.syncFrame();
   }
 
   moveTo(selection: SelectionRect) {
     const changed = this.transition.update(selection, performance.now());
     if (changed) {
-      this.render();
+      this.paintPending = true;
     }
+    this.syncFrame();
+  }
+
+  moveToTarget(target: HTMLElement) {
+    if (
+      this.targetEl === target &&
+      this.pixelRatio === (window.devicePixelRatio || 1)
+    ) {
+      return;
+    }
+    this.targetEl = target;
+    this.refreshTarget();
+  }
+
+  refreshTarget() {
+    if (!this.targetEl) {
+      return;
+    }
+    this.targetDirty = true;
     this.syncFrame();
   }
 
   dismiss() {
     this.stopFrame();
+    this.targetEl = null;
+    this.targetDirty = false;
     this.transition.dismiss();
     this.render();
   }
 
-  render() {
-    const ctx = this.context;
-    if (!ctx) {
+  // Layout is stable during selection transitions. Only refresh the backing
+  // bitmap on resize or a pixel-ratio change, rather than measuring every paint.
+  resize() {
+    if (!this.context) {
       return;
     }
     const displayed = this.windowEl.getBoundingClientRect();
@@ -405,9 +442,11 @@ export class PreviewSelectionOverlay {
       layoutWidth < 1 ||
       layoutHeight < 1
     ) {
+      this.metrics = null;
       return;
     }
     const dpr = window.devicePixelRatio || 1;
+    this.pixelRatio = dpr;
     const bitmapWidth = Math.max(1, Math.round(displayed.width * dpr));
     const bitmapHeight = Math.max(1, Math.round(displayed.height * dpr));
     if (
@@ -421,13 +460,32 @@ export class PreviewSelectionOverlay {
       this.fontFamily =
         getComputedStyle(this.windowEl).fontFamily || 'sans-serif';
     }
-    paintOverlay(
-      ctx,
+    this.metrics = {
       bitmapWidth,
       bitmapHeight,
-      bitmapWidth / layoutWidth,
+      scale: bitmapWidth / layoutWidth,
       layoutWidth,
       layoutHeight,
+    };
+    this.paintPending = true;
+    this.targetDirty = this.targetEl !== null;
+    this.syncFrame();
+  }
+
+  render() {
+    this.paintPending = false;
+    const ctx = this.context;
+    const metrics = this.metrics;
+    if (!ctx || !metrics) {
+      return;
+    }
+    paintOverlay(
+      ctx,
+      metrics.bitmapWidth,
+      metrics.bitmapHeight,
+      metrics.scale,
+      metrics.layoutWidth,
+      metrics.layoutHeight,
       this.transition.current(),
       this.unit,
       this.fontFamily,
@@ -440,15 +498,39 @@ export class PreviewSelectionOverlay {
 
   private readonly step = (now: number) => {
     this.frameId = 0;
-    this.transition.tick(now);
-    this.render();
-    if (this.transition.isRunning()) {
-      this.frameId = requestAnimationFrame(this.step);
+    if (this.pixelRatio !== (window.devicePixelRatio || 1)) {
+      this.resize();
     }
+    const wasRunning = this.transition.isRunning();
+    this.transition.tick(now);
+    if (wasRunning) {
+      this.paintPending = true;
+    }
+    if (this.targetDirty) {
+      this.targetDirty = false;
+      if (this.targetEl && this.metrics) {
+        const selection = selectionRectFromClientBoxes(
+          this.windowEl.getBoundingClientRect(),
+          this.metrics.layoutWidth,
+          this.targetEl.getBoundingClientRect(),
+        );
+        if (selection && this.transition.update(selection, now)) {
+          this.paintPending = true;
+        }
+      }
+    }
+    if (this.paintPending) {
+      this.render();
+    }
+    this.syncFrame();
   };
 
   private syncFrame() {
-    if (!this.transition.isRunning()) {
+    if (
+      !this.transition.isRunning() &&
+      !this.targetDirty &&
+      !this.paintPending
+    ) {
       this.stopFrame();
       return;
     }

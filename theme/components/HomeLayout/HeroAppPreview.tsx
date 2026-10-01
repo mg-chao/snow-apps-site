@@ -38,10 +38,7 @@ import {
   ThunderboltIcon,
   WheelMouseIcon,
 } from './icons';
-import {
-  PreviewSelectionOverlay,
-  selectionRectFromClientBoxes,
-} from './selectionOverlay';
+import { PreviewSelectionOverlay } from './selectionOverlay';
 import './HeroAppPreview.css';
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
@@ -392,7 +389,7 @@ export function HeroAppPreview({
 
     const observer = new ResizeObserver(() => {
       applyScale();
-      overlay.render();
+      overlay.resize();
     });
     observer.observe(root);
     return () => {
@@ -411,15 +408,7 @@ export function HeroAppPreview({
     if (!target) {
       return;
     }
-    const selection = selectionRectFromClientBoxes(
-      event.currentTarget.getBoundingClientRect(),
-      event.currentTarget.offsetWidth,
-      target.getBoundingClientRect(),
-    );
-    if (!selection) {
-      return;
-    }
-    overlayRef.current?.moveTo(selection);
+    overlayRef.current?.moveToTarget(target);
     event.currentTarget.classList.add('snow-app-window--capturing');
   };
 
@@ -444,6 +433,7 @@ export function HeroAppPreview({
         onPointerEnter={showCapture}
         onPointerLeave={hideCapture}
         onPointerMove={showCapture}
+        onScrollCapture={() => overlayRef.current?.refreshTarget()}
       >
         <TitleBar os={os} />
         <div className="snow-app-body">

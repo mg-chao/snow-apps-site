@@ -2,11 +2,13 @@
 
 import argparse
 import hashlib
+from html.parser import HTMLParser
 import json
 import os
 from pathlib import Path, PurePosixPath
 import re
 import shutil
+import sys
 import tarfile
 import tempfile
 import uuid
@@ -19,6 +21,39 @@ OWNED = frozenset({
 })
 REQUIRED = {"index.html", "download.html", "zh/index.html", "zh/download.html"}
 RECEIPT = "website-release.json"
+
+
+class DownloadLinks(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.links = set()
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "a":
+            self.links.update(value for name, value in attrs if name == "href")
+
+
+def validate_download_page(html, version, locale):
+    """Check the default Windows cards rendered in each public download page."""
+    repository = "gitee.com" if locale == "zh" else "github.com"
+    base = f"https://{repository}/mg-chao/snow-apps/releases/download/v{version}_snow-shot"
+    assets = (
+        f"snow-shot-{version}-windows-x64-online.exe",
+        f"snow-shot-{version}-windows-x64-offline.exe",
+        f"snow-shot-{version}-windows-x64-portable.zip",
+        f"snow-shot-mini-{version}-windows-x64-online.exe",
+        f"snow-shot-mini-{version}-windows-x64-portable.zip",
+    )
+    parser = DownloadLinks()
+    parser.feed(html)
+    missing = [asset for asset in assets if f"{base}/{asset}" not in parser.links]
+    if missing:
+        raise ValueError(f"Missing {locale} release download links: {', '.join(missing)}")
+
+
+def validate_downloads(directory, version):
+    for locale, name in (("en", "download.html"), ("zh", "zh/download.html")):
+        validate_download_page((directory / name).read_text(encoding="utf-8"), version, locale)
 
 
 def identity(version, commit):
@@ -67,6 +102,7 @@ def inventory(directory):
 def pack(build, archive, version, commit):
     identity(version, commit)
     files = inventory(build)
+    validate_downloads(build, version)
     receipt = {"schema": 1, "version": version, "commit": commit, "files": files}
     # The receipt is generated after the push and is not a source change.
     (build / RECEIPT).write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
@@ -125,6 +161,7 @@ def deploy(root, archive, version, commit, sha256):
         if (receipt.get("schema") != 1 or receipt.get("version") != version
                 or receipt.get("commit") != commit or receipt.get("files") != inventory(stage)):
             raise ValueError("Website receipt or file checksum mismatch")
+        validate_downloads(stage, version)
         # Assets arrive before pages; the receipt is the final completion marker.
         names = sorted(p.name for p in stage.iterdir() if p.name != RECEIPT)
         names.sort(key=lambda name: (name not in {"static", "images"}, name))
@@ -153,6 +190,9 @@ def deploy(root, archive, version, commit, sha256):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="operation", required=True)
+    check = commands.add_parser("check-downloads")
+    check.add_argument("--version", required=True)
+    check.add_argument("--locale", choices=("en", "zh"), required=True)
     for operation in ("pack", "deploy"):
         command = commands.add_parser(operation)
         command.add_argument("--archive", type=Path, required=True)
@@ -168,6 +208,9 @@ def main():
         result = pack(args.build, args.archive, args.version, args.commit)
         print(json.dumps({"version": result["version"], "commit": result["commit"],
                           "sha256": digest(args.archive)}))
+    elif args.operation == "check-downloads":
+        validate_download_page(sys.stdin.buffer.read().decode("utf-8"), args.version, args.locale)
+        print(f"Verified {args.locale} Snow Shot and Snow Shot Mini downloads for {args.version}")
     else:
         # Serialize deployments. The lock lives outside the shared public web root.
         import fcntl

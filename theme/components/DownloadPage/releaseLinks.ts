@@ -13,6 +13,9 @@ export const releaseAssets = {
   windowsOffline: `snow-shot-${releaseVersion}-windows-x64-offline.exe`,
   windowsPortable: `snow-shot-${releaseVersion}-windows-x64-portable.zip`,
   macosDmg: `snow-shot-${releaseVersion}-macos-arm64.dmg`,
+  windowsMiniOnline: `snow-shot-mini-${releaseVersion}-windows-x64-online.exe`,
+  windowsMiniPortable: `snow-shot-mini-${releaseVersion}-windows-x64-portable.zip`,
+  macosMiniDmg: `snow-shot-mini-${releaseVersion}-macos-arm64.dmg`,
 } as const;
 
 export type ReleaseAsset = keyof typeof releaseAssets;

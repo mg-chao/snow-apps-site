@@ -24,7 +24,7 @@ if ($publicUri.Scheme -ne 'https' -or $publicUri.UserInfo -or $publicUri.Query -
 }
 $site = Split-Path -Parent $PSScriptRoot
 if (-not $PSCmdlet.ShouldProcess("$site -> ${ServerUser}@${ServerHost}:$RemoteWebRoot",
-    "Commit/push Snow Shot $Version, then build and deploy website-owned files")) { return }
+    "Commit/push Snow Shot and Mini $Version, then build and deploy website-owned files")) { return }
 
 function Invoke-SiteTool([string]$Tool, [string[]]$Arguments) {
     & $Tool @Arguments
@@ -89,10 +89,15 @@ try {
         foreach ($page in @('/', '/download.html', '/zh/', '/zh/download.html')) {
             $response = Invoke-WebRequest -Uri "$($PublicBaseUrl.TrimEnd('/'))$page" -TimeoutSec 30
             if ($response.StatusCode -ne 200) { throw "Website health check failed: $page" }
+            if ($page.EndsWith('/download.html')) {
+                $locale = if ($page.StartsWith('/zh/')) { 'zh' } else { 'en' }
+                $response.Content | & python (Join-Path $PSScriptRoot 'deploy-website.py') check-downloads --version $Version --locale $locale
+                if ($LASTEXITCODE -ne 0) { throw "Public release download verification failed: $page" }
+            }
         }
         # Delete only this workflow's exact uploaded archive. Keep the previous site backup.
         Invoke-SiteTool ssh ($sshOptions + @('-p', "$ServerPort", $destination, "rm -- $remoteArchive"))
-        Write-Output "Published Snow Shot website $Version ($commit) to $PublicBaseUrl."
+        Write-Output "Published Snow Shot and Mini website $Version ($commit) to $PublicBaseUrl."
     } finally {
         if (Test-Path -LiteralPath $archive -PathType Leaf) { Remove-Item -LiteralPath $archive }
     }

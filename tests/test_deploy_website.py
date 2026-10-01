@@ -3,6 +3,8 @@ import io
 import json
 import os
 from pathlib import Path
+import subprocess
+import sys
 import tarfile
 import tempfile
 import unittest
@@ -15,6 +17,20 @@ website = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(website)
 VERSION = "1.1.8"
 COMMIT = "a" * 40
+
+
+def download_page(locale, version=VERSION):
+    repository = "gitee.com" if locale == "zh" else "github.com"
+    assets = [
+        f"snow-shot-{version}-windows-x64-online.exe",
+        f"snow-shot-{version}-windows-x64-offline.exe",
+        f"snow-shot-{version}-windows-x64-portable.zip",
+        f"snow-shot-mini-{version}-windows-x64-online.exe",
+        f"snow-shot-mini-{version}-windows-x64-portable.zip",
+    ]
+    return "Snow Shot " + "".join(
+        f'<a href="https://{repository}/mg-chao/snow-apps/releases/download/'
+        f'v{version}_snow-shot/{asset}">{asset}</a>' for asset in assets)
 
 
 class DeploymentTests(unittest.TestCase):
@@ -30,11 +46,16 @@ class DeploymentTests(unittest.TestCase):
             target = self.build / name
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(f"Snow Shot {VERSION}: {name}", encoding="utf-8")
+        for locale, name in (("en", "download.html"), ("zh", "zh/download.html")):
+            (self.build / name).write_text(download_page(locale), encoding="utf-8")
         (self.root / "index.html").write_text("Snow Shot old homepage", encoding="utf-8")
         (self.root / "static").mkdir()
         (self.root / "static/obsolete.js").write_text("old asset", encoding="utf-8")
         self.protected = {}
         for name in ("setup/installer.exe", "npm/package.js", "plugins/plugin.dll",
+                     "setup/snow-shot-mini_windows-x64-online.exe",
+                     "setup/snow-shot-mini_windows-x64-portable.zip",
+                     "setup/snow-shot-mini_macos-arm64.dmg", "latest-version-mini.json",
                      "ocr/model.onnx", "api/data.json", ".well-known/acme/token",
                      "latest-version.json", "latest-version.txt", "operator.txt"):
             target = self.root / name
@@ -125,6 +146,55 @@ class DeploymentTests(unittest.TestCase):
         (self.build / "zh/download.html").unlink()
         with self.assertRaisesRegex(ValueError, "Incomplete"):
             self.package()
+
+    def test_rejects_missing_or_stale_mini_downloads_before_packaging(self):
+        for locale, name in (("en", "download.html"), ("zh", "zh/download.html")):
+            path = self.build / name
+            original = download_page(locale)
+            for asset in ("online.exe", "portable.zip"):
+                with self.subTest(locale=locale, asset=asset):
+                    path.write_text(original.replace(
+                        f"snow-shot-mini-{VERSION}-windows-x64-{asset}",
+                        f"snow-shot-mini-1.1.7-windows-x64-{asset}"), encoding="utf-8")
+                    with self.assertRaisesRegex(ValueError, "Missing.*mini"):
+                        self.package()
+                    self.assertFalse(self.archive.exists())
+            path.write_text(original, encoding="utf-8")
+
+    def test_rejects_wrong_download_channel(self):
+        for locale, wrong_locale in (("en", "zh"), ("zh", "en")):
+            with self.subTest(locale=locale):
+                with self.assertRaisesRegex(ValueError, "Missing"):
+                    website.validate_download_page(download_page(wrong_locale), VERSION, locale)
+
+    def test_public_download_checker_reads_utf8_html(self):
+        script = Path(__file__).resolve().parents[1] / "scripts/deploy-website.py"
+        for locale in ("en", "zh"):
+            with self.subTest(locale=locale):
+                result = subprocess.run(
+                    [sys.executable, str(script), "check-downloads", "--version", VERSION,
+                     "--locale", locale], input=("下载 Snow Shot Mini " + download_page(locale)).encode("utf-8"),
+                    capture_output=True, check=False)
+                self.assertEqual(result.returncode, 0, result.stderr)
+
+    def test_rejects_link_text_without_download_anchor(self):
+        html = download_page("en").replace('<a href="', '<span data-url="').replace("</a>", "</span>")
+        with self.assertRaisesRegex(ValueError, "Missing"):
+            website.validate_download_page(html, VERSION, "en")
+
+    def test_rejects_stale_downloads_even_with_valid_receipt(self):
+        self.package()
+        (self.build / "download.html").write_text(download_page("en", "1.1.7"), encoding="utf-8")
+        receipt = json.loads((self.build / website.RECEIPT).read_text(encoding="utf-8"))
+        receipt["files"] = website.inventory(self.build)
+        (self.build / website.RECEIPT).write_text(json.dumps(receipt), encoding="utf-8")
+        with tarfile.open(self.archive, "w:gz") as bundle:
+            for target in self.build.rglob("*"):
+                bundle.add(target, arcname=target.relative_to(self.build).as_posix(), recursive=False)
+        with self.assertRaisesRegex(ValueError, "Missing"):
+            self.publish()
+        self.assertEqual((self.root / "index.html").read_text(), "Snow Shot old homepage")
+        self.assert_preserved()
 
     def test_rejects_symlink_destination(self):
         self.package()

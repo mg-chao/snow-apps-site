@@ -1097,6 +1097,11 @@ html.dark {
   grid-template-columns: minmax(0, 380px);
   justify-content: center;
 }
+.snow-download-grid--paired {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+  max-width: 900px;
+}
 .snow-download-card {
   display: grid;
   grid-row: span 6;
@@ -1118,6 +1123,10 @@ html.dark {
 .snow-download-card--portable {
   color: #173d36;
   background: #dcefe7;
+}
+.snow-download-card--mini {
+  color: #1a2140;
+  background: #f759ab;
 }
 .snow-download-card__top {
   display: flex;
@@ -1176,6 +1185,31 @@ html.dark {
 .snow-download-card--offline li::before {
   color: #a99aef;
 }
+.snow-download-card--mini li::before {
+  color: currentColor;
+}
+.snow-download-card--mini > p,
+.snow-download-card--mini .snow-download-tag,
+.snow-download-card--mini .snow-download-card__number {
+  opacity: 1;
+}
+.snow-download-card__actions {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+.snow-download-card__alternate {
+  justify-self: center;
+  color: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.snow-download-card__alternate:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 4px;
+}
 .snow-download-button {
   display: inline-flex;
   margin-top: auto;
@@ -1201,6 +1235,13 @@ html.dark {
 }
 .snow-download-button--dark:hover {
   background: #0064bd;
+}
+.snow-download-card--mini .snow-download-button--dark {
+  color: #fff;
+  background: #1a2140;
+}
+.snow-download-card--mini .snow-download-button--dark:hover {
+  background: #313a5c;
 }
 .snow-download-button--light {
   color: #1a2140;
@@ -1292,7 +1333,8 @@ html.dark {
     margin-top: 24px;
   }
   .snow-download-grid,
-  .snow-download-grid--single {
+  .snow-download-grid--single,
+  .snow-download-grid--paired {
     grid-template-columns: 1fr;
   }
   .snow-os-select {
