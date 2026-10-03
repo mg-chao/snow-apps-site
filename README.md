@@ -85,6 +85,13 @@ The English download page links directly to GitHub; the Chinese page links to Gi
 Each platform has a Mini card with background `#f759ab`. Windows includes a
 secondary portable download link. Mini has no offline installer or Intel Mac build.
 
+The macOS download page also offers a terminal installation command for either
+edition. Each release must include `install-snow-shot-macos.sh`; the command and
+script link use the same release tag and language channel as the disk images.
+The edition selector passes `--edition full` or `--edition mini`, and the page
+language sets `--lang en` or `--lang zh-CN`. The script discovers and installs the
+latest application release, verifies the package, and signs the app locally.
+
 Run the same `scripts/publish-release.ps1 -Version <version>` workflow for both
 editions. From the app repository, `scripts/publish-snow-shot-website.ps1` derives
 the version from `SNOW_SHOT_VERSION`; `-DeployWebsite` on the app release publisher

@@ -1664,6 +1664,9 @@ html.dark .snow-theme-switch__moon {
   cursor: pointer;
   border: 0;
 }
+.snow-macos-install__edition {
+  margin-bottom: 0;
+}
 .snow-macos-install > p,
 .snow-macos-install__footer p {
   color: var(--snow-muted);

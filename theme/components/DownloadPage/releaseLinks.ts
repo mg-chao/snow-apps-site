@@ -16,11 +16,23 @@ export const releaseAssets = {
   windowsMiniOnline: `snow-shot-mini-${releaseVersion}-windows-x64-online.exe`,
   windowsMiniPortable: `snow-shot-mini-${releaseVersion}-windows-x64-portable.zip`,
   macosMiniDmg: `snow-shot-mini-${releaseVersion}-macos-arm64.dmg`,
+  macosInstallScript: 'install-snow-shot-macos.sh',
 } as const;
 
 export type ReleaseAsset = keyof typeof releaseAssets;
+export type MacosEdition = 'full' | 'mini';
 
 export function releaseDownloadUrl(locale: 'en' | 'zh', asset: ReleaseAsset) {
   const repository = locale === 'zh' ? giteeRepository : githubRepository;
   return `${repository}/releases/download/${releaseTag}/${releaseAssets[asset]}`;
+}
+
+export function macosInstallCommand(
+  locale: 'en' | 'zh',
+  edition: MacosEdition,
+) {
+  const script = releaseAssets.macosInstallScript;
+  const scriptUrl = releaseDownloadUrl(locale, 'macosInstallScript');
+  const language = locale === 'zh' ? 'zh-CN' : 'en';
+  return `curl --fail --location --proto '=https' --proto-redir '=https' --output ${script} ${scriptUrl} &&\nbash ${script} --edition ${edition} --lang ${language}`;
 }

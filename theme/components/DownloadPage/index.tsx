@@ -4,6 +4,7 @@ import {
   type DownloadPlatform,
   useResolvedDownloadPlatform,
 } from '../../platform';
+import { MacInstallOption } from './MacInstallOption';
 import { MirrorLink } from './MirrorLink';
 import {
   type ReleaseAsset,
@@ -128,7 +129,7 @@ const copy = {
         'A fast, focused toolkit for screenshots, recordings, annotations, and text recognition.',
       meta: ['Free to download', 'Ready in minutes'],
       sectionKicker: 'CHOOSE YOUR SETUP',
-      sectionTitle: ['Download the disk image.', 'Install on your Mac.'],
+      sectionTitle: ['Choose your edition.', 'Install on your Mac.'],
       cards: [
         {
           tone: 'online',
@@ -246,7 +247,7 @@ const copy = {
       intro: '截图、录屏、标注和文字识别，一套专注而快速的工具。',
       meta: ['免费下载', '几分钟即可开始'],
       sectionKicker: '选择安装方式',
-      sectionTitle: ['下载磁盘映像。', '安装到你的 Mac。'],
+      sectionTitle: ['选择适合你的版本。', '安装到你的 Mac。'],
       cards: [
         {
           tone: 'online',
@@ -395,6 +396,7 @@ export function DownloadPage({ locale }: { locale: Locale }) {
               : 'Choose an installation method to download the matching package directly from GitHub. You can also browse the Gitee release below.'}
           </p>
         </div>
+        {platform === 'macos' && <MacInstallOption locale={locale} />}
         <div
           className={
             content.cards.length === 1
