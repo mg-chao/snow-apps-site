@@ -1,5 +1,5 @@
 import { useDark, useLang } from '@rspress/core/runtime';
-import { useDownloadPlatform } from '../../platform';
+import { downloadPageUrl, useDownloadTarget } from '../../platform';
 import { SnowCanvas } from '../SnowCanvas';
 import { HeroAppPreview } from './HeroAppPreview';
 
@@ -418,9 +418,9 @@ function FeatureVisual({ kind }: { kind: Feature['visual'] }) {
 }
 
 function DownloadButton({ isZh }: { isZh: boolean }) {
-  const platform = useDownloadPlatform();
+  const target = useDownloadTarget();
   const label =
-    platform === 'macos'
+    target.platform === 'macos'
       ? isZh
         ? '下载 macOS 版'
         : 'Download for macOS'
@@ -432,7 +432,7 @@ function DownloadButton({ isZh }: { isZh: boolean }) {
     <div className="snow-download-wrap">
       <a
         className="snow-button snow-button--primary"
-        href={`${isZh ? '/zh/download' : '/download'}?os=${platform}`}
+        href={downloadPageUrl(isZh ? 'zh' : 'en', target)}
       >
         <DownloadIcon />
         {label}

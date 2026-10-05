@@ -44,6 +44,31 @@ head and preserves the path, query string, and fragment.
 
 Run the language regression tests with `bun run test`.
 
+## Download platform selection
+
+The download page supports Windows x64, Windows ARM64, macOS Apple silicon
+(ARM64), and macOS Intel (x64). Both Windows architectures offer full online,
+offline, and portable packages, plus Mini online and portable packages. Intel
+Macs offer the full edition only; Mini on macOS requires Apple silicon.
+Intel disk images use the release asset suffix `macos-x86_64.dmg`.
+
+The homepage carries the detected OS and architecture to the download page.
+Browser CPU client hints take priority over legacy user-agent CPU tokens.
+`MacIntel` and `Intel Mac OS X` are not proof of an Intel CPU: Apple silicon
+browsers can report the same values. When CPU information is unavailable, the
+page starts with Windows x64 or macOS ARM64 and explains how to check the chip.
+The system selector always offers all four targets.
+
+Explicit links such as `/download?os=windows&arch=arm64` and
+`/zh/download?os=macos&arch=x64` override detection. The selector saves both
+parameters in the URL while preserving other query parameters and fragments;
+late browser hints do not overwrite a manual choice. Existing OS-only links
+continue to work. The macOS terminal script detects the actual Mac architecture
+itself, and the Intel page does not offer a Mini command.
+
+Run the focused detection and download checks with
+`node --test tests/platform.test.mjs tests/download-page.test.mjs`.
+
 ## Release deployment
 
 From PowerShell 7, publish the website for a Snow Shot release:
@@ -83,11 +108,14 @@ The release must contain these Mini downloads:
 | --- | --- |
 | Windows x64 installer | `snow-shot-mini-<version>-windows-x64-online.exe` |
 | Windows x64 portable | `snow-shot-mini-<version>-windows-x64-portable.zip` |
+| Windows ARM64 installer | `snow-shot-mini-<version>-windows-arm64-online.exe` |
+| Windows ARM64 portable | `snow-shot-mini-<version>-windows-arm64-portable.zip` |
 | macOS Apple Silicon | `snow-shot-mini-<version>-macos-arm64.dmg` |
 
 The English download page links directly to GitHub; the Chinese page links to Gitee.
-Each platform has a Mini card with background `#f759ab`. Windows includes a
-secondary portable download link. Mini has no offline installer or Intel Mac build.
+Windows and Apple silicon Macs have a Mini card with background `#f759ab`.
+Windows includes a secondary portable download link. Mini has no offline
+installer or Intel Mac build.
 
 The macOS download page also offers a terminal installation command for either
 edition. Each release must include `install-snow-shot-macos.sh`; the command and

@@ -1,8 +1,10 @@
 import { IconArrowDown } from '@rspress/core/theme-original';
 import { useState } from 'react';
 import {
+  type DownloadArchitecture,
   type DownloadPlatform,
-  useResolvedDownloadPlatform,
+  type DownloadTarget,
+  useResolvedDownloadTarget,
 } from '../../platform';
 import { MacInstallOption } from './MacInstallOption';
 import { MirrorLink } from './MirrorLink';
@@ -45,8 +47,16 @@ const copy = {
   en: {
     selectLabel: 'System',
     downloadButton: 'Download from GitHub',
-    windowsOption: 'Windows x64',
-    macosOption: 'macOS ARM64',
+    windowsX64Option: 'Windows x64',
+    windowsArm64Option: 'Windows ARM64',
+    macosArm64Option: 'macOS ARM64 (Apple)',
+    macosX64Option: 'macOS x64 (Intel)',
+    architectureHint:
+      'Check your chip before downloading: Windows Settings → System → About, or Apple menu → About This Mac. Choose the matching system above if detection is unavailable.',
+    intelTag: 'INTEL MAC',
+    macosX64SectionTitle: ['Download Snow Shot.', 'Install on your Mac.'],
+    macosX64Note:
+      'Snow Shot requires macOS 15 or later on an Intel Mac. Open the disk image, drag Snow Shot into Applications, then launch it from there. Snow Shot Mini is available only for Apple silicon Macs.',
     windows: {
       kicker: 'SNOW SHOT / WINDOWS',
       title: ['Make your screen', 'worth sharing.'],
@@ -93,7 +103,7 @@ const copy = {
           points: [
             'No installation required',
             'Keep it on a USB drive',
-            'Use it on any Windows x64 PC',
+            'Use it on a PC with the matching chip',
           ],
           asset: 'windowsPortable',
           buttonTone: 'dark',
@@ -136,7 +146,7 @@ const copy = {
           number: 'DMG',
           tag: 'APPLE SILICON',
           title: 'Disk image',
-          body: 'Install Snow Shot on Apple silicon Macs from a standard disk image.',
+          body: 'Install Snow Shot on your Mac from a standard disk image.',
           points: [
             'Built for macOS ARM64',
             'Drag Snow Shot into Applications',
@@ -169,8 +179,16 @@ const copy = {
   zh: {
     selectLabel: '系统',
     downloadButton: '从 Gitee 下载',
-    windowsOption: 'Windows x64',
-    macosOption: 'macOS ARM64',
+    windowsX64Option: 'Windows x64',
+    windowsArm64Option: 'Windows ARM64',
+    macosArm64Option: 'macOS ARM64（Apple 芯片）',
+    macosX64Option: 'macOS x64（Intel）',
+    architectureHint:
+      '下载前请确认芯片：Windows「设置 → 系统 → 系统信息」，或 Apple 菜单「关于本机」。无法自动识别时，请在上方选择匹配的系统。',
+    intelTag: 'Intel 芯片',
+    macosX64SectionTitle: ['下载 Snow Shot。', '安装到你的 Mac。'],
+    macosX64Note:
+      'Snow Shot 适用于运行 macOS 15 或更新版本的 Intel Mac。打开磁盘映像，把 Snow Shot 拖进应用程序文件夹，再从那里启动。Snow Shot Mini 仅支持 Apple 芯片 Mac。',
     windows: {
       kicker: 'SNOW SHOT / WINDOWS',
       title: ['让每一处画面', '都值得分享。'],
@@ -212,7 +230,7 @@ const copy = {
           points: [
             '无需安装即可使用',
             '可保存到 U 盘随身携带',
-            '适用于任意 Windows x64 电脑',
+            '适用于芯片匹配的 Windows 电脑',
           ],
           asset: 'windowsPortable',
           buttonTone: 'dark',
@@ -254,7 +272,7 @@ const copy = {
           number: 'DMG',
           tag: 'Apple 芯片',
           title: '磁盘映像',
-          body: '适用于 Apple 芯片的 macOS，通过磁盘映像安装。',
+          body: '通过标准磁盘映像在 Mac 上安装 Snow Shot。',
           points: [
             '适用于 macOS ARM64',
             '拖入应用程序文件夹',
@@ -289,48 +307,84 @@ const copy = {
   {
     selectLabel: string;
     downloadButton: string;
-    windowsOption: string;
-    macosOption: string;
+    windowsX64Option: string;
+    windowsArm64Option: string;
+    macosArm64Option: string;
+    macosX64Option: string;
+    architectureHint: string;
+    intelTag: string;
+    macosX64SectionTitle: readonly [string, string];
+    macosX64Note: string;
     windows: PlatformCopy;
     macos: PlatformCopy;
   }
 >;
 
+const systems = [
+  { platform: 'windows', architecture: 'x64', label: 'windowsX64Option' },
+  { platform: 'windows', architecture: 'arm64', label: 'windowsArm64Option' },
+  { platform: 'macos', architecture: 'arm64', label: 'macosArm64Option' },
+  { platform: 'macos', architecture: 'x64', label: 'macosX64Option' },
+] as const;
+
+const arm64WindowsAssets: Partial<Record<ReleaseAsset, ReleaseAsset>> = {
+  windowsOnline: 'windowsArm64Online',
+  windowsOffline: 'windowsArm64Offline',
+  windowsPortable: 'windowsArm64Portable',
+  windowsMiniOnline: 'windowsArm64MiniOnline',
+  windowsMiniPortable: 'windowsArm64MiniPortable',
+};
+
 function SystemSelect({
-  label,
-  windowsOption,
-  macosOption,
+  page,
   value,
+  showHint,
   onChange,
 }: {
-  label: string;
-  windowsOption: string;
-  macosOption: string;
-  value: DownloadPlatform;
-  onChange: (next: DownloadPlatform) => void;
+  page: (typeof copy)[Locale];
+  value: { platform: DownloadPlatform; architecture: DownloadArchitecture };
+  showHint: boolean;
+  onChange: (next: DownloadTarget) => void;
 }) {
   return (
     <div className="snow-os-select">
-      <label htmlFor="snow-download-platform">{label}</label>
+      <label htmlFor="snow-download-platform">{page.selectLabel}</label>
       <div className="snow-os-select__field">
         <select
           id="snow-download-platform"
-          value={value}
+          value={`${value.platform}-${value.architecture}`}
+          aria-describedby={showHint ? 'snow-download-system-hint' : undefined}
           onChange={(event) => {
-            onChange(event.target.value === 'macos' ? 'macos' : 'windows');
+            const next = systems.find(
+              (system) =>
+                `${system.platform}-${system.architecture}` ===
+                event.target.value,
+            );
+            if (next) {
+              onChange(next);
+            }
           }}
         >
-          <option value="windows">{windowsOption}</option>
-          <option value="macos">{macosOption}</option>
+          {systems.map((system) => (
+            <option
+              key={`${system.platform}-${system.architecture}`}
+              value={`${system.platform}-${system.architecture}`}
+            >
+              {page[system.label]}
+            </option>
+          ))}
         </select>
       </div>
     </div>
   );
 }
 
-function rememberPlatform(next: DownloadPlatform) {
+function rememberTarget(next: DownloadTarget) {
   const url = new URL(window.location.href);
-  url.searchParams.set('os', next);
+  url.searchParams.set('os', next.platform);
+  if (next.architecture) {
+    url.searchParams.set('arch', next.architecture);
+  }
   window.history.replaceState(
     null,
     '',
@@ -339,11 +393,48 @@ function rememberPlatform(next: DownloadPlatform) {
 }
 
 export function DownloadPage({ locale }: { locale: Locale }) {
-  const resolved = useResolvedDownloadPlatform();
-  const [override, setOverride] = useState<DownloadPlatform | null>(null);
-  const platform = override ?? resolved;
+  const resolved = useResolvedDownloadTarget();
+  const [override, setOverride] = useState<DownloadTarget | null>(null);
+  const target = override ?? resolved;
+  const { platform } = target;
+  const architecture =
+    target.architecture ?? (platform === 'macos' ? 'arm64' : 'x64');
   const page = copy[locale];
   const content: PlatformCopy = page[platform];
+  const intelMac = platform === 'macos' && architecture === 'x64';
+  const sectionTitle = intelMac
+    ? page.macosX64SectionTitle
+    : content.sectionTitle;
+  const architectureAsset = (asset: ReleaseAsset): ReleaseAsset =>
+    platform === 'windows' && architecture === 'arm64'
+      ? (arm64WindowsAssets[asset] ?? asset)
+      : intelMac && asset === 'macosDmg'
+        ? 'macosX64Dmg'
+        : asset;
+  const cards = content.cards
+    .filter((card) => !intelMac || card.tone !== 'mini')
+    .map((card): DownloadCard => {
+      const points: DownloadCard['points'] =
+        intelMac && card.asset === 'macosDmg'
+          ? [
+              locale === 'zh'
+                ? '适用于 macOS x64（Intel）'
+                : 'Built for macOS x64 (Intel)',
+              card.points[1],
+              card.points[2],
+            ]
+          : card.points;
+      return {
+        ...card,
+        tag: intelMac ? page.intelTag : card.tag,
+        points,
+        asset: architectureAsset(card.asset),
+        alternate: card.alternate && {
+          ...card.alternate,
+          asset: architectureAsset(card.alternate.asset),
+        },
+      };
+    });
 
   return (
     <main className="snow-download-page">
@@ -357,15 +448,22 @@ export function DownloadPage({ locale }: { locale: Locale }) {
           </h1>
           <p className="snow-download-hero__intro">{content.intro}</p>
           <SystemSelect
-            label={page.selectLabel}
-            macosOption={page.macosOption}
-            value={platform}
-            windowsOption={page.windowsOption}
+            page={page}
+            value={{ platform, architecture }}
+            showHint={target.architecture === null}
             onChange={(next) => {
               setOverride(next);
-              rememberPlatform(next);
+              rememberTarget(next);
             }}
           />
+          {target.architecture === null && (
+            <p
+              id="snow-download-system-hint"
+              className="snow-download-system-hint"
+            >
+              {page.architectureHint}
+            </p>
+          )}
           <div className="snow-download-hero__meta">
             {content.meta.map((item) => (
               <span key={item}>{item}</span>
@@ -384,9 +482,9 @@ export function DownloadPage({ locale }: { locale: Locale }) {
         <div className="snow-download-section-head">
           <p className="snow-download-kicker">{content.sectionKicker}</p>
           <h2 id="download-options-title">
-            {content.sectionTitle[0]}
+            {sectionTitle[0]}
             <br />
-            {content.sectionTitle[1]}
+            {sectionTitle[1]}
           </h2>
         </div>
         <div id="download-channels">
@@ -396,17 +494,23 @@ export function DownloadPage({ locale }: { locale: Locale }) {
               : 'Choose an installation method to download the matching package directly from GitHub. You can also browse the Gitee release below.'}
           </p>
         </div>
-        {platform === 'macos' && <MacInstallOption locale={locale} />}
+        {platform === 'macos' && (
+          <MacInstallOption
+            key={architecture}
+            locale={locale}
+            architecture={architecture}
+          />
+        )}
         <div
           className={
-            content.cards.length === 1
+            cards.length === 1
               ? 'snow-download-grid snow-download-grid--single'
-              : content.cards.length === 4
+              : cards.length === 4
                 ? 'snow-download-grid snow-download-grid--paired'
                 : 'snow-download-grid'
           }
         >
-          {content.cards.map((card) => (
+          {cards.map((card) => (
             <article
               className={`snow-download-card snow-download-card--${card.tone}`}
               key={card.asset}
@@ -458,7 +562,9 @@ export function DownloadPage({ locale }: { locale: Locale }) {
             {content.noteTitle[1]}
           </h2>
         </div>
-        <p className="snow-download-note__body">{content.noteBody}</p>
+        <p className="snow-download-note__body">
+          {intelMac ? page.macosX64Note : content.noteBody}
+        </p>
       </section>
     </main>
   );

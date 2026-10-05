@@ -969,6 +969,12 @@ html.dark {
   color: var(--snow-ink);
   color-scheme: light;
 }
+.snow-download-system-hint {
+  margin: -8px 0 22px;
+  color: var(--snow-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
 .snow-os-select label {
   margin: 0;
   color: var(--snow-muted);

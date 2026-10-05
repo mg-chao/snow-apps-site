@@ -5,7 +5,7 @@ export const giteeReleases = `${giteeRepository}/releases/latest`;
 export const githubReleases = `${githubRepository}/releases/latest`;
 
 // scripts/publish-release.ps1 synchronizes this with the target Snow Shot release.
-export const releaseVersion = '1.2.2';
+export const releaseVersion = '1.2.3';
 const releaseTag = `v${releaseVersion}_snow-shot`;
 
 export const releaseAssets = {
@@ -16,6 +16,12 @@ export const releaseAssets = {
   windowsMiniOnline: `snow-shot-mini-${releaseVersion}-windows-x64-online.exe`,
   windowsMiniPortable: `snow-shot-mini-${releaseVersion}-windows-x64-portable.zip`,
   macosMiniDmg: `snow-shot-mini-${releaseVersion}-macos-arm64.dmg`,
+  windowsArm64Online: `snow-shot-${releaseVersion}-windows-arm64-online.exe`,
+  windowsArm64Offline: `snow-shot-${releaseVersion}-windows-arm64-offline.exe`,
+  windowsArm64Portable: `snow-shot-${releaseVersion}-windows-arm64-portable.zip`,
+  windowsArm64MiniOnline: `snow-shot-mini-${releaseVersion}-windows-arm64-online.exe`,
+  windowsArm64MiniPortable: `snow-shot-mini-${releaseVersion}-windows-arm64-portable.zip`,
+  macosX64Dmg: `snow-shot-${releaseVersion}-macos-x86_64.dmg`,
   macosInstallScript: 'install-snow-shot-macos.sh',
 } as const;
 

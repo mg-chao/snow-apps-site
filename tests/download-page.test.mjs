@@ -14,7 +14,7 @@ import {
 } from '../theme/components/DownloadPage/releaseLinks.ts';
 
 const require = createRequire(import.meta.url);
-function loadComponent(filename, modules) {
+function loadComponent(filename, modules, globals = {}) {
   const source = readFileSync(
     new URL(`../theme/components/DownloadPage/${filename}`, import.meta.url),
     'utf8',
@@ -24,6 +24,7 @@ function loadComponent(filename, modules) {
   }).outputText;
   const exports = {};
   runInNewContext(compiled, {
+    ...globals,
     exports,
     require(name) {
       return modules[name] ?? require(name);
@@ -37,10 +38,16 @@ const macInstall = loadComponent('MacInstallOption.tsx', {
   './releaseLinks': releaseLinks,
 });
 
-function render(locale, platform) {
+function render(
+  locale,
+  platform,
+  architecture = platform === 'macos' ? 'arm64' : 'x64',
+) {
   const exports = loadComponent('index.tsx', {
     '@rspress/core/theme-original': { IconArrowDown: () => null },
-    '../../platform': { useResolvedDownloadPlatform: () => platform },
+    '../../platform': {
+      useResolvedDownloadTarget: () => ({ platform, architecture }),
+    },
     './MacInstallOption': macInstall,
     './MirrorLink': { MirrorLink: () => null },
     './releaseLinks': releaseLinks,
@@ -96,7 +103,175 @@ describe('Snow Shot Mini downloads', () => {
   }
 });
 
+describe('architecture-specific downloads', () => {
+  for (const locale of ['en', 'zh']) {
+    const host = locale === 'zh' ? 'gitee.com' : 'github.com';
+
+    it(`renders every native Windows ARM64 package in ${locale}`, () => {
+      const html = render(locale, 'windows', 'arm64');
+      assert.equal((html.match(/class="snow-download-card /g) ?? []).length, 4);
+      assert.match(html, /<option value="windows-arm64" selected="">/);
+      for (const asset of [
+        'windowsArm64Online',
+        'windowsArm64Offline',
+        'windowsArm64Portable',
+        'windowsArm64MiniOnline',
+        'windowsArm64MiniPortable',
+      ]) {
+        const url = releaseDownloadUrl(locale, asset);
+        assert.equal(new URL(url).hostname, host);
+        assert.ok(html.includes(`href="${url}"`));
+        assert.match(releaseAssets[asset], /-windows-arm64-/);
+        assert.ok(html.includes(releaseAssets[asset]));
+      }
+      assert.ok(!html.includes('-windows-x64-'));
+      assert.ok(!html.includes('-macos-'));
+      assert.ok(
+        !html.includes(
+          `snow-shot-mini-${releaseVersion}-windows-arm64-offline.exe`,
+        ),
+      );
+    });
+
+    it(`renders the Intel Mac package without a Mini download in ${locale}`, () => {
+      const html = render(locale, 'macos', 'x64');
+      const filename = `snow-shot-${releaseVersion}-macos-x86_64.dmg`;
+      assert.equal(releaseAssets.macosX64Dmg, filename);
+      assert.equal((html.match(/class="snow-download-card /g) ?? []).length, 1);
+      assert.match(html, /snow-download-grid--single/);
+      assert.match(html, /<option value="macos-x64" selected="">/);
+      assert.ok(
+        html.includes(`href="${releaseDownloadUrl(locale, 'macosX64Dmg')}"`),
+      );
+      assert.equal(
+        new URL(releaseDownloadUrl(locale, 'macosX64Dmg')).hostname,
+        host,
+      );
+      assert.ok(html.includes(filename));
+      assert.ok(!html.includes('-macos-arm64.dmg'));
+      assert.ok(!html.includes('-macos-x64.dmg'));
+      assert.ok(!html.includes('snow-download-card--mini'));
+      assert.ok(!html.includes('<option value="mini">'));
+      assert.ok(!html.includes('id="snow-macos-install-edition"'));
+      assert.ok(!html.includes('--edition mini'));
+      assert.match(html, /macOS 15/);
+      assert.ok(
+        html.includes(
+          `href="${releaseDownloadUrl(locale, 'macosInstallScript')}"`,
+        ),
+      );
+    });
+
+    it(`offers all four systems and chip guidance when detection is unavailable in ${locale}`, () => {
+      const html = render(locale, 'macos', null);
+      for (const system of [
+        'windows-x64',
+        'windows-arm64',
+        'macos-arm64',
+        'macos-x64',
+      ]) {
+        assert.ok(html.includes(`<option value="${system}"`));
+      }
+      assert.ok(html.includes('aria-describedby="snow-download-system-hint"'));
+      assert.ok(html.includes('id="snow-download-system-hint"'));
+      assert.ok(
+        !render(locale, 'macos', 'x64').includes(
+          'id="snow-download-system-hint"',
+        ),
+      );
+    });
+  }
+
+  it('keeps a manual selection when CPU hints arrive and preserves the URL context', () => {
+    let override = null;
+    let detected = { platform: 'windows', architecture: null };
+    let remembered;
+    const exports = loadComponent(
+      'index.tsx',
+      {
+        '@rspress/core/theme-original': { IconArrowDown: () => null },
+        react: {
+          useState: () => [
+            override,
+            (next) => {
+              override = next;
+            },
+          ],
+        },
+        '../../platform': { useResolvedDownloadTarget: () => detected },
+        './MacInstallOption': macInstall,
+        './MirrorLink': { MirrorLink: () => null },
+        './releaseLinks': releaseLinks,
+      },
+      {
+        URL,
+        window: {
+          location: {
+            href: 'https://snowshot.top/zh/download?source=home&os=windows#packages',
+          },
+          history: {
+            replaceState: (_state, _title, url) => {
+              remembered = url;
+            },
+          },
+        },
+      },
+    );
+
+    function findElement(node, predicate) {
+      if (!node || typeof node !== 'object') return null;
+      if (predicate(node)) return node;
+      const children = node.props?.children;
+      for (const child of Array.isArray(children)
+        ? children.flat()
+        : [children]) {
+        const found = findElement(child, predicate);
+        if (found) return found;
+      }
+      return null;
+    }
+
+    const tree = exports.DownloadPage({ locale: 'zh' });
+    const selector = findElement(
+      tree,
+      (node) => node.type?.name === 'SystemSelect',
+    );
+    const select = findElement(
+      selector.type(selector.props),
+      (node) => node.type === 'select',
+    );
+    select.props.onChange({ target: { value: 'macos-x64' } });
+    assert.equal(
+      remembered,
+      '/zh/download?source=home&os=macos&arch=x64#packages',
+    );
+    detected = { platform: 'windows', architecture: 'arm64' };
+    const html = renderToStaticMarkup(
+      createElement(exports.DownloadPage, { locale: 'zh' }),
+    );
+    assert.match(html, /<option value="macos-x64" selected="">/);
+    assert.ok(html.includes(releaseAssets.macosX64Dmg));
+    assert.ok(!html.includes('-windows-arm64-'));
+  });
+});
+
 describe('macOS terminal installation', () => {
+  it('uses the full edition for Intel even if the previous selection was Mini', () => {
+    const { MacInstallOption } = loadComponent('MacInstallOption.tsx', {
+      react: { useState: () => ['mini', () => {}] },
+      './releaseLinks': releaseLinks,
+    });
+    const html = renderToStaticMarkup(
+      createElement(MacInstallOption, {
+        locale: 'en',
+        architecture: 'x64',
+      }),
+    );
+    assert.ok(html.includes('--edition full'));
+    assert.ok(!html.includes('--edition mini'));
+    assert.ok(!html.includes('id="snow-macos-install-edition"'));
+  });
+
   for (const locale of ['en', 'zh']) {
     const language = locale === 'zh' ? 'zh-CN' : 'en';
     const host = locale === 'zh' ? 'gitee.com' : 'github.com';
