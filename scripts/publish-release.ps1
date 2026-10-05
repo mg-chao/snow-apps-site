@@ -36,6 +36,10 @@ try {
     if ($status.Count) { throw 'Commit or stash website changes before running the release workflow.' }
     $branch = (Invoke-SiteTool git @('branch', '--show-current')).Trim()
     if (-not $branch) { throw 'Website checkout must be on a branch.' }
+    # The site consumes release-owned installers; validate both language channels
+    # before editing, committing, pushing, building, or deploying the new version.
+    Invoke-SiteTool python @((Join-Path $PSScriptRoot 'deploy-website.py'),
+        'check-release-installer', '--version', $Version)
     $links = Join-Path $site 'theme/components/DownloadPage/releaseLinks.ts'
     $source = [IO.File]::ReadAllText($links)
     $pattern = "(?m)^export const releaseVersion = '[^']+';"

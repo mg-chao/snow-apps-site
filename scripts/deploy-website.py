@@ -11,6 +11,9 @@ import shutil
 import sys
 import tarfile
 import tempfile
+from urllib.error import URLError
+from urllib.parse import urlsplit
+from urllib.request import build_opener, HTTPRedirectHandler
 import uuid
 
 
@@ -21,6 +24,41 @@ OWNED = frozenset({
 })
 REQUIRED = {"index.html", "download.html", "zh/index.html", "zh/download.html"}
 RECEIPT = "website-release.json"
+INSTALLER_SIZE_LIMIT = 1048576
+
+
+class InstallerRedirectHandler(HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        if urlsplit(newurl).scheme != "https":
+            raise ValueError("Installer redirects must stay on HTTPS")
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
+def validate_release_installer(version):
+    """Verify the exact installer asset used by both website languages."""
+    validate_version(version)
+    opener = build_opener(InstallerRedirectHandler())
+    scripts = []
+    for host in ("github.com", "gitee.com"):
+        url = (f"https://{host}/mg-chao/snow-apps/releases/download/"
+               f"v{version}_snow-shot/install-snow-shot-macos.sh")
+        try:
+            with opener.open(url, timeout=30) as response:
+                script = response.read(INSTALLER_SIZE_LIMIT + 1)
+        except (URLError, OSError, ValueError) as error:
+            raise ValueError(f"Cannot download release installer: {url} ({error})") from error
+        try:
+            script.decode("utf-8")
+        except UnicodeDecodeError as error:
+            raise ValueError(f"Invalid UTF-8 release installer: {url}") from error
+        if (len(script) > INSTALLER_SIZE_LIMIT or not script.startswith(b"#!/bin/bash\n")
+                or b"\r" in script):
+            raise ValueError(f"Invalid Bash release installer: {url}")
+        scripts.append(script)
+    if scripts[0] != scripts[1]:
+        raise ValueError(f"GitHub and Gitee release installers differ for {version}")
+    return {"version": version, "sha256": hashlib.sha256(scripts[0]).hexdigest(),
+            "bytes": len(scripts[0])}
 
 
 class DownloadLinks(HTMLParser):
@@ -56,10 +94,14 @@ def validate_downloads(directory, version):
         validate_download_page((directory / name).read_text(encoding="utf-8"), version, locale)
 
 
-def identity(version, commit):
+def validate_version(version):
     if not re.fullmatch(r"(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)"
                         r"(?:-[0-9A-Za-z]+(?:[.-][0-9A-Za-z]+)*)?", version):
         raise ValueError("Expected a release semantic version")
+
+
+def identity(version, commit):
+    validate_version(version)
     if not re.fullmatch(r"[0-9a-f]{40}", commit):
         raise ValueError("Expected a website Git commit")
 
@@ -193,6 +235,8 @@ def main():
     check = commands.add_parser("check-downloads")
     check.add_argument("--version", required=True)
     check.add_argument("--locale", choices=("en", "zh"), required=True)
+    installer = commands.add_parser("check-release-installer")
+    installer.add_argument("--version", required=True)
     for operation in ("pack", "deploy"):
         command = commands.add_parser(operation)
         command.add_argument("--archive", type=Path, required=True)
@@ -211,6 +255,11 @@ def main():
     elif args.operation == "check-downloads":
         validate_download_page(sys.stdin.buffer.read().decode("utf-8"), args.version, args.locale)
         print(f"Verified {args.locale} Snow Shot and Snow Shot Mini downloads for {args.version}")
+    elif args.operation == "check-release-installer":
+        try:
+            print(json.dumps(validate_release_installer(args.version)))
+        except ValueError as error:
+            parser.exit(1, f"{error}\n")
     else:
         # Serialize deployments. The lock lives outside the shared public web root.
         import fcntl

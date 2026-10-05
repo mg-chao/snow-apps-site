@@ -52,7 +52,11 @@ From PowerShell 7, publish the website for a Snow Shot release:
 & scripts/publish-release.ps1 -Version 1.1.8
 ```
 
-The checkout must be clean. The workflow updates `releaseVersion` in
+The checkout must be clean. Before changing any source or publishing the site, the
+workflow downloads `install-snow-shot-macos.sh` from the requested GitHub and Gitee
+release and checks that both assets contain identical UTF-8 scripts with Bash
+headers and LF line endings. Missing, unavailable, or mismatched installers stop
+publication before the version is changed. The workflow then updates `releaseVersion` in
 `theme/components/DownloadPage/releaseLinks.ts`, commits a version change when needed,
 pushes the current branch to `origin`, and verifies the remote commit before running
 `bun run build`. An already matching version reuses its existing commit.
@@ -109,5 +113,11 @@ republishing the application packages. Existing Mini packages under `setup/` and
 Run the focused deployment checks with
 `python -m unittest discover -s tests -p test_deploy_website.py` and
 `pwsh -File scripts/test-publish-release.ps1`.
-Run the download component checks with `node --test tests/download-page.test.mjs`
-(Node.js 24 or later), then `bun run lint` and `bun run build`.
+Run the release installer checks with
+`python -m unittest discover -s tests -p test_release_installer.py`.
+To verify published assets without changing the website, run
+`python scripts/deploy-website.py check-release-installer --version <version>`.
+Run the download component and Terminal command checks with
+`node --test tests/download-page.test.mjs tests/mac-install-option.test.mjs`
+(Node.js 24 or later). The Terminal execution checks use system Bash on macOS or
+Linux. Then run `bun run lint` and `bun run build`.
