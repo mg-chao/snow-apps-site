@@ -282,7 +282,6 @@ const resources: { icon: IconName; path: string }[] = [
   { icon: 'history', path: '/releases' },
 ];
 const groups = [
-  { name: '2', number: '895818102', href: 'https://qm.qq.com/q/hRIRFED9Ze' },
   { name: '3', number: '1037819112', href: 'https://qm.qq.com/q/Ts3cwNdykW' },
 ];
 

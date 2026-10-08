@@ -617,7 +617,7 @@ body:has(.snow-about) {
 }
 .snow-about__groups {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 18px;
   margin-top: 18px;
 }
@@ -831,7 +831,6 @@ html.dark .snow-about {
     grid-column: 2;
   }
   .snow-about__groups {
-    grid-template-columns: 1fr;
     gap: 12px;
     margin-top: 12px;
   }
