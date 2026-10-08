@@ -5,7 +5,7 @@ export const giteeReleases = `${giteeRepository}/releases/latest`;
 export const githubReleases = `${githubRepository}/releases/latest`;
 
 // scripts/publish-release.ps1 synchronizes this with the target Snow Shot release.
-export const releaseVersion = '1.2.4';
+export const releaseVersion = '1.2.5';
 const releaseTag = `v${releaseVersion}_snow-shot`;
 
 export const releaseAssets = {
