@@ -14,6 +14,8 @@ import {
   ApplicationTitleBarIcon,
   DisabledIcon,
   DownIcon,
+  EyeIcon,
+  FullScreenCanvasIcon,
   HistoryIcon,
   InfoCircleIcon,
   KeyboardIcon,
@@ -22,10 +24,12 @@ import {
   PinClipboardIcon,
   PinToScreenIcon,
   PinToScreenManagementIcon,
+  QuickSaveIcon,
   RecognizeTextIcon,
   RecordingFolderIcon,
   RecordScreenIcon,
   ReloadIcon,
+  SaveIcon,
   ScreenshotCopyIcon,
   ScreenshotDelayIcon,
   ScreenshotFeatureIcon,
@@ -37,6 +41,7 @@ import {
   SnowShotLogo,
   ThunderboltIcon,
   WheelMouseIcon,
+  WindowGroupSwitchIcon,
 } from './icons';
 import { PreviewSelectionOverlay } from './selectionOverlay';
 import './HeroAppPreview.css';
@@ -52,13 +57,8 @@ type Copy = {
     history: string;
     pinned: string;
     settings: string;
-    interface: string;
-    function: string;
-    shortcuts: string;
-    storage: string;
-    api: string;
-    extended: string;
-    system: string;
+    settingsPages: string[];
+    permissions: string;
     about: string;
   };
   unset: string;
@@ -78,9 +78,18 @@ type HotkeySection = {
   zh: string;
   reset: boolean;
   functions: HotkeyFunction[];
+  setting?: {
+    en: string;
+    zh: string;
+    descriptionEn: string;
+    descriptionZh: string;
+  };
 };
 
-// Global hotkeys page, in settings-catalog order.
+// Mirrors snow_shot/src/presentation/settings/settingscatalog.cpp (full edition).
+// Uses default configuration: the optional Translation page is hidden.
+// Labels use the SettingsCatalog and SidebarWidget zh_CN translation catalogs;
+// shortcuts use snow_shot/src/storage/configurationschema.cpp defaults.
 // macOS Meta is the physical Control key, so Meta+1 displays as ⌃1.
 const hotkeySections: HotkeySection[] = [
   {
@@ -132,6 +141,20 @@ const hotkeySections: HotkeySection[] = [
         Icon: ScreenshotCopyIcon,
       },
       {
+        en: 'Save as file',
+        zh: '保存为文件',
+        windows: null,
+        macos: null,
+        Icon: SaveIcon,
+      },
+      {
+        en: 'Quick save',
+        zh: '快速保存',
+        windows: null,
+        macos: null,
+        Icon: QuickSaveIcon,
+      },
+      {
         en: 'Current monitor',
         zh: '当前显示器',
         windows: null,
@@ -173,6 +196,27 @@ const hotkeySections: HotkeySection[] = [
         windows: 'Ctrl+F3',
         macos: '⌃⇧3',
         Icon: HistoryIcon,
+      },
+      {
+        en: 'Hide/Show All Windows',
+        zh: '隐藏/显示所有窗口',
+        windows: null,
+        macos: null,
+        Icon: EyeIcon,
+      },
+      {
+        en: 'Switch Window Group',
+        zh: '切换窗口分组',
+        windows: null,
+        macos: null,
+        Icon: WindowGroupSwitchIcon,
+      },
+      {
+        en: 'Pin to Screen Management',
+        zh: '固定到屏幕管理',
+        windows: null,
+        macos: null,
+        Icon: PinToScreenManagementIcon,
       },
     ],
   },
@@ -219,11 +263,11 @@ const hotkeySections: HotkeySection[] = [
         Icon: HistoryIcon,
       },
       {
-        en: 'Pin to Screen Management',
-        zh: '固定到屏幕管理',
+        en: 'Full-screen canvas (enable/disable click-through)',
+        zh: '全屏画布（开启/关闭鼠标穿透）',
         windows: null,
         macos: null,
-        Icon: PinToScreenManagementIcon,
+        Icon: FullScreenCanvasIcon,
       },
       {
         en: 'Translate Selected Text',
@@ -248,24 +292,44 @@ const hotkeySections: HotkeySection[] = [
       },
     ],
   },
+  {
+    id: 'global-hotkeys',
+    en: 'Automatic disabling',
+    zh: '自动禁用',
+    reset: true,
+    functions: [],
+    setting: {
+      en: 'Automatically disable when a focused fullscreen window exists',
+      zh: '存在焦点全屏窗口时自动禁用',
+      descriptionEn:
+        'Ignore global hotkeys while the focused window occupies an entire monitor',
+      descriptionZh: '焦点窗口占满整个显示器时忽略全局快捷键',
+    },
+  },
 ];
 
 const en: Copy = {
   label: 'Snow Shot screenshot settings interface',
-  search: 'Search settings and functions',
+  search: 'Search Function',
   nav: {
     hotkeys: 'Global hotkeys',
     mouse: 'Global mouse',
     history: 'Screenshot history',
     pinned: 'Pin to Screen Management',
     settings: 'Settings',
-    interface: 'Interface settings',
-    function: 'Function settings',
-    shortcuts: 'Application shortcuts',
-    storage: 'Storage and privacy',
-    api: 'API Configuration',
-    extended: 'Extended Features Settings',
-    system: 'System settings',
+    settingsPages: [
+      'General',
+      'Appearance',
+      'Screenshots',
+      'Pin to screen',
+      'Screen recording',
+      'Text recognition & translation',
+      'Application shortcuts',
+      'Tray & floating toolbar',
+      'Export & storage',
+      'Network & connections',
+    ],
+    permissions: 'App Permissions',
     about: 'About',
   },
   unset: 'Unset',
@@ -273,26 +337,33 @@ const en: Copy = {
 
 const zh: Copy = {
   label: 'Snow Shot 截图设置界面',
-  search: '搜索设置和功能',
+  search: '搜索功能',
   nav: {
     hotkeys: '全局快捷键',
     mouse: '全局鼠标',
     history: '截图历史',
     pinned: '固定到屏幕管理',
     settings: '设置',
-    interface: '界面设置',
-    function: '功能设置',
-    shortcuts: '应用快捷键',
-    storage: '存储与隐私',
-    api: 'API 配置',
-    extended: '扩展功能设置',
-    system: '系统设置',
+    settingsPages: [
+      '常规',
+      '外观',
+      '截图',
+      '固定到屏幕',
+      '屏幕录制',
+      '文字识别与翻译',
+      '应用快捷键',
+      '托盘与悬浮工具栏',
+      '导出与存储',
+      '网络与连接',
+    ],
+    permissions: '应用权限',
     about: '关于',
   },
   unset: '未设置',
 };
 
-const PREVIEW_WIDTH = 1372;
+// Native MainWindow's default 900 × 640 geometry, rendered at 1.5×.
+const PREVIEW_WIDTH = 1350;
 
 function captureTarget(node: EventTarget | null): HTMLElement | null {
   if (!(node instanceof Element)) {
@@ -315,6 +386,14 @@ export function HeroAppPreview({
     id: section.id,
     title: isZh ? section.zh : section.en,
     reset: section.reset,
+    setting: section.setting
+      ? {
+          title: isZh ? section.setting.zh : section.setting.en,
+          description: isZh
+            ? section.setting.descriptionZh
+            : section.setting.descriptionEn,
+        }
+      : null,
     rows: section.functions.map((row) => ({
       title: isZh ? row.zh : row.en,
       shortcut: os === 'macos' ? row.macos : row.windows,
@@ -438,6 +517,13 @@ export function HeroAppPreview({
         <TitleBar os={os} />
         <div className="snow-app-body">
           <aside className="snow-app-sidebar" data-capture-target="">
+            <div className="snow-app-search-container" data-capture-target="">
+              <div className="snow-app-search" data-capture-target="">
+                <SearchIcon className="snow-app-search__prefix" />
+                <span className="snow-app-search__placeholder">{t.search}</span>
+                <DownIcon className="snow-app-search__suffix" />
+              </div>
+            </div>
             <div className="snow-app-menu">
               <NavItem Icon={ThunderboltIcon} active label={t.nav.hotkeys} />
               <NavItem Icon={WheelMouseIcon} label={t.nav.mouse} />
@@ -445,27 +531,19 @@ export function HeroAppPreview({
               <NavItem Icon={PinToScreenManagementIcon} label={t.nav.pinned} />
               <NavItem Icon={SettingIcon} expanded label={t.nav.settings} />
               <div className="snow-app-submenu">
-                <div className="snow-app-subitem" data-capture-target="">
-                  {t.nav.interface}
-                </div>
-                <div className="snow-app-subitem" data-capture-target="">
-                  {t.nav.function}
-                </div>
-                <div className="snow-app-subitem" data-capture-target="">
-                  {t.nav.shortcuts}
-                </div>
-                <div className="snow-app-subitem" data-capture-target="">
-                  {t.nav.storage}
-                </div>
-                <div className="snow-app-subitem" data-capture-target="">
-                  {t.nav.api}
-                </div>
-                <div className="snow-app-subitem" data-capture-target="">
-                  {t.nav.extended}
-                </div>
-                <div className="snow-app-subitem" data-capture-target="">
-                  {t.nav.system}
-                </div>
+                {[
+                  ...t.nav.settingsPages,
+                  ...(os === 'macos' ? [t.nav.permissions] : []),
+                ].map((label) => (
+                  <div
+                    className="snow-app-subitem"
+                    data-capture-target=""
+                    key={label}
+                    title={label}
+                  >
+                    {label}
+                  </div>
+                ))}
               </div>
               <NavItem Icon={InfoCircleIcon} label={t.nav.about} />
             </div>
@@ -475,11 +553,6 @@ export function HeroAppPreview({
           </aside>
           <div className="snow-app-main">
             <div className="snow-app-header" data-capture-target="">
-              <div className="snow-app-search" data-capture-target="">
-                <SearchIcon className="snow-app-search__prefix" />
-                <span className="snow-app-search__placeholder">{t.search}</span>
-                <DownIcon className="snow-app-search__suffix" />
-              </div>
               <div className="snow-app-tabs">
                 {sections.map((section, index) => (
                   <button
@@ -552,6 +625,23 @@ export function HeroAppPreview({
                             </span>
                           </div>
                         ))}
+                        {section.setting ? (
+                          <div
+                            className="snow-app-setting"
+                            data-capture-target=""
+                          >
+                            <div className="snow-app-setting__copy">
+                              <div className="snow-app-setting__title">
+                                {section.setting.title}
+                              </div>
+                              <p>{section.setting.description}</p>
+                            </div>
+                            <span
+                              className="snow-app-switch"
+                              data-capture-target=""
+                            />
+                          </div>
+                        ) : null}
                       </div>
                     </section>
                   ))}

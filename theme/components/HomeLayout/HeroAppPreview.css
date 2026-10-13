@@ -2,7 +2,7 @@
   position: relative;
   display: block;
   width: 100%;
-  aspect-ratio: 1372 / 890;
+  aspect-ratio: 1350 / 960;
   overflow: hidden;
   container-type: inline-size;
   color-scheme: light;
@@ -45,8 +45,8 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  width: 1372px;
-  height: 890px;
+  width: 1350px;
+  height: 960px;
   overflow: hidden;
   border: 0;
   border-radius: 12px;
@@ -57,7 +57,7 @@
     system-ui, sans-serif;
   font-size: 21px;
   line-height: 1.57142857;
-  transform: scale(calc(100cqi / 1372));
+  transform: scale(calc(100cqi / 1350));
   transform-origin: top left;
 }
 
@@ -96,7 +96,7 @@
   display: flex;
   flex-shrink: 0;
   align-items: center;
-  height: 46px;
+  height: 48px;
   background: var(--sap-sidebar);
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.039);
 }
@@ -198,7 +198,7 @@
 .snow-app-menu {
   flex: 1;
   min-height: 0;
-  padding: 12px 0 0;
+  padding: 0;
   overflow: hidden auto;
   scrollbar-color: var(--sap-scrollbar) transparent;
   scrollbar-width: thin;
@@ -308,17 +308,23 @@
   background: var(--sap-container);
 }
 
+.snow-app-search-container {
+  flex-shrink: 0;
+  padding: 12px 18px 6px;
+}
+
 .snow-app-search {
+  box-sizing: border-box;
   display: flex;
   gap: 12px;
   align-items: center;
-  width: 416px;
+  width: 100%;
   max-width: 100%;
-  height: 43px;
-  margin: 0 auto;
-  padding: 0 18px;
+  height: 48px;
+  padding: 0 16px;
   color: var(--sap-text-placeholder);
-  background: var(--sap-fill);
+  background: var(--sap-container);
+  border: 1.5px solid var(--sap-border);
   border-radius: 9px;
 }
 
@@ -338,7 +344,7 @@
   flex: 1;
   overflow: hidden;
   font-size: 21px;
-  line-height: 43px;
+  line-height: 48px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -347,7 +353,6 @@
   display: flex;
   gap: 0;
   align-items: stretch;
-  margin-top: 4px;
   border-bottom: 1px solid var(--sap-split);
 }
 
@@ -405,7 +410,7 @@
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  height: 113px;
+  height: 95px;
   padding: 0 36px;
 }
 
@@ -435,16 +440,25 @@
   flex: 1;
   flex-direction: column;
   min-height: 0;
-  padding: 0 0 36px;
+  padding: 6px 0 36px;
   overflow: hidden auto;
   scrollbar-color: var(--sap-scrollbar) transparent;
   scrollbar-width: thin;
 }
 
+.snow-app-section {
+  flex-shrink: 0;
+}
+
+/* Let every tab align its section with the top of the scroll viewport. */
+.snow-app-section:last-child {
+  min-height: 100%;
+}
+
 .snow-app-section__rows {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 24px;
   padding: 0 36px;
 }
 
@@ -466,7 +480,7 @@
   flex-shrink: 0;
   align-items: center;
   justify-content: space-between;
-  height: 65px;
+  height: 66px;
   padding: 0 24px;
   border: 1.5px solid var(--sap-row-border);
   border-radius: 15px;
@@ -522,6 +536,49 @@
   color: var(--sap-hotkey-set-text);
   background: var(--sap-hotkey-set-bg);
   border-color: var(--sap-hotkey-set-border);
+}
+
+.snow-app-setting {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+.snow-app-setting__copy {
+  min-width: 0;
+}
+
+.snow-app-setting__title {
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.snow-app-setting__copy p {
+  margin: 6px 0 0;
+  color: var(--sap-text-secondary);
+  font-size: 18px;
+}
+
+.snow-app-switch {
+  position: relative;
+  flex: 0 0 66px;
+  height: 33px;
+  background: var(--sap-text-placeholder);
+  border-radius: 18px;
+}
+
+.snow-app-switch::before {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 3px 6px rgb(0 0 0 / 20%);
+  content: "";
 }
 
 .snow-app-window--capturing,
