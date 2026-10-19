@@ -98,6 +98,37 @@ class DeploymentTests(unittest.TestCase):
         self.assertTrue((Path(second["backup"]) / website.RECEIPT).is_file())
         self.assert_preserved()
 
+    def test_deployment_replaces_both_privacy_pages_and_backs_up_previous_policy(self):
+        for name in ("privacy.html", "zh/privacy.html"):
+            target = self.root / name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(f"Previous policy: {name}", encoding="utf-8")
+        self.package()
+        result = self.publish()
+        for name in ("privacy.html", "zh/privacy.html"):
+            with self.subTest(page=name):
+                self.assertEqual((self.root / name).read_bytes(),
+                                 (self.build / name).read_bytes())
+                self.assertEqual((Path(result["backup"]) / name).read_text(),
+                                 f"Previous policy: {name}")
+        self.assert_preserved()
+
+    def test_rejects_missing_or_empty_privacy_page_before_packaging(self):
+        for name in ("privacy.html", "zh/privacy.html"):
+            target = self.build / name
+            original = target.read_bytes()
+            with self.subTest(page=name, state="missing"):
+                target.unlink()
+                with self.assertRaisesRegex(ValueError, "Incomplete"):
+                    self.package()
+                self.assertFalse(self.archive.exists())
+            with self.subTest(page=name, state="empty"):
+                target.write_bytes(b"")
+                with self.assertRaisesRegex(ValueError, "Empty"):
+                    self.package()
+                self.assertFalse(self.archive.exists())
+            target.write_bytes(original)
+
     def test_rejects_archive_corruption_before_replacement(self):
         self.package()
         with self.assertRaisesRegex(ValueError, "checksum"):

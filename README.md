@@ -44,6 +44,18 @@ head and preserves the path, query string, and fragment.
 
 Run the language regression tests with `bun run test`.
 
+## Privacy policy
+
+The English and Simplified Chinese policies live in `docs/en/privacy.md` and
+`docs/zh/privacy.md`. They build to `/privacy.html` and `/zh/privacy.html`, and the
+footer links to the policy in the current language. The app's About page uses
+`https://snowshot.top/privacy.html`; the website's usual language selection applies.
+
+Keep both languages aligned when data handling changes. Publisher review notes
+and Store submission instructions stay in the app repository. They are not public
+website content. The deployment workflow requires both privacy pages, includes
+them in its file checks and backups, and checks their public URLs after deployment.
+
 ## Download platform selection
 
 The download page supports Windows x64, Windows ARM64, macOS Apple silicon

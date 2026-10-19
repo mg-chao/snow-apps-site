@@ -66,6 +66,9 @@ function SnowGlobalFooter() {
       </div>
       <div className="snow-home__footer-legal">
         <span>© 2025 Snow Apps</span>
+        <a href={isZh ? '/zh/privacy.html' : '/privacy.html'}>
+          {isZh ? '隐私政策' : 'Privacy policy'}
+        </a>
         <a
           href="https://beian.miit.gov.cn/"
           target="_blank"

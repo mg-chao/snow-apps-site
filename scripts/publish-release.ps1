@@ -90,7 +90,7 @@ try {
         if ($receipt.version -cne $Version -or $receipt.commit -cne $commit) {
             throw 'Public website receipt does not match this deployment.'
         }
-        foreach ($page in @('/', '/download.html', '/zh/', '/zh/download.html')) {
+        foreach ($page in @('/', '/download.html', '/privacy.html', '/zh/', '/zh/download.html', '/zh/privacy.html')) {
             $response = Invoke-WebRequest -Uri "$($PublicBaseUrl.TrimEnd('/'))$page" -TimeoutSec 30
             if ($response.StatusCode -ne 200) { throw "Website health check failed: $page" }
             if ($page.EndsWith('/download.html')) {
