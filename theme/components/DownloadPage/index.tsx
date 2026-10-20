@@ -10,6 +10,7 @@ import { MacInstallOption } from './MacInstallOption';
 import { MirrorLink } from './MirrorLink';
 import {
   type ReleaseAsset,
+  microsoftStoreDownloadUrl,
   releaseAssets,
   releaseDownloadUrl,
 } from './releaseLinks';
@@ -47,6 +48,11 @@ const copy = {
   en: {
     selectLabel: 'System',
     downloadButton: 'Download from GitHub',
+    windowsStore: {
+      title: 'Microsoft Store',
+      body: 'Download and run the Snow Shot Store installer. Microsoft Store handles installation and future updates.',
+      button: 'Download Store installer',
+    },
     windowsX64Option: 'Windows x64',
     windowsArm64Option: 'Windows ARM64',
     macosArm64Option: 'macOS ARM64 (Apple)',
@@ -179,6 +185,11 @@ const copy = {
   zh: {
     selectLabel: '系统',
     downloadButton: '从 Gitee 下载',
+    windowsStore: {
+      title: 'Windows 商店',
+      body: '下载并运行 Snow Shot 商店安装器，由 Microsoft Store 完成安装和后续更新。',
+      button: '下载商店安装包',
+    },
     windowsX64Option: 'Windows x64',
     windowsArm64Option: 'Windows ARM64',
     macosArm64Option: 'macOS ARM64（Apple 芯片）',
@@ -307,6 +318,7 @@ const copy = {
   {
     selectLabel: string;
     downloadButton: string;
+    windowsStore: { title: string; body: string; button: string };
     windowsX64Option: string;
     windowsArm64Option: string;
     macosArm64Option: string;
@@ -494,6 +506,54 @@ export function DownloadPage({ locale }: { locale: Locale }) {
               : 'Choose an installation method to download the matching package directly from GitHub. You can also browse the Gitee release below.'}
           </p>
         </div>
+        {platform === 'windows' && architecture === 'x64' && (
+          <section
+            className="snow-windows-store"
+            aria-labelledby="snow-windows-store-title"
+          >
+            <svg
+              className="snow-windows-store__icon"
+              aria-hidden="true"
+              viewBox="0 0 32 32"
+              fill="none"
+            >
+              <path
+                d="M5 10h22v18H5zM11 10V7a5 5 0 0 1 10 0v3"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M11 15h4v4h-4zm6 0h4v4h-4zm-6 6h4v4h-4zm6 0h4v4h-4z"
+                fill="currentColor"
+              />
+            </svg>
+            <div className="snow-windows-store__copy">
+              <h3 id="snow-windows-store-title">{page.windowsStore.title}</h3>
+              <p>{page.windowsStore.body}</p>
+            </div>
+            <a
+              className="snow-windows-store__badge"
+              href={microsoftStoreDownloadUrl}
+              aria-label={page.windowsStore.button}
+            >
+              <img
+                className="snow-windows-store__badge-image snow-windows-store__badge-image--dark"
+                src={`/images/microsoft-store-${locale}-dark.svg`}
+                alt={page.windowsStore.button}
+                width="161"
+                height="44"
+              />
+              <img
+                className="snow-windows-store__badge-image snow-windows-store__badge-image--light"
+                src={`/images/microsoft-store-${locale}-light.svg`}
+                alt={page.windowsStore.button}
+                width="161"
+                height="44"
+              />
+            </a>
+          </section>
+        )}
         {platform === 'macos' && (
           <MacInstallOption
             key={architecture}

@@ -4,6 +4,10 @@ const githubRepository = 'https://github.com/mg-chao/snow-apps';
 export const giteeReleases = `${giteeRepository}/releases/latest`;
 export const githubReleases = `${githubRepository}/releases/latest`;
 
+// Snow Shot Full x64: snow_shot/packaging/msix/store-identity.json.
+export const microsoftStoreDownloadUrl =
+  'https://get.microsoft.com/installer/download/9NRTJ1GBX69V';
+
 // scripts/publish-release.ps1 synchronizes this with the target Snow Shot release.
 export const releaseVersion = '1.3.4';
 const releaseTag = `v${releaseVersion}_snow-shot`;

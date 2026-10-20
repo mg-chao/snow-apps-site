@@ -64,6 +64,19 @@ offline, and portable packages, plus Mini online and portable packages. Intel
 Macs offer the full edition only; Mini on macOS requires Apple silicon.
 Intel disk images use the release asset suffix `macos-x86_64.dmg`.
 
+Windows x64 also offers an official Microsoft Store badge for the full edition,
+localized to the page language and matched to the site's light/dark theme. The
+SVG artwork in `docs/public/images/microsoft-store-*.svg` comes from
+`https://get.microsoft.com/images/` (`en-us` and `zh-cn`, light and dark variants),
+as documented in [Microsoft's HTML-only badge example](https://github.com/microsoft/app-store-badge#html-only).
+Only nonvisual accessibility titles are added to the assets.
+Linked images are excluded from Rspress image zoom so the badge acts as a download link.
+Clicking the badge downloads `Snow Shot Installer.exe` directly from Microsoft's installer
+endpoint for product `9NRTJ1GBX69V`; running it installs Snow Shot through the
+Store, which manages subsequent updates. This link is independent of the
+GitHub/Gitee release version and is configured in
+`theme/components/DownloadPage/releaseLinks.ts`.
+
 The homepage carries the detected OS and architecture to the download page.
 Browser CPU client hints take priority over legacy user-agent CPU tokens.
 `MacIntel` and `Intel Mac OS X` are not proof of an Intel CPU: Apple silicon

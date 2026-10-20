@@ -9,6 +9,10 @@ export default defineConfig({
     'Snow Shot is a cross-platform screenshot and screen recording tool with annotation and text recognition.',
   lang: 'en',
   icon: '/app-icon.ico',
+  mediumZoom: {
+    // Linked images are controls; clicking them should follow the link.
+    selector: '.rspress-doc img:not(a img)',
+  },
   route: {
     // Our redirect checks every visit and handles Chromium's Chinese regional
     // locale even when its content-language list contains only English.

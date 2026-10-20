@@ -1099,6 +1099,61 @@ html.dark {
   margin-inline: auto;
   gap: 16px;
 }
+.snow-windows-store {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+  padding: 24px;
+  border: 1px solid var(--snow-line);
+  border-radius: 8px;
+  background: var(--snow-surface);
+}
+.snow-windows-store__icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  color: var(--snow-blue);
+}
+.snow-windows-store__copy {
+  flex: 1;
+  min-width: 0;
+}
+.snow-windows-store h3 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.snow-windows-store p {
+  margin: 0;
+  color: var(--snow-muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+.snow-windows-store__badge {
+  display: inline-flex;
+  flex-shrink: 0;
+  border-radius: 5px;
+}
+.snow-windows-store__badge:focus-visible {
+  outline: 3px solid var(--snow-blue);
+  outline-offset: 4px;
+}
+.snow-windows-store__badge-image {
+  display: block;
+  width: 161px;
+  height: 44px;
+}
+.snow-windows-store__badge-image--light {
+  display: none;
+}
+html.dark .snow-windows-store__badge-image--dark {
+  display: none;
+}
+html.dark .snow-windows-store__badge-image--light {
+  display: block;
+}
 .snow-download-grid--single {
   grid-template-columns: minmax(0, 380px);
   justify-content: center;
@@ -1342,6 +1397,15 @@ html.dark {
   .snow-download-grid--single,
   .snow-download-grid--paired {
     grid-template-columns: 1fr;
+  }
+  .snow-windows-store {
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 20px;
+  }
+  .snow-windows-store__badge {
+    flex-basis: 100%;
+    justify-content: center;
   }
   .snow-os-select {
     align-items: flex-start;

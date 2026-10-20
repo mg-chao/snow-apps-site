@@ -8,6 +8,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { JsxEmit, ModuleKind, transpileModule } from 'typescript';
 import {
   macosInstallCommand,
+  microsoftStoreDownloadUrl,
   releaseAssets,
   releaseDownloadUrl,
   releaseVersion,
@@ -33,7 +34,12 @@ function loadComponent(filename, modules, globals = {}) {
   return exports;
 }
 
-const releaseLinks = { macosInstallCommand, releaseAssets, releaseDownloadUrl };
+const releaseLinks = {
+  macosInstallCommand,
+  microsoftStoreDownloadUrl,
+  releaseAssets,
+  releaseDownloadUrl,
+};
 const macInstall = loadComponent('MacInstallOption.tsx', {
   './releaseLinks': releaseLinks,
 });
