@@ -9,7 +9,7 @@ export const microsoftStoreDownloadUrl =
   'https://get.microsoft.com/installer/download/9NRTJ1GBX69V';
 
 // scripts/publish-release.ps1 synchronizes this with the target Snow Shot release.
-export const releaseVersion = '1.3.8';
+export const releaseVersion = '1.3.9';
 const releaseTag = `v${releaseVersion}_snow-shot`;
 
 export const releaseAssets = {
