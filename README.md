@@ -56,6 +56,14 @@ and Store submission instructions stay in the app repository. They are not publi
 website content. The deployment workflow requires both privacy pages, includes
 them in its file checks and backups, and checks their public URLs after deployment.
 
+## Terms of service
+
+The English and Simplified Chinese terms live in `docs/en/terms.md` and
+`docs/zh/terms.md`. They build to `/terms.html` and `/zh/terms.html`, and the
+footer links to the terms in the current language. The deployment workflow
+requires both pages, includes them in its file checks and backups, and checks
+their public URLs after deployment.
+
 ## Download platform selection
 
 The download page supports Windows x64, Windows ARM64, macOS Apple silicon

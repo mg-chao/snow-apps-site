@@ -18,13 +18,13 @@ import uuid
 
 
 OWNED = frozenset({
-    "index.html", "404.html", "about.html", "download.html", "privacy.html",
+    "index.html", "404.html", "about.html", "download.html", "privacy.html", "terms.html",
     "app-icon.ico", "app-icon.svg", "static", "images", "zh",
     "website-release.json",
 })
 REQUIRED = {
-    "index.html", "download.html", "privacy.html",
-    "zh/index.html", "zh/download.html", "zh/privacy.html",
+    "index.html", "download.html", "privacy.html", "terms.html",
+    "zh/index.html", "zh/download.html", "zh/privacy.html", "zh/terms.html",
 }
 RECEIPT = "website-release.json"
 INSTALLER_SIZE_LIMIT = 1048576

@@ -129,6 +129,46 @@ class DeploymentTests(unittest.TestCase):
                 self.assertFalse(self.archive.exists())
             target.write_bytes(original)
 
+    def test_deployment_replaces_both_terms_pages_and_backs_up_previous_terms(self):
+        for name in ("terms.html", "zh/terms.html"):
+            for directory, content in ((self.build, "Current terms"),
+                                       (self.root, "Previous terms")):
+                target = directory / name
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_text(f"{content}: {name}", encoding="utf-8")
+        self.package()
+        result = self.publish()
+        receipt = json.loads((self.root / website.RECEIPT).read_text())
+        for name in ("terms.html", "zh/terms.html"):
+            with self.subTest(page=name):
+                self.assertEqual((self.root / name).read_bytes(),
+                                 (self.build / name).read_bytes())
+                self.assertEqual((Path(result["backup"]) / name).read_text(),
+                                 f"Previous terms: {name}")
+                self.assertEqual(receipt["files"][name]["sha256"],
+                                 website.digest(self.root / name))
+        self.assert_preserved()
+
+    def test_rejects_missing_or_empty_terms_page_before_packaging(self):
+        for name in ("terms.html", "zh/terms.html"):
+            target = self.build / name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(f"Current terms: {name}", encoding="utf-8")
+        for name in ("terms.html", "zh/terms.html"):
+            target = self.build / name
+            original = target.read_bytes()
+            with self.subTest(page=name, state="missing"):
+                target.unlink()
+                with self.assertRaisesRegex(ValueError, "Incomplete"):
+                    self.package()
+                self.assertFalse(self.archive.exists())
+            with self.subTest(page=name, state="empty"):
+                target.write_bytes(b"")
+                with self.assertRaisesRegex(ValueError, "Empty"):
+                    self.package()
+                self.assertFalse(self.archive.exists())
+            target.write_bytes(original)
+
     def test_rejects_archive_corruption_before_replacement(self):
         self.package()
         with self.assertRaisesRegex(ValueError, "checksum"):
