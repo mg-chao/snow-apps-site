@@ -69,6 +69,9 @@ function SnowGlobalFooter() {
         <a href={isZh ? '/zh/privacy.html' : '/privacy.html'}>
           {isZh ? '隐私政策' : 'Privacy policy'}
         </a>
+        <a href={isZh ? '/zh/terms.html' : '/terms.html'}>
+          {isZh ? '用户协议' : 'Terms of service'}
+        </a>
         <a
           href="https://beian.miit.gov.cn/"
           target="_blank"
