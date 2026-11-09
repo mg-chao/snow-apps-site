@@ -123,7 +123,8 @@ The default destination is `root@120.79.232.67:/var/www/html`, using the local O
 configuration and trusted host keys. `IdentityFile`, `KnownHostsFile`, `ServerPort`,
 `RemoteWebRoot`, and `PublicBaseUrl` can be overridden. `-WhatIf` previews the operation.
 
-Only the generated pages, icons, `static/`, `images/`, and `zh/` are replaced.
+Only the generated pages, icons, `static/`, `images/`, `guides/`, `zh/`,
+`robots.txt`, `sitemap.xml`, and `indexnow.txt` are replaced.
 Downloads in `setup/`, `npm/`, `plugins/`, legacy update feeds, and all other paths
 are preserved. Previous website files remain in `/var/www/snow-shot-website-backups/`.
 The deployment verifies SHA-256 for the archive and every file, rolls back file
@@ -182,3 +183,47 @@ Run the download component and Terminal command checks with
 `node --test tests/download-page.test.mjs tests/mac-install-option.test.mjs`
 (Node.js 24 or later). The Terminal execution checks use system Bash on macOS or
 Linux. Then run `bun run lint` and `bun run build`.
+
+## Search discoverability
+
+The official source and complete user guides live in
+[mg-chao/snow-apps](https://github.com/mg-chao/snow-apps). Keep the website's
+English and Chinese guide hubs useful and link each topic to that repository.
+Use the real product category in page titles and headings; avoid keyword lists,
+unsupported comparisons, fabricated ratings, or promises about search position.
+
+`theme/components/SeoMetadata.tsx` supplies self-canonical URLs, the default
+language alternate, social metadata and homepage SoftwareApplication data.
+Rspress supplies the English/Chinese alternate links; the component updates
+them on client-side navigation. The existing `.html` routes remain canonical.
+`scripts/seo-build.ts` generates the sitemap from actual routes. The deployment
+workflow validates all generated pages with `scripts/check-seo-output.py` before
+uploading, including canonical/alternate links, descriptions and discovery files.
+
+`deploy/nginx-seo-redirects.conf` consolidates extensionless and directory aliases
+with HTTP 301 and preserves query parameters used by download selection.
+Install it as `/etc/nginx/snowshot-seo-redirects.conf` and include it only inside
+the HTTPS `snowshot.top` server block. Back up both files before changes, run
+`nginx -t` before reload, and restore the backups if validation or reload fails.
+The normal content deployment preserves this server configuration.
+
+After publishing changed content to `https://snowshot.top`, notify participating
+search engines with `bun run indexnow` (Node.js 24+). The command first verifies
+the public ownership key and sitemap, then submits only canonical URLs belonging
+to this domain. `docs/public/indexnow.txt` is a public verification key, not an
+account secret; keep it stable. Never submit GitHub URLs using this site's key.
+HTTP 200/202 acknowledges receipt, not indexing or improved ranking. If a request
+fails or is rate limited, investigate before retrying; do not run tight retry loops.
+
+Focused checks:
+
+```sh
+node --test tests/seo.test.mjs
+bun run build
+python scripts/check-seo-output.py
+```
+
+After deployment, check representative aliases, canonical pages, sitemap and
+robots URLs. Review Bing impressions/clicks and branded/category queries over
+time; use the app repository's `docs/guide/MAINTAINING.md` for the baseline and
+documentation maintenance checklist.

@@ -1,5 +1,10 @@
 [
   {
+    "text": "使用指南",
+    "link": "/guides/",
+    "activeMatch": "/guides/"
+  },
+  {
     "text": "下载",
     "link": "/download",
     "activeMatch": "/download"

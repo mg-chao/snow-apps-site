@@ -59,6 +59,7 @@ try {
         throw 'Remote website branch does not match the local commit after push.'
     }
     Invoke-SiteTool bun @('run', 'build')
+    Invoke-SiteTool python @((Join-Path $PSScriptRoot 'check-seo-output.py'))
     if (@(Invoke-SiteTool git @('status', '--porcelain=v1')).Count) {
         throw 'The build modified source files; commit and rerun before deploying.'
     }
@@ -90,7 +91,7 @@ try {
         if ($receipt.version -cne $Version -or $receipt.commit -cne $commit) {
             throw 'Public website receipt does not match this deployment.'
         }
-        foreach ($page in @('/', '/download.html', '/privacy.html', '/terms.html', '/zh/', '/zh/download.html', '/zh/privacy.html', '/zh/terms.html')) {
+        foreach ($page in @('/', '/download.html', '/privacy.html', '/terms.html', '/guides/index.html', '/zh/', '/zh/download.html', '/zh/privacy.html', '/zh/terms.html', '/zh/guides/index.html', '/robots.txt', '/sitemap.xml', '/indexnow.txt')) {
             $response = Invoke-WebRequest -Uri "$($PublicBaseUrl.TrimEnd('/'))$page" -TimeoutSec 30
             if ($response.StatusCode -ne 200) { throw "Website health check failed: $page" }
             if ($page.EndsWith('/download.html')) {

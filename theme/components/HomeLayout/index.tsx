@@ -1,5 +1,6 @@
 import { useDark, useLang } from '@rspress/core/runtime';
 import { downloadPageUrl, useDownloadTarget } from '../../platform';
+import { repositoryUrl } from '../../seo';
 import { SnowCanvas } from '../SnowCanvas';
 import { HeroAppPreview } from './HeroAppPreview';
 
@@ -447,21 +448,21 @@ export function HomeLayout() {
   const isZh = lang.startsWith('zh');
   const copy = isZh
     ? {
-        titlePrefix: '',
-        titleAccent: '优雅',
-        titleSuffix: '高效地完成',
-        titleSecondLine: '每一次工作',
+        titlePrefix: '免费',
+        titleAccent: '开源',
+        titleSuffix: '的',
+        titleSecondLine: '截图与录屏工具',
         description:
-          '截图、标注、文字识别和录屏，让屏幕上的每一刻都能清晰表达、轻松分享。',
-        secondary: '查看功能',
+          'Snow Shot 支持 Windows 和 macOS，集成截图标注、滚动长截图、本地 OCR 文字识别与桌面贴图。优雅截图，清晰分享。',
+        secondary: 'GitHub 源码与下载',
         sectionTitle: '让每一次截图都服务于高效工作。',
         sectionDescription:
           '轻松截取，快速整理，随时查找和分享。每一步都为清晰表达与出色工作而设计。',
         openSourceEyebrow: '开放项目 / 一起打磨',
         openSourceTitle: '为日常工作打造，也在社区中持续成长。',
         openSourceDescription:
-          'Snow Shot 是一款跨平台的开源工具，把截图、标注、文字识别和录屏放在一个专注的工作流里，也欢迎更多想法让它变得更好。',
-        openSourceLink: '前往社区',
+          'Snow Shot（SnowShot）由 mg-chao 维护，源码以 GPL-3.0-or-later 许可证发布在 Snow Apps 官方仓库。那里也提供安装包、更新日志、使用指南和问题反馈入口。',
+        openSourceLink: '访问 Snow Shot 官方 GitHub 仓库',
         openSourceLabel: 'SNOW SHOT / 开源项目',
         openSourceWorkflow: ['截图', '说明', '分享'],
         openSourceNote: '跨平台 · 开放协作 · 持续改进',
@@ -474,21 +475,21 @@ export function HomeLayout() {
         footer: '优雅截图，出色工作。',
       }
     : {
-        titlePrefix: 'Work ',
-        titleAccent: 'elegantly',
-        titleSuffix: ' and',
-        titleSecondLine: 'efficiently, every time',
+        titlePrefix: 'Free, ',
+        titleAccent: 'open-source',
+        titleSuffix: '',
+        titleSecondLine: 'screenshots & recording',
         description:
-          'Capture, annotate, extract text, and record your screen. Turn a moment into something worth sharing.',
-        secondary: 'Explore features',
+          'Snow Shot for Windows and macOS. Annotate captures, take scrolling screenshots, extract text with local OCR, and pin references above your work.',
+        secondary: 'Source & releases on GitHub',
         sectionTitle: 'Make every screenshot work harder.',
         sectionDescription:
           'Capture simply, refine in seconds, and keep every result ready to find or share. Every step is designed for clear communication and excellent work.',
         openSourceEyebrow: 'OPEN SOURCE / BUILT IN THE OPEN',
         openSourceTitle: 'Made for daily work. Shaped in the open.',
         openSourceDescription:
-          'Snow Shot is a cross-platform open-source tool for focused screen work. Capture, annotate, extract text, and record in one calm workflow, with room for the community to make it better.',
-        openSourceLink: 'Visit community',
+          'Snow Shot (SnowShot) is maintained by mg-chao and released under GPL-3.0-or-later in the official Snow Apps repository. Find source code, installers, release notes, user guides and issue tracking together on GitHub.',
+        openSourceLink: 'Visit the official Snow Shot GitHub repository',
         openSourceLabel: 'SNOW SHOT / OPEN SOURCE',
         openSourceWorkflow: ['capture', 'clarify', 'share'],
         openSourceNote:
@@ -503,6 +504,15 @@ export function HomeLayout() {
         footer: 'Screenshot simply. Work excellently.',
       };
   const localizedFeatures = isZh ? features.zh : features.en;
+  const guideBase = `${repositoryUrl}/blob/main/docs/guide/${isZh ? 'zh-CN/' : ''}`;
+  const guides: Record<Feature['visual'], string> = {
+    annotate: 'getting-started.md',
+    organize: 'getting-started.md',
+    capture: 'scrolling-screenshots.md',
+    ocr: 'offline-ocr.md',
+    record: 'pin-and-record.md',
+    pin: 'pin-and-record.md',
+  };
   return (
     <main className="snow-home">
       <section className="snow-hero" id="top">
@@ -521,7 +531,10 @@ export function HomeLayout() {
             <p className="snow-hero__description">{copy.description}</p>
             <div className="snow-hero__actions">
               <DownloadButton isZh={isZh} />
-              <a className="snow-button snow-button--quiet" href="#features">
+              <a
+                className="snow-button snow-button--quiet"
+                href={repositoryUrl}
+              >
                 {copy.secondary}
                 <ArrowIcon />
               </a>
@@ -558,6 +571,12 @@ export function HomeLayout() {
                 <p className="snow-feature-card__eyebrow">{feature.eyebrow}</p>
                 <h3>{feature.title}</h3>
                 <p>{feature.details}</p>
+                <a
+                  className="snow-text-link"
+                  href={`${guideBase}${guides[feature.visual]}`}
+                >
+                  {isZh ? '阅读官方使用指南' : 'Read the official guide'}
+                </a>
               </div>
               <FeatureVisual kind={feature.visual} />
             </article>

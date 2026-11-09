@@ -1,12 +1,16 @@
 import { readFileSync } from 'node:fs';
 import * as path from 'node:path';
 import { defineConfig } from '@rspress/core';
+import { seoBuildPlugin } from './scripts/seo-build';
+import { siteOrigin } from './theme/seo';
 
 export default defineConfig({
   root: path.join(__dirname, 'docs'),
   title: 'Snow Shot',
+  siteOrigin,
+  plugins: [seoBuildPlugin()],
   description:
-    'Snow Shot is a cross-platform screenshot and screen recording tool with annotation and text recognition.',
+    'Snow Shot is a free, open-source screenshot tool for Windows and macOS with annotation, scrolling capture, local OCR, pinning and screen recording.',
   lang: 'en',
   icon: '/app-icon.ico',
   mediumZoom: {
@@ -55,14 +59,14 @@ export default defineConfig({
       label: 'English',
       title: 'Snow Shot',
       description:
-        'Snow Shot is a cross-platform screenshot and screen recording tool with annotation and text recognition.',
+        'Snow Shot is a free, open-source screenshot tool for Windows and macOS with annotation, scrolling capture, local OCR, pinning and screen recording.',
     },
     {
       lang: 'zh',
       label: '简体中文',
       title: 'Snow Shot',
       description:
-        'Snow Shot 是一款跨平台的截图与录屏工具，支持标注和文字识别。',
+        'Snow Shot（SnowShot）是免费开源截图工具，支持 Windows 和 macOS，提供截图标注、滚动长截图、本地 OCR 文字识别、贴图与录屏。下载和使用指南均可从官方 GitHub 仓库获取。',
     },
   ],
   themeConfig: {
