@@ -56,7 +56,7 @@ function Scene({ isZh }: { isZh: boolean }) {
   return (
     <div className="snow-capture-desktop" aria-hidden="true">
       <div className="snow-capture-desktop__menu">
-        <img src="/images/app-icon.png" alt="" width="15" height="15" />
+        <img src="/images/app-icon.webp" alt="" width="15" height="15" />
         <span>Snow Shot</span>
         <span>{isZh ? '项目工作区' : 'Project workspace'}</span>
         <time>09:41</time>

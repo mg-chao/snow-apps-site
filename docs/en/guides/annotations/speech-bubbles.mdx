@@ -1,0 +1,73 @@
+---
+title: "Speech and thought bubbles"
+description: "Add a pointed explanation, choose a speech or thought bubble, adjust its tail, text, fill and stroke, and move or resize the whole bubble."
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Speech and thought bubbles
+
+A bubble combines explanatory text and a pointer in one element, useful for explaining a button or person. Its body and tail are independently adjustable. Use [Text](./text.mdx) for a plain label without a pointer.
+
+## Create a pointed explanation
+
+1. Finish selecting the screenshot region and click **Speech bubble** in the main toolbar.
+2. Choose the body shape and stroke/fill colors. For readable explanations, use a background that contrasts with the text.
+3. Hold the left mouse button in an empty area and drag out the body. Release to create the bubble and tail.
+4. Enter the explanation in the text area that appears. Click outside to finish and check the text layout and body bounds.
+5. Switch to **Select elements**, select the bubble and drag the tail-tip handle toward the target. Deselect to inspect it, then copy or save.
+
+<GuideSteps title="Speech and thought bubbles" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-speech-bubbles-1.svg",
+    "alt": "Drag out the bubble body",
+    "label": "Drag out the bubble body",
+    "caption": "Drag out the bubble body"
+  },
+  {
+    "src": "/images/guides/en/ann-speech-bubbles-2.svg",
+    "alt": "Enter the explanation",
+    "label": "Enter the explanation",
+    "caption": "Enter the explanation"
+  },
+  {
+    "src": "/images/guides/en/ann-speech-bubbles-3.svg",
+    "alt": "Point the tail at the target",
+    "label": "Point the tail at the target",
+    "caption": "Point the tail at the target"
+  }
+]} />
+
+To change an existing object’s tool-specific style, switch back to **Speech bubble**, then click the object to select it again. **Select elements** provides general transforms, stacking and opacity. Switching drawing tools clears the previous selection, so select the object again.
+
+## Body shapes and thought bubbles
+
+The style toolbar offers rectangles, ellipses, diamonds and **Thought bubble**. A thought bubble has a cloud-shaped body. Choose the shape before drawing, or switch to Speech bubble and select an existing bubble before changing it.
+
+Rectangles usually accommodate long explanations more easily; ellipses and diamonds have less usable text space. When adding text, widen the body or reduce the font size and check that the last line remains complete.
+
+![The same text in a rectangular speech bubble and cloud-shaped thought bubble; the thought tail consists of circles](/images/guides/en/ann-audit-bubble-modes.svg)
+
+*With Speech bubble active, select the existing bubble and choose Thought bubble. Its body becomes a cloud and the tail becomes a trail of circles. <a href="/images/guides/en/ann-audit-bubble-modes.svg" target="_blank" rel="noreferrer">Enlarge the comparison</a>.*
+
+## Adjust the tail
+
+Select the bubble with the selection tool to reveal body and tail control points. Drag the tail tip to change its target; drag the tail-base handles to change its width and connection position. Avoid the body’s resize handles unless you intend to resize it.
+
+Drag the body to move the bubble or its edge/corner handles to resize it. After changing the pointer, check that the tail does not cover important content. For a distant target, consider an arrow with separate text.
+
+## Edit text and appearance
+
+In text-editing mode, choose a font, size, text color and alignment. Click outside to finish, then select the body to change stroke, fill or rounded corners. Text style and body background are different controls: fill color is not text color.
+
+The bubble’s dimensions are affected by its text layout. Long lines need enough width; wrapped text needs enough height. Check the text when shrinking a bubble, as well as its border.
+
+## Cancel and correct
+
+Press Esc to cancel an unfinished body. Undo a finished bubble or delete it with the selection tool. If a tail adjustment points the wrong way, undo the last drag and drag the tip again.
+
+**Cannot enter the text:** select the bubble first, then click its text area instead of repeatedly creating bubbles on empty canvas.
+
+**Changing shape only affects new bubbles:** check that selection handles appear on the existing bubble before changing its style.
+
+Related: [Text](./text.mdx) · [Shapes](./shapes.mdx) · [Arrows](./arrows.mdx) · [Element editing](./elements.mdx).

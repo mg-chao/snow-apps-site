@@ -1,0 +1,27 @@
+[
+  {
+    "type": "file",
+    "name": "shortcuts",
+    "label": "快捷键与全局鼠标"
+  },
+  {
+    "type": "file",
+    "name": "appearance",
+    "label": "主题、字体与背景皮肤"
+  },
+  {
+    "type": "file",
+    "name": "toolbars-tray",
+    "label": "工具栏、托盘与悬浮入口"
+  },
+  {
+    "type": "file",
+    "name": "storage-backup",
+    "label": "存储、清理、配置备份与日志"
+  },
+  {
+    "type": "file",
+    "name": "network-integration",
+    "label": "代理、系统集成与 MCP"
+  }
+]

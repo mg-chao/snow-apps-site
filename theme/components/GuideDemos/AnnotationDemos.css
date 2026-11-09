@@ -1,0 +1,96 @@
+.guide-operation-demo {
+  margin: 1.5rem 0;
+  border: 1px solid var(--rp-c-divider);
+  border-radius: 16px;
+  padding: 1rem;
+  color: var(--rp-c-brand, #2877c8);
+  background: var(--rp-c-bg-soft, #f5f7fa);
+}
+.guide-operation-demo svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.guide-operation-demo__label {
+  font-weight: 700;
+  color: var(--rp-c-text-1);
+}
+.guide-operation-demo__paper {
+  fill: var(--rp-c-bg, #fff);
+  stroke: var(--rp-c-divider, #c5cfdb);
+}
+.guide-operation-demo__text {
+  fill: var(--rp-c-text-1, #26354a);
+  font-size: 15px;
+}
+.guide-operation-demo__target {
+  fill: var(--rp-c-bg-soft, #eef4fa);
+  stroke: var(--rp-c-divider, #b4c4d6);
+}
+.guide-operation-demo__handle {
+  fill: var(--rp-c-bg, #fff);
+  stroke: currentColor;
+  stroke-width: 2;
+}
+.guide-operation-demo__status {
+  min-height: 3em;
+  color: var(--rp-c-text-1);
+}
+.guide-operation-demo__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 0.75rem 0;
+  align-items: center;
+  color: var(--rp-c-text-1);
+}
+.guide-operation-demo__controls button,
+.guide-operation-demo__controls select {
+  background: var(--rp-c-bg);
+  color: var(--rp-c-text-1);
+  border: 1px solid var(--rp-c-divider);
+  border-radius: 6px;
+  padding: 0.35rem 0.65rem;
+  min-height: 38px;
+  font: inherit;
+}
+.guide-operation-demo__controls button {
+  cursor: pointer;
+}
+.guide-operation-demo__controls button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.guide-operation-demo__controls label {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  font-size: 0.9rem;
+}
+.guide-operation-demo__controls input[type="range"] {
+  width: 100px;
+}
+.guide-operation-demo figcaption {
+  font-size: 0.85rem;
+  color: var(--rp-c-text-2);
+  line-height: 1.65;
+}
+.guide-operation-demo :focus-visible {
+  outline: 2px solid var(--rp-c-brand);
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .guide-operation-demo {
+    padding: 0.7rem;
+  }
+  .guide-operation-demo__controls {
+    gap: 0.5rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .guide-operation-demo * {
+    animation: none;
+    transition: none;
+    scroll-behavior: auto;
+  }
+}

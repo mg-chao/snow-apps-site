@@ -1,0 +1,62 @@
+---
+title: Shortcuts and global mouse actions
+description: Configure global and application shortcuts and modifier-plus-drag mouse actions in Snow Shot, check registration conflicts, and manage fullscreen disabling.
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Shortcuts and global mouse actions
+
+Global shortcuts work while another application is in front. Application shortcuts work in the relevant Snow Shot editor or window. Global mouse actions turn a modifier-key drag into a capture, recognition, pinning, or recording operation.
+
+![Global shortcuts, application shortcuts, and global mouse actions have different scopes](/images/guides/en/set-shortcuts.svg)
+
+*Instructional illustration. ① Entry from other apps, ② actions in the current tool, ③ drag while holding activation keys.*
+
+## Change a global shortcut
+
+1. Open **Global shortcuts** in the main window and find the task, such as capture, pinning, text recognition, recording, or opening history. Click the key-configuration button on the right of that row to open its configuration window.
+2. Click the binding to change, then press the actual key combination. The captured keys appear in the window. For another binding, click **Add key configuration**, within the number allowed by the interface.
+3. Choose another combination if it conflicts or is unsupported. Repeatedly confirming cannot resolve a duplicate binding. Release the binding from another action or application if necessary.
+4. Click **OK** to apply, or **Cancel** to discard this draft. Back in the list, check the registration state on the configuration button, then switch to another application and test.
+
+The configuration window temporarily releases relevant global keys so entering a new combination does not trigger the old action. Test invocation after saving and closing the window.
+
+| State | Meaning and next step |
+| --- | --- |
+| Registered | The system accepted the configuration; test the action. |
+| Partially registered | Only some bindings succeeded. Inspect the tooltip to distinguish available and failed entries. |
+| Registration failed | Inspect the conflict or system-rejection reason and change that binding. |
+| Not configured | No binding is available yet; add one in the configuration window. |
+| Temporarily disabled | The keys have been deliberately released. Re-enable them or end the disabling condition. |
+
+## Application shortcuts and action state
+
+Open **Settings → Application shortcuts** and use the capture, annotation, pinning, screen-recording, or image-recognition sections. Click the action's binding configuration, press the combination, and confirm, as above.
+
+These keys also depend on the current window and editing state. Recording start/pause/resume responds to the recording state; annotation shortcuts apply in the editing area. A focused text field may use some keys for typing first. Check the current tool's tooltip for your binding.
+
+Windows also offers a **Windows context menu** access key: one unmodified letter A–Z or digit 0–9. It selects an item while the classic context menu is open; it is not another global key combination.
+
+## Configure global mouse dragging
+
+1. Open **Global mouse** in the main window. Find an action such as **Copy to clipboard** or **Pin to screen**, then click its mouse-configuration button on the right.
+2. Select at least one **Activation keys** modifier. Windows offers Windows/Ctrl/Alt/Shift; macOS offers Command/Control/Option/Shift.
+3. Under **Mouse button**, choose a left-, right-, middle-, side-button 1 (Back), or side-button 2 (Forward) drag. Click **OK** to display the combination in the list. Choose **None** to remove the action's combination.
+4. Return to the content to capture. Hold the activation keys first, drag with the configured mouse button to select an area, then release and check the action's result. Test on an unimportant area to confirm the action and scope.
+
+Two actions cannot use the same combination. Change the modifiers or mouse button if prompted. macOS global mouse actions require the relevant system permissions. If the combination is displayed but unresponsive, check app permissions and whether your mouse actually supplies that side button.
+
+<GuideSteps title="Hold the activation keys, drag, then run the action" frames={[
+  {src:'/images/guides/en/set-mouse-drag-1.svg',alt:'Holding configured activation keys and pressing the assigned mouse button',label:'Hold the combination',caption:'Hold your activation keys first, then press the configured mouse button.'},
+  {src:'/images/guides/en/set-mouse-drag-2.svg',alt:'Dragging a rectangular region with the assigned mouse button',label:'Drag the area',caption:'Keep the activation keys held while dragging the area to process.'},
+  {src:'/images/guides/en/set-mouse-drag-3.svg',alt:'Releasing the drag runs Pin to screen and creates a pinned image',label:'Check the result',caption:'Release to run the assigned action. This example pins an image; your combination uses its own configured task.'},
+]} />
+
+## Automatic disabling in fullscreen and manual recovery
+
+The automatic-disabling area on **Global shortcuts** can disable shortcuts while a fullscreen window is in front, with choices for applicable fullscreen-window types. If a shortcut fails in a game or fullscreen application, leave fullscreen or inspect this rule first.
+
+Enabling/disabling global shortcuts is itself an action available from the main interface or tray. The tray icon's disabled marker and each configuration row's state help identify deliberate disabling. For **Temporarily disabled**, re-enable first instead of repeatedly changing keys, then investigate actual conflicts.
+
+Related: [toolbars and tray](./toolbars-tray), [macOS permissions](../getting-started/permissions), and [recording states](../recording/start).

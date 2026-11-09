@@ -1,0 +1,67 @@
+[
+  {
+    "type": "file",
+    "name": "index",
+    "label": "使用手册 · 按任务查找"
+  },
+  {
+    "type": "dir",
+    "name": "getting-started",
+    "label": "开始使用",
+    "collapsed": false
+  },
+  {
+    "type": "dir",
+    "name": "capture",
+    "label": "截图与选区",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "annotations",
+    "label": "绘图与标注",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "image-editing",
+    "label": "图片处理",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "recognition",
+    "label": "识别与转换",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "translation",
+    "label": "翻译",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "pinning",
+    "label": "桌面贴图",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "recording",
+    "label": "屏幕录制",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "output",
+    "label": "保存与管理",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "settings",
+    "label": "设置与集成",
+    "collapsed": true
+  }
+]

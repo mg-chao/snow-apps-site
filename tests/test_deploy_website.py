@@ -20,7 +20,8 @@ COMMIT = "a" * 40
 
 
 def download_page(locale, version=VERSION):
-    repository = "gitee.com" if locale == "zh" else "github.com"
+    repository = ("https://gitee.com/mg-chao/snow-apps" if locale == "zh"
+                  else "https://github.com/mg-chao/snow-shot")
     assets = [
         f"snow-shot-{version}-windows-x64-online.exe",
         f"snow-shot-{version}-windows-x64-offline.exe",
@@ -29,7 +30,7 @@ def download_page(locale, version=VERSION):
         f"snow-shot-mini-{version}-windows-x64-portable.zip",
     ]
     return "Snow Shot " + "".join(
-        f'<a href="https://{repository}/mg-chao/snow-apps/releases/download/'
+        f'<a href="{repository}/releases/download/'
         f'v{version}_snow-shot/{asset}">{asset}</a>' for asset in assets)
 
 
@@ -100,7 +101,8 @@ class DeploymentTests(unittest.TestCase):
 
     def test_deployment_includes_seo_files_and_preserves_existing_services(self):
         names = ('robots.txt', 'sitemap.xml', 'indexnow.txt',
-                 'guides/index.html', 'zh/guides/index.html')
+                 'guides/index.html', 'zh/guides/index.html',
+                 'changelog.html', 'zh/changelog.html')
         for name in names:
             target = self.root / name
             target.parent.mkdir(parents=True, exist_ok=True)
@@ -113,7 +115,8 @@ class DeploymentTests(unittest.TestCase):
         self.assert_preserved()
 
     def test_missing_seo_artifact_stops_packaging(self):
-        for name in ('robots.txt', 'sitemap.xml', 'indexnow.txt', 'guides/index.html'):
+        for name in ('robots.txt', 'sitemap.xml', 'indexnow.txt', 'guides/index.html',
+                     'changelog.html', 'zh/changelog.html'):
             target = self.build / name
             original = target.read_bytes()
             target.unlink()

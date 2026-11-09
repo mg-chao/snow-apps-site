@@ -1,0 +1,48 @@
+---
+title: Microphone, system audio, and webcam
+description: Configure recording audio and separate tracks, check levels and gain, and position, resize, flip, or rotate the webcam before recording in Snow Shot.
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Microphone, system audio, and webcam
+
+The microphone records your voice, system audio records sound played by the computer, and the webcam overlays the presenter on the captured content. Open the [recording setup interface](./start) before configuring these inputs.
+
+![Separate microphone and system-audio controls, with a webcam positioned inside the recording area](/images/guides/en/rec-audio-camera.svg)
+
+*Instructional illustration. ① Microphone, ② system audio, ③ webcam position correspond to the steps below.*
+
+## Include both sound sources
+
+1. In recording **Export settings**, choose **MP4** under **Recording format**. GIF, APNG, and WebP contain no audio, so the sound buttons are disabled for those formats.
+2. Before recording, click **Record microphone** on the toolbar. Its icon shows the enabled state. Speak into the microphone and check the level meter that appears to confirm input.
+3. Click **Record system audio**, then play a short sound on the computer. Check this source's meter before starting the actual recording. A fresh configuration enables system audio and disables the microphone; check your own button states.
+4. Hover over either audio-source button to open its gain popover. Drag its slider to adjust microphone or system-audio gain independently, from **−24 to +24 dB**. Zero adds no gain. Raise low audio moderately, or lower it when the meter is too high or shows clipping. Changing one source does not adjust the other.
+5. Make a short recording, stop it, and play the file. Check your voice, computer audio, and their relative volume before recording the full demonstration.
+
+Enable every required source before starting. A source that was disabled at startup cannot be added during recording; stop and start again to add it. Available controls for sources already enabled can be used during recording. A disabled control does not by itself mean that source is muted.
+
+## Keep audio tracks separate
+
+Enable **Record separate audio tracks** under **Settings → Screen recording → Video & audio** to save system audio and microphone input as separate MP4 tracks. This lets a video editor adjust them independently. Most players play one audio track at a time; if you hear only one source, check the player's track selection. For direct sharing with both sources audible together, keep mixed audio.
+
+## Position the webcam
+
+1. Before starting, open **Export settings** and click **Record webcam**. The webcam preview appears inside the recording area after initialization. Resolve any device error first.
+2. Drag the webcam's position control area to a corner that does not hide your actions. Drag its resize handle to change the size and watch the preview update.
+3. In **Effect settings**, set **Webcam size** between **50 and 500 px**. Use **Webcam shape** to choose a square or circle. A circle suits a face; a square preserves more of the background.
+4. Right-click the webcam image and use **Rotate clockwise**, **Rotate counterclockwise**, **Flip horizontally**, or **Flip vertically** as needed. Inspect the direction in the preview, especially when the background contains text.
+5. Check position, shape, and orientation before starting. Afterwards, check the output file for any important controls covered by the webcam.
+
+<GuideSteps title="Move the webcam, then resize it" frames={[
+  {src:'/images/guides/en/rec-webcam-drag-1.svg',alt:'Webcam at the lower-left corner before recording starts',label:'Check its starting position',caption:'Wait for the webcam preview, then identify important action areas in the frame.'},
+  {src:'/images/guides/en/rec-webcam-drag-2.svg',alt:'Dragging the webcam from the lower-left corner to the right to avoid covering controls',label:'Drag its position',caption:'Move the webcam away from important controls and watch the live preview.'},
+  {src:'/images/guides/en/rec-webcam-drag-3.svg',alt:'Dragging the webcam lower-right handle to enlarge it',label:'Resize and check',caption:'Drag the handle to change the size. Check both size and position before recording.'},
+]} />
+
+## Audio or webcam is unavailable
+
+On macOS, allow microphone, camera, and Screen & System Audio Recording access in system privacy settings, then return to Snow Shot and retry. The app's permissions page helps check related states; camera access is also controlled by system privacy settings. If initialization fails, check that the device is connected and is not exclusively in use by another app, then turn the webcam off and on again.
+
+If the level meter does not move, check the operating system's current input device and volume before raising software gain. For silent playback, check the output format and then separate-track settings. For a silent demonstration, choose an animation and read [formats and export settings](./trim-export).

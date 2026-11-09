@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="430" viewBox="0 0 760 430" role="img" aria-labelledby="title desc" font-family="system-ui,sans-serif">
+  <title id="title">Fill regions: seven categories</title>
+  <desc id="desc">Choose Text, Text in box, Image, Avatar, Icon, Message box or Text block. A click fills the category and restores the menu placeholder.</desc>
+  <rect width="760" height="430" rx="12" fill="#f3f7fc" />
+  <g fill="#24384f">
+    <text x="24" y="35" font-size="25">Fill regions: click to apply</text>
+    <text x="24" y="65" font-size="18" fill="#536c86">Wait for detected regions, then choose a category</text>
+  </g>
+  <rect x="35" y="90" width="290" height="260" rx="8" fill="white" stroke="#b9cce0" />
+  <rect x="44" y="99" width="272" height="33" rx="4" fill="#d8eafb" />
+  <g fill="#24384f" font-size="22">
+    <text x="63" y="124" fill="#2877bd">Text</text>
+    <text x="63" y="160">Text in box</text>
+    <text x="63" y="196">Image</text>
+    <text x="63" y="232">Avatar</text>
+    <text x="63" y="268">Icon</text>
+    <text x="63" y="304">Message box</text>
+    <text x="63" y="340">Text block</text>
+  </g>
+  <path d="M337 115 H400 V154 H433" fill="none" stroke="#2877bd" stroke-width="3" />
+  <path d="M422 147 L435 154 L422 161" fill="none" stroke="#2877bd" stroke-width="3" />
+  <rect x="450" y="132" width="248" height="47" rx="7" fill="white" stroke="#2877bd" />
+  <text x="510" y="163" font-size="23" fill="#2877bd">Fill regions</text>
+  <g fill="#24384f" font-size="21">
+    <text x="373" y="221">Click a category to apply the current filter</text>
+    <text x="373" y="258">The menu returns to “Fill regions”</text>
+    <text x="373" y="295">Open it again for another category</text>
+  </g>
+  <text x="24" y="380" font-size="18" fill="#536c86">Choose the category you want to process.</text>
+  <text x="24" y="412" font-size="15" fill="#536c86">Instructional illustration</text>
+</svg>

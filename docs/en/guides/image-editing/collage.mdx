@@ -1,0 +1,88 @@
+---
+title: Image collage and layout
+description: Combine images vertically, horizontally, or in custom grids; configure uniform or original size, borders, spacing, and background; reorder, position, scale, rotate, flip, and export them.
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Image collage and layout
+
+Collage arranges separate images into one result for tutorial steps, comparisons, or reference collections. Prefer [Scrolling screenshots](../capture/scrolling.mdx) for a continuous page or chat; collage lays out images you already have.
+
+## Combine your first images
+
+1. Search **Stitch selected images** in the main window's **Search function**, select the result to locate its row, then click the action row to open **Image stitching**.
+2. Click **Add images** to choose multiple files, or drag images into the window. Wait for loading.
+3. Under **Image type**, choose **Static image** to preview the composition.
+4. Select vertical or horizontal **Layout direction**. Check output width, height, and image count to confirm every source was added.
+5. Adjust order and spacing, then click **Copy** or **Save as file**. Choose a path and wait for saving.
+
+<GuideSteps title="Arrange an image collage" frames={[
+  {src: '/images/guides/en/img-collage-1.svg', alt: 'Add three source images', label: 'Add three images', caption: 'Add the source images to the composition.'},
+  {src: '/images/guides/en/img-collage-2.svg', alt: 'Drag thumbnails to exchange image order', label: 'Reorder thumbnails', caption: 'Drag one thumbnail onto another to exchange positions.'},
+  {src: '/images/guides/en/img-collage-3.svg', alt: 'Set spacing and background, then export', label: 'Set layout and output', caption: 'Check spacing and background before copying or saving.'}
+]} />
+
+
+## Start from selected files
+
+Assign a nonconflicting global shortcut to **Stitch selected images** under **Global shortcuts**. It has no preset key, so do not substitute the screenshot shortcut. Return to the file manager, select multiple images, and invoke the binding. All images enter one stitching window.
+
+With no images selected, an empty window opens for adding files. On macOS, grant any requested Finder Automation access, then retry. See [Shortcut settings](../settings/shortcuts.mdx) for configuration and conflicts.
+
+<GuideSteps title="Stitch file-manager selections" frames={[
+  {src: '/images/guides/en/img-audit-files-collage-1.svg', alt: 'Configure Stitch selected images without a default binding', label: 'Configure the action', caption: 'Assign a nonconflicting global combination; none is supplied by default.'},
+  {src: '/images/guides/en/img-audit-files-collage-2.svg', alt: 'Select images A and B in the file manager', label: 'Select and invoke', caption: 'Keep the selection and focus in Finder or File Explorer, then invoke the action.'},
+  {src: '/images/guides/en/img-audit-files-collage-3.svg', alt: 'Selected images enter one collage session', label: 'Check the session', caption: 'Stitching combines selected images in one session; editing and splitting use separate windows.'}
+]} />
+
+## Vertical, horizontal, and custom grids
+
+**Vertical** arranges images top to bottom for step-by-step long images. **Horizontal** suits before/after comparisons. **Custom** exposes row and column counts for grids.
+
+After changing rows or columns, check every image occupies the intended cell. **Uniform size** makes a regular arrangement; **Original size** organizes original dimensions. With differing aspect ratios, choose a suitable direction before deciding on cropping within cells.
+
+![The same images arranged vertically, horizontally, and in a custom grid](/images/guides/en/img-audit-layout.svg)
+
+*Instructional illustration. Only direction changes; check order and empty cells.*
+
+In automatic vertical layouts, **Uniform size** scales each image proportionally to the first transformed image's width. Horizontal layouts use the first image's height. **Original size** retains dimensions and centers narrower or shorter images on the cross axis. Keep order and direction fixed when comparing size policies.
+
+![Unequal source sizes in the same vertical layout: uniform width versus original dimensions](/images/guides/en/img-audit-size.svg)
+
+*Instructional illustration. B and C scale relative to the first image while preserving aspect ratio.*
+
+## Border, spacing, and background
+
+**Outer border** is whitespace around the whole result; **Image spacing** separates neighboring images. Both offer pixels or percentages. Check preview and output size after switching units; the same number does not mean the same width.
+
+**Background color** fills whitespace and uncovered areas and can be transparent. Save in a transparency-capable format and inspect the export; an opaque format cannot retain transparent background.
+
+## Reorder and transform individual images
+
+Click a bottom thumbnail to locate its image. Drag a thumbnail onto another to swap order; **Reverse order** reverses the complete sequence.
+
+Select an image in the preview, then:
+
+- **Move or swap**: drag within its cell to position it, or toward another image to swap.
+- **Scale**: drag a selection handle to scale around the center. Enlarged content outside the cell is clipped, letting you emphasize a detail.
+- **Rotate**: use clockwise or counterclockwise 90° actions.
+- **Flip horizontally / vertically**: mirror orientation; text is mirrored too.
+- **Reset transforms**: restore that image's transforms before arranging it again.
+
+The preview wheel changes viewing zoom; middle-button dragging pans. Neither is the same as layout scaling of an individual image.
+
+<GuideSteps title="Scale, position, and orient one image" frames={[
+  {src: '/images/guides/en/img-audit-collage-transform-1.svg', alt: 'Select one image and identify its handles', label: 'Select one image', caption: 'Click the target and confirm the handles belong to that image.'},
+  {src: '/images/guides/en/img-audit-collage-transform-2.svg', alt: 'Enlarge the image around its center; cell boundaries clip overflow', label: 'Scale from the center', caption: 'Drag a handle for proportional center scaling; overflow outside the cell is excluded from output.'},
+  {src: '/images/guides/en/img-audit-collage-transform-3.svg', alt: 'Move image content within its original cell', label: 'Move within the cell', caption: 'Drag the body to change visible content. Dragging onto another image may swap them.'},
+  {src: '/images/guides/en/img-audit-collage-transform-4.svg', alt: 'Compare rotation and horizontal mirroring with an F and an arrow', label: 'Rotation versus mirroring', caption: 'Use directional marks to distinguish rotation from horizontal flipping and avoid mirrored text.'}
+]} />
+
+## Replace, remove, and clear
+
+Thumbnails offer **Replace image** and **Delete image**. Confirm the target before replacing; check order and grid after deletion.
+
+**Clear all** asks for confirmation and removes the current composition. Save it first if needed; also read discard prompts when closing unsaved sessions.
+
+For unreadable files, inspect the error's file list and add usable files again. For oversized compositions or export failures, keep the window, reduce the number of sources or output scale, and retry. For paper documents, use [Images to PDF](./pdf.mdx).

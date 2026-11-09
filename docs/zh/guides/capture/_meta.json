@@ -1,0 +1,37 @@
+[
+  {
+    "type": "file",
+    "name": "basics",
+    "label": "区域、窗口与控件截图"
+  },
+  {
+    "type": "file",
+    "name": "precise-selection",
+    "label": "精确尺寸、比例与选区外观"
+  },
+  {
+    "type": "file",
+    "name": "multiple-regions",
+    "label": "多区域截图与区域组合"
+  },
+  {
+    "type": "file",
+    "name": "irregular-regions",
+    "label": "折线、曲线与自由选区"
+  },
+  {
+    "type": "file",
+    "name": "modes",
+    "label": "延时、直接与重复截图"
+  },
+  {
+    "type": "file",
+    "name": "scrolling",
+    "label": "滚动长截图与拼接检查"
+  },
+  {
+    "type": "file",
+    "name": "color-picker",
+    "label": "屏幕取色与颜色格式"
+  }
+]

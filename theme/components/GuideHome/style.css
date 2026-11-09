@@ -1,0 +1,54 @@
+.snow-guide-home {
+  margin: 1.5rem 0 2.5rem;
+}
+.snow-guide-home__eyebrow {
+  color: var(--rp-c-brand);
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+.snow-guide-home__intro {
+  font-size: 1.65rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.snow-guide-home__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+.snow-guide-home__grid a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1.25rem;
+  text-decoration: none;
+  border: 1px solid var(--rp-c-divider);
+  border-radius: 12px;
+  background: var(--rp-c-bg-soft);
+}
+.snow-guide-home__grid a:hover,
+.snow-guide-home__grid a:focus-visible {
+  border-color: var(--rp-c-brand);
+}
+.snow-guide-home__number {
+  color: var(--rp-c-brand);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}
+.snow-guide-home__grid strong {
+  color: var(--rp-c-text-1);
+  font-size: 1.05rem;
+}
+.snow-guide-home__grid a > span:last-child {
+  font-size: 0.9rem;
+  color: var(--rp-c-text-2);
+}
+@media (max-width: 540px) {
+  h1:has(+ .snow-guide-home) {
+    text-wrap: balance;
+  }
+  .snow-guide-home__grid {
+    grid-template-columns: 1fr;
+  }
+}

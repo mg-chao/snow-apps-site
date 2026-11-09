@@ -1,0 +1,90 @@
+---
+title: "Angle annotations"
+description: "Place the first endpoint, vertex and second endpoint; choose directed or interior angles, degrees or radians, precision, and edit vertices or the angle arc."
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Angle annotations
+
+Angle annotations describe the angle between two sides, useful for geometry, interface rotation and shape relationships. Creation uses **first endpoint → vertex → second endpoint**. The second position is the angle’s center.
+
+## Place the three points in order
+
+1. Choose **Angle annotation** and set angle type and unit in the style toolbar.
+2. Click the outer endpoint of the first side. Its preview follows pointer movement.
+3. Click the **vertex**, where the sides meet, to fix the angle’s center.
+4. Move toward the second side’s outer endpoint, inspect the arc and value, then click to finish.
+5. Switch to Select elements, check all three positions, correct them and copy or save.
+
+<GuideSteps title="Angle annotations" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-angle-1.svg",
+    "alt": "Place the first endpoint",
+    "label": "Place the first endpoint",
+    "caption": "Place the first endpoint"
+  },
+  {
+    "src": "/images/guides/en/ann-angle-2.svg",
+    "alt": "Place the vertex",
+    "label": "Place the vertex",
+    "caption": "Place the vertex"
+  },
+  {
+    "src": "/images/guides/en/ann-angle-3.svg",
+    "alt": "Place the second side and adjust the arc",
+    "label": "Place the second side and adjust the arc",
+    "caption": "Place the second side and adjust the arc"
+  }
+]} />
+
+To change an existing object’s tool-specific style, switch back to **Angle annotation**, then click the object to select it again. **Select elements** provides general transforms, stacking and opacity. Switching drawing tools clears the previous selection, so select the object again.
+
+## 360° and 180° types
+
+**360° angle** is directed and can represent turning within a full revolution. **180° angle** displays the interior angle between the sides. The same three points can show different values depending on type; choose the turning direction or included angle you intend to explain.
+
+For the smaller included angle, start with the 180° type. For a direction of rotation or a turn beyond half a revolution, inspect the 360° preview. You can still select a finished object and change its type.
+
+![The same upward and rightward sides display 270° as a directed angle, 90° as an interior angle, or 4.712 radians](/images/guides/en/ann-audit-angle-types-units.svg)
+
+*Choose the intended directed or interior angle first. Changing units performs a mathematical conversion rather than retaining the same number. <a href="/images/guides/en/ann-audit-angle-types-units.svg" target="_blank" rel="noreferrer">Enlarge the comparison</a>.*
+
+## Units and precision
+
+Choose **Degrees** or **Radians**. Decimal places control the displayed format, from integers to multiple decimal places. Do not read a degree value as the same number of radians; check the unit and resulting label after switching.
+
+Color and stroke width control the sides and arc. On a complex image, use a clearly visible color to locate the vertex and both sides, then choose a suitable final style.
+
+Hold **Shift** while drawing to constrain direction or angle for regular geometry. Without constraints, place points accurately on the original image; do not move them away from the explained edges just for visual neatness.
+
+## Edit the angle and arc
+
+Select the annotation with Select elements and drag its three points to adjust the sides or vertex. Drag the arc control to change its displayed radius. In applicable angle states, the mouse wheel adjusts the preview; inspect the value before finishing.
+
+The following example uses **180° angle (interior angle)** to distinguish arc editing from endpoint editing.
+
+<GuideSteps title="Move the arc or change a side direction" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-audit-angle-edit-1.svg",
+    "alt": "Select the angle arc",
+    "label": "Select the angle arc",
+    "caption": "The two sides are already defined. Select the object and locate its arc control."
+  },
+  {
+    "src": "/images/guides/en/ann-audit-angle-edit-2.svg",
+    "alt": "Drag the arc radially",
+    "label": "Drag the arc radially",
+    "caption": "Drag the arc away from the vertex to increase its radius. The sides and 90° value remain unchanged."
+  },
+  {
+    "src": "/images/guides/en/ann-audit-angle-edit-3.svg",
+    "alt": "Edit a side endpoint",
+    "label": "Edit a side endpoint",
+    "caption": "Drag the second side endpoint to change its direction and the angle value. This differs from changing only the arc radius."
+  }
+]} />
+
+**Moving the text does not change the angle.** If the value is incorrect, first check that the second point is the vertex, then check angle type and unit.
+
+Before all three points are placed, Esc or right-click cancels creation. Undo a finished annotation, or select and delete it. Related: [Distance](./distance.mdx) · [Brackets](./bracket.mdx) · [Element editing](./elements.mdx).

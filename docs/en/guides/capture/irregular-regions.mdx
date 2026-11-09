@@ -1,0 +1,51 @@
+---
+title: Polyline, curve and freehand selections
+description: Switch between rectangle, polyline, curve and freehand capture regions in Snow Shot; complete a closed boundary with clicks, drags or confirmation, remove vertices, and combine added or subtracted areas before export.
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Polyline, curve and freehand selections
+
+When a rectangle includes too much background, trace the content to make an irregular region. This defines a **capture selection**, rather than a polyline annotation drawn over an image. Only content inside the final region is retained.
+
+## Switch the region type
+
+In the capture interface, use the Move style bar to select **Rectangle region**, **Polyline region**, **Curve region** or **Freehand region**. Before confirming a selection, you can also cycle region types: **Control+Tab** by default, or **Control+Shift+Tab** in reverse. On Mac these use the physical **Control** key, rather than Command. The region-type hint updates as you switch.
+
+Switching the type while drawing cancels the unfinished draft. Choose a type before starting so you do not lose a partially traced boundary.
+
+## Polyline: click points and close the boundary
+
+1. Select **Polyline region** and click the first boundary point. Moving the pointer previews the next connecting segment.
+2. Continue clicking along the boundary. Each click fixes a corner. Three points on one straight line are insufficient; the region needs area.
+3. Double-click the final point, or press **Enter** once the boundary is valid. The path closes, its interior is retained and the toolbar becomes available for working with the result.
+4. If a point is wrong, press **Backspace** while still constructing the boundary to remove the last vertex. Press **Esc** to cancel the unfinished draft.
+
+<GuideSteps title="Build an irregular boundary point by point" frames={[
+ {src:'/images/guides/en/cap-irregular-1.svg',alt:'The first and second fixed points of a polyline selection',label:'Start placing points',caption:'Each click fixes a point. Move the pointer to preview the next segment.'},
+ {src:'/images/guides/en/cap-irregular-2.svg',alt:'An open five-vertex path following the target outline',label:'Finish the boundary',caption:'Continue around the outline, then double-click or press Enter to confirm.'},
+ {src:'/images/guides/en/cap-irregular-3.svg',alt:'The closed path retains its interior and excludes the outside',label:'Check the closed region',caption:'Confirm it encloses a valid area, then copy or save the retained content.'},
+]} />
+
+## Curve and freehand regions
+
+**Curve region** also uses successive points, but connects them with curves. It suits softer outlines. Place points around the contour, then double-click or confirm to finish. You do not need closely packed points to imitate every pixel.
+
+For **Freehand region**, hold the left mouse button and drag along the outline. The path appears as you drag; releasing forms the region. If the path does not enclose valid area, no exportable selection results. Trace a complete outline and release again.
+
+For either type, inspect the final closed boundary. Do not assume every indentation is preserved exactly because the pointer passed through it, especially in a fast freehand gesture.
+
+## Add to a selection or cut out part of it
+
+With an existing selection, click **Add screenshot region** or **Subtract screenshot region**, then choose polyline, curve or freehand. Completing the boundary immediately updates the retained area. Esc first exits an unfinished local operation.
+
+For combining and arranging regions, see [multiple regions](./multiple-regions.mdx). Custom regions do not use the rectangular **Corner radius** option. To show a rounded box while retaining the whole screenshot, use a [shape annotation](../annotations/shapes.mdx).
+
+## Obtain the result
+
+Check that the toolbar has returned and no boundary segment awaits completion, then use **Copy to clipboard** or **Save as file**. For transparent areas, choose a format that supports transparency and inspect it in the receiving app. An ordinary saved image contains the combined result, without editable selection vertices.
+
+For an empty selection, check whether the path is just a line, all content has been subtracted or the draft is still unconfirmed. To start again, cancel the draft with Esc, choose the region type and redraw.
+
+Related: [Basic capture](./basics.mdx) · [Exact selections](./precise-selection.md) · [Saving formats](../output/copy-save.md).

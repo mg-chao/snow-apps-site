@@ -10,6 +10,11 @@
     "activeMatch": "/download"
   },
   {
+    "text": "更新日志",
+    "link": "/changelog",
+    "activeMatch": "/changelog"
+  },
+  {
     "text": "关于",
     "link": "/about",
     "activeMatch": "/about"

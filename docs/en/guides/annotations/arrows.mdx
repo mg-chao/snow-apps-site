@@ -1,0 +1,199 @@
+---
+title: "Arrows"
+description: "Create straight, curved and elbow arrows; configure endpoints, shafts, width and outlines; edit endpoints, paths and text for directional callouts and relationship diagrams."
+---
+
+import { ArrowDemo } from '../../../../theme/components/GuideDemos/ArrowDemo';
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Arrows
+
+Use arrows to point at buttons, explain directions or connect related shapes. Snow Shot provides **Straight**, **Curve** and **Elbow** arrows. Start and end symbols are independently configurable.
+
+First [capture a region](../capture/basics.mdx) to show the toolbar, or open a picture in [Image editing](../image-editing/editor.mdx). All operations below use an editable canvas; copying or saving exports the final image including arrows.
+
+## Complete your first arrow
+
+1. Click **Arrow** in the screenshot toolbar. Hover to read icon names; expand its group if needed. The style toolbar changes to arrow controls.
+2. Choose **Straight arrow**, a color that contrasts with the background and an appropriate arrow width.
+3. Hold the left mouse button at the start and drag toward the target. Inspect the path preview and release at the endpoint to finish.
+4. To correct it, switch to **Select elements** and click the arrow. Drag the endpoint handles to move its start or end.
+5. Deselect and check that it does not cover text. Choose **Copy to clipboard** and paste into another app, or **Save as file** and choose a path.
+
+Hold **Shift** while drawing straight or curved arrows to constrain the current segment direction, useful for horizontal, vertical and diagonal connections. Inspect the preview while dragging. Elbow arrows have orthogonal routing and do not use the same angle constraint.
+
+<ArrowDemo />
+
+![A curved arrow and its endpoint rendered by Snow Shot over example text](/images/guides/ann-arrow-engine-result.webp)
+
+*A completed curved arrow over a text example.*
+
+## Choose a path type
+
+| Type | Suitable for | Creation and editing |
+| --- | --- | --- |
+| Straight | Pointing at a location or showing a direct relationship | Drag start to end; select and drag endpoints or path controls |
+| Curve | Avoiding text or separating multiple connections | Drag start to end; select and move the middle path control to change curvature |
+| Elbow | Flowcharts and orderly horizontal/vertical connections | Drag, or click start and end once each; select and drag editable segments to change the route |
+
+To change an existing arrow’s type, choose **Arrow**, click that arrow and confirm its handles appear before changing the arrow style. **Select elements** shows general selection actions rather than the full arrow style toolbar. After switching back to Arrow, select the object again. With nothing selected, style settings affect subsequent arrows. See [Annotation basics](./basics.mdx).
+
+### Create a multipoint path with successive clicks
+
+Straight and curved arrows also support point-by-point creation:
+
+1. **Click** the start without dragging. Moving the mouse previews a connection to the pointer.
+2. **Click** the next position to fix a point. Continue moving and clicking to add more points.
+3. **Double-click** the final position, or right-click once enough points exist to form the path.
+4. If you entered this mode accidentally, press **Esc** to cancel the unfinished path, then create an arrow by dragging instead.
+
+<GuideSteps title="Create a curved arrow point by point: native steps" sourceLabel="In-app steps" frames={[
+  {
+    "src": "/images/guides/ann-arrow-click-native-1.webp",
+    "alt": "A native macOS canvas with Curve arrow selected and no new arrow",
+    "label": "Prepare Curve mode",
+    "caption": "Curve arrow is selected over an example image; no new arrow has been drawn yet."
+  },
+  {
+    "src": "/images/guides/ann-arrow-click-native-2.webp",
+    "alt": "An unfinished native curve preview after clicking start and middle points",
+    "label": "Click successive points",
+    "caption": "Click the start and middle position once each. The unfinished path still previews as the pointer moves."
+  },
+  {
+    "src": "/images/guides/ann-arrow-click-native-3.webp",
+    "alt": "A native curved arrow completed by double-clicking its last point",
+    "label": "Double-click the endpoint",
+    "caption": "Double-click the endpoint to finish. Then select the arrow with Select elements to reveal its three path controls."
+  }
+]} />
+
+*The red arrow is in the white canvas at lower right. On a phone, use “Enlarge current illustration” to inspect its points and path.*
+
+For an elbow arrow, click **once at the start and once at the end**. The second click finishes it; successive clicks do not add bends. Select the finished arrow and drag its editable segments to reroute it.
+
+### The second click finishes an elbow arrow
+
+<GuideSteps title="Elbow arrow: one click at each end" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-audit-elbow-1.svg",
+    "alt": "Click the start",
+    "label": "Click the start",
+    "caption": "In Elbow mode, click the start on empty canvas, then move the pointer toward the intended endpoint."
+  },
+  {
+    "src": "/images/guides/en/ann-audit-elbow-2.svg",
+    "alt": "Move to preview",
+    "label": "Move to preview",
+    "caption": "Move without adding more bends. The orthogonal route previews toward the current endpoint."
+  },
+  {
+    "src": "/images/guides/en/ann-audit-elbow-3.svg",
+    "alt": "Click the end to finish",
+    "label": "Click the end to finish",
+    "caption": "Click the endpoint to finish immediately. Edit the route afterward using its segments."
+  }
+]} />
+
+## Start, end and shaft
+
+![Fourteen endpoint-symbol icons from Snow Shot source, including arrows, bars, circles, triangles, diamonds and crow’s feet](/images/guides/en/ann-arrow-endpoint-icons.svg)
+
+*Compare the end symbols below; the start end has corresponding directions. <a href="/images/guides/en/ann-arrow-endpoint-icons.svg" target="_blank" rel="noreferrer">Enlarge the endpoint reference</a>.*
+
+Open **Start arrowhead** and **End arrowhead** independently. An arrowhead only at the end indicates one-way direction; arrowheads at both ends indicate a bidirectional relationship. Choose None to remove a symbol.
+
+Options include a normal arrow, bar, dot, filled circle, outlined circle, indented triangle, filled/outlined triangles, filled/outlined diamonds and three crow’s-foot symbols. Use the icon and hover tooltip, then check the preview for the intended relationship.
+
+**Arrow shaft type** offers **Plain** and **Tapered**. Tapered shafts work with normal, triangle, outlined-triangle and indented-triangle arrowheads. Switch to Plain before selecting other symbols. If a combination is unavailable, check shaft/endpoint compatibility.
+
+**Arrowhead scale** controls symbol size relative to the shaft. Scroll its numeric control to adjust; click it to reset to 1.0. If the arrowhead covers the target, reduce this scale first. Reduce arrow width as well if the shaft is too thick.
+
+![Actual plain and tapered shafts at the same width, with arrowhead scales 0.5, 1 and 2](/images/guides/ann-arrow-shaft-ratio-engine.webp)
+
+*Compare Plain and Tapered shafts with endpoint scales 0.5, 1 and 2. <a href="/images/guides/ann-arrow-shaft-ratio-engine.webp" target="_blank" rel="noreferrer">Enlarge shaft and endpoint scales</a>.*
+
+## Color, line style and outline
+
+- **Arrow color** changes shaft and endpoint color. The color popup also contains line patterns and drawing styles.
+- **Arrow width** controls main thickness. Thin strokes suit dense interfaces; thicker arrows emphasize presentation targets.
+- **Solid, dashed, dotted** distinguish relationship types without relying only on color.
+- **Architect, Artist, Cartoonist** change the visual drawing style. Architect suits orderly engineering diagrams; the others produce a hand-drawn appearance.
+- **Arrow outline width / Arrow outline color** add an outer border to separate the arrow from complex backgrounds. Width 0 draws none. A dark body with a thin light outline can work on light images.
+
+Before editing an existing arrow’s style, switch to Arrow and click it. Watch both toolbar and object. If only new arrows change, the target is usually not selected.
+
+![Actual solid, dashed and dotted arrows, with no, thin and thick outlines at the same main width](/images/guides/ann-arrow-styles-engine.webp)
+
+*The top row compares line patterns; the bottom row compares outline widths. <a href="/images/guides/ann-arrow-styles-engine.webp" target="_blank" rel="noreferrer">Enlarge the styles</a>.*
+
+## Continue editing after drawing
+
+Choose **Select elements**, click the arrow, then use the appropriate control:
+
+| Change | Gesture | Visible result |
+| --- | --- | --- |
+| Overall position | Drag the shaft away from controls | The whole arrow moves |
+| Target position | Drag a start or end handle | That endpoint follows the pointer; the path updates |
+| Curvature | Drag the middle path control | The curve’s amount and direction change |
+| Elbow routing | Drag an editable segment | The segment moves while connections stay orthogonal |
+| Multipoint path | Drag an existing path point | Adjacent segments follow the point |
+
+Drawing or moving an endpoint near a connectable shape can show snapping feedback. Confirm the connection in the preview. Once bound, moving the shape moves the arrow endpoint with it. To point precisely at image pixels, avoid shape edges that could bind accidentally.
+
+Arrows can carry explanatory text. Choose **Text**, create text on the arrow, enter the content and click outside to finish. Existing text can be re-edited. See [Text](./text.mdx) for multiple lines, backgrounds and font settings.
+
+### Keep the connection and label attached
+
+Snap an endpoint to a shape, then move that shape with Select elements. For a label, choose Text, click the shaft’s middle, type and click outside to finish.
+
+<GuideSteps title="Bind shapes and add an attached label" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-audit-binding-label-1.svg",
+    "alt": "Connect at the shape edge",
+    "label": "Connect at the shape edge",
+    "caption": "Bring the endpoint near the shape edge while drawing and confirm the snapping preview."
+  },
+  {
+    "src": "/images/guides/en/ann-audit-binding-label-2.svg",
+    "alt": "Move the connected shape",
+    "label": "Move the connected shape",
+    "caption": "Move the right-hand shape. Its bound arrow endpoint follows, while the left connection remains."
+  },
+  {
+    "src": "/images/guides/en/ann-audit-binding-label-3.svg",
+    "alt": "Add text to the arrow",
+    "label": "Add text to the arrow",
+    "caption": "Enter text for the selected arrow and type a short label. A caret represents active input here."
+  },
+  {
+    "src": "/images/guides/en/ann-audit-binding-label-4.svg",
+    "alt": "Finish and move again",
+    "label": "Finish and move again",
+    "caption": "Finish input and move the shape again. The arrow and attached label update together; inspect the result before export."
+  }
+]} />
+
+## Cancel, undo and export
+
+**Esc** cancels an unfinished path; **Undo** reverses an incorrect finished arrow. Select one arrow with **Select elements**, then press **Delete / Backspace** or choose **Delete selected elements**. Keep other annotations rather than recapturing everything.
+
+Finish adjustments before export. Copy to clipboard and Save as file produce an image. Keep the editing window open to retain editable arrows. To duplicate an arrow’s style and position within the canvas, use **Copy selected elements**, which differs from copying the final screenshot.
+
+## Common questions
+
+**A segment keeps following the mouse after a click.** Point-by-point drawing is still active. Add points and double-click to finish, or Esc to cancel and draw by dragging.
+
+**Clicks do not add bends in Elbow mode.** Elbow arrows use two endpoints and orthogonal routing. Select the finished arrow and edit its segments rather than using multipoint creation.
+
+**The endpoint symbol cannot combine with the shaft.** Tapered shafts support limited symbols. Switch to Plain first.
+
+**Editing a curve moves the whole arrow.** Select it, then drag a control rather than the line body. Zoom in to distinguish endpoints and the middle point.
+
+Continue with [Lines](./lines.mdx), [Shapes](./shapes.mdx), [Element editing](./elements.mdx) or [Saving and output](../output/copy-save.md).
+
+## Find the control point handles
+
+![A selected curved arrow with endpoint and middle controls in Snow Shot on macOS, with toolbars in the same image](/images/guides/ann-arrow-native-edited.webp)
+
+*The thin red arrow was created by dragging, then curved by moving its middle control. The thick purple arrow is part of the background image.*

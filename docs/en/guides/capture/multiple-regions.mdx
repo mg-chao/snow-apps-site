@@ -1,0 +1,52 @@
+---
+title: Multiple regions and region combinations
+description: Add and subtract capture regions in Snow Shot, move one region or the whole group, duplicate the last region, and arrange separate content using compact layout, spacing and background opacity before checking the combined output.
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Multiple regions and region combinations
+
+Combine regions in one capture when you need only several pieces of a window, or want to exclude part of a selection. Every region comes from the current captured screen. To combine different files or content from different times, use [collage](../image-editing/collage.mdx).
+
+## Add a second region
+
+1. Use the screenshot shortcut (**F1** on Windows or **Control+1** on macOS by default) and select the first piece. Switch to **Move**. Its style bar shows add, subtract and region-shape controls.
+2. Click **Add screenshot region** and choose a rectangle or another region type. Hold the left button to select the second piece, then release to add it to the current selection.
+3. Check that both pieces remain. Drag inside a retained region to move that piece. To move the whole group, hold the default **Space** key during the drag, then release it.
+4. Continue adding regions, or return to Move to arrange them. If you change your mind during an add operation, press **Esc** to cancel that operation; the existing regions remain available.
+
+<GuideSteps title="Add, subtract and arrange regions" frames={[
+ {src:'/images/guides/en/cap-multiple-1.svg',alt:'First retained rectangular region A',label:'Select the first piece',caption:'Create a selection, then use the region controls in Move.'},
+ {src:'/images/guides/en/cap-multiple-2.svg',alt:'Second retained region B added with Add screenshot region',label:'Add a region',caption:'Click Add screenshot region and select B. Both areas contribute to output.'},
+ {src:'/images/guides/en/cap-multiple-3.svg',alt:'Subtracting a corner from region B',label:'Subtract content',caption:'Choose Subtract screenshot region, then draw the area to exclude.'},
+ {src:'/images/guides/en/cap-multiple-4.svg',alt:'Compact layout brings A and B together with spacing',label:'Arrange the layout',caption:'Enable compact layout and adjust spacing. Check the arrangement before copying.'},
+]} />
+
+## Subtract unwanted content
+
+Click **Subtract screenshot region** and draw the area to exclude inside the current selection. Once complete, that area no longer belongs to the retained regions. Rectangles, polylines, curves and freehand regions have different completion gestures; see [irregular regions](./irregular-regions.mdx).
+
+Subtracting an area that does not intersect a retained region will not produce the expected change. To restore content, cancel an unfinished region operation first. For a committed change, reselect or add the content you need. Region combinations do not recognize or replace the background of an excluded area.
+
+## Move and quickly duplicate a region
+
+In multiple-region mode, Move targets individual retained regions. A gap between pieces is not automatically a draggable region. Put the pointer inside a piece to move it. Hold the **Move entire selection** key (Space by default) while dragging to move the group; release it to return to individual movement. Hold **Ctrl on Windows or Command on macOS** while moving one region to enable snapping, and watch for edge alignment before releasing.
+
+Put the pointer where you want a copy, then press the default **R** key. This duplicates the **most recently created region bounds**, centers the new region near the pointer and keeps it within screen bounds. It works only with multiple regions, Move active, and no drawing or drag in progress. In an ordinary single selection, R has a previous-selection reuse context; its behavior depends on the current state.
+
+## Compact layout, spacing and background
+
+**Compact layout** brings retained content together to reduce the gaps from its original positions. With it enabled, scroll over **Layout spacing** to adjust the gap; click the value to reset it to 0. This control applies only to multiple regions, so it is expected to be unavailable for a single region.
+
+**Selection background opacity** controls the background outside the regions but inside the combined bounding area. Scroll over the value to adjust it; click to reset to **0%**. For transparency, save in a format that supports it and inspect the image in a viewer. A chat or document app may display transparent areas using its own background color.
+
+![Actual Snow Shot output showing two separate rectangles without the original content between them](/images/guides/cap-regions-engine-result.webp)
+
+*Actual output: both regions appear in one image, with the original content between them excluded.*
+
+## Check before exporting
+
+Before **Copy to clipboard** or **Save as file**, check that text is not clipped, spacing is suitable and excluded content is absent. Export produces one combined image; an ordinary image file cannot restore the regions as independently editable objects.
+
+For complex arrangements, flips or several source images, continue with [collage](../image-editing/collage.mdx). To add an arrow or note to one piece, finish arranging the regions, then use the [annotation tools](../annotations/basics.mdx).

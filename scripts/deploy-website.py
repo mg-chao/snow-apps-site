@@ -18,17 +18,21 @@ import uuid
 
 
 OWNED = frozenset({
-    "index.html", "404.html", "about.html", "download.html", "privacy.html", "terms.html",
+    "index.html", "404.html", "about.html", "changelog.html", "download.html", "privacy.html", "terms.html",
     "app-icon.ico", "app-icon.svg", "static", "images", "zh",
     "website-release.json", "guides", "robots.txt", "sitemap.xml", "indexnow.txt",
 })
 REQUIRED = {
-    "index.html", "download.html", "privacy.html", "terms.html",
-    "zh/index.html", "zh/download.html", "zh/privacy.html", "zh/terms.html",
+    "index.html", "changelog.html", "download.html", "privacy.html", "terms.html",
+    "zh/index.html", "zh/changelog.html", "zh/download.html", "zh/privacy.html", "zh/terms.html",
     "guides/index.html", "zh/guides/index.html", "robots.txt", "sitemap.xml", "indexnow.txt",
 }
 RECEIPT = "website-release.json"
 INSTALLER_SIZE_LIMIT = 1048576
+RELEASE_REPOSITORIES = {
+    "en": "https://github.com/mg-chao/snow-shot",
+    "zh": "https://gitee.com/mg-chao/snow-apps",
+}
 
 
 class InstallerRedirectHandler(HTTPRedirectHandler):
@@ -43,8 +47,8 @@ def validate_release_installer(version):
     validate_version(version)
     opener = build_opener(InstallerRedirectHandler())
     scripts = []
-    for host in ("github.com", "gitee.com"):
-        url = (f"https://{host}/mg-chao/snow-apps/releases/download/"
+    for repository in RELEASE_REPOSITORIES.values():
+        url = (f"{repository}/releases/download/"
                f"v{version}_snow-shot/install-snow-shot-macos.sh")
         try:
             with opener.open(url, timeout=30) as response:
@@ -77,8 +81,8 @@ class DownloadLinks(HTMLParser):
 
 def validate_download_page(html, version, locale):
     """Check the default Windows cards rendered in each public download page."""
-    repository = "gitee.com" if locale == "zh" else "github.com"
-    base = f"https://{repository}/mg-chao/snow-apps/releases/download/v{version}_snow-shot"
+    repository = RELEASE_REPOSITORIES[locale]
+    base = f"{repository}/releases/download/v{version}_snow-shot"
     assets = (
         f"snow-shot-{version}-windows-x64-online.exe",
         f"snow-shot-{version}-windows-x64-offline.exe",

@@ -1,0 +1,89 @@
+---
+title: "Annotation basics and shared styles"
+description: "Find annotation tools in screenshot, image editing and pinned-image canvases; distinguish creation defaults from selected-object styles, adjust colors and opacity, undo edits and export the result."
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Annotation basics and shared styles
+
+After selecting a screenshot region, use shapes, arrows, brushes and text to annotate the current image. Finish the capture selection first. To work on an existing picture, start with [Image editing](../image-editing/editor.mdx).
+
+## Understand the two toolbars
+
+The **main toolbar** selects tools and output actions, including shapes, arrows, text, Undo and Copy to clipboard. The **style toolbar** changes with the current tool and selection, showing colors, widths, fonts and other parameters. Icon positions are customizable: expand the group and hover over an icon to read its name.
+
+1. With a screenshot region selected, click **Shape**. The style toolbar shows shape, stroke width, stroke color and fill controls.
+2. Drag a rectangle on the canvas and release the left mouse button. The annotation remains editable.
+3. Keep **Shape** active and click the rectangle’s border. Once handles appear, change its stroke color in the style toolbar; the existing rectangle changes.
+4. Click empty space to deselect, then return to Shape. Settings now apply to objects you draw next.
+
+<GuideSteps title="Annotation basics and shared styles" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-basics-1.svg",
+    "alt": "Choose a drawing tool",
+    "label": "Choose a drawing tool",
+    "caption": "Choose a drawing tool"
+  },
+  {
+    "src": "/images/guides/en/ann-basics-2.svg",
+    "alt": "Select an existing rectangle",
+    "label": "Select an existing rectangle",
+    "caption": "Select an existing rectangle"
+  },
+  {
+    "src": "/images/guides/en/ann-basics-3.svg",
+    "alt": "Change the style and export",
+    "label": "Change the style and export",
+    "caption": "Change the style and export"
+  }
+]} />
+
+## Edit with the matching tool
+
+**Select elements** provides stacking, alignment, duplication, deletion and opacity. For a tool-specific property such as color, width or arrow type, switch to the matching drawing tool and click the existing object. Switching tools clears the previous selection.
+
+Within the matching tool, selection determines the target. With **nothing selected**, settings apply to newly created annotations. With **objects selected**, applicable properties change those objects. Selecting objects with different values may show a “mixed” value.
+
+If changing a color has no visible effect, check that the target has a selection outline. If you accidentally change a whole group, undo, click empty space to clear the selection, then select only the intended object.
+
+## Colors, strokes and fills
+
+| Control | What it changes | How to use it |
+| --- | --- | --- |
+| Stroke color | Shape borders or the main line | Click the swatch and choose a preset or custom color |
+| Stroke width | Border or brush thickness | Choose a width, inspect the preview, then draw |
+| Solid, dashed, dotted | The line’s dash pattern | Open the line-style options in the stroke-color panel, where supported |
+| Architect, Artist, Cartoonist | Precise or hand-drawn appearance | Choose the corresponding drawing style |
+| Fill color | Shape interiors | Use transparent fill for an outline; a colored fill covers content inside |
+| Fill pattern | Solid, diagonal hatching, cross-hatching and other interior effects | Choose a supported fill pattern and check its contrast against the background |
+| Opacity | Visibility of selected elements | Switch to Select elements and drag the opacity slider in its toolbar |
+
+Available parameters differ by tool: text has font and alignment, filters have intensity, and distance annotations have units. Follow the individual tutorial; shape-fill settings do not apply to every tool.
+
+## Drawing and selection preferences
+
+Search Settings for these options to change selection behavior:
+
+- **Automatically select newly created elements**: select a new object while keeping the current drawing tool.
+- **Tools excluded from automatic selection**: exclude tools from that behavior, useful for drawing several strokes in a row.
+- **Tools that forbid quick selection of same-type elements**: tools in this list do not select an old object with a left click, avoiding accidental selection while drawing. Brush and brush filter are included by default. To edit them by clicking with the same tool, remove the relevant tool from this list first, then return to the canvas.
+- **Remember last used tool**: reuse the last tool for a new screenshot or pinned-image annotation session; when disabled, start with Move. Check the active tool before drawing.
+- **Keep group main buttons visible**: keep the group’s first button visible; otherwise the most recently used member can appear. Expand the group if a tool seems missing.
+- **Stroke color presets / Fill color presets**: customize commonly used swatches, then choose them in the corresponding color panel.
+
+These settings do not turn the general Select elements toolbar into an arrow or text style toolbar. For specific styles, use “switch to the matching tool → select the object again → adjust the property.” See [Annotation settings](../settings/toolbars-tray.mdx#annotation-selection-remembered-tools-and-color-presets) for the complete settings entry points.
+
+## Undo, redo and cancel
+
+Click **Undo** to reverse the last completed edit, or **Redo** to restore the last undone action. Recover accidental deletion, movement or style changes without taking another screenshot.
+
+During drawing, **Esc** cancels the unfinished interaction. In the screenshot interface it can also leave the current state, so repeated Esc presses do not replace a single Undo. Finish or leave text input before using canvas operations.
+
+## Check and export
+
+Deselect objects and check edges, small text and covered regions. **Copy to clipboard** exports the whole result; **Save as file** lets you choose a path. **Copy selected elements** in the selection toolbar duplicates annotations within the canvas; it does not send the final screenshot to another app.
+
+Exported pictures combine shapes, text and background pixels. Keep the current editing window open if you need editable objects; reopening the exported image cannot restore each annotation’s control points.
+
+Continue with [Shapes](./shapes.mdx), [Arrows](./arrows.mdx), [Text](./text.mdx) or [Selecting and editing elements](./elements.mdx).

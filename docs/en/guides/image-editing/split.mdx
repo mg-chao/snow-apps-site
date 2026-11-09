@@ -1,0 +1,74 @@
+---
+title: Split images and edit cut lines
+description: Split images vertically, horizontally, or in grids using smart, equal, or precise modes; set overlap, add or edit ruler cut lines, save slices, and send them to PDF layout.
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Split images and edit cut lines
+
+Image splitting cuts one long or large image into separate files. Smart splitting finds likely boundaries; equal and precise splitting create lines from counts or dimensions. Inspect every result before exporting.
+
+## Import and create a split
+
+1. Search **Split selected images** in the main window's **Search function**, select the result, and click the action row to open **Image splitting**. Click **Select image** or drag in one image file. Each window handles one image.
+2. Wait for display and choose **Split direction**: vertical, horizontal, or grid.
+3. Under **Split type**, choose Smart, Equal, or Precise splitting. Smart splitting shows a search state before preview lines appear.
+4. Check the image count and cut positions. Zoom in to ensure no line crosses essential text or objects.
+5. Adjust lines, click **Save all**, select a destination folder, and wait for every image to save.
+
+<GuideSteps title="Create and correct image splits" frames={[
+  {src: '/images/guides/en/img-split-1.svg', alt: 'Choose splitting mode to generate cut lines', label: 'Generate cut lines', caption: 'Select a splitting method and inspect its proposed boundaries.'},
+  {src: '/images/guides/en/img-split-2.svg', alt: 'Add a line on the ruler and drag to correct its position', label: 'Correct the lines', caption: 'Add or move cut lines with the ruler.'},
+  {src: '/images/guides/en/img-split-3.svg', alt: 'Save slices or send them to PDF layout', label: 'Save or create a PDF', caption: 'Check the slices, then save them or arrange them as a PDF.'}
+]} />
+
+
+## Start from selected files
+
+Find **Split selected images** under **Global shortcuts** and assign a nonconflicting combination. There is no preset binding; the screenshot shortcut does not substitute for it. Return to the file manager, select one or more images, and invoke the action. Each image opens in a separate splitting window.
+
+With no images selected, an empty window opens where you can add one. On macOS, follow any request for Finder Automation access and retry. See [Shortcut settings](../settings/shortcuts.mdx).
+
+<GuideSteps title="Split file-manager selections" frames={[
+  {src: '/images/guides/en/img-audit-files-split-1.svg', alt: 'Configure a separate Split selected images action', label: 'Configure the action', caption: 'Assign a nonconflicting global combination; there is no default binding.'},
+  {src: '/images/guides/en/img-audit-files-split-2.svg', alt: 'Select image files in Finder or File Explorer', label: 'Select and invoke', caption: 'Keep the source selection and file-manager focus, then invoke the action.'},
+  {src: '/images/guides/en/img-audit-files-split-3.svg', alt: 'Each selected image opens in its own splitting window', label: 'Check the windows', caption: 'Stitching uses one session; editing and splitting use one independent window per image.'}
+]} />
+
+## Split by content, count, or dimensions
+
+| Mode | Input or basis | Suitable use |
+| --- | --- | --- |
+| Smart | Image content and whitespace boundaries | Long articles or chats, with manual review |
+| Equal | Image count or grid rows and columns | Similarly sized slices |
+| Precise | Width or height per image, in pixels or percentages | Required dimensions or page lengths |
+
+For vertical long-image splits, focus on slice height; for horizontal splits, width; for grids, both axes. Follow field validation such as positive integers or a minimum of 16 pixels, then check that the preview is valid again.
+
+## Correct cut lines with rulers
+
+1. Click a target position on a preview ruler to add a cut line.
+2. Drag an existing line while watching its coordinate; avoid text and object centers.
+3. Click a line to select it and press **Delete** to remove it.
+4. Middle-drag to pan and scroll to zoom. Click **Fit canvas** to regain the full view.
+
+Retain sensible smart-generated lines and add or move others. Automatic results still require checking.
+
+## Overlap and undo
+
+**Overlap width** retains an extra shared band of pixels around neighboring boundaries, useful for continuity in long images. Zero adds no overlap; check for excessive repeated content as you increase it.
+
+Use **Undo / Redo** after cut-line edits. **Reload** opens image selection to reselect or replace the source. Decide whether you need to retain manual edits first. Replacing prompts that current splitting edits will be discarded; read it before confirming.
+
+![A cut between C and D: without overlap slices separate; with overlap both retain content around the boundary](/images/guides/en/img-split-overlap.svg)
+
+*Instructional illustration. A row represents a band of overlap pixels. <a href="/images/guides/en/img-split-overlap.svg" target="_blank" rel="noreferrer">View the overlap diagram at full size</a>.*
+
+## Save or create a PDF
+
+**Save all** shows “Saving images: completed / total.” Completion reports the saved count and directory. If only some slices save, check failures and existing files before retrying; partial success is not a complete result.
+
+Click **Stitch as PDF** to send slices into PDF layout. Check page order and paper in the new preview before exporting; see [Images to PDF](./pdf.mdx). If image stitching is busy, wait for its current task and retry.
+
+Related: [Image editing](./editor.mdx), [Scrolling screenshots](../capture/scrolling.mdx), and [Image collage](./collage.mdx).

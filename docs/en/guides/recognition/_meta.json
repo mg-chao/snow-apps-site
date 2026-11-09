@@ -1,0 +1,32 @@
+[
+  {
+    "type": "file",
+    "name": "text",
+    "label": "Text recognition and cleanup"
+  },
+  {
+    "type": "file",
+    "name": "models",
+    "label": "OCR models and offline preparation"
+  },
+  {
+    "type": "file",
+    "name": "table",
+    "label": "Table recognition and cell editing"
+  },
+  {
+    "type": "file",
+    "name": "barcode",
+    "label": "Barcode and QR code recognition"
+  },
+  {
+    "type": "file",
+    "name": "formula",
+    "label": "LaTeX formula recognition"
+  },
+  {
+    "type": "file",
+    "name": "image-conversion",
+    "label": "Convert images to Markdown and HTML"
+  }
+]

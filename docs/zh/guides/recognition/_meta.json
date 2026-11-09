@@ -1,0 +1,32 @@
+[
+  {
+    "type": "file",
+    "name": "text",
+    "label": "文本识别与结果整理"
+  },
+  {
+    "type": "file",
+    "name": "models",
+    "label": "OCR 模型与离线准备"
+  },
+  {
+    "type": "file",
+    "name": "table",
+    "label": "表格识别与单元格编辑"
+  },
+  {
+    "type": "file",
+    "name": "barcode",
+    "label": "条码与二维码识别"
+  },
+  {
+    "type": "file",
+    "name": "formula",
+    "label": "LaTeX 公式识别"
+  },
+  {
+    "type": "file",
+    "name": "image-conversion",
+    "label": "图片转换为 Markdown 与 HTML"
+  }
+]

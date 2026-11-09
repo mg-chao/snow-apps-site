@@ -1,0 +1,92 @@
+---
+title: "Sequence numbers and step descriptions"
+description: "Place sequential badges, choose circle or square styles and Arabic, Roman, alphabetic or Chinese numbering, adjust values and fonts, and add associated explanatory text."
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Sequence numbers and step descriptions
+
+Sequence numbers mark the order of several locations in a screenshot. Each placement creates an independent badge: continue numbering automatically or edit one badge individually.
+
+## Place a series of steps
+
+1. Click **Sequence number** in the screenshot toolbar.
+2. Choose badge appearance and number format, such as a filled circle with Arabic numbers, then set font size and color.
+3. Click the first location to place a badge, then click the second and third locations to place subsequent numbers.
+4. To change the next starting value, adjust the current number in the value control before placing another badge.
+5. Switch to Select elements, move badges away from button labels, check the order and copy or save.
+
+<GuideSteps title="Sequence numbers and step descriptions" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-sequence-1.svg",
+    "alt": "Choose appearance and numbering",
+    "label": "Choose appearance and numbering",
+    "caption": "Choose appearance and numbering"
+  },
+  {
+    "src": "/images/guides/en/ann-sequence-2.svg",
+    "alt": "Click to place successive numbers",
+    "label": "Click to place successive numbers",
+    "caption": "Click to place successive numbers"
+  },
+  {
+    "src": "/images/guides/en/ann-sequence-3.svg",
+    "alt": "Drag out an associated description",
+    "label": "Drag out an associated description",
+    "caption": "Drag out an associated description"
+  }
+]} />
+
+To change an existing object’s tool-specific style, switch back to **Sequence number**, then click the object to select it again. **Select elements** provides general transforms, stacking and opacity. Switching drawing tools clears the previous selection, so select the object again.
+
+## Appearance and numbering formats
+
+**Badge appearance** includes outlined circle, filled circle, outlined square, filled square and Circle. The first four display numbers. **Circle** is an unnumbered marker; number format, value and font controls are disabled for it. Outlined styles preserve more background; filled styles suit complex images. Keep text and background sufficiently distinct.
+
+**Number format** includes Arabic numbers, Roman numerals, lowercase letters, uppercase letters and Chinese numerals. Choose one consistent scheme for the task rather than mixing formats within a series.
+
+Scroll the value control to adjust the current number. To change an existing badge, return to Sequence number, click it and adjust the value while watching that badge. Before continuing automatic placement, deselect and check the current creation value.
+
+Right-click truly empty canvas with Sequence number active to reset the next value in the current numeric format to 1. Existing badges remain unchanged. Right-clicking an old object temporarily selects it instead; unnumbered Circle does not use this reset.
+
+<GuideSteps title="Reset subsequent numbering to 1 on empty canvas" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-audit-serial-reset-1.svg",
+    "alt": "Existing badges 1, 2 and 3",
+    "label": "Existing badges 1, 2 and 3",
+    "caption": "Three badges already exist in the current format. Start a new series without changing them."
+  },
+  {
+    "src": "/images/guides/en/ann-audit-serial-reset-2.svg",
+    "alt": "Right-click truly empty canvas",
+    "label": "Right-click truly empty canvas",
+    "caption": "Keep Sequence number active and right-click where there is no object. The next value resets to 1; old numbers stay unchanged."
+  },
+  {
+    "src": "/images/guides/en/ann-audit-serial-reset-3.svg",
+    "alt": "Click to place a new 1",
+    "label": "Click to place a new 1",
+    "caption": "Click another location to place the new 1. Right-clicking an existing object selects it instead of resetting the next value."
+  }
+]} />
+
+## Drag out an associated description
+
+When placing a number, hold the left mouse button and drag from the badge position toward the desired description location. Release to enter associated text. Type a short explanation and click outside to finish; badge and description together explain the operation at that location.
+
+Click without dragging if you only need a number. Existing associated text can be edited through the corresponding text operations. See [Text](./text.mdx) for fonts and layout.
+
+## Color and size
+
+The style toolbar sets number color, font, size, background and applicable strokes. Font size affects badge size. If a badge covers a button, move it beside the button before reducing its size. Multiselect badges to give them a consistent appearance.
+
+The badge background is not the source image. Select the badge before changing its colors; without a selection, settings affect future badges.
+
+## Correct a misplaced number
+
+Select the badge and drag it into place, or choose Delete selected elements. Undo accidental deletion. To insert a step, adjust the value, place a new badge and check the existing numbering individually. Do not assume deleting a middle step renumbers everything else.
+
+If a click creates unwanted associated text, undo and use a press followed immediately by release without dragging. Check that every badge leaves important content visible before exporting.
+
+Related: [Text](./text.mdx) · [Element editing](./elements.mdx) · [Annotation templates](./templates.mdx).

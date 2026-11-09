@@ -1,0 +1,55 @@
+---
+title: Full-screen canvas and laser pointer
+description: Annotate the current screen on Snow Shot's transparent canvas, use click-through to operate applications underneath, point with the laser effect, understand canvas limitations, and remove marks or exit.
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Full-screen canvas and laser pointer
+
+The full-screen canvas overlays the screen for live explanations. It provides a transparent drawing layer: applications underneath continue running, while annotations belong to Snow Shot.
+
+## Start a screen explanation
+
+1. Launch **Full-screen canvas** from Snow Shot's feature entry. An independent floating toolbar appears.
+2. Choose a brush, shape, arrow, or text tool and draw on screen. Mouse input initially goes to the canvas for creating and editing marks.
+3. Use **Select elements** to move, delete, or change existing annotations. General rules match screenshot annotation.
+4. Enable **Mouse click-through** on the toolbar to operate slides, pages, or software underneath.
+5. Disable click-through when finished operating the source and continue annotating.
+
+<GuideSteps title="Present with a full-screen canvas" frames={[
+  {src: '/images/guides/en/img-canvas-1.svg', alt: 'Open a transparent drawing layer over the screen', label: 'Open the drawing layer', caption: 'Draw annotations on the transparent overlay.'},
+  {src: '/images/guides/en/img-canvas-2.svg', alt: 'Enable click-through to operate the underlying application', label: 'Operate underneath', caption: 'Enable click-through before clicking the application below.'},
+  {src: '/images/guides/en/img-canvas-3.svg', alt: 'Use the laser pointer, then exit the canvas', label: 'Point and finish', caption: 'Use a temporary pointer effect and exit when the explanation is complete.'}
+]} />
+
+
+## Click-through state
+
+With click-through off, the pointer draws or selects canvas objects. With it on, the drawing layer does not receive that mouse input and clicks go to the application underneath. The toolbar remains the entry for returning to drawing.
+
+The toolbar may fade while idle in click-through mode and return when pointed at. If annotations suddenly cannot be selected, check click-through first, then confirm Select elements is active.
+
+Existing annotations do not understand or track objects in the underlying application. Recheck their positions after scrolling or changing slides; delete outdated marks and draw again as needed.
+
+## Use the laser pointer
+
+Toggle **Laser pointer** on the toolbar to show a pointing effect as the pointer moves. It briefly directs attention without accumulating permanent strokes. Toggle it again to disable.
+
+Use brushes, arrows, or text for persistent explanations, and the laser pointer for temporary attention. If the laser effect is unavailable, turn it off and continue with ordinary annotation.
+
+## Tools and limits
+
+The full-screen canvas reuses many drawing and element-editing tools, but **does not provide Auto filter or Magnifier**. Capture a static image first for those tools.
+
+The canvas covers the current screen for viewing and editing; it is not itself a saved screenshot. Use screenshot capture and saving for a finished image, or [Screen recording](../recording/start.mdx) for continuous demonstration video.
+
+## Clear and exit
+
+Marquee-select unwanted marks with Select elements and click Delete selected elements; Undo restores accidental deletion. Click **Exit** on the toolbar or press Esc in canvas state to finish. Retain needed explanations through a suitable recording or capture method before exiting.
+
+**The mouse keeps operating underlying windows**: click-through is enabled; disable it on the toolbar.
+
+**Underlying windows cannot be clicked**: the canvas is receiving input; enable click-through first.
+
+Related: [Annotation basics](../annotations/basics.mdx), [Brushes](../annotations/brush.mdx), and [Element editing](../annotations/elements.mdx).

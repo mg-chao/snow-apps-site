@@ -1,15 +1,18 @@
 // Learn how to customize the theme: https://rspress.rs/guide/basic/custom-theme
 import './index.css';
+import './components/GuideHome/style.css';
 
 import { useLang } from '@rspress/core/runtime';
 import { Layout as OriginalLayout } from '@rspress/core/theme-original';
 import { SeoMetadata } from './components/SeoMetadata';
+import { GuideLanguages } from './components/GuideLanguages';
 
 export * from '@rspress/core/theme-original';
 export { AboutPage } from './components/AboutPage';
 export { DownloadPage } from './components/DownloadPage';
 export { HomeLayout } from './components/HomeLayout';
 export { SwitchAppearance } from './components/SwitchAppearance';
+export { Nav } from './components/GuideNav';
 
 function SnowNavTitle() {
   const lang = useLang();
@@ -34,9 +37,11 @@ function SnowNavTitle() {
 export function Layout() {
   return (
     <>
+      <div id="top" />
       <SeoMetadata />
       <OriginalLayout
         navTitle={<SnowNavTitle />}
+        afterNavMenu={<GuideLanguages />}
         bottom={<SnowGlobalFooter />}
       />
     </>
@@ -68,11 +73,14 @@ function SnowGlobalFooter() {
       </div>
       <div className="snow-home__footer-legal">
         <span>© 2025 Snow Apps</span>
-        <a href="https://github.com/mg-chao/snow-apps">
+        <a href="https://github.com/mg-chao/snow-shot">
           {isZh ? '官方 GitHub 仓库' : 'Official GitHub repository'}
         </a>
         <a href={isZh ? '/zh/guides/index.html' : '/guides/index.html'}>
           {isZh ? '使用指南' : 'User guides'}
+        </a>
+        <a href={isZh ? '/zh/changelog.html' : '/changelog.html'}>
+          {isZh ? '更新日志' : 'Changelog'}
         </a>
         <a href={isZh ? '/zh/privacy.html' : '/privacy.html'}>
           {isZh ? '隐私政策' : 'Privacy policy'}

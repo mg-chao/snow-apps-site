@@ -1,0 +1,17 @@
+[
+  {
+    "type": "file",
+    "name": "install",
+    "label": "Install, choose an edition, and update"
+  },
+  {
+    "type": "file",
+    "name": "quick-start",
+    "label": "Take your first screenshot"
+  },
+  {
+    "type": "file",
+    "name": "permissions",
+    "label": "macOS permissions and first use"
+  }
+]

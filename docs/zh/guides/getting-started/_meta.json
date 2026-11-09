@@ -1,0 +1,17 @@
+[
+  {
+    "type": "file",
+    "name": "install",
+    "label": "安装与更新"
+  },
+  {
+    "type": "file",
+    "name": "quick-start",
+    "label": "完成第一张截图"
+  },
+  {
+    "type": "file",
+    "name": "permissions",
+    "label": "macOS 权限与首次使用"
+  }
+]

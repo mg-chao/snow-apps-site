@@ -1,0 +1,73 @@
+---
+title: "Distance annotations and scale"
+description: "Draw a dimension line, set a known real distance and unit to establish scale, adjust decimal places and endpoints, and distinguish image pixels from physical dimensions."
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Distance annotations and scale
+
+Distance annotations label lengths in an image. The displayed value converts segment length using a configured scale. For physical dimensions, supply a reliable known length or scale yourself.
+
+## Draw a dimension line
+
+1. Choose **Distance annotation** in the screenshot toolbar.
+2. Hold the left mouse button at the measurement start, drag to the end and release. A dimension line with a value appears.
+3. Keep Distance annotation active and click the line to select it. Check both endpoints against the target edges.
+4. Choose the unit and enter the intended value in **Actual distance value**. The label updates.
+5. Adjust decimal places and endpoint appearance, deselect to inspect it, then copy or save.
+
+<GuideSteps title="Distance annotations and scale" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-distance-1.svg",
+    "alt": "Drag to create a dimension line",
+    "label": "Drag to create a dimension line",
+    "caption": "Drag to create a dimension line"
+  },
+  {
+    "src": "/images/guides/en/ann-distance-2.svg",
+    "alt": "Enter a real value to calibrate scale",
+    "label": "Enter a real value to calibrate scale",
+    "caption": "Enter a real value to calibrate scale"
+  },
+  {
+    "src": "/images/guides/en/ann-distance-3.svg",
+    "alt": "Adjust endpoints and decimal places",
+    "label": "Adjust endpoints and decimal places",
+    "caption": "Adjust endpoints and decimal places"
+  }
+]} />
+
+To change an existing object’s tool-specific style, switch back to **Distance annotation**, then click the object to select it again. **Select elements** provides general transforms, stacking and opacity. Switching drawing tools clears the previous selection, so select the object again.
+
+## Actual distance and scale
+
+“Actual distance value” calculates a scale from the current segment. For example, if a line represents a known 10 cm, select it, choose cm and enter 10. Subsequent changes to that annotation’s geometric length update its displayed value using the scale.
+
+The app cannot automatically infer real dimensions from any screen image. Perspective, screenshot scaling and source resolution affect the correspondence. For engineering precision, establish the source scale and check key positions first.
+
+Without a selected dimension line, some settings apply to new annotations. Confirm selection handles before calibrating a particular line.
+
+## Units, precision and appearance
+
+The unit control includes pixels and several length units. Choose px, cm, mm, m or another unit appropriate to the task. Choosing a unit does not replace scale calibration.
+
+**Decimal places** supports integers or 1, 2 or 3 decimals. More displayed digits do not improve the source image’s measurement accuracy.
+
+Stroke color and width determine readability. **Endpoint style** changes the symbols; **Endpoint scale** changes their size. Reduce the scale if symbols obscure the measurement positions.
+
+![The same 10.00 cm line with small bar endpoints, normal arrowheads and larger arrowheads](/images/guides/en/ann-audit-distance-ends.svg)
+
+*Endpoint style and size do not calibrate distance. Check measurement points, scale and unit separately. <a href="/images/guides/en/ann-audit-distance-ends.svg" target="_blank" rel="noreferrer">Enlarge the comparison</a>.*
+
+## Edit endpoints and label placement
+
+Select the dimension annotation with Select elements. Drag endpoints to correct the measured range, or drag its body to move the whole annotation. Change its value through Actual distance value or the corresponding numeric-edit entry, rather than covering the label with separate text.
+
+Check the label after geometry changes. If the length changes unexpectedly, check scale, unit and whether an endpoint snapped to another object.
+
+## Correct and export
+
+Undo mistakes or select and delete one annotation. For an incorrect value, check in order: endpoint positions → unit → actual value and scale → decimal places. Fix scale before display formatting.
+
+Related: [Angles](./angle.mdx) · [Brackets](./bracket.mdx) · [Element editing](./elements.mdx).

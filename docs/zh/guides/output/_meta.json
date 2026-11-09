@@ -1,0 +1,17 @@
+[
+  {
+    "type": "file",
+    "name": "copy-save",
+    "label": "复制、另存为、打印与分享"
+  },
+  {
+    "type": "file",
+    "name": "history",
+    "label": "截图历史与批量处理"
+  },
+  {
+    "type": "file",
+    "name": "cloud-upload",
+    "label": "S3 云上传与链接"
+  }
+]

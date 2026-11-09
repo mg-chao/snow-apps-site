@@ -1,0 +1,22 @@
+[
+  {
+    "type": "file",
+    "name": "start",
+    "label": "录屏区域与开始暂停停止"
+  },
+  {
+    "type": "file",
+    "name": "audio-camera",
+    "label": "麦克风、系统声音与摄像头"
+  },
+  {
+    "type": "file",
+    "name": "effects",
+    "label": "鼠标、点击与键盘效果"
+  },
+  {
+    "type": "file",
+    "name": "trim-export",
+    "label": "预览、裁剪、变速与导出"
+  }
+]

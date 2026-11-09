@@ -1,0 +1,78 @@
+---
+title: Groups, batch management, and recovery
+description: Create pin groups, move windows and switch active groups, batch-copy or save visible windows, filter records by source and date, restore closed pins, and distinguish closing, destruction, and cleanup.
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Groups, batch management, and recovery
+
+Group pins by task to display related references together and recover closed content from management. **Currently visible windows**, **selected windows**, and **history records** are different scopes. Check menu counts before batch operations.
+
+![Pin management: display an active group, filter and restore records, and distinguish closing from destruction](/images/guides/en/pin-management.svg)
+
+*Instructional illustration. Closing may retain a record; destroying or deleting a record removes saved content.*
+
+## Groups and visibility
+
+**Move a window into a group**: right-click **Group: …** and choose an existing group to move the **current window** there. Choose **New group** to enter a name and create one. Use task-specific names such as “Error investigation” or “Design comparison.”
+
+**Switch the displayed group**: open **Window group: …** in the system tray and select a group. Snow Shot saves the current group's state and restores applicable windows in the new group. The pin menu moves a window; the tray menu switches the active group. Check the menu title first.
+
+**Organize the same group**: under **Pin to screen management** in a pin's context menu, use **Show all windows**, **Hide other windows**, **Close other windows**, or **Close all windows**. Check which task group is active.
+
+Enable **Shake window to hide/show other windows** under **Settings → Pin to screen**, then quickly drag a pin back and forth to hide other windows in its group. When that group has hidden windows, the gesture can show them. Practice with two test pins; large cross-monitor movements are unnecessary.
+
+Read group-deletion confirmations. Deleting a specified group also deletes its pin records, including closed windows. For **Delete empty groups**, “empty” can mean only closed records remain; those records are permanently removed too. The default group itself remains, but clearing it still removes its contents.
+
+## Switch and restore with actions
+
+Use the tray menu to choose a group directly, or assign **Switch window group** under **Global shortcuts**. A new configuration has no default binding; choose a combination you can comfortably hold.
+
+1. Press the combination. The group preview appears and advances to the next candidate.
+2. Keep its keys held and trigger the binding again to cycle candidates. Read the selected group name before releasing.
+3. Release all keys involved in the shortcut to activate the previewed group. Press **Esc** while the preview remains active to cancel, or click the desired group in the preview to choose directly.
+
+<GuideSteps title="Preview, cycle, and release to switch" frames={[
+  {src: '/images/guides/en/pin-groups-1.svg', alt: 'Invoking Switch window group previews the next group', label: 'Press and preview', caption: 'Configure the combination first, then press it and identify the selected candidate.'},
+  {src: '/images/guides/en/pin-groups-2.svg', alt: 'Keeping keys held and invoking again advances the candidate', label: 'Cycle candidates', caption: 'Keep keys held and invoke again. Check the preview; Esc cancels.'},
+  {src: '/images/guides/en/pin-groups-3.svg', alt: 'Releasing every involved key activates the candidate group', label: 'Release to confirm', caption: 'Release all involved keys to show applicable pins in the selected group.'}
+]} />
+
+**Restore last closed window** on the same shortcut page restores the most recently closed ordinary pin in the **current group**. Defaults are **Ctrl+F3** on Windows and **Control+Shift+3** on macOS; existing configurations take precedence. If the expected pin is not restored, check the active group and retained records, then search management by date.
+
+**Hide/show all windows** toggles the current group's visibility. Assign a shortcut and test hiding and showing two practice pins. Unlike closing or destroying, it does not require recreating content from files.
+
+## Batch-process current windows
+
+Right-click **Pin to screen management → Batch operations**. The menu displays the number of eligible windows.
+
+- **Select all** selects applicable visible pins so you can move or resize them together. A window's selection indicator can deselect it.
+- **Image stitching** sends currently displayed images into the [Image collage](../image-editing/collage.mdx) workflow.
+- **Copy files to clipboard** produces file-form output for destinations that accept pasted files.
+- **Save as file** asks for an output folder. Wait, then check success and failure counts against the files.
+- **Enable/disable thumbnail mode, hide at top, or lock mode** applies the setting to applicable visible windows.
+- **Close / Destroy** respectively close windows or remove records. Batch-save material you need before either operation and distinguish the commands.
+
+If a pin closes or becomes unreadable during processing, some outputs may succeed and others fail. Check the destination against the completion message and handle failed items individually.
+
+## Restore from the management page
+
+1. Open **Pin to screen management** in the main window. Records show source, group, and states such as Closed, Hidden, or Not closed.
+2. Filter **Source** by screenshot, screenshot history, clipboard, selected files, and other sources; narrow **Date** with start and end values. Clear filters and refresh if a record seems absent.
+3. Click **Restore** beside a closed record or **Show** beside a hidden one. Confirm the corresponding desktop pin appears.
+4. **Select all** selects only the **current page**. Check counts before working across pages. Batch **Pin to screen** requires records from one group; reduce a mixed-group selection first.
+5. Use **Delete** to remove records and read the confirmation. It removes saved records and corresponding open windows, unlike merely closing them.
+
+## Closing and destruction
+
+| Operation | Expected result |
+| --- | --- |
+| Hide | Temporarily removes the window from view; show it through its group or management |
+| Close an ordinary pin | Ends the window; retained records can use management recovery |
+| Destroy / Delete in management | Removes saved content; the confirmation describes the irreversible action |
+| Automatic cleanup | Removes eligible closed records according to retention time, count, or disk limits |
+
+Check permanent retention, days, count, and disk limits for pin history under **Settings → Export & storage**. Closed records are not a substitute for file archives; use Save as file for long-term images. Live windows depend on a running source and do not share every static-pin history recovery guarantee.
+
+Continue with [Image pins](./image.md), [Pin transforms](./transform.mdx), or [Live window pins](./live-window.md).

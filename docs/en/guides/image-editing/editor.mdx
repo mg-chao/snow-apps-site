@@ -1,0 +1,103 @@
+---
+title: Open images and crop rows or columns
+description: Open or drag images into Snow Shot, inspect actual size, annotate and recognize content, remove full horizontal or vertical strips, undo changes, and save results.
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Open images and crop rows or columns
+
+Image editing handles existing images and helps clean up scrolling screenshots. It includes familiar annotation tools and can remove whole rows or columns of pixels, joining the remaining sides.
+
+![Before editing: two pale boxes labeled Start and Target, without an arrow or explanatory text](/images/guides/img-editor-original-input.webp)
+
+*The original image: keep both areas and prepare to explain their relationship.*
+
+![Saved annotated image: a red arrow points from Start to Target, a rectangle emphasizes the starting area, and Step 1 appears below](/images/guides/img-editor-annotated-output.webp)
+
+*Add an arrow, rectangle, and text, then save a new image or pin the same result beside your work. This comparison shows annotation; the cropping steps later remove whole rows or columns.*
+
+## Open and inspect an image
+
+1. Enter **Edit selected images** in the main window's **Search function** and select the matching dropdown result. With the keyboard, use the down arrow to enter results, then Enter to select. The page locates and highlights the action row.
+2. Click the **Edit selected images** row's title or empty area to open editing. The shortcut or “Not set” button configures keys; clicking the action needs no assigned shortcut. With no usable selected files, an empty window opens.
+3. Click **Add images**, select one image in the file dialog, and open it. Wait for “Loading image…” to finish and confirm the image appears. Canceling the dialog leaves the empty window.
+4. Use **Fit image to window** for the whole image or **View at actual size (100%)** for pixel details. Viewing zoom does not directly change exported pixel dimensions.
+5. Choose shapes, arrows, text, or filters from the annotation toolbar. To keep the result on the desktop, use **Pin to screen**; see [Image pins](../pinning/image.md#pin-from-an-image-editing-window).
+
+![Actual empty Snow Shot image editor with the Add images button in the center](/images/guides/img-editor-native-empty.webp)
+
+*Click Add images in the empty editor to choose a file. The Chinese button reads “添加图像” (Add images). On a phone, <a href="/images/guides/img-editor-native-empty.webp" target="_blank" rel="noreferrer">open the full-size screenshot</a> to read the button.*
+
+### Add explanations, then save or pin
+
+1. After loading, choose **Arrow**, hold the left button near Start, drag toward Target, and release. For a regular outline, choose **Rectangle** and drag around the content to emphasize.
+2. Choose **Text**, click a position on the image, and type `Step 1`. Finish text input, then use **Select elements** to select and move the label. Select the rectangle and drag its handles to resize it.
+3. Use **Save as file**, choose a folder, a new filename, and the required format such as PNG, then click **Save**. Reopen the saved file and check arrow direction, text, and edges. The macOS editor defaults to **Command+S** for saving; follow Application shortcuts if customized.
+4. Use **Pin to screen** to keep the same result on the desktop; the macOS editor defaults to **Command+F**. The new pin displays the current edited image. Save from the pin as well if you need a file. See [Image and clipboard pins](../pinning/image.md).
+
+### Drag files or open multiple images
+
+The empty window also accepts image files dragged onto its prompt area. Adding multiple images opens each in a separate editing window. These are separate input paths from single-file selection above. The following illustration connects opening an image with cropping; later steps start with an image already on the canvas.
+
+<GuideSteps title="Open an image and remove a strip" frames={[
+  {src: '/images/guides/en/img-editor-1.svg', alt: 'Open an image and fit its complete view', label: 'Open and inspect', caption: 'Open an image and inspect the complete canvas.'},
+  {src: '/images/guides/en/img-editor-2.svg', alt: 'Drag across a horizontal strip to remove', label: 'Select a strip', caption: 'Drag to preview the horizontal strip that will be deleted.'},
+  {src: '/images/guides/en/img-editor-3.svg', alt: 'After removing a strip, the remaining upper and lower parts join', label: 'Inspect the join', caption: 'Removing the strip joins the remaining upper and lower content.'}
+]} />
+
+
+## Start from selected files
+
+Find **Edit selected images** under **Global shortcuts** and assign a nonconflicting combination. It has no preset binding; do not use the screenshot shortcut for it. Return to the system file manager, select one or more images, and invoke that combination. Each image opens in its own editing window.
+
+With no selected images, the action opens an empty window where you can add files. On macOS, follow any request to allow Snow Shot to control Finder for reading its selection, then retry. See [Shortcut settings](../settings/shortcuts.mdx) for configuration and conflicts.
+
+<GuideSteps title="Edit selected images from the file manager" frames={[
+  {src: '/images/guides/en/img-audit-files-edit-1.svg', alt: 'Configure a separate Edit selected images shortcut', label: 'Configure the action', caption: 'There is no default binding; assign a nonconflicting global combination.'},
+  {src: '/images/guides/en/img-audit-files-edit-2.svg', alt: 'Select source images in Finder or File Explorer and invoke the action', label: 'Select and invoke', caption: 'Select images A and B in Finder or File Explorer, keeping the selection and focus when invoking.'},
+  {src: '/images/guides/en/img-audit-files-edit-3.svg', alt: 'Selected images open in separate editing windows', label: 'Check the windows', caption: 'Stitching uses one session; editing and splitting open a separate window for each image.'}
+]} />
+
+## Vertical crop: remove a horizontal strip
+
+“Vertical” refers to deleting along the image's height.
+
+1. Click **Vertical crop** in the image editor toolbar.
+2. Hold the left button at the upper edge of the unwanted strip and drag down to its lower edge. A full-width strip preview and pixel range appear.
+3. Check the preview, then release. The selected whole rows are removed, the remaining upper and lower parts join, and image height decreases.
+4. Wait for processing and inspect the join. Click **Undo** immediately if text or annotations were removed.
+
+This deletes a strip rather than retaining a selected rectangle. You cannot remove the entire image height. Press Esc before releasing to cancel an unsuitable drag.
+
+## Horizontal crop: remove a vertical strip
+
+Click **Horizontal crop** and drag from one side of the unwanted strip to the other. The preview spans the entire height. Releasing deletes those columns, joins left and right content, and reduces width.
+
+Use this for blank columns or sidebars. Check for needed content elsewhere in the same columns because deletion spans the entire image.
+
+## Undo, output, and further work
+
+Cropping belongs to editing history: Undo restores the strip and Redo removes it again. Wait for processing before further annotation or export; repeated clicks make operation order harder to assess.
+
+The toolbar can copy, save, or quick-save the current result and access text, table, barcode, and other recognition tools available in your edition. Recognition processes the current edited image; check crops and annotations first.
+
+Closing a window with unsaved edits offers **Discard changes** or **Continue editing**. Save the image first if you need the result; closing is not saving.
+
+## Windows “Edit with Snow Shot”
+
+The Windows file-integration **Edit with Snow Shot** action opens new pin windows. **Enable annotation mode when opening for editing** determines whether these start in annotation mode. With it enabled, draw immediately; otherwise enter annotation mode from the pin first.
+
+This Windows setting does not change cropping in the independent image editor. See [Pins](../pinning/image.md) and [System integration](../settings/network-integration.md).
+
+![Windows file editing: the switch chooses an image-view pin or a pin already in annotation mode](/images/guides/en/img-audit-windows-edit.svg)
+
+*Instructional illustration. The Windows setting chooses image viewing or immediate annotation when opening a file for editing.*
+
+## Images fail to load or are too large
+
+For loading errors, check that the file is supported and undamaged. Open it in another image application if needed, then add it again. For size or memory errors, close other large-image windows or use a smaller image.
+
+**The view shrank but file dimensions did not**: viewing zoom changed. Use Vertical or Horizontal crop to remove content, or [Image collage](./collage.mdx) to arrange and scale images in a composition.
+
+Related: [Scrolling screenshots](../capture/scrolling.mdx), [Annotation basics](../annotations/basics.mdx), and [Image splitting](./split.mdx).

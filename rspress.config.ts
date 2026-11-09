@@ -12,14 +12,15 @@ export default defineConfig({
   description:
     'Snow Shot is a free, open-source screenshot tool for Windows and macOS with annotation, scrolling capture, local text recognition, pinning and screen recording.',
   lang: 'en',
+  search: { searchHooks: path.join(__dirname, 'theme/guide-search.ts') },
   icon: '/app-icon.ico',
   mediumZoom: {
     // Linked images are controls; clicking them should follow the link.
     selector: '.rspress-doc img:not(a img)',
   },
   route: {
-    // Our redirect checks every visit and handles Chromium's Chinese regional
-    // locale even when its content-language list contains only English.
+    // Our head script applies saved choices and browser language preferences.
+    // Keep Rspress's own redirect disabled so the two selectors cannot compete.
     localeRedirect: 'never',
   },
   builderConfig: {
@@ -39,7 +40,10 @@ export default defineConfig({
         },
         {
           tag: 'script',
-          attrs: { id: 'snow-shot-locale', 'data-revision': 'locale-debug-4' },
+          attrs: {
+            id: 'snow-shot-locale',
+            'data-revision': 'locale-auto-1',
+          },
           children: readFileSync(
             path.join(__dirname, 'scripts/locale-redirect.js'),
             'utf8',
@@ -66,16 +70,17 @@ export default defineConfig({
       label: '简体中文',
       title: 'Snow Shot',
       description:
-        'Snow Shot（SnowShot）是免费开源截图工具，支持 Windows 和 macOS，提供截图标注、滚动长截图、本地文本识别、贴图与录屏。下载和使用指南均可从官方 GitHub 仓库获取。',
+        'Snow Shot（SnowShot）是免费开源截图工具，支持 Windows 和 macOS，提供截图标注、滚动长截图、本地文本识别、贴图与录屏。本站提供下载入口和按任务组织的中文使用手册。',
     },
   ],
   themeConfig: {
+    fallbackHeadingTitle: false,
     darkMode: true,
     socialLinks: [
       {
         icon: 'github',
         mode: 'link',
-        content: 'https://github.com/mg-chao/snow-apps',
+        content: 'https://github.com/mg-chao/snow-shot',
       },
     ],
   },

@@ -1,0 +1,22 @@
+[
+  {
+    "type": "file",
+    "name": "start",
+    "label": "Recording area, start, pause, and stop"
+  },
+  {
+    "type": "file",
+    "name": "audio-camera",
+    "label": "Microphone, system audio, and webcam"
+  },
+  {
+    "type": "file",
+    "name": "effects",
+    "label": "Mouse, click, and keystroke effects"
+  },
+  {
+    "type": "file",
+    "name": "trim-export",
+    "label": "Preview, trim, speed, and export"
+  }
+]

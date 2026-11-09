@@ -1,0 +1,37 @@
+[
+  {
+    "type": "file",
+    "name": "basics",
+    "label": "Region, window and control capture"
+  },
+  {
+    "type": "file",
+    "name": "precise-selection",
+    "label": "Exact dimensions, ratios and selection appearance"
+  },
+  {
+    "type": "file",
+    "name": "multiple-regions",
+    "label": "Multiple regions and region combinations"
+  },
+  {
+    "type": "file",
+    "name": "irregular-regions",
+    "label": "Polyline, curve and freehand selections"
+  },
+  {
+    "type": "file",
+    "name": "modes",
+    "label": "Delayed, direct and repeat captures"
+  },
+  {
+    "type": "file",
+    "name": "scrolling",
+    "label": "Scrolling capture and stitching checks"
+  },
+  {
+    "type": "file",
+    "name": "color-picker",
+    "label": "Screen color picker and color formats"
+  }
+]

@@ -1,0 +1,61 @@
+---
+title: "Bracket annotations"
+description: "Drag a bracket to group content, adjust its span, direction and guide position, set color and width, and correct it using selection, Undo or deletion."
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Bracket annotations
+
+Brackets group several text lines, buttons or shapes. Add separate text beside a bracket to name the group.
+
+## Drag out a bracket
+
+1. Choose **Bracket annotation** and set color and width.
+2. Hold the left mouse button beside the group and drag diagonally, creating both height and width.
+3. Inspect its top-to-bottom span and middle guide, then release. A purely horizontal or vertical drag without valid width and height may not create a bracket.
+4. Switch to Select elements, click the bracket and drag its points to align the ends with the group.
+5. Add a group name with Text, deselect to check the result, then copy or save.
+
+<GuideSteps title="Bracket annotations" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-bracket-1.svg",
+    "alt": "Drag diagonally to create a bracket",
+    "label": "Drag diagonally to create a bracket",
+    "caption": "Drag diagonally to create a bracket"
+  },
+  {
+    "src": "/images/guides/en/ann-bracket-2.svg",
+    "alt": "Drag endpoints to adjust the span",
+    "label": "Drag endpoints to adjust the span",
+    "caption": "Drag endpoints to adjust the span"
+  },
+  {
+    "src": "/images/guides/en/ann-bracket-3.svg",
+    "alt": "Move the guide to change direction and depth",
+    "label": "Move the guide to change direction and depth",
+    "caption": "Move the guide to change direction and depth"
+  }
+]} />
+
+To change an existing object’s tool-specific style, switch back to **Bracket annotation**, then click the object to select it again. **Select elements** provides general transforms, stacking and opacity. Switching drawing tools clears the previous selection, so select the object again.
+
+## Span and direction
+
+Drag endpoint handles to change the bracket’s coverage. Drag the middle guide point to change its opening direction and depth. Align the ends with the group first, then position the middle guide; large simultaneous changes are harder to judge.
+
+Dragging the bracket body moves the whole object. To change one end, hit its handle. A multiselection operation affects the entire selected group.
+
+## Style and accompanying text
+
+Set color and width in the bracket style toolbar. Thin brackets suit body text; thicker ones suit large presentation images. Keep their weight consistent with nearby text or shapes.
+
+Enter the description separately with Text. To move the group, multiselect the bracket and text and move them together. Independently placed text is not automatically bound to the bracket.
+
+## Missing or misplaced brackets
+
+**Nothing appears after release:** drag again with both horizontal and vertical distance, large enough to show a preview.
+
+**The whole bracket moves:** you dragged the line body. Undo, then select the intended control point.
+
+Esc or right-click cancels unfinished creation. Undo a finished bracket, or select and delete it. Related: [Distance](./distance.mdx) · [Angles](./angle.mdx) · [Text](./text.mdx).

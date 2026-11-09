@@ -76,7 +76,7 @@ export function HomeLayout() {
         openSourceEyebrow: '开放项目 / 一起打磨',
         openSourceTitle: '为日常工作打造，也在社区中持续成长。',
         openSourceDescription:
-          'Snow Shot（SnowShot）由 mg-chao 维护，源码以 GPL-3.0-or-later 许可证发布在 Snow Apps 官方仓库。那里也提供安装包、更新日志、使用指南和问题反馈入口。',
+          'Snow Shot 免费开源。欢迎在 GitHub 反馈问题、提出建议或贡献代码，一起让截图与录屏更顺手。',
         openSourceLink: '访问 Snow Shot 官方 GitHub 仓库',
         openSourceLabel: 'SNOW SHOT / 开源项目',
         openSourceWorkflow: ['截图', '说明', '分享'],
@@ -103,7 +103,7 @@ export function HomeLayout() {
         openSourceEyebrow: 'OPEN SOURCE / BUILT IN THE OPEN',
         openSourceTitle: 'Made for daily work. Shaped in the open.',
         openSourceDescription:
-          'Snow Shot (SnowShot) is maintained by mg-chao and released under GPL-3.0-or-later in the official Snow Apps repository. Find source code, installers, release notes, user guides and issue tracking together on GitHub.',
+          'Snow Shot is free and open source. Report issues, share ideas, or contribute code on GitHub to help make everyday capture and recording smoother.',
         openSourceLink: 'Visit the official Snow Shot GitHub repository',
         openSourceLabel: 'SNOW SHOT / OPEN SOURCE',
         openSourceWorkflow: ['capture', 'clarify', 'share'],
@@ -181,7 +181,7 @@ export function HomeLayout() {
           <p>{copy.openSourceDescription}</p>
           <a
             className="snow-text-link"
-            href="https://github.com/mg-chao/snow-apps"
+            href="https://github.com/mg-chao/snow-shot"
           >
             {copy.openSourceLink}
             <ArrowIcon />

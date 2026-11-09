@@ -1,5 +1,5 @@
 export const siteOrigin = 'https://snowshot.top';
-export const repositoryUrl = 'https://github.com/mg-chao/snow-apps';
+export const repositoryUrl = 'https://github.com/mg-chao/snow-shot';
 
 // Match Rspress's existing .html routes, including directory index pages.
 // Query parameters select a download variant, not a different document.
@@ -7,7 +7,7 @@ export function canonicalUrl(path: string) {
   let pathname = new URL(path, siteOrigin).pathname;
   // These document aliases are also redirected by the production web server.
   pathname = pathname.replace(
-    /^(\/(?:zh\/)?(?:about|download|privacy|terms))\/$/,
+    /^(\/(?:zh\/)?(?:about|changelog|download|privacy|terms))\/$/,
     '$1',
   );
   if (
@@ -41,7 +41,7 @@ export function applicationSchema(locale: 'en' | 'zh') {
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Windows, macOS 15 or later',
     license: `${repositoryUrl}/blob/main/snow_shot/COPYRIGHT`,
-    image: `${siteOrigin}/images/app-icon.png`,
+    image: `${siteOrigin}/images/app-icon.webp`,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     description:
       locale === 'zh'

@@ -1,0 +1,73 @@
+---
+title: Toolbars, tray, and floating controls
+description: Reorder, stack, and hide Snow Shot toolbar actions, configure annotation selection, customize tray icons and clicks, and restore missing floating controls.
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Toolbars, tray, and floating controls
+
+Tools can be moved, stacked, or hidden. When a feature is missing, check tool groups and layout settings first. Hiding a button does not remove the feature.
+
+![Drop beside to create a position, above to stack, or into hidden tools to hide](/images/guides/en/set-toolbars-tray.svg)
+
+*Instructional illustration. ① Side by side, ② stacked, ③ hidden. The bottom tool in a stack appears on the main row.*
+
+## Find the relevant toolbar editor
+
+| Interface to change | Settings entry |
+| --- | --- |
+| Screenshot action toolbar | Settings → Screenshots → Action toolbar |
+| Annotation toolbar | Settings → Screenshots → Annotation toolbar |
+| Pinned-window action toolbar | Settings → Pin to screen → Action toolbar |
+| Recording action toolbar | Settings → Screen recording → Action toolbar |
+| Desktop floating toolbar | Settings → Tray & floating toolbar → Floating toolbar |
+
+## Reorder, stack, hide, and restore
+
+1. Find the toolbar preview in its settings section. Drag a tool **beside** another tool and release at the insertion indicator. It receives its own position.
+2. Drag a tool **above** another and release to form a stack. The bottom tool remains on the main toolbar row; expand the group to choose other tools. Keep frequent actions at the bottom or in their own column for direct access.
+3. Drag an infrequently used action into the hidden-tools area. Its preview position changes. Drag it back into the preview to restore it.
+4. Reopen the actual screenshot, pinned-window, or recording toolbar. Hover over groups to inspect expanded actions and confirm frequent tools remain accessible.
+
+Separators have their own positions in annotation, pinned, and recording layouts; recording duration also occupies a separate position. These cannot be stacked like ordinary actions. To restore the full layout, use that toolbar section's reset and read the confirmation first.
+
+<GuideSteps title="Stack tool C above tool A" frames={[
+  {src:'/images/guides/en/set-toolbar-stack-1.svg',alt:'Tools A, B, and C occupy separate positions',label:'Choose the tool',caption:'Find tool C in the toolbar preview to place it inside a group.'},
+  {src:'/images/guides/en/set-toolbar-stack-2.svg',alt:'Dragging C to the stacking area above A',label:'Drag above',caption:'Drop C above A. Dropping beside it creates a separate position instead.'},
+  {src:'/images/guides/en/set-toolbar-stack-3.svg',alt:'C is above A in the group, while A remains on the main toolbar row',label:'Check group and main row',caption:'A remains on the main row after release. Expand the group to choose C.'},
+]} />
+
+## Annotation selection, remembered tools, and color presets
+
+Open **Settings → Screenshots → Annotation tools**, change the settings for your drawing habits, then create a new annotation to check:
+
+| Setting | Action and result to check |
+| --- | --- |
+| Automatically select newly created elements | Draw an object after enabling it. Completion selects the object while keeping the drawing tool active, useful for refining each new object. |
+| Tools excluded from automatic selection | Choose exceptions in the multi-select list. Objects created with these tools are not automatically selected by the setting above. |
+| Tools that forbid quick selection of same-type elements | Select tools you want to draw with continuously, preventing a left click on an existing object of that type from selecting it. Clear the exception to restore quick selection. |
+| Delete text after the cursor | While editing text, Delete removes selected text or the character after the cursor. Confirm you are in text-editing mode first. |
+| Remember last used tool | New screenshots and pinned-image annotation sessions begin with the previous annotation tool. When off, they begin with Move. |
+| Keep group main buttons visible | Always show the group's first button rather than its most recently used tool. Expand the group again to check access. |
+
+**Stroke color presets** and **Fill color presets** in the same section control quick colors in the style bar. Click a preset, choose a new color, then inspect that tool's quick colors. This does not recolor every canvas object. See [annotation basics](../annotations/basics) for new-object versus selected-object styles.
+
+## Tray icon and click actions
+
+Open **Settings → Tray & floating toolbar → Tray**:
+
+1. Enable tray display and find the icon in the system tray or macOS menu bar. When hidden, the main window and configured shortcuts remain usable.
+2. Choose a bundled icon or a custom **PNG/ICO** file. A separate dark-theme icon is supported. Check its outline on both light and dark backgrounds.
+3. Windows allows separate left- and middle-click actions, including capture, copy, pinning, main window, history, pinned-window management, settings, or no action. Defaults are capture for left click and pinning for middle click. macOS does not show the same middle-click configuration.
+4. Select actions to include in the tray menu, then inspect the real menu's order and groups. Global-shortcut toggles, history, and window groups depend on your configuration.
+
+On macOS, **Let macOS control tray icon color** uses system-style menu-bar coloring. It differs from a custom tray-menu background skin; see [appearance](./appearance) for background images.
+
+## Desktop floating toolbar
+
+Enable display in the floating-toolbar section, set **Opacity**, and edit its tools as described above. Keep common capture, recognition, and pinning actions easy to reach. Very low opacity makes the toolbar hard to locate.
+
+For a missing action, inspect stacked groups, then restore it from hidden tools. For a missing entire toolbar, check its main display switch. Screen-edge auto-hiding of the recording toolbar is separate: change it under **Settings → Screen recording → Interaction**, and hover over the edge control to restore it.
+
+Continue with [shortcuts and mouse actions](./shortcuts) or [recording controls](../recording/start).

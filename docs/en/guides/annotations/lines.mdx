@@ -1,0 +1,63 @@
+---
+title: "Straight, curved and multipoint lines"
+description: "Create straight and curved paths, add points with clicks, double-click to finish, edit control points, and adjust line, fill and drawing styles."
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Straight, curved and multipoint lines
+
+Use lines for separators, outlines or connections without direction symbols. Use [Arrows](./arrows.mdx) for arrowheads, or [Brush](./brush.mdx) for a freehand trajectory.
+
+## Start with a straight segment
+
+1. Click **Line** in the screenshot toolbar and choose **Straight** in the style toolbar.
+2. Set stroke color, width and line style. Start with a clearly visible solid stroke.
+3. Hold the left mouse button at the start and drag to the end. The preview follows the pointer; release to finish.
+4. Hold **Shift** during the drag to constrain the direction, including horizontal and vertical lines.
+5. Switch to **Select elements**, click the line and drag its endpoints to change length, or its body to move the whole line.
+
+<GuideSteps title="Straight, curved and multipoint lines" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-lines-1.svg",
+    "alt": "Drag to create a segment",
+    "label": "Drag to create a segment",
+    "caption": "Drag to create a segment"
+  },
+  {
+    "src": "/images/guides/en/ann-lines-2.svg",
+    "alt": "Click to add path points",
+    "label": "Click to add path points",
+    "caption": "Click to add path points"
+  },
+  {
+    "src": "/images/guides/en/ann-lines-3.svg",
+    "alt": "Drag an interior point",
+    "label": "Drag an interior point",
+    "caption": "Drag an interior point"
+  }
+]} />
+
+To change an existing object’s tool-specific style, switch back to **Line**, then click the object to select it again. **Select elements** provides general transforms, stacking and opacity. Switching drawing tools clears the previous selection, so select the object again.
+
+## Create a path with successive clicks
+
+Click the start and move the mouse to begin continuous drawing. Each click fixes another point. Double-click the final position to finish, or right-click to complete the current path. Esc cancels the unfinished path.
+
+For a two-endpoint segment, dragging is the most direct method. If a line keeps following the pointer after a click, continuous drawing has not finished; the app is still responding.
+
+**Curve** forms a smooth path through its points. Choose Curve before dragging or adding points. For an existing line, return to Line, click to select it and then switch modes. Straight mode directly joins adjacent points, useful for polylines and outlines.
+
+## Edit path points
+
+Choose Select elements and click the line to reveal control points. Drag endpoints to change its start or end; drag an interior point to change adjacent segments. In a multipoint line, double-clicking a removable interior point deletes it and reconnects the remaining path. A minimal two-endpoint segment cannot keep losing points in the same way.
+
+Closed paths support fill color and patterns. During continuous drawing, return the final point to the start, inspect the closing preview, finish and then set the fill. An open path is unsuitable for representing a complete filled region; use Shapes for regular geometry.
+
+## Line appearance
+
+Set stroke color, width and solid/dashed/dotted patterns. Drawing styles include Architect, Artist and Cartoonist. Fill applies to paths that form an area; transparent fill keeps the image underneath visible.
+
+Line and Arrow retain separate styles. For a connection without endpoint symbols, use Line directly instead of repeatedly clearing arrowheads.
+
+Undo an incorrect line, or select and delete just that object. Finish with Copy to clipboard or Save as file to export the whole image. Continue with [Brush](./brush.mdx), [Highlight](./highlight.mdx) or [Element editing](./elements.mdx).

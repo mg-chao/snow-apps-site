@@ -49,7 +49,7 @@ export function SeoMetadata() {
           { property: 'og:site_name', content: 'Snow Shot' },
           {
             property: 'og:image',
-            content: `${siteOrigin}/images/app-icon.png`,
+            content: `${siteOrigin}/images/app-icon.webp`,
           },
           { property: 'og:image:alt', content: 'Snow Shot app icon' },
           { name: 'twitter:card', content: 'summary' },

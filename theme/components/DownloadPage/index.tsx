@@ -480,6 +480,12 @@ export function DownloadPage({ locale }: { locale: Locale }) {
             {content.meta.map((item) => (
               <span key={item}>{item}</span>
             ))}
+            <a
+              className="snow-download-card__alternate"
+              href={locale === 'zh' ? '/zh/changelog.html' : '/changelog.html'}
+            >
+              {locale === 'zh' ? '查看更新日志 →' : 'Read the changelog →'}
+            </a>
           </div>
         </div>
         <div className="snow-download-hero__badge" aria-hidden="true">

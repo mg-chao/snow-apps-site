@@ -1,0 +1,22 @@
+[
+  {
+    "type": "file",
+    "name": "screenshot",
+    "label": "Screenshot and in-image translation"
+  },
+  {
+    "type": "file",
+    "name": "text",
+    "label": "Text translation"
+  },
+  {
+    "type": "file",
+    "name": "selected-text",
+    "label": "Translate selected text"
+  },
+  {
+    "type": "file",
+    "name": "services",
+    "label": "Translation services and custom models"
+  }
+]

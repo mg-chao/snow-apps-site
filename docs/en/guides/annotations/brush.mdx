@@ -1,0 +1,117 @@
+---
+title: "Brush and pressure-sensitive strokes"
+description: "Draw freehand strokes, compare normal and pressure modes, set color and width, understand simulated mouse pressure, and move, resize, erase or undo strokes."
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Brush and pressure-sensitive strokes
+
+Brush records continuous pointer movement for handwriting, circling and freehand outlines. Unlike a point-by-point [Line](./lines.mdx), one press-to-release gesture creates one stroke.
+
+## Draw your first stroke
+
+1. Click **Brush** in the screenshot toolbar to show stroke color, width and brush mode.
+2. Choose **Regular brush** and set color and width. A dark color on a light background helps distinguish the stroke from the original image.
+3. Hold the left mouse button and move continuously. The stroke appears as you move; release to finish it.
+4. Move elsewhere before pressing again for the next stroke. Holding the button while moving across an unwanted area leaves a connecting mark.
+5. Deselect and inspect the result, then copy or save.
+
+<GuideSteps title="Brush and pressure-sensitive strokes" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-brush-1.svg",
+    "alt": "Press to begin freehand drawing",
+    "label": "Press to begin freehand drawing",
+    "caption": "Press to begin freehand drawing"
+  },
+  {
+    "src": "/images/guides/en/ann-brush-2.svg",
+    "alt": "Move to form a continuous stroke",
+    "label": "Move to form a continuous stroke",
+    "caption": "Move to form a continuous stroke"
+  },
+  {
+    "src": "/images/guides/en/ann-brush-3.svg",
+    "alt": "Release, select and edit",
+    "label": "Release, select and edit",
+    "caption": "Release, select and edit"
+  }
+]} />
+
+To change an existing object’s tool-specific style, switch back to **Brush**, then click the object to select it again. **Select elements** provides general transforms, stacking and opacity. Switching drawing tools clears the previous selection, so select the object again.
+
+## Normal and pressure modes
+
+**Regular brush** keeps a fairly consistent width, useful for simple outlines and circling points of interest. **Pressure-sensitive brush** varies stroke width for a more natural handwriting effect.
+
+Pressure-capable input devices supply actual pressure data. For a mouse or another device without native pressure, the app simulates width variation from movement, so a pen tablet is not required to see variation. Different speeds and trajectories can produce different results. Return to Regular brush for consistent thickness.
+
+Brush width sets the base thickness. Try a short stroke on empty canvas and check readability. If it is too thick, undo and reduce the width; changing canvas zoom does not replace changing stroke width.
+
+![Regular brush has more consistent width; pressure brush varies along a similar trajectory without representing calibrated pressure values](/images/guides/en/ann-audit-brush-pressure.svg)
+
+*This compares modes without assigning fixed pressure values. Mouse input can simulate thickness; pressure-capable devices can use native pressure. <a href="/images/guides/en/ann-audit-brush-pressure.svg" target="_blank" rel="noreferrer">Enlarge the comparison</a>.*
+
+## Straight sections and continuing a stroke
+
+Hold **Shift** while drawing to preview the current section as a straight segment. Release Shift to resume freehand movement. This adds a straight edge within a freehand outline; inspect the preview before releasing the mouse to finish.
+
+Keep Brush active and move near the **start or end of an open stroke**. When endpoint feedback appears, press and drag to continue from that end. On release, the extension joins the original stroke. Start away from old endpoints to create a separate stroke.
+
+<GuideSteps title="Insert a straight section into a brush stroke" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-audit-brush-shift-1.svg",
+    "alt": "Draw a curved section",
+    "label": "Draw a curved section",
+    "caption": "Hold the left mouse button and move freely to record the first section."
+  },
+  {
+    "src": "/images/guides/en/ann-audit-brush-shift-2.svg",
+    "alt": "Hold Shift for a straight edge",
+    "label": "Hold Shift for a straight edge",
+    "caption": "Keep the mouse button held, press Shift and move to another position. The current new section becomes straight."
+  },
+  {
+    "src": "/images/guides/en/ann-audit-brush-shift-3.svg",
+    "alt": "Release Shift and keep drawing",
+    "label": "Release Shift and keep drawing",
+    "caption": "Release Shift, continue moving freely, then release the mouse. The curved and straight sections belong to the same stroke."
+  }
+]} />
+
+<GuideSteps title="Continue the same stroke from an open endpoint" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-audit-brush-continue-1.svg",
+    "alt": "Approach an open endpoint",
+    "label": "Approach an open endpoint",
+    "caption": "Keep Brush active and approach the start or end of an open stroke to see endpoint feedback."
+  },
+  {
+    "src": "/images/guides/en/ann-audit-brush-continue-2.svg",
+    "alt": "Press at the endpoint and drag",
+    "label": "Press at the endpoint and drag",
+    "caption": "Hold the left mouse button at the indicated endpoint and move outward to extend the existing stroke."
+  },
+  {
+    "src": "/images/guides/en/ann-audit-brush-continue-3.svg",
+    "alt": "Release and inspect the object",
+    "label": "Release and inspect the object",
+    "caption": "Release to merge the extension into the original stroke. Selection shows one object, not a separate new stroke."
+  }
+]} />
+
+## Edit and clean up existing strokes
+
+Switch to **Select elements**, click a stroke and move, resize or rotate it as a whole. To change color or width, return to Brush and, with no unfinished stroke active, **right-click** the existing stroke to select it. Alternatively, remove Brush from **Tools that forbid quick selection of same-type elements** in Settings and then select with a left click. Without a selection, style changes affect future strokes.
+
+To remove a whole incorrect stroke, use Element eraser or select and delete it. To restore only part of the background, use Rectangle or Brush eraser; see [Erasers](./eraser.mdx). Undo reverses the last stroke or edit; Redo restores it.
+
+## Common situations
+
+**An unwanted connecting line appears:** movement is continuous while the button stays down. Undo and redraw as separate press–move–release strokes.
+
+**Pressure variation is excessive:** choose Regular brush, or test at a consistent speed before deciding whether to use pressure effects.
+
+**Dragging an old stroke draws another one:** switch to Select elements before moving an existing object. With Brush active, dragging on empty canvas creates a new stroke.
+
+Continue with [Highlight](./highlight.mdx), [Erasers](./eraser.mdx) or [Element editing](./elements.mdx).

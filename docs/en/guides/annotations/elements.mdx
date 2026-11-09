@@ -1,0 +1,149 @@
+---
+title: "Selection, transforms and stacking"
+description: "Select or multiselect annotations, move, resize, rotate and duplicate them, adjust stacking and opacity, align and distribute groups, delete objects and undo edits."
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Selection, transforms and stacking
+
+Annotations remain editable after drawing. Choose **Select elements** to edit existing objects. If text input is active, click outside the input area first.
+
+## Select one or several elements
+
+1. Choose **Select elements** in the main toolbar.
+2. Click an annotation border, stroke or text. Handles indicate selection.
+3. Drag a marquee from empty canvas to include the desired objects, then inspect the selection after release.
+4. **Shift-click** objects to add or remove them. Click empty canvas to clear the selection.
+5. Before moving or changing a style, check whether handles enclose one object or the whole group.
+
+<GuideSteps title="Selection, transforms and stacking" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-elements-1.svg",
+    "alt": "Marquee-select several annotations",
+    "label": "Marquee-select several annotations",
+    "caption": "Marquee-select several annotations"
+  },
+  {
+    "src": "/images/guides/en/ann-elements-2.svg",
+    "alt": "Drag a control handle",
+    "label": "Drag a control handle",
+    "caption": "Drag a control handle"
+  },
+  {
+    "src": "/images/guides/en/ann-elements-3.svg",
+    "alt": "Align, distribute and change stacking",
+    "label": "Align, distribute and change stacking",
+    "caption": "Align, distribute and change stacking"
+  }
+]} />
+
+## Temporary right-button selection without switching tools
+
+With a drawing tool active and **no unfinished path or stroke**, right-click an existing object of that type to select it. Hold the right button and drag to move it temporarily while keeping the drawing tool. This also works for Brush and Brush filter when left-click quick selection is disabled.
+
+Temporary selection matches the active tool’s object type. Use Select elements for a mixed group. During drawing, right-click may finish or cancel a path instead, so check that the tool is idle first.
+
+<GuideSteps title="Right-button selection while keeping a drawing tool" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-audit-right-select-1.svg",
+    "alt": "Keep Brush active",
+    "label": "Keep Brush active",
+    "caption": "No stroke is currently being drawn. Prepare to select an existing stroke of the same type."
+  },
+  {
+    "src": "/images/guides/en/ann-audit-right-select-2.svg",
+    "alt": "Right-click the object",
+    "label": "Right-click the object",
+    "caption": "Right-click the stroke body to select it while keeping Brush active. No switch to Select elements is needed."
+  },
+  {
+    "src": "/images/guides/en/ann-audit-right-select-3.svg",
+    "alt": "Drag with the right button held",
+    "label": "Drag with the right button held",
+    "caption": "Hold the right button and drag to move the whole stroke. Release and continue with the original brush."
+  }
+]} />
+
+## Move, resize and rotate
+
+Drag a selected object’s body to move it. Corner and edge handles resize it; the rotation handle changes direction. Handles differ by object: arrows are best edited through endpoints and path points, and text must leave input mode first.
+
+**Moving text depends on its selection state.** Press Esc to finish input, then V. Click empty canvas to deselect, then drag the unselected text directly. If text is already selected, drag its blank selection margin; clicking the letters re-enters editing and dragging then selects characters. See [Moving and transforming text](./text.mdx#move-resize-and-rotate).
+
+Hold **Shift** while rotating to snap to 15° increments. Hold **Alt (Option on macOS)** while resizing to scale from the center. These target handles, unlike the body-drag duplication gesture below.
+
+Hold **Alt** and start dragging a movable object’s body to create and move a copy. This does not apply to empty canvas or resize handles. Drag a short distance first to confirm that the copy appears before finishing the move.
+
+<GuideSteps title="Snap rotation to 15° with Shift" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-audit-rotate-1.svg",
+    "alt": "Drag the rotation handle",
+    "label": "Drag the rotation handle",
+    "caption": "Select the rectangle and drag its outer rotation handle. Without modifiers, rotation is free."
+  },
+  {
+    "src": "/images/guides/en/ann-audit-rotate-2.svg",
+    "alt": "Hold Shift",
+    "label": "Hold Shift",
+    "caption": "Keep dragging and hold Shift. The absolute angle snaps to 15° increments; this example changes 17° to 15°."
+  },
+  {
+    "src": "/images/guides/en/ann-audit-rotate-3.svg",
+    "alt": "Release to finish",
+    "label": "Release to finish",
+    "caption": "Release at the desired angle to keep the 15° rotation. Do not confuse rotation and resize handles."
+  }
+]} />
+
+<GuideSteps title="Alt-drag a handle to resize from the center" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-audit-center-resize-1.svg",
+    "alt": "Locate the resize handle",
+    "label": "Locate the resize handle",
+    "caption": "Select the object and note its center cross. This gesture targets a handle, not the body."
+  },
+  {
+    "src": "/images/guides/en/ann-audit-center-resize-2.svg",
+    "alt": "Alt-drag the handle",
+    "label": "Alt-drag the handle",
+    "caption": "Hold Alt and drag a corner outward. The center remains fixed as both sides expand."
+  },
+  {
+    "src": "/images/guides/en/ann-audit-center-resize-3.svg",
+    "alt": "Release to keep the new size",
+    "label": "Release to keep the new size",
+    "caption": "The bounds are larger but the center has not moved. Alt-dragging the body duplicates and moves instead."
+  }
+]} />
+
+## Duplicate and delete
+
+**Copy selected elements** duplicates editable annotations within the canvas. **Copy to clipboard** exports the final image to other apps.
+
+Select the target and confirm that its selection frame or handles are visible, then choose **Delete selected elements** or press Delete / Backspace. Reselect the object if Undo cleared the selection. During text input these keys affect characters; press Esc to finish input before selecting and deleting the whole object.
+
+## Stacking order
+
+| Action | Result |
+| --- | --- |
+| Send to back | Place selected annotations behind other annotations |
+| Send backward | Swap with the neighboring layer, one step backward |
+| Bring forward | Move one step forward |
+| Bring to front | Place selected annotations in front of the others |
+
+If a filled shape covers text, move the shape backward or bring the text to front. Stacking arranges annotations relative to one another; the original image remains the background.
+
+## Align and distribute
+
+With at least two objects selected, use Align left, Center horizontally, Align right, Align top, Center vertically or Align bottom to match their edges or centers.
+
+With at least three selected, Distribute horizontally and Distribute vertically arrange spacing. If a button is disabled, check the selection count; one object cannot be aligned with other objects. Inspect placement afterward so annotations with different meanings do not end up stacked together.
+
+## Opacity and mixed styles
+
+Drag **Opacity** in the selection toolbar to change supported selected objects together. Objects with different colors or widths may show “mixed” values. A new value unifies that property, so check the selection before changing it.
+
+To change only one arrow’s color, clear the group selection by clicking empty canvas, then select the arrow alone. Tools expose different properties; a mixed selection may not support a shared adjustment.
+
+Undo reverses movement, transforms, duplication, deletion and styles; Redo restores the last undone edit. Check the final result and copy or save. Related: [Annotation basics](./basics.mdx) · [Arrows](./arrows.mdx) · [Annotation templates](./templates.mdx).

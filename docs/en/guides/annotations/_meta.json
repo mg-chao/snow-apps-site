@@ -1,0 +1,97 @@
+[
+  {
+    "type": "file",
+    "name": "basics",
+    "label": "Annotation basics and shared styles"
+  },
+  {
+    "type": "file",
+    "name": "shapes",
+    "label": "Rectangles, ellipses and diamonds"
+  },
+  {
+    "type": "file",
+    "name": "speech-bubbles",
+    "label": "Speech and thought bubbles"
+  },
+  {
+    "type": "file",
+    "name": "arrows",
+    "label": "Arrows"
+  },
+  {
+    "type": "file",
+    "name": "lines",
+    "label": "Straight, curved and multipoint lines"
+  },
+  {
+    "type": "file",
+    "name": "brush",
+    "label": "Brush and pressure-sensitive strokes"
+  },
+  {
+    "type": "file",
+    "name": "highlight",
+    "label": "Rectangle and brush highlights"
+  },
+  {
+    "type": "file",
+    "name": "text",
+    "label": "Text annotations and layout"
+  },
+  {
+    "type": "file",
+    "name": "sequence",
+    "label": "Sequence numbers and step descriptions"
+  },
+  {
+    "type": "file",
+    "name": "filters",
+    "label": "Filters, mosaic and automatic filtering"
+  },
+  {
+    "type": "file",
+    "name": "eraser",
+    "label": "Element, rectangle and brush erasers"
+  },
+  {
+    "type": "file",
+    "name": "watermark",
+    "label": "Watermarks and date templates"
+  },
+  {
+    "type": "file",
+    "name": "spotlight",
+    "label": "Spotlight"
+  },
+  {
+    "type": "file",
+    "name": "magnifier",
+    "label": "Magnifiers and local details"
+  },
+  {
+    "type": "file",
+    "name": "distance",
+    "label": "Distance annotations and scale"
+  },
+  {
+    "type": "file",
+    "name": "angle",
+    "label": "Angle annotations"
+  },
+  {
+    "type": "file",
+    "name": "bracket",
+    "label": "Bracket annotations"
+  },
+  {
+    "type": "file",
+    "name": "elements",
+    "label": "Selection, transforms and stacking"
+  },
+  {
+    "type": "file",
+    "name": "templates",
+    "label": "Annotation templates"
+  }
+]

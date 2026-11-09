@@ -1,0 +1,72 @@
+---
+title: Table recognition and cell editing
+description: Recognize editable tables, select dedicated or vision models, correct cells, merge and split ranges, paste data, undo or reset changes, and copy or export XLSX spreadsheets.
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Table recognition and cell editing
+
+Use **Table recognition** when you need to reuse rows and columns from an image in a spreadsheet. Unlike ordinary OCR, it retains cell structure so you can edit, merge, split, and export XLSX. This requires Full and an available recognition service.
+
+![Table recognition: select a complete rectangular cell range, merge or split, and export XLSX](/images/guides/en/rec-table.svg)
+
+*Instructional illustration. Select a rectangular range before merging. Split applies to cells that are already merged.*
+
+## Recognize a table
+
+1. Display the entire target table clearly. Capture with the configured shortcut—**F1** on Windows or **Control+1** on macOS by default. Include headers, every required row, and complete boundaries; exclude adjacent tables.
+2. Select **Table recognition** in the screenshot toolbar. It shares a group with **Barcode recognition**; the group may show the last-used tool. Expand its options and check the tooltip before choosing Table recognition.
+3. Watch the recognition status. Vision models may show a table preview that fills in progressively. Wait for completion before editing; a preview still being generated is read-only.
+4. Compare row and column counts and merged ranges first, then check each number. Use **Show original image** in the result toolbar for reference.
+
+## Select a recognition model
+
+Under **Recognition model**, choose the **Table-specific model** or an available vision model. The dedicated model uses a separate table-recognition service; “dedicated” does not mean offline.
+
+A vision model must be configured and actually support image input. After switching models, wait for the new result. Retry as instructed if the service list or configuration changes. If the dedicated model reports an image larger than 4K, reduce the selection or recognize successive groups of rows.
+
+## Correct cells
+
+1. **Click a cell once** to edit its text. You can also double-click, or navigate to the cell and press **F2** or **Enter**.
+2. Correct the content. **Enter** commits and moves down; **Shift+Enter** moves up. **Tab** commits and moves right; **Shift+Tab** moves left.
+3. Press **Esc** to cancel uncommitted input in the current cell. For committed changes, use **Undo**; **Redo** restores an undone change.
+
+Dragging a multi-cell selection differs from clicking to edit. For range operations, drag from one cell to another, release, and confirm the whole range is selected before using tool buttons.
+
+<GuideSteps title="Select, merge, and split cells" frames={[
+  {src: '/images/guides/en/rec-table-1.svg', alt: 'Select two adjacent cells as a rectangular range', label: 'Select a rectangle', caption: 'In the completed result, drag across two adjacent cells and check the selected range.'},
+  {src: '/images/guides/en/rec-table-2.svg', alt: 'Merge the selected range and inspect its text and border', label: 'Merge the range', caption: 'Click Merge cells and inspect the combined text and boundaries.'},
+  {src: '/images/guides/en/rec-table-3.svg', alt: 'Split the merged cell; its text remains in the upper-left cell', label: 'Split the range', caption: 'Select the merged range and click Split cells. Text stays in the upper-left cell; use Undo to restore the original distribution.'}
+]} />
+
+## Merge and split
+
+**Merge cells**: drag a complete rectangular range, then click **Merge cells** in the property bar or choose the same command from the selection's context menu. The range becomes one merged area. Check its contents before and after merging; undo if necessary.
+
+**Split cells**: select an already merged cell and click **Split cells**. This restores boundaries within that area; it does not invent rows or columns. Merging joins nonempty content in row-major order with line breaks. After splitting, that combined text remains in the upper-left cell and the other split cells are empty. To restore the original text distribution completely, use Undo.
+
+If a button is unavailable, check that recognition has finished, the selection is valid, and you have exited cell text editing. Leave the text cursor and drag-select again.
+
+## Copy, paste, and export
+
+| Task | Action and result |
+| --- | --- |
+| Copy part of a table | Drag a rectangular cell range, right-click **Copy**, and paste into a spreadsheet to check rows and columns |
+| Copy everything | Clear the partial cell selection and copy, or select all first; with no cell selection, copying includes the whole table |
+| Paste existing data | Select the destination cell and right-click **Paste**; data must fit existing boundaries, because pasting cannot add rows or columns |
+| Clear text only | Select a range and choose **Clear contents**, or press Delete / Backspace; cell structure remains |
+| Save a persistent file | Click **Save as file**, choose a folder and name, save as **.xlsx**, and reopen it to check structure |
+| Open in spreadsheet software | Click **Open spreadsheet file**; Snow Shot creates a temporary XLSX and opens the default application. Save a persistent copy there if needed |
+
+For an out-of-bounds paste, reduce the source or choose a destination farther toward the upper-left. Select complete merged areas when pasting across them; do not partially cover a merged cell.
+
+## Restore and retry
+
+- Reverse one unsuitable operation with **Undo**; restore it with **Redo**.
+- Click **Reset** to discard the current cleanup and return to the initial recognized table. Reset is itself undoable.
+- If no cells are recognized, capture a table with clearer boundaries and exclude large blank areas and surrounding explanations.
+- For unavailable services, invalid models, or network errors, check [Models and services](../translation/services.md), then click **Retry** in the result. Repeated clicks cannot supply missing credentials.
+- If **Open spreadsheet file** fails, save XLSX with **Save as file** and confirm an application is installed to open it.
+
+Continue with [Text recognition](./text.md), [LaTeX recognition](./formula.md), or [Markdown and HTML conversion](./image-conversion.md).

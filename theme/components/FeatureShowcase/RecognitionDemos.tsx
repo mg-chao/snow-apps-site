@@ -9,7 +9,7 @@ import { RecognizeTextIcon } from '../HomeLayout/icons';
 import { CopyButton, Playback, useDemo } from './shared';
 import './RecognitionDemos.css';
 
-const repository = 'https://github.com/mg-chao/snow-apps';
+const repository = 'https://github.com/mg-chao/snow-shot';
 const latex = String.raw`\int_0^1 x^2\,dx = \frac{1}{3}`;
 
 function phase(progress: number) {
@@ -134,7 +134,7 @@ function RecognitionHeader({
   return (
     <div className="snow-recognition__header">
       <div className="snow-recognition__brand">
-        <img src="/images/app-icon.png" alt="" width={22} height={22} />
+        <img src="/images/app-icon.webp" alt="" width={22} height={22} />
         <span>
           Snow Shot{' '}
           <span className="snow-recognition__brand-detail"> / {title}</span>

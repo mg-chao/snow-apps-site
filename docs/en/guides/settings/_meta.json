@@ -1,0 +1,27 @@
+[
+  {
+    "type": "file",
+    "name": "shortcuts",
+    "label": "Shortcuts and global mouse actions"
+  },
+  {
+    "type": "file",
+    "name": "appearance",
+    "label": "Theme, fonts, and background skins"
+  },
+  {
+    "type": "file",
+    "name": "toolbars-tray",
+    "label": "Toolbars, tray, and floating controls"
+  },
+  {
+    "type": "file",
+    "name": "storage-backup",
+    "label": "Storage, backups, cleanup, and logs"
+  },
+  {
+    "type": "file",
+    "name": "network-integration",
+    "label": "Proxy, system integration, and MCP"
+  }
+]

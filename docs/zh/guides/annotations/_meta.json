@@ -1,0 +1,97 @@
+[
+  {
+    "type": "file",
+    "name": "basics",
+    "label": "标注入门与通用样式"
+  },
+  {
+    "type": "file",
+    "name": "shapes",
+    "label": "矩形、椭圆与菱形"
+  },
+  {
+    "type": "file",
+    "name": "speech-bubbles",
+    "label": "对话气泡与思考气泡"
+  },
+  {
+    "type": "file",
+    "name": "arrows",
+    "label": "箭头"
+  },
+  {
+    "type": "file",
+    "name": "lines",
+    "label": "直线、曲线与多点线条"
+  },
+  {
+    "type": "file",
+    "name": "brush",
+    "label": "画笔与压感笔画"
+  },
+  {
+    "type": "file",
+    "name": "highlight",
+    "label": "矩形高亮与画笔高亮"
+  },
+  {
+    "type": "file",
+    "name": "text",
+    "label": "文字标注与排版"
+  },
+  {
+    "type": "file",
+    "name": "sequence",
+    "label": "序号与步骤说明"
+  },
+  {
+    "type": "file",
+    "name": "filters",
+    "label": "滤镜、马赛克与自动滤镜"
+  },
+  {
+    "type": "file",
+    "name": "eraser",
+    "label": "元素、矩形与画笔橡皮擦"
+  },
+  {
+    "type": "file",
+    "name": "watermark",
+    "label": "水印与时间模板"
+  },
+  {
+    "type": "file",
+    "name": "spotlight",
+    "label": "聚光灯"
+  },
+  {
+    "type": "file",
+    "name": "magnifier",
+    "label": "放大镜与局部细节"
+  },
+  {
+    "type": "file",
+    "name": "distance",
+    "label": "距离标注与尺寸换算"
+  },
+  {
+    "type": "file",
+    "name": "angle",
+    "label": "角度标注"
+  },
+  {
+    "type": "file",
+    "name": "bracket",
+    "label": "括号标注"
+  },
+  {
+    "type": "file",
+    "name": "elements",
+    "label": "元素选择、变形与层级"
+  },
+  {
+    "type": "file",
+    "name": "templates",
+    "label": "标注模板"
+  }
+]

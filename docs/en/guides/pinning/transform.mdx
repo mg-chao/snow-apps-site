@@ -1,0 +1,80 @@
+---
+title: Pin transforms and cropping
+description: Adjust pin zoom, opacity, rotation, and flipping; right-drag a view and apply a crop; configure wheel anchors; and organize the desktop with click-through, locking, thumbnails, and top hiding.
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Pin transforms and cropping
+
+Zoom, rotate, or make a pin translucent to compare it with a design or another window. Cropping has two stages: **narrow the visible view**, then **Apply crop**. Decide whether you only want to hide part temporarily or crop the pin's current content.
+
+![Pin transforms: original image, rotation, translucent overlay, and crop range](/images/guides/en/pin-transform.svg)
+
+*Instructional illustration. Display scale and window opacity do not rewrite the source file.*
+
+## Zoom and anchoring
+
+Right-click and open **Process image → Zoom**. Choose **25%, 50%, 75%, or 100%**, or use **Increase 10%** / **Decrease 10%**. The “Current” item shows the existing scale.
+
+In ordinary image mode, scrolling over the pin also changes display scale. In recognition or annotation mode, the wheel may control that mode's content. Return to ordinary image mode or explicitly use the context menu to adjust the entire pin.
+
+Under **Settings → Pin to screen**, configure wheel zoom step and anchor: pointer position, any corner, or center. Use pointer position to keep a detail aligned, or a corner to keep that edge steady. Test with a distinct corner after changing the setting.
+
+## Opacity, rotation, and flipping
+
+**Process image → Opacity** offers **25%, 50%, 75%, 100%** and 10% increases or decreases. Try 50% for comparison and restore 100% for normal reading. A translucent window does not mean the saved image has a transparent background.
+
+Under **Process image**, **Rotate clockwise** and **Rotate counterclockwise** change orientation by 90° each time. **Flip horizontally** and **Flip vertically** mirror the image. **Reset transforms** restores rotation and flipping; zoom and opacity have their own menu values and are not reset by that command.
+
+<GuideSteps title="Right-drag a view, then apply a crop" frames={[
+  {src: '/images/guides/en/pin-crop-1.svg', alt: 'Return to an ordinary pin with the complete image', label: 'Return to image mode', caption: 'Exit recognition, annotation, locking, and other special modes; retain the full original view.'},
+  {src: '/images/guides/en/pin-crop-2.svg', alt: 'Right-drag between opposite corners to narrow the visible range', label: 'Right-drag a range', caption: 'Hold the right button and drag corner to corner. Releasing narrows the current visible view.'},
+  {src: '/images/guides/en/pin-crop-3.svg', alt: 'Apply crop to retain only the selected area in the pin', label: 'Apply the crop', caption: 'Confirm the range, then choose Apply crop. The pin retains only the selected area.'}
+]} />
+
+## Crop a pin
+
+A right **click** opens the menu; a right **drag** selects a crop view. These gestures have different results.
+
+1. Exit annotation, recognition, locking, click-through, thumbnail, and top-hide states to return to an ordinary pin.
+2. Hold the **right mouse button** inside the image and drag between opposite corners of the area to retain. Inspect the rectangle. Press **Esc** before releasing to cancel the gesture.
+3. Release to narrow the window to the selected view. Very small movements are treated as a context-menu click, so drag a clear rectangle.
+4. To crop the content to that range, right-click **Apply crop** and wait. Copy original content or save another copy first if you need to retain it.
+
+After applying the crop, the pin's image contains only the selected area. For an incorrect crop, use **Load new content** to reload the source file or original clipboard content. Cropping does not directly overwrite the source file. Choose a new filename when saving to retain both the original and cropped result.
+
+## Borders and shadows
+
+Under **Pin to screen management** in the context menu, **Show border** and **Show shadow** toggle the current window's decorations. Try a light-colored image and compare its outline. These are window decorations, not shapes drawn into the image.
+
+Set new-window defaults under **Settings → Pin to screen → Window interface**:
+
+| Setting | What to check |
+| --- | --- |
+| Show border by default | Create a new pin and check its initial border; existing windows have their own menu toggle |
+| Show shadow by default | Check a new pin's initial shadow |
+| Border color, shadow color | Colors of ordinary window edges and shadows |
+| Active border color, active shadow color | Focus the pin and check the active-state distinction |
+| Locked border color, locked shadow color | Enable locking and check the locked-state cue |
+
+![Pin decorations: ordinary, focused, and locked states can have different colors; defaults and current-window toggles are separate](/images/guides/en/pin-border.svg)
+
+*Instructional illustration. Colors distinguish states and do not represent application defaults.*
+
+**Automatically resize window** on the same settings page keeps new pins, such as long screenshots, within the monitor. Enable it and create a long-image pin to check its initial size. Zoom or adjust the visible range for detail; this does not delete source-image pixels.
+
+## Avoid obstruction and accidental changes
+
+| Mode | Enter and exit | Effect |
+| --- | --- | --- |
+| Mouse click-through | Enable **Mouse click-through** in the context menu; use the separate **Exit mouse click-through mode** button to leave | Most image-area input goes to the application behind it; auxiliary controls remain usable |
+| Lock mode | Toggle **Lock mode** in the context menu | Prevents accidental moving, zooming, or cropping; unlock before adjusting |
+| Thumbnail mode | Toggle **Thumbnail mode** | Temporarily reduces an ordinary pin to free workspace |
+| Hide at top | Enable **Hide at top**, point at its top handle to reveal it, then disable the mode in the menu to exit | Stores an ordinary pin at the screen's top edge |
+
+With click-through active, right-clicking the image no longer opens its ordinary menu; use the auxiliary exit button first. To hide many windows, use [Groups and batch operations](./management.mdx). Live windows offer only their supported modes.
+
+Double-click and middle-button actions are separately configurable—for example, reset zoom, thumbnail, hide at top, show recognition results, close, or destroy. Another user's double-click behavior is not a fixed gesture for every configuration.
+
+Continue with [Image pins](./image.md), [Text and annotations](./text.md), or [Live window pins](./live-window.md).

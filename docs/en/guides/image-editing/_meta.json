@@ -1,0 +1,27 @@
+[
+  {
+    "type": "file",
+    "name": "editor",
+    "label": "Open images and crop rows or columns"
+  },
+  {
+    "type": "file",
+    "name": "collage",
+    "label": "Image collage and layout"
+  },
+  {
+    "type": "file",
+    "name": "split",
+    "label": "Split images and edit cut lines"
+  },
+  {
+    "type": "file",
+    "name": "pdf",
+    "label": "Images to PDF and paper layout"
+  },
+  {
+    "type": "file",
+    "name": "canvas",
+    "label": "Full-screen canvas and laser pointer"
+  }
+]

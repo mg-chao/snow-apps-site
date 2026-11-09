@@ -1,0 +1,55 @@
+---
+title: Recording area, start, pause, and stop
+description: Choose a Snow Shot recording area and format, set a countdown, pause or resume capture, stop or copy the file, and recover from export errors.
+---
+
+import GuideRecordingDemo from '../../../../theme/components/GuideRecordingDemo';
+
+# Recording area, start, pause, and stop
+
+Use screen recording to demonstrate a sequence of actions. Choose the area and output format first, pause when you need to rearrange windows, and stop when you are ready to obtain the file.
+
+## Enter recording and choose the area
+
+1. On the main window's **Global shortcuts** page, find and run **Screen recording**. Alternatively, start a screenshot, select an area, and click **Screen recording** on its action toolbar. The recording border and toolbar indicate that recording is ready to set up.
+2. Before starting, drag the recording border or its move area to adjust the position and size. Check that the window and any menus you will demonstrate fit inside the border. The toolbar moves with the area.
+3. Open **Export settings** on the recording toolbar. Under **Recording format**, choose MP4, GIF, APNG, or WebP. Choose MP4 for sound; the other three produce silent animations.
+4. For preparation time, scroll over **Delay recording (scroll to adjust)** to change the number of seconds. Click that control to reset it to zero. Click **Start recording**; if a delay is set, wait for the countdown to finish before demonstrating your actions.
+
+Once recording has started, paused, or entered processing, you cannot resize the capture area as you can during preparation. Stop this recording and select a new area when you need a different scope.
+
+<GuideRecordingDemo mode="capture" />
+
+## Control recording by its current state
+
+| Current state | Control | What to look for |
+| --- | --- | --- |
+| Ready | **Start recording** | The button is busy during startup or the countdown; pause and stop become available after capture starts. |
+| Recording | **Pause recording** | Recording pauses and **Resume recording** appears. Rearrange windows without recording the wait. |
+| Paused | **Resume recording** | Capture returns to the recording state and collects subsequent actions. |
+| Recording or paused | **Stop recording** | Capture ends and output is processed. Wait for completion before using the file. |
+| Recording or paused | **Copy recording** | Capture ends and the recording file is placed on the clipboard for applications that accept files. |
+
+Start, pause, and resume share a configurable recording shortcut action that responds to the current state. Check your binding under **Settings → Application shortcuts → Screen recording** or in the button tooltip. Avoid repeatedly clicking during startup or stopping.
+
+**Close recording** leaves the recording window; it differs from stopping to save. If **Settings → Screen recording → Interaction → Delete files on recording close** is enabled, closing an active recording deletes this session's file. Use stop or copy when you need the result.
+
+## Control the toolbar and status prompts
+
+Under **Settings → Screen recording**, you can change:
+
+- **Capture toolbar during recording**: include the recording toolbar when you want viewers to see the controls; turn it off to exclude them.
+- **Auto-hide toolbar**: near the left or right screen edge, the toolbar retracts when the pointer leaves. Hover over the edge control to show it again.
+- **Show recording status prompts**: show the format, microphone, and system-audio status in the center of the effect preview area. Check audio before starting.
+- **Auto exit after recording ends**: leave the recording interface automatically after saving.
+- **Notify after export completes**: show a system notification; click it to locate the output file.
+
+The directory and filename are configured under **Settings → Export & storage → Video export**. The initial location is the system video directory; if you have changed it, use the field shown in your settings. To remove the beginning or end, enter the [trimming preview](./trim-export) before exporting.
+
+## Recording will not start, or the result is missing
+
+On macOS, first check Screen & System Audio Recording permission under **Settings → App permissions**. Sound, webcam, and keystroke display also require their corresponding devices and permissions. Windows offers recording API choices under **Settings → Screen recording → Recording content**. For a black or incompatible capture, switch the API and make a short test recording. Different APIs do not guarantee access to protected content.
+
+If the recording directory cannot be created, select a writable directory under **Video export**. For a rendering error, preserve the source folder named in the message and choose **Retry** in the failure dialog. Choose **Keep source files** if you will recover it later. Do not clean temporary recordings first. On Windows, an interrupted system session may produce a recovery prompt with **Recover** and **Open folder**.
+
+Continue with [audio and webcam](./audio-camera), [mouse and keystroke effects](./effects), or [trimming, speed, and export](./trim-export).

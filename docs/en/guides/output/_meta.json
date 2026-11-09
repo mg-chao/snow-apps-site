@@ -1,0 +1,17 @@
+[
+  {
+    "type": "file",
+    "name": "copy-save",
+    "label": "Copy, save, print, and share"
+  },
+  {
+    "type": "file",
+    "name": "history",
+    "label": "Screenshot history and bulk actions"
+  },
+  {
+    "type": "file",
+    "name": "cloud-upload",
+    "label": "S3 cloud upload and links"
+  }
+]

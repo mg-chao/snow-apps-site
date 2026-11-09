@@ -21,6 +21,29 @@ export function seoBuildPlugin(): RspressPlugin {
     routeGenerated(generated) {
       routes = generated;
     },
+    modifySearchIndexData(pages) {
+      for (const page of pages) {
+        if (!/^\/(?:zh\/)?guides(?:\/|$)/.test(page.routePath)) continue;
+        // JSX demonstrations belong in the page, not in search-result excerpts.
+        const removed: { start: number; length: number }[] = [];
+        page.content = page.content.replace(
+          /^import .+ from .+;?\s*$|<GuideSteps\b[\s\S]*?\/>|<(?:ArrowDemo|GuideRecordingDemo)\b[^>]*\/>/gm,
+          (match, offset: number) => {
+            removed.push({ start: offset, length: match.length });
+            return '';
+          },
+        );
+        for (const heading of page.toc) {
+          const before = removed.filter(
+            (part) => part.start < heading.charIndex,
+          );
+          heading.charIndex -= before.reduce(
+            (sum, part) => sum + part.length,
+            0,
+          );
+        }
+      }
+    },
     afterBuild(config, isProd) {
       if (!isProd) return;
       const output = resolve(config.outDir ?? 'doc_build');

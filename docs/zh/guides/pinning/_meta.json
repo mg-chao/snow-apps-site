@@ -1,0 +1,37 @@
+[
+  {
+    "type": "file",
+    "name": "image",
+    "label": "图片与剪贴板贴图"
+  },
+  {
+    "type": "file",
+    "name": "transform",
+    "label": "贴图变换与裁剪"
+  },
+  {
+    "type": "file",
+    "name": "text",
+    "label": "贴图文字与标注"
+  },
+  {
+    "type": "file",
+    "name": "color",
+    "label": "颜色卡片与颜色格式转换"
+  },
+  {
+    "type": "file",
+    "name": "management",
+    "label": "分组、批量管理与恢复"
+  },
+  {
+    "type": "file",
+    "name": "animation",
+    "label": "动图贴图与逐帧播放"
+  },
+  {
+    "type": "file",
+    "name": "live-window",
+    "label": "实时窗口贴图"
+  }
+]

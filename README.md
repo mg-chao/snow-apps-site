@@ -28,19 +28,36 @@ Preview the production build locally:
 npm run preview
 ```
 
+## Image optimization
+
+Website bitmaps use lossless WebP with maximum encoder effort (`method=6`,
+`quality=100`, `exact=True`). Pixel dimensions, RGBA pixels and transparency are
+verified after encoding. Pure vector SVGs and the ICO favicon keep their formats;
+bitmaps embedded in SVGs are optimized too. Existing WebP files are replaced only
+when the new encoding is smaller.
+
+To optimize new PNG/JPEG assets and update their references in docs and theme files:
+
+```bash
+python3 -m pip install Pillow
+python3 scripts/optimize-images.py
+```
+
+Original guide evidence records retain their source filenames; the consolidated
+asset registry resolves converted files to their current WebP paths.
+
 ## Language selection
 
-Unprefixed URLs use Chinese when the browser's regional locale is Chinese,
-including Chrome and Edge configurations that report only `en-US` and `en` in
-their language list while `Intl.DateTimeFormat().resolvedOptions().locale`
-reports `zh-CN`. Otherwise, the first supported browser language wins, with
-English as the fallback. Regional Chinese preferences such as `zh-CN` and `zh-TW`
-use the Chinese pages. This is checked on every page load, including visits with
-Rspress's old `rspress-visited` flag.
+Unprefixed URLs automatically redirect to Chinese for Chinese browser preferences,
+including Chromium configurations that report only English content languages but
+a Chinese regional locale. English users stay on the English pages; unsupported
+languages fall back to English. A language explicitly chosen in the site's menu
+takes priority over browser detection and is remembered when storage is available.
 
-Choosing a language in the site's menu saves that preference for future visits.
-Explicit `/zh/` URLs always stay Chinese. The redirect script runs in the HTML
-head and preserves the path, query string, and fragment.
+Explicit `/zh/` URLs stay Chinese. Recognized crawler user agents keep the requested
+URL so both languages remain accessible for indexing. The selection script runs in
+the HTML head, preserves the path, query parameters and fragment, and also works
+when local storage is blocked. Visits alone do not save a language preference.
 
 Run the language regression tests with `bun run test`.
 
@@ -101,6 +118,40 @@ itself, and the Intel page does not offer a Mini command.
 
 Run the focused detection and download checks with
 `node --test tests/platform.test.mjs tests/download-page.test.mjs`.
+
+## Changelog
+
+The English and Simplified Chinese changelogs are available at `/changelog.html`
+and `/zh/changelog.html`. Both use the checked-in GitHub Releases snapshot in
+`theme/components/ChangelogPage/releases.json`, so builds and page visits do not
+depend on the GitHub API.
+
+Refresh the snapshot before building for a new app release:
+
+```bash
+bun run changelog:sync
+```
+
+The sync command fetches every public release page, excludes drafts and unrelated
+product tags, and sorts by `published_at`. Historical `alpha`, `beta`, `rc`, and
+`dev` tags count as previews even when GitHub's `prerelease` flag is false.
+Authored Chinese/English notes are used where available; untranslated historical
+notes retain their original language. Download instructions and duplicate
+generated commit lists are omitted when an authored summary is present. Original
+GitHub release links remain available for full context and historical assets.
+
+If GitHub rate-limits the request, set `GITHUB_TOKEN` in the environment. An offline
+import is also supported: export all pages of the raw GitHub Releases API as one
+JSON array, then run:
+
+```bash
+bun run changelog:sync --input /absolute/path/releases.json
+```
+
+Review and commit the resulting snapshot together with the website changes. A
+failed sync preserves the previous snapshot. Run the extraction, pagination,
+offline-import, and failure-preservation checks with
+`bun test tests/changelog-sync.test.mjs`.
 
 ## Release deployment
 
@@ -187,7 +238,7 @@ Linux. Then run `bun run lint` and `bun run build`.
 ## Search discoverability
 
 The official source and complete user guides live in
-[mg-chao/snow-apps](https://github.com/mg-chao/snow-apps). Keep the website's
+[mg-chao/snow-shot](https://github.com/mg-chao/snow-shot). Keep the website's
 English and Chinese guide hubs useful and link each topic to that repository.
 Use the real product category in page titles and headings; avoid keyword lists,
 unsupported comparisons, fabricated ratings, or promises about search position.

@@ -1,0 +1,2854 @@
+{
+  "source": "https://github.com/mg-chao/snow-shot/releases",
+  "syncedAt": "2026-11-09T13:13:28.581Z",
+  "releases": [
+    {
+      "tag": "v1.5.2_snow-shot",
+      "version": "1.5.2",
+      "name": "Snow Shot 1.5.2",
+      "publishedAt": "2026-11-08T16:14:35Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.5.2_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 可将系统中选中的图片直接导入编辑器；拼图预览更清晰，PDF 排版更灵活。\n- 浮动工具栏可按需添加截图历史、全屏画布和图片编辑等快捷入口。\n- 截图历史浏览更流畅、占用更少；更新后自动清理安装缓存。\n- 支持一键导出日志和崩溃报告，方便反馈问题。\n- 改善全屏截图、贴图标注和录屏工具栏的稳定性。",
+        "en": "- Open selected images directly in the editor, with clearer collage previews and more flexible PDF layouts.\n- Add screenshot history, full-screen canvas, and image editing shortcuts to your floating toolbar.\n- Browse screenshot history more smoothly with less storage use; update files are cleaned up after installation.\n- Export logs and crash reports together for easier troubleshooting.\n- Improved full-screen capture, pinned annotations, and recording toolbar reliability."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.5.0_snow-shot",
+      "version": "1.5.0",
+      "name": "Snow Shot 1.5.0",
+      "publishedAt": "2026-11-07T17:02:45Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.5.0_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 新增“贴图后保留标注可编辑”设置，贴图后仍可修改标注、撤销和重做。\n- 贴图文字工具栏新增复制按钮，选中文字即可复制。\n- 恢复的贴图会应用当前设置；重新编辑历史截图时避免重复叠加旧标注。\n- 改善编号标注删除后的排序、长图拆分预览和 Windows 截图稳定性。",
+        "en": "- Enable “Keep annotations editable after pinning to screen” to edit, undo, and redo annotations on pinned images.\n- Copy selected text directly from the pinned-text toolbar.\n- Restored pinned images follow your current settings; reopening history images avoids duplicate annotations.\n- Improved numbered annotations after deletion, long-image split previews, and Windows capture reliability."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.4.9_snow-shot",
+      "version": "1.4.9",
+      "name": "Snow Shot 1.4.9",
+      "publishedAt": "2026-11-06T16:19:34Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.4.9_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 长图智能拆分，自动寻找合适的切分位置，并可调整分块重叠范围。\n- 支持打开和导出 TIFF 图片；拼图时可移动图片、调整大小。\n- 支持快捷键启动滚动截图，可在设置中配置 HTTP 代理。\n- 修复滚动截图编辑后无法复制的问题，改善 macOS 开机启动设置的响应速度。\n- 改善贴图边框、工具栏操作和无障碍支持，缩小 Windows 安装包。",
+        "en": "- Split long images at natural breaks and adjust the overlap between pieces.\n- Open and export TIFF images; move and resize images in collages.\n- Start scrolling screenshots with a keyboard shortcut and set an HTTP proxy in settings.\n- Fixed copying after editing scrolling screenshots and improved macOS launch-at-login responsiveness.\n- Improved pinned-image borders, toolbar behavior, and accessibility; reduced Windows installer sizes."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.4.7_snow-shot",
+      "version": "1.4.7",
+      "name": "Snow Shot 1.4.7",
+      "publishedAt": "2026-11-05T16:34:19Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.4.7_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- Fixed screenshots sometimes failing to save to history.\n- Made translated text more stable as results appear, reducing shifting and overlap.\n- Start a new annotation immediately when clicking to clear the previous selection.",
+        "en": "- Fixed screenshots sometimes failing to save to history.\n- Made translated text more stable as results appear, reducing shifting and overlap.\n- Start a new annotation immediately when clicking to clear the previous selection."
+      },
+      "notesLanguage": {
+        "zh": "en",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.4.6_snow-shot",
+      "version": "1.4.6",
+      "name": "Snow Shot 1.4.6",
+      "publishedAt": "2026-11-04T13:29:06Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.4.6_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 截图选区支持快速添加文字标注，历史记录支持复制图片路径。\n- 表格识别支持实时预览与纠错，LaTeX 识别结果可边识别边预览。\n- 新增免费翻译，支持快速切换翻译服务，并改善译文字号保留。\n- 贴图支持批量复制和拼图，摇动贴图可显示或隐藏其他贴图，导出时保留最新编辑。\n- 录屏按键显示可分别控制数字、字母与符号、控制键和快捷键。\n- 缩小部分安装包、降低导出内存占用，修复 macOS 焦点与图片拖放、工具栏越界及截图编辑问题。",
+        "en": "- 截图选区支持快速添加文字标注，历史记录支持复制图片路径。\n- 表格识别支持实时预览与纠错，LaTeX 识别结果可边识别边预览。\n- 新增免费翻译，支持快速切换翻译服务，并改善译文字号保留。\n- 贴图支持批量复制和拼图，摇动贴图可显示或隐藏其他贴图，导出时保留最新编辑。\n- 录屏按键显示可分别控制数字、字母与符号、控制键和快捷键。\n- 缩小部分安装包、降低导出内存占用，修复 macOS 焦点与图片拖放、工具栏越界及截图编辑问题。"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v1.4.5_snow-shot",
+      "version": "1.4.5",
+      "name": "Snow Shot 1.4.5",
+      "publishedAt": "2026-11-03T07:13:54Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.4.5_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- PDF 拼图新增多图与证件模板，支持调整图片间距、反转页面顺序。\n- 智能选择可选窗口、窗口子元素或关闭，并可配置取消截图操作。\n- 可选择在全屏游戏或所有全屏窗口中自动停用全局快捷键。\n- 贴图支持使用标准粘贴快捷键替换内容，恢复后保留原有叠放顺序。\n- 改善截图恢复、macOS 开机启动和工具提示，导入设置时保留本机目录。",
+        "en": "- Create PDFs with image and ID-card templates, adjust image spacing, and reverse page order.\n- Choose smart selection for windows or window elements, or turn it off; add a cancel action to your screenshot controls.\n- Automatically pause global hotkeys for fullscreen games or all fullscreen windows.\n- Replace pinned content with standard paste shortcuts and keep pins in the same stacking order after restoring them.\n- Improve capture recovery, macOS launch at login, tooltip timing, and settings transfers that preserve your local folders."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.4.4_snow-shot",
+      "version": "1.4.4",
+      "name": "Snow Shot 1.4.4",
+      "publishedAt": "2026-10-30T17:41:59Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.4.4_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 支持窗口实时贴图，现已覆盖 macOS，并可批量管理贴图。\n- 贴图支持裁剪，编辑后的图片可直接贴图，摇一摇可隐藏其他贴图。\n- 新增支持吸附的括号标注及更多距离单位。\n- 可配置 Windows 文件资源管理器菜单，直接打开图片进行标注。\n- 翻译新增印地语、泰语和越南语，优化工具提示、截图、录屏控制及更新体验。",
+        "en": "- Pin a live view of a window, now also on macOS, and manage multiple pinned images together.\n- Crop pinned images, pin images after editing, and hide other pins with a shake.\n- Add bracket annotations with snapping and measure with more distance units.\n- Open images for annotation from configurable Windows File Explorer menus.\n- Translate into Hindi, Thai, and Vietnamese; enjoy clearer tooltips and more reliable capture, recording controls, and updates."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.4.3_snow-shot",
+      "version": "1.4.3",
+      "name": "Snow Shot 1.4.3",
+      "publishedAt": "2026-10-28T13:13:11Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.4.3_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 文字识别更快，文字高亮更流畅，并支持可选 GPU 加速。\n- macOS 支持通过隔空投送分享截图，菜单栏图标可跟随系统颜色。\n- 裁剪新增边界辅助线，修复 macOS 编辑工具栏被预览遮挡的问题。\n- 历史记录记住每页数量，滚动时仍可使用选择操作栏。\n- 改善 HDR 显示器截图兼容性，提升录屏工具栏稳定性。\n- 便携版默认关闭系统集成。",
+        "en": "- Faster text recognition, smoother text highlighting, and optional GPU acceleration.\n- Share screenshots with AirDrop on macOS and choose a menu bar icon that follows system colors.\n- Crop images more precisely with boundary guides; the macOS editing toolbar stays above the preview.\n- History remembers your preferred page size and keeps selection controls visible while scrolling.\n- More reliable capture on HDR displays and a more stable recording toolbar.\n- Portable builds leave system integrations disabled by default."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.4.2_snow-shot",
+      "version": "1.4.2",
+      "name": "Snow Shot 1.4.2",
+      "publishedAt": "2026-10-26T17:57:25Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.4.2_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 气泡标注支持更多样式，箭头可添加描边。\n- 可设置双击或中键识别文字，或识别后直接复制。\n- 托盘点击操作可设置为“无”。\n- 修复录屏中鼠标指针的颜色偏差。\n- 自动清理已完成的更新文件，释放磁盘空间。",
+        "en": "- Style speech bubbles and add outlines to arrows.\n- Recognize text or copy it directly with your configured double-click or middle-click action.\n- Disable tray-click actions when you do not need them.\n- Keep recorded cursor colors accurate.\n- Free disk space by cleaning up completed update files."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.4.1_snow-shot",
+      "version": "1.4.1",
+      "name": "Snow Shot 1.4.1",
+      "publishedAt": "2026-10-26T11:51:52Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.4.1_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 新增云朵形思考气泡标注。\n- 统一主键盘与数字键盘 Enter 快捷键行为。\n- 改善大图导入、编辑、拼图及分割的稳定性。\n- 即使扩展名缺失或错误，也能正确识别导入的图片。\n- 修复选区边框干扰取色结果的问题。\n- 绘图资源按需加载，减少启动时的内存占用。",
+        "en": "- Add cloud-shaped thought bubbles to your screenshots.\n- Use Enter and numeric-keypad Enter consistently with your shortcuts.\n- Open large images more reliably for editing, stitching, and splitting.\n- Recognize imported images correctly even when their file extension is missing or incorrect.\n- Pick accurate image colors without selection outlines affecting the result.\n- Reduce startup memory use by loading drawing resources when needed."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.3.9_snow-shot",
+      "version": "1.3.9",
+      "name": "Snow Shot 1.3.9",
+      "publishedAt": "2026-10-25T05:50:24Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.3.9_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 支持自动选中新建标注，并按绘图工具设置例外。\n- 支持在图片上直接编辑测距标注。\n- 修复导出的 Excel 文件可能无法正常打开的问题。\n- 改善 macOS 麦克风启动稳定性及错误提示。",
+        "en": "- Select new annotations automatically and choose which drawing tools use this behavior.\n- Edit distance labels directly on the image.\n- Fix Excel exports that could fail to open correctly.\n- Improve macOS microphone startup reliability and error reporting."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.3.8_snow-shot",
+      "version": "1.3.8",
+      "name": "Snow Shot 1.3.8",
+      "publishedAt": "2026-10-23T06:30:40Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.3.8_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 录屏摄像头支持旋转、翻转，导出视频保持一致。\n- 支持通过自定义快捷键复用最近录屏区域。\n- 修复识别结果选中文字复制，保持粘贴 HTML 图片的原始宽度。\n- 改善 macOS 截图、贴图稳定性及 WinGet 安装可靠性。",
+        "en": "- Rotate or flip your webcam while recording, with the same orientation in the saved video.\n- Reuse recent recording areas with customizable shortcuts.\n- Copy selected OCR text correctly and preserve the original width of pasted HTML images.\n- Improve macOS screenshot and pinned-window stability, plus WinGet installation reliability."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.3.6_snow-shot",
+      "version": "1.3.6",
+      "name": "Snow Shot 1.3.6",
+      "publishedAt": "2026-10-22T13:13:21Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.3.6_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 支持批量处理截图、排队导出，并可在保存完成后复制文件、复制路径或打开所在文件夹。\n- 识别的表格可直接在表格软件中打开；改善复制、导出的格式和默认字体。\n- 录屏支持显示鼠标滚轮操作，演示过程更清晰。\n- 可自定义选区边框效果；全局画布工具栏在鼠标移开后淡出；截图历史和贴图管理更方便。\n- 修复 macOS 屏幕安全区域变化时的标注错位。",
+        "en": "- **Faster screenshot workflows:** apply actions to multiple captures, queue exports, and copy the saved file or its path or open its folder from the save result.\n- **Tables that paste correctly (Full):** open recognized tables in your spreadsheet app, with more reliable formatting and default fonts when copying or exporting.\n- **Clearer recordings:** show mouse-wheel scrolling alongside keyboard and mouse effects.\n- **More comfortable capture and annotation:** customize selection-border effects, let the global canvas toolbar fade when the pointer moves away, and manage history and pinned images more easily.\n- **Better macOS alignment:** annotations stay aligned when the screen's safe area changes."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.3.5_snow-shot",
+      "version": "1.3.5",
+      "name": "Snow Shot 1.3.5",
+      "publishedAt": "2026-10-21T17:55:30Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.3.5_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- **录屏摄像头布局可调整**：直接移动、缩放摄像头画面，自由安排录屏布局。\n- **演示和标注更顺手**：新增全局激光笔；可设置文字删除方向，翻转图标也更清晰。\n- **翻译更方便（完整版）**：支持 DeepLX，可将翻译结果复制为图片；记住独立翻译窗口的位置和大小，并在临时限流后自动重试。\n- **AI 模型配置更准确（完整版）**：可按 OpenAI、通义千问、DeepSeek、豆包分别配置推理能力。\n- **复制与截图更可靠**：复制截图时同时提供导出文件，方便粘贴到文件管理器；修复弹窗阻挡截图、多屏十字光标、贴图位置恢复和透明背景效果问题。",
+        "en": "- **Adjustable webcam layout:** move and resize the webcam overlay to arrange your recording.\n- **Better presentation and annotation:** use the new global laser pointer, choose the text deletion direction, and find flip actions more easily with clearer icons.\n- **Easier translation (Full):** connect DeepLX, copy translation results as images, restore the translation window's size and position, and retry automatically after temporary rate limits.\n- **Provider-aware AI settings (Full):** configure reasoning support for OpenAI, Qwen, DeepSeek, and Doubao.\n- **More reliable capture and copying:** copied screenshots also include an exported file for pasting into file managers. Fixes cover popups blocking capture, crosshairs on multiple displays, restored pinned-image positions, and effects on transparent backgrounds."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.3.4_snow-shot",
+      "version": "1.3.4",
+      "name": "Snow Shot 1.3.4",
+      "publishedAt": "2026-10-20T12:31:02Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.3.4_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- **录屏预览更方便**：裁剪预览支持播放和暂停，动态效果预览可显示录制状态提示。\n- **录屏和截图更流畅**：优化 Windows 与 macOS 的采集、画面合成和视频导出，改善截图复制与保存的响应速度。\n- **贴图识别更顺手**：可将双击或鼠标中键设为显示、隐藏文字识别结果。\n- **修复编辑与 AI 配置问题**：图片编辑的效果预览正确保留背景；升级后更可靠地恢复旧版 AI 模型选择。\n- **Windows 集成更完善**：可在应用设置中配置打包版的“使用 Snow Shot 编辑”右键菜单；安装目录统一提供第三方许可说明。",
+        "en": "- **Better recording previews:** play or pause while previewing a trimmed recording, and show recording status in the motion-effects preview.\n- **Smoother recording and capture:** improved capture, compositing, and video export on Windows and macOS, plus more responsive screenshot copying and saving.\n- **Quicker pinned-image OCR:** assign double-click or middle-click to show or hide recognized text.\n- **Editing and AI fixes:** effect previews preserve the image background, and upgrades restore legacy AI model selections more reliably.\n- **Windows integration:** configure the packaged app's “Edit with Snow Shot” context menu in settings; third-party license notices are consolidated in the installation folder."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.3.3_snow-shot",
+      "version": "1.3.3",
+      "name": "Snow Shot 1.3.3",
+      "publishedAt": "2026-10-19T19:01:58Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.3.3_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- **独立图片编辑器**：从截图历史或贴图打开图片继续编辑，支持标注、裁剪、撤销/重做、智能擦除和保存；优化大图编辑与识别的响应速度。\n- **录屏支持摄像头**：将摄像头画面加入录屏，并在开始前预览叠加效果；改善 macOS 摄像头采集和提示显示。\n- **硬件 H.265 录制**：新增 H.265（硬件）选项，在支持的设备上减少编码负担；优化录制与视频导出的帧处理。\n- **历史与界面更方便**：从截图历史直接定位已保存文件，应用字号按像素设置；修复取色器拖动时的透明度、贴图拖动、聚光灯和形状文字控制柄问题。\n- **更流畅、更稳定**：加快 ARM64 拼图，改善滚动截图与录屏资源使用，并修复 ARM64 图片渲染和 macOS 智能选区稳定性问题。",
+        "en": "- **Standalone image editor:** reopen captures from history or pinned images to annotate, crop, undo/redo, erase unwanted content, and save. Large-image editing and recognition respond faster.\n- **Webcam recording:** add your camera to screen recordings and preview overlays before capture. Improved camera capture and warning placement on macOS.\n- **Hardware H.265:** choose H.265 (Hardware) to reduce encoding work on supported devices. Recording and video export also benefit from more efficient frame processing.\n- **Convenient history and controls:** reveal saved captures in your file manager and set the app font size in pixels. Fixes cover color-picker opacity while dragging, pinned-window moves, spotlights, and shape text handles.\n- **Smoother, more reliable operation:** faster ARM64 image stitching, lower overhead during scrolling capture and recording, and fixes for ARM64 image rendering and macOS smart selection."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.3.2_snow-shot",
+      "version": "1.3.2",
+      "name": "Snow Shot 1.3.2",
+      "publishedAt": "2026-10-18T10:46:34Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.3.2_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- **截图与标注更顺手**：多选区可独立吸附，智能选区动画速度可调；形状支持绑定文字标签，序号支持不同笔触风格。修复跨选区空隙的标注丢失和紧凑布局缩放问题。\n- **贴图用途更丰富**：支持将文本、Markdown、HTML 和 CSS 文件贴到屏幕；颜色可显示为可交互色卡，滚轮缩放与透明度步长可自定义。\n- **识别与保存更方便**：新增识别完成后自动复制文字的截图动作；更新本地 OCR 引擎，减少识别启动开销；保存路径支持时间变量。\n- **录屏导出更精细**：减少静止内容的 GIF 文件体积，改进离线视频导出质量，以及裁剪后的画面、音频和时长一致性。\n- **稳定性改进**：优化截图、贴图和图片处理的内存释放，修复弹出菜单悬停、颜色行显示和笔触样式问题。",
+        "en": "- **Easier capture and annotation:** snap individual capture regions, adjust smart-selection animation speed, attach text labels to shapes, and apply stroke styles to numbered markers. Fixes preserve annotations across region gaps and image scale in compact layouts.\n- **More useful pins:** pin text, Markdown, HTML, and CSS files; display colors as interactive swatches; customize mouse-wheel zoom and opacity steps.\n- **Quicker recognition and saving:** choose a capture action that copies text after recognition. An updated local OCR engine reduces startup work, and save paths now support time variables.\n- **Better recording exports:** smaller GIFs for scenes with static content, improved offline video quality, and more accurate trimmed pictures, audio, and duration.\n- **Stability improvements:** better memory cleanup for captures, pinned content, and image processing, plus fixes for popup hovering, color rows, and stroke styles."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.3.1_snow-shot",
+      "version": "1.3.1",
+      "name": "Snow Shot 1.3.1",
+      "publishedAt": "2026-10-16T12:13:45Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.3.1_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- **一次截取多个区域**：在同一截图中选择、编辑多个区域；开启紧凑布局并调整间距，减少导出、复制、贴图和识别结果中的空白。\n- **更自由的标注外观**：新增建筑师、艺术家、漫画家三种笔触风格；选区背景透明度可调，预设和历史记录会保留设置。\n- **贴图操作更顺手**：一键将全部贴图收起到顶部；可设置关闭贴图时先退出标注，支持重置缩放和直接销毁的鼠标动作。\n- **图片与多屏操作**：拼图和拆图支持粘贴图片，可拆分所选图片；截图时按 Ctrl+A 可扩展到全部屏幕，并可自定义 Windows 菜单访问键。\n- **更轻巧、更稳定**：缩小发布包，提升 ARM64 图片处理和录屏性能；修复压感笔宽度、拼图 PDF 保存、录屏静音图标、窗口捕获排除与剪贴板解码问题。",
+        "en": "- **Capture several regions at once:** select and edit multiple regions in one screenshot. Use compact layouts with adjustable spacing to reduce gaps in saved, copied, pinned, and recognized images.\n- **Customize your annotations:** choose Architect, Artist, or Cartoonist stroke styles and adjust selection background opacity. Presets and capture history retain these settings.\n- **Manage pinned images faster:** hide all pinned windows at the top, choose whether closing first exits annotation mode, and assign mouse actions to reset zoom or close a pin immediately.\n- **Work with images and multiple displays:** paste images into collage and split workflows, split a selected image, expand capture to all screens with Ctrl+A, and customize the Windows menu access key.\n- **Smaller and smoother:** smaller downloads and faster ARM64 image processing and recording, with fixes for pen pressure, collage PDF saving, muted recording icons, capture exclusions, and clipboard decoding."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.3.0_snow-shot",
+      "version": "1.3.0",
+      "name": "Snow Shot 1.3.0",
+      "publishedAt": "2026-10-15T03:37:46Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.3.0_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- **图片拆分与拼图**：按横向、纵向或网格切分图片并批量保存；拼图支持拖入图片、自定义网格，以及可调整分页与布局的多页 PDF 导出。\n- **绘图与贴图**：自由画笔支持压感；文字贴图可自定义样式，图片导入新增 BMP 支持。\n- **识别与翻译（完整版）**：识别的表格可导出为 Excel 工作簿；按检测到的输入语言自动选择翻译目标。\n- **录屏与外观**：录屏工具栏支持自动隐藏，鼠标高亮半径可调；托盘图标可随明暗主题切换，视频编码默认使用 H.264。\n- **更流畅、更稳定**：降低图片工作流的内存占用，优化拆分预览、撤销和导出；修复文件粘贴、十字光标显示、选区边缘操作和 macOS 弹窗显示问题。",
+        "en": "- **Split images and build collages:** split horizontally, vertically, or into a grid and save the pieces together. Drag images into collages, customize grids, and export multi-page PDFs with adjustable page layouts.\n- **Drawing and pinned images:** use pressure-sensitive freehand drawing, customize pinned text styles, and import BMP images.\n- **Recognition and translation (Full):** export recognized tables as Excel workbooks and choose translation targets automatically from the detected input language.\n- **Recording and appearance:** auto-hide the recording toolbar, adjust mouse highlight size, and use tray icons that follow light/dark themes. Video encoding now defaults to H.264.\n- **Smoother everyday use:** reduced image-workflow memory use and faster split previews, undo, and export. Fixes improve file pasting, crosshair display, selection-edge interaction, and macOS dialogs."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.2.9_snow-shot",
+      "version": "1.2.9",
+      "name": "Snow Shot 1.2.9",
+      "publishedAt": "2026-10-13T17:43:09Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.2.9_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- **新增图片拼接**：从截图历史、贴图或选中的图片创建拼图，在编辑器中调整布局，然后复制或保存结果。\n- **复用选区更方便**：浏览之前的选区，快速选回需要的区域；可在设置中配置上一选区、下一选区快捷键。\n- **键盘截图更顺手**：默认按 Enter 复制截图；同时按住两个方向的移动快捷键可斜向移动光标。\n- **日常修复**：改善 macOS 截图窗口关闭、贴图原图预览对齐、文字边缘显示和全屏快捷键行为；导出时提示文件名冲突。",
+        "en": "- **Image stitching:** create a collage from screenshot history, pinned images, or selected image files. Adjust its layout, then copy or save the result.\n- **Reuse selection areas:** browse previous areas and return to the one you need. Configure previous/next area shortcuts in Settings.\n- **Easier keyboard capture:** Enter copies a screenshot by default. Hold movement shortcuts for two directions together to move the cursor diagonally.\n- **Everyday fixes:** improved macOS screenshot closing, alignment of original-image previews, text edge rendering, and fullscreen shortcut handling. Export warns about filename conflicts."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.2.8_snow-shot",
+      "version": "1.2.8",
+      "name": "Snow Shot 1.2.8",
+      "publishedAt": "2026-10-12T22:29:03Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.2.8_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- **新增对话气泡标注**：在截图和画布上添加对话气泡，调整形状、边框、填充和圆角；可自定义快捷键，样式会记住你的选择。\n- **识别文字选择更方便**：拖出矩形选取 OCR 文字，选择时实时预览；文字识别与贴图中的选取和渲染更流畅，按住 Alt 可在文字区域拖动贴图。\n- **识别结果高亮可开关**：在设置中选择是否用遮罩突出显示识别文字。\n- **日常操作更稳定**：修复全局快捷键释放问题、恢复选区预设后的工具栏布局；改善格式化文字贴图的默认字体和放大镜渐变连接的可见性。",
+        "en": "- **Speech-bubble annotations:** add speech bubbles to screenshots and canvases, customize their shape, border, fill, and corners, and assign a shortcut. Your chosen style is remembered.\n- **Easier OCR text selection:** drag a rectangle to select recognized text with a live preview. Text selection and rendering are smoother in recognition views and pinned images; hold Alt to drag a pin over its text.\n- **Optional text highlighting:** choose whether recognition results are highlighted with a mask in Settings.\n- **Everyday fixes:** more reliable global shortcuts, correctly fitted toolbars after restoring selection presets, a more readable default font for formatted text pins, and clearer magnifier gradient connections."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.2.7_snow-shot",
+      "version": "1.2.7",
+      "name": "Snow Shot 1.2.7",
+      "publishedAt": "2026-10-12T11:06:53Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.2.7_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- **放大细节与测量更方便**：新增可调节的截图放大镜，支持渐变连接与源区域描边；角度标注支持内角、共用边长和拖动圆弧半径。\n- **选区与保存更顺手**：可保存选区预设、恢复上次选区，用滚轮从中心调整大小，并选择哪些截图操作触发自动保存；阴影颜色和标注样式会记住你的选择。\n- **贴图支持动图**：GIF、APNG 和 WebP 动图可贴到屏幕；格式化文字贴图支持选中文字，工具栏定位和多显示器切换更稳定。\n- **录屏编辑更灵活**：剪辑时可调整播放与导出速度，缩小录屏时保留更多细节，并可选择关闭后删除录屏。\n- **图片打开更便捷（Windows）**：可启用图片右键菜单，直接用 Snow Shot 或 Mini 打开图片并贴到屏幕。\n- **识别与长截图更好用**：识别预览支持缩放与自适应位置，复制 HTML 识别结果保留格式；改善 macOS 滚动截图、拼接速度、快捷键与窗口稳定性。高级识别功能仅适用于完整版。",
+        "en": "- **Magnify and measure details:** adjustable screenshot magnifiers with gradient connections and source outlines; angle annotations support interior angles, shared side lengths, and draggable arc radii.\n- **Faster selection and saving:** save selection presets, restore the previous selection, resize from the center with the mouse wheel, and choose which capture actions automatically save an image. Shadow colors and annotation styles remember your choices.\n- **Animated pinned images:** pin GIF, APNG, and WebP animations to your screen; select text in formatted text pins, with more reliable toolbar placement and display changes.\n- **More flexible recording edits:** change playback and export speed, preserve more detail when downscaling, and optionally delete a recording when closing it.\n- **Open images from Explorer (Windows):** enable image context-menu entries to open and pin images with Snow Shot or Mini.\n- **Better recognition and scrolling capture:** zoom and adaptive placement in recognition previews, formatted HTML copying, smoother macOS scrolling capture and faster stitching, plus shortcut and window reliability fixes. Advanced recognition features require the Full edition."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.2.6_snow-shot",
+      "version": "1.2.6",
+      "name": "Snow Shot 1.2.6",
+      "publishedAt": "2026-10-10T04:31:57Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.2.6_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- **测量与标注更灵活**：新增角度测量，距离标注可按校准后的数值修改；文字支持粗体、斜体，标注颜色预设可自定义，水印内容可跨截图保留。\n- **公式与表格识别更方便（完整版）**：LaTeX 识别结果可预览、编辑；表格和公式识别可选择视觉模型。\n- **贴图更好用**：可设置贴图阴影，隐藏、恢复贴图窗口，改善窗口大小与内容的匹配。\n- **截图更流畅、更省内存**：改善选区拖动与显示的流畅度，空闲时减少内存占用；再次截图时，光标显示更稳定。\n- **日常操作更稳定**：改善序号文字样式、设置修改、长菜单和弹窗关闭，修复更新下载进度显示。",
+        "en": "- **More flexible measurement and annotation:** measure angles, edit distances by their calibrated value, use bold and italic text, customize color presets, and remember watermark text across captures.\n- **Easier formula and table recognition (Full edition):** preview and edit recognized LaTeX formulas, and choose a vision model for table and formula recognition.\n- **Better pinned images:** customize shadows, hide and restore pinned windows, and get improved sizing around their content.\n- **Smoother capture, lower idle memory use:** smoother selection dragging and display, less memory use while idle, and more consistent cursor display when taking another screenshot.\n- **Everyday reliability:** improved numbered text styles, settings edits, long menus, popup dismissal, and update download progress."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.2.5_snow-shot",
+      "version": "1.2.5",
+      "name": "Snow Shot 1.2.5",
+      "publishedAt": "2026-10-08T08:41:35Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.2.5_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- **新增距离测量工具**：在截图上标注距离，支持像素校准、单位、精度和端点样式设置。\n- **截图保存更快捷**：新增“另存为”和“快速保存”全局快捷键，可开启截图开始时的快门音；改善恢复上次选区后的确认和鼠标滚轮智能选择。\n- **标注更顺手**：文本可按可见范围自动换行，序号关联文字保留默认字号，框选也能选中点和水平、垂直线条。\n- **贴图更稳定**：改善多显示器上的贴图定位与窗口大小同步，贴图分组切换窗口采用原生窗口边框。\n- **macOS 原生通知**：通过系统通知中心接收应用通知。\n- **日常使用更可靠**：减少 Windows 截图、录屏卡住的问题；打印预览失败时自动尝试传统打印对话框，改善旧版本覆盖安装后的更新功能。",
+        "en": "- **Distance measurement:** annotate lengths on screenshots with pixel calibration, units, decimal precision, and endpoint styles.\n- **Faster saving:** new global shortcuts for Save as file and Quick save, plus an optional shutter sound when capture starts. Restored selections and smart selection with the mouse wheel work more reliably.\n- **Easier annotation:** text wraps within the visible area, numbered labels retain your default text size, and marquee selection includes dots and horizontal or vertical strokes.\n- **More stable pinned images:** improved placement and size synchronization across monitors, with native window borders for the group switcher.\n- **Native macOS notifications:** receive app notifications through Notification Center.\n- **Everyday reliability:** fewer Windows capture and recording hangs; printing falls back to the classic dialog if modern preview fails. Upgrading an older installation also restores updater support."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.2.4_snow-shot",
+      "version": "1.2.4",
+      "name": "Snow Shot 1.2.4",
+      "publishedAt": "2026-10-07T10:57:36Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.2.4_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- **截图操作更快捷**：截图时按 Ctrl+A（macOS 为 ⌘A）选中当前屏幕；序号标注在每次新截图时从头编号。\n- **减少重复确认**：关闭、销毁贴图或通过快捷键退出截图时，可分别选择“不再询问”。\n- **识别与标注更顺手**：OCR 原图预览支持拖动查看，箭头大小调整更精细，工具分组的首个按钮始终可见；Snow Shot 在调整截图选区时保留翻译模式。\n- **录屏更省心**：可在视频导出成功后自动退出截图，并显示完成通知；点击通知可定位导出文件。\n- **大图处理更流畅**：改善图片导出、长截图和菜单响应速度，减少重复处理和内存占用。\n- **修复日常问题**：改善录屏启动失败后的恢复及备用捕获方式，再次点击当前绘图工具可回到选择工具；修复贴图打印后的工具栏状态、Windows ARM64 卡住和部分 WebP 图片处理问题。",
+        "en": "- **Quicker screenshots:** press Ctrl+A (⌘A on macOS) to select the current screen. Numbered annotations restart with each new screenshot.\n- **Fewer repeated prompts:** remember your confirmation choice separately for closing or destroying pinned images and exiting screenshots with a shortcut.\n- **Easier recognition and annotation:** drag the OCR original-image preview to inspect it and adjust smaller arrowheads. The first button in each tool group stays visible. Snow Shot also keeps translation mode when resizing a capture selection.\n- **More convenient recording:** optionally exit the capture after a successful video export and show a completion notification. Click the notification to reveal the saved file.\n- **Smoother large-image work:** faster image exports, scrolling capture, and menus, with less repeated processing and memory use.\n- **Everyday fixes:** more reliable recording startup and capture fallbacks; click the active drawing tool again to return to selection. Fixed pinned-image toolbar state after printing, Windows ARM64 hangs, and some WebP image handling."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.2.3_snow-shot",
+      "version": "1.2.3",
+      "name": "Snow Shot 1.2.3",
+      "publishedAt": "2026-10-05T20:34:35Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.2.3_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- **工具栏按需定制**：自由选择并排列截图、贴图和录屏工具栏中的操作，编辑选区时也可保留常用工具栏。\n- **贴图批量操作**：多选贴图后一起移动、调整大小或关闭；可锁定贴图，并设置关闭、销毁时是否确认。\n- **分享与打印更方便**：上传截图或贴图到自己的 S3 兼容存储并复制链接，或直接使用系统打印对话框。\n- **标注更顺手**：右键快速选择标注；荧光笔按住 Shift 可按 15° 角度绘制，聚光灯可选择镂空形状。改善序号标注的尺寸和连续编号。\n- **使用更稳定**：修复工具快捷键、长截图设置变更后的重新捕获、macOS 浮动工具栏拖放和 HEIF/AVIF 图片处理；录屏会排除工具栏弹窗，Windows 更新更好地处理正在使用的文件。\n- **新增平台安装包**：两款应用提供 Windows ARM64 版；Snow Shot 新增 Intel Mac 版。macOS Mini 仍仅支持 Apple 芯片。",
+        "en": "- **Make toolbars your own:** choose and arrange actions for screenshots, pinned images, and recordings. Keep your preferred toolbar available while editing selections.\n- **Manage pinned images together:** select multiple windows to move, resize, or close them together. Lock pinned images and choose whether closing or destroying them asks for confirmation.\n- **Share and print:** upload screenshots or pinned images to your own S3-compatible storage and copy the link, or print through the system dialog.\n- **Easier annotation:** quickly select annotations with the right mouse button, hold Shift to draw highlighter strokes at 15° angles, and choose spotlight cutout shapes. Numbered annotations have more consistent sizing and numbering.\n- **Everyday fixes:** improved shortcuts, scrolling capture after settings changes, macOS floating-toolbar drops, and HEIF/AVIF image handling. Recordings exclude toolbar popups, and Windows updates handle files that are still in use more reliably.\n- **More platforms:** both editions now offer Windows ARM64 packages. Snow Shot adds Intel Mac packages; Mini on macOS remains Apple Silicon only."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.2.2_snow-shot",
+      "version": "1.2.2",
+      "name": "Snow Shot 1.2.2",
+      "publishedAt": "2026-10-04T06:41:22Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.2.2_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- **设置更好找**：按功能整理设置，相关选项可直接跳转，侧边栏随时可搜索；支持调整应用字体大小。\n- **文字识别更灵活**：可选择“精度优先”或“速度优先”，并通过智能排版设置按文字布局整理识别结果。\n- **翻译更省操作（Snow Shot）**：设置主要和次要目标语言，主要语言的文本译为次要语言，其他文本译为主要语言。\n- **长截图更方便**：新增滚动截图设置对话框，可集中调整捕获选项。\n- **Windows 更新更清楚**：显示更新进度，可在下次启动时安装已下载的更新。\n- **日常使用更流畅**：减少大图的内存开销，改善设置、历史记录和贴图操作；修复撤销/重做快捷键、删除标注后的序号同步，以及工具栏弹窗与取色器相互干扰的问题。\n\n两款应用均提供 Windows x64 和 macOS 15+ Apple Silicon 安装包。Mini 包含适用的截图、OCR、设置与性能改进；翻译功能仅适用于 Snow Shot。",
+        "en": "- **Easier settings:** preferences are grouped by feature, related settings link to each other, and search is always available in the sidebar. Adjust the application's font size for more comfortable reading.\n- **Better text recognition:** choose Accuracy First or Speed First, and use Smart Typesetting to organize recognized text according to its layout.\n- **More convenient translation (Snow Shot):** set primary and secondary target languages. Text already in your primary language translates into the secondary language; other text translates into the primary language.\n- **Scrolling screenshots:** open a dedicated settings dialog to adjust scrolling capture options.\n- **Clearer Windows updates:** see update progress and apply downloaded updates on the next launch.\n- **Smoother everyday use:** reduced memory overhead for large images and faster settings, history, and pinned-window operations. Fixed undo/redo shortcut handling, serial-number synchronization after deleting annotations, and color-picker interference with toolbar popups.\n\nAvailable for Windows x64 and Apple Silicon Macs running macOS 15 or later. Snow Shot Mini includes the applicable screenshot, OCR, settings, and performance improvements; translation remains a Snow Shot feature."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.2.1_snow-shot",
+      "version": "1.2.1",
+      "name": "Snow Shot 1.2.1",
+      "publishedAt": "2026-10-02T19:51:22Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.2.1_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- **录屏剪辑**：录制后预览视频、选择保留片段，再复制或保存剪辑；Windows 还可选择 DXGI、WGC 或 GDI 录屏接口。\n- **截图更顺手**：新增可自定义的桌面悬浮工具栏，可调整工具顺序、分组、隐藏和透明度；宽高比吸附快捷键现在可以自定义。\n- **文字与标注**：OCR 新增“智能排版”，按识别布局整理文字；序号标注支持更多格式，并保留混合选择中的不同样式。\n- **界面与稳定性**：过多的标签页可以滚动查看，溢出菜单更易使用；修复 macOS 截图复制到剪贴板后的兼容性问题，并改善空间不足时的加载提示。",
+        "en": "- **Trim recordings:** preview a recording, select the part to keep, then copy or save the clip. On Windows, choose the DXGI, WGC, or GDI screen recording API.\n- **Faster capture access:** customize a desktop floating toolbar by reordering, grouping, or hiding tools and setting its opacity. The aspect-ratio snap shortcut is now configurable.\n- **Clearer text and annotations:** Smart Typesetting arranges recognized text using its detected layout. Serial-number annotations gain more formats and retain distinct styles in mixed selections.\n- **Polish and fixes:** scroll through crowded tabs and use an improved overflow menu. macOS image clipboard compatibility and loading notices in tight spaces are improved.\n\n\n[Full changelog since 1.2.0](https://github.com/mg-chao/snow-apps/compare/v1.2.0_snow-shot...v1.2.1_snow-shot)"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.2.0_snow-shot",
+      "version": "1.2.0",
+      "name": "Snow Shot 1.2.0",
+      "publishedAt": "2026-10-02T07:39:13Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.2.0_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- **擦除更灵活**：新增矩形和画笔背景擦除，恢复截图原始像素；擦除工具中可直接清空画布。\n- **选区更精准**：保存常用宽高比，按 Ctrl 吸附宽高比或切换元素吸附；新增可配置对齐辅助线，并可直接拖动调整选区圆角和阴影。\n- **截图光标随时切换**：无需重新截图即可显示或隐藏光标，历史记录和导出保留所选状态。\n- **个性化外观与导出**：为主窗口、工具栏和托盘菜单设置图片皮肤；导出配置时可选择包含绘图样式，默认不包含。\n- **识别与贴图更方便**：识别和翻译结果旁可显示原图；贴图按钮显示可配置，拖出图片保存更可靠。macOS Mini 按需下载识别模型，下载后可离线复用。\n- **录屏与体验改进**：录屏区域控件操作更准确，保存处理期间可关闭录屏窗口；改进设置滑块、阴影控件、绘制流畅度和稳定性，缩小安装包，并在静默升级后重新启动应用。",
+        "en": "- **More flexible erasing:** rectangle and brush background erasers restore the original screenshot pixels. Clear the canvas directly from the eraser controls.\n- **More precise selections:** save aspect-ratio presets, use Ctrl for ratio snapping or to toggle element snapping, configure alignment guides, and drag selection handles to adjust corners and shadows.\n- **Toggle captured cursors:** show or hide the cursor without taking another screenshot; history and exports retain your choice.\n- **Personalize and share settings:** use image skins for the main window, toolbars, and tray menus. Choose whether configuration exports include drawing styles; they are excluded by default.\n- **Recognition and pins:** view the original image beside recognition and translation results, configure pinned-window button visibility, and drag images out more reliably. macOS Mini downloads OCR models on demand and reuses them offline.\n- **Recording and reliability:** interact more reliably with recording-region controls and close the recording window during finalization. Enjoy smoother drawing, improved settings sliders and shadow controls, smaller packages, stability fixes, and automatic relaunch after silent upgrades.\n\n\n[Full changelog since 1.1.9](https://github.com/mg-chao/snow-apps/compare/v1.1.9_snow-shot...v1.2.0_snow-shot)"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.1.9_snow-shot",
+      "version": "1.1.9",
+      "name": "Snow Shot 1.1.9",
+      "publishedAt": "2026-10-01T09:58:50Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.1.9_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- **新增 Snow Shot Mini**：提供独立的精简版，保留截图、标注、贴图、录屏和手动文字识别；不包含翻译、二维码、表格、公式识别及图像转 Markdown/HTML 等功能。文字识别入口默认隐藏，可在设置中开启；Windows 首次识别时按需下载 OCR 资源。完整版与 Mini 的设置和更新相互独立。\n- **录屏声音更好控制**：麦克风和系统声音可分别调节增益，实时音量指示帮助检查声音大小、削波和音源状态。\n- **录屏后期处理**：支持先录制、再处理效果，显示处理进度，并可取消、重试或保留源文件；新增进度条与播放时间叠加效果。录屏工具栏可直接打开录屏设置。\n- **长截图更方便查看**：悬停缩略图可预览对应区域，改进颜色还原；优化 HDR 截图的颜色转换、性能及取色准确性。\n- **贴图与文字操作**：重新固定剪贴板截图时保留外观和位置；新增置顶、边框切换快捷键；双击识别出的文字块即可复制。修复贴图缩放滤镜和画布文字编辑问题。\n- **macOS 与稳定性**：新增应用调度优先级设置；修复窗口截图阴影、放大镜动画和目标窗口选择问题。减少截图、录屏、历史记录和编辑窗口关闭后的资源占用，并改善 GIF 对比度与纹理填充显示。",
+        "en": "- **Snow Shot Mini:** a separate, streamlined edition for screenshots, annotations, pins, recording, and manual text recognition. Translation, QR, table and formula recognition, and image-to-Markdown/HTML conversion are omitted. Enable the initially hidden text-recognition action in settings; Windows downloads OCR resources on first use. Mini keeps its own settings and updates.\n- **Recording audio:** adjust microphone and system-audio gain independently, with live meters showing levels, clipping, and source status.\n- **Recording post-processing:** capture first and process effects afterward, with progress, cancellation, retry, and an option to retain the source. Add progress-bar and playback-time overlays, and open recording preferences directly from the toolbar.\n- **Scrolling and HDR capture:** hover over scrolling-capture thumbnails to preview the corresponding region. Improve color restoration, HDR conversion performance, and color-picking accuracy.\n- **Pins and recognized text:** preserve screenshot appearance and placement when pinning clipboard content again; configure always-on-top and border shortcuts; double-click a recognized text block to copy it. Fix scaled filters and canvas text editing.\n- **macOS and reliability:** configure application scheduling priority; fix window-capture shadows, magnifier animations, and target-window selection. Release resources more promptly after capture, recording, history browsing, and editing; improve GIF contrast and patterned fills.\n\n\n[Full changelog since 1.1.8](https://github.com/mg-chao/snow-apps/compare/v1.1.8_snow-shot...v1.1.9_snow-shot)"
+      },
+      "notesLanguage": {
+        "zh": "mixed",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.1.8_snow-shot",
+      "version": "1.1.8",
+      "name": "Snow Shot 1.1.8",
+      "publishedAt": "2026-09-30T01:58:50Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.1.8_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "## 新功能与改进\n\n- **贴图操作**：按住 Ctrl 拖动贴图即可导出截图；贴图工具栏的导出操作支持自定义。重复固定剪贴板内容或同一文件时，可选择忽略、摇动已有窗口、恢复上次关闭的窗口或重复执行固定操作。新增可配置的窗口组切换快捷键与预览选择器，并配备独立设置图标。复制的截图携带显示器与图像尺寸信息，重新固定剪贴板截图时可恢复原来的位置和大小，并处理显示器布局变化。\n- **图像预览**：截图历史与贴图窗口共用连续图像查看器，支持在筛选后的图片之间导航，并跨越历史分页。\n- **录屏与导出**：新增 MP4 视频质量控制，可调整画质与文件大小；改进 GIF 自适应调色板、缩放与编码。可选择将扬声器和麦克风声音保存为独立 MP4 音轨，方便后期分别处理，并支持自动化录制参数覆盖。此功能为可选设置；多数播放器一次播放一条音轨。\n- **OCR 文本**：新增默认格式与标点设置，在编辑或复制识别结果时，自动保留或去除换行，并选择半角或全角标点。\n- **设置与托盘**：Windows 支持选择并迁移应用数据目录，复制过程会校验文件，并协调正在使用存储的组件。设置搜索结果使用分类标签，改善说明文字的显示宽度。禁用全局快捷键时，托盘图标显示状态标记；可自定义加入贴图管理和全屏画布入口，这两个入口默认隐藏。\n- **更新与安装**：新增 Gitee 发行版镜像与 GitHub/Gitee 更新回退。Windows 更新继续验证签名元数据与软件包哈希；macOS 更新检查与独立安装脚本验证对应架构 DMG 和校验文件。新增 Scoop 安装支持，便携版包含默认 OCR 资源。\n\n## 问题修复\n\n- 修复按 Escape 时丢弃画布中正在编辑的文本，保留截图取消快捷键的正常处理。\n- 修复 macOS 模态窗口关闭时被焦点事件重新激活，以及录屏区域边框拖动被原生窗口缩放拦截的问题。\n- 修复 macOS 托盘内置图标颜色及“禁用全局快捷键”标记的居中显示。\n- 修复 macOS 麦克风原生句柄绑定；修复搜索分类颜色索引的类型处理。\n- 校正 macOS 直接录制与可编辑录制中的光标方向、热点位置与轨迹衰减，使录制效果与预览一致。\n- 改进跨平台剪贴板发布生命周期，支持取消并及时释放资源；完善 macOS 图像格式转换、窗口光标清理和导出快照释放。\n- 禁用 macOS 截图覆盖窗口的显示动画，覆盖窗口复用和 Qt 原生设置刷新后仍保持一致。",
+        "en": "Stable release for Windows x64 and macOS Apple Silicon, built from `main` at `afdc340b14e7f92a294a95c374d13ada0d8c7a82` after [PR #1545](https://github.com/mg-chao/snow-apps/pull/1545) was merged using Rebase and merge. This release includes 25 commits since `v1.1.7-beta`.\n\n## Features and improvements\n\n- **Pinned screenshots:** export by Ctrl-dragging a pin and customize its export actions. Choose how duplicate clipboard/file pin requests behave: ignore, shake the existing window, restore the last closed window, or repeat the action. A configurable window-group shortcut opens a preview picker. Screenshot clipboard metadata restores a pin's original placement and size while accounting for changed display layouts.\n- **Image browsing:** navigate continuously through filtered screenshot-history images and pinned images, including across history page boundaries.\n- **Recording:** adjust MP4 quality and file size, and use improved adaptive GIF palette generation and output scaling. Optionally record speaker and microphone audio as separate, labeled MP4 tracks for independent editing; automation can override this per recording. Most players play one audio track at a time.\n- **OCR:** set default recognized-text formatting and punctuation conversion for editing and copying. Preserve/remove line breaks and select half-width/full-width punctuation.\n- **Settings and tray:** select and migrate the application data directory on Windows, with copied-file verification and coordination of active storage users. Search results gain category tags and improved description layout. A tray badge indicates disabled global shortcuts. Optional tray actions open pin management and the full-screen canvas; both are hidden by default.\n- **Distribution:** published releases are mirrored to Gitee. Update discovery and downloads support GitHub/Gitee fallback while retaining package verification. Scoop support installs the portable package with default OCR resources.\n\n## Fixes\n\n- Preserve active canvas text drafts when Escape is pressed.\n- Prevent macOS modal dialogs from reactivating during dismissal and restore recording-border drag input.\n- Preserve bundled macOS tray-icon colors and center the disabled-shortcuts badge.\n- Correct native macOS microphone binding and search-category color indexing.\n- Align recorded macOS cursor orientation, hotspot placement, and trail behavior with the preview.\n- Manage clipboard publication lifetimes across platforms, add macOS image conversion, and release export snapshots promptly.\n- Keep reused macOS screenshot overlays free of presentation animations."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
+    {
+      "tag": "v1.1.7-beta",
+      "version": "1.1.7-beta",
+      "name": "v1.1.7-beta",
+      "publishedAt": "2026-09-29T03:35:55Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.1.7-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "## 一、新功能\n\n1. **标注与截图**：新增全屏全局标注画布、亮度滤镜、贴图图像处理快捷键，以及截图选区的快速调整开关。\n2. **滚动截图**：支持配置自动滚动间隔，并改进预览与输入处理。\n3. **设置与翻译**：支持选择应用字体、搜索设置、配置 Snow Shot 服务器；翻译新增韩语目标语言与服务商并发配置。\n4. **分发与更新**：新增 GitHub Releases 更新回退，支持 Homebrew 测试版独立分发，并完善 WinGet 发布信息。\n\n## 二、问题修复\n\n1. **macOS 交互**：修复窗口层级、模态对话框、全屏空间截图焦点及多个窗口之间的光标协调问题。\n2. **截图、贴图与标注**：修复滚动截图预览、选区工具栏、贴图变换和画布样式保存等问题。\n3. **录屏与界面**：恢复录屏高亮及滤镜工具，改进弹窗层级、字体选项加载和透明度术语。\n4. **性能**：OCR 工作线程可使用全部物理核心；设置界面延迟加载控件并合并后端刷新。\n\n## 三、构建\n\n1. **版本**：Snow Shot 更新至 `1.1.7-beta`。\n\n> macOS 安装包仍使用临时签名。替换应用后若系统权限未生效，请在“系统设置 → 隐私与安全性”中重新启用“屏幕与系统音频录制”和“辅助功能”权限。",
+        "en": "## 一、新功能\n\n1. **标注与截图**：新增全屏全局标注画布、亮度滤镜、贴图图像处理快捷键，以及截图选区的快速调整开关。\n2. **滚动截图**：支持配置自动滚动间隔，并改进预览与输入处理。\n3. **设置与翻译**：支持选择应用字体、搜索设置、配置 Snow Shot 服务器；翻译新增韩语目标语言与服务商并发配置。\n4. **分发与更新**：新增 GitHub Releases 更新回退，支持 Homebrew 测试版独立分发，并完善 WinGet 发布信息。\n\n## 二、问题修复\n\n1. **macOS 交互**：修复窗口层级、模态对话框、全屏空间截图焦点及多个窗口之间的光标协调问题。\n2. **截图、贴图与标注**：修复滚动截图预览、选区工具栏、贴图变换和画布样式保存等问题。\n3. **录屏与界面**：恢复录屏高亮及滤镜工具，改进弹窗层级、字体选项加载和透明度术语。\n4. **性能**：OCR 工作线程可使用全部物理核心；设置界面延迟加载控件并合并后端刷新。\n\n## 三、构建\n\n1. **版本**：Snow Shot 更新至 `1.1.7-beta`。\n\n> macOS 安装包仍使用临时签名。替换应用后若系统权限未生效，请在“系统设置 → 隐私与安全性”中重新启用“屏幕与系统音频录制”和“辅助功能”权限。"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v1.1.6-beta",
+      "version": "1.1.6-beta",
+      "name": "v1.1.6-beta",
+      "publishedAt": "2026-09-28T00:50:57Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.1.6-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "## 一、新功能\n\n1. **截图识别**：新增自动二维码识别和 LaTeX 公式识别，并支持调整 OCR 检测器的图像缩放比例。\n2. **录屏与贴图**：支持从反方向拖动调整录屏区域和贴图边框。\n3. **分发**：新增 WinGet 自动提交流程，并为稳定版准备 Homebrew 分发流程。\n\n## 二、问题修复\n\n1. **macOS 交互**：修复窗口关闭快捷键、刘海屏安全区域的画布范围、置顶贴图的层级，以及 Retina 屏幕上的光标步进。\n2. **截图与录屏**：修复跨显示器边界的输入处理、截图资源清理，以及录屏时意外生成的媒体附属文件。\n3. **识别与翻译**：限制 LaTeX 上传图像的尺寸，并允许具备视觉能力的模型用于文字翻译。\n4. **界面**：改进 macOS 物理按键快捷键处理，并补全确认对话框操作的本地化。\n\n## 三、构建\n\n1. **版本**：Snow Shot 更新至 `1.1.6-beta`。\n\n> macOS 安装包仍使用临时签名。替换应用后若系统权限未生效，请在“系统设置 → 隐私与安全性”中重新启用“屏幕与系统音频录制”和“辅助功能”权限。",
+        "en": "## 一、新功能\n\n1. **截图识别**：新增自动二维码识别和 LaTeX 公式识别，并支持调整 OCR 检测器的图像缩放比例。\n2. **录屏与贴图**：支持从反方向拖动调整录屏区域和贴图边框。\n3. **分发**：新增 WinGet 自动提交流程，并为稳定版准备 Homebrew 分发流程。\n\n## 二、问题修复\n\n1. **macOS 交互**：修复窗口关闭快捷键、刘海屏安全区域的画布范围、置顶贴图的层级，以及 Retina 屏幕上的光标步进。\n2. **截图与录屏**：修复跨显示器边界的输入处理、截图资源清理，以及录屏时意外生成的媒体附属文件。\n3. **识别与翻译**：限制 LaTeX 上传图像的尺寸，并允许具备视觉能力的模型用于文字翻译。\n4. **界面**：改进 macOS 物理按键快捷键处理，并补全确认对话框操作的本地化。\n\n## 三、构建\n\n1. **版本**：Snow Shot 更新至 `1.1.6-beta`。\n\n> macOS 安装包仍使用临时签名。替换应用后若系统权限未生效，请在“系统设置 → 隐私与安全性”中重新启用“屏幕与系统音频录制”和“辅助功能”权限。"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v1.1.5-beta",
+      "version": "1.1.5-beta",
+      "name": "v1.1.5-beta",
+      "publishedAt": "2026-09-27T11:22:30Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.1.5-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "## 一、新功能\n\n1. **MCP 集成**：新增 Snow Shot 自动化接口，支持通过 MCP 客户端控制截图、编辑、导出等操作。此功能可在“设置 → 系统”中启用。\n\n## 二、问题修复\n\n1. **文字编辑**：修改单项文字属性时保留其他混合样式；修复画布文字重绘时出现的空白区域。\n2. **截图与贴图**：改进剪贴板、导出和贴图窗口的交互稳定性。\n3. **快捷键**：坐标显示切换改为 `Ctrl+P`。\n4. **更新器**：应用已缓存更新前重新检查当前版本；检查失败时停止安装。\n\n## 三、构建\n\n1. **版本**：Snow Shot 更新至 `1.1.5-beta`。\n\n> macOS 安装包仍使用临时签名。替换应用后若系统权限未生效，请在“系统设置 → 隐私与安全性”中重新启用“屏幕与系统音频录制”和“辅助功能”权限。",
+        "en": "## 一、新功能\n\n1. **MCP 集成**：新增 Snow Shot 自动化接口，支持通过 MCP 客户端控制截图、编辑、导出等操作。此功能可在“设置 → 系统”中启用。\n\n## 二、问题修复\n\n1. **文字编辑**：修改单项文字属性时保留其他混合样式；修复画布文字重绘时出现的空白区域。\n2. **截图与贴图**：改进剪贴板、导出和贴图窗口的交互稳定性。\n3. **快捷键**：坐标显示切换改为 `Ctrl+P`。\n4. **更新器**：应用已缓存更新前重新检查当前版本；检查失败时停止安装。\n\n## 三、构建\n\n1. **版本**：Snow Shot 更新至 `1.1.5-beta`。\n\n> macOS 安装包仍使用临时签名。替换应用后若系统权限未生效，请在“系统设置 → 隐私与安全性”中重新启用“屏幕与系统音频录制”和“辅助功能”权限。"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v1.1.4-beta",
+      "version": "1.1.4-beta",
+      "name": "v1.1.4-beta",
+      "publishedAt": "2026-09-26T10:07:12Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.1.4-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "## 一、新功能\n\n1. **截图**：取色器新增相对坐标显示，并支持切换物理像素与逻辑像素读数。\n2. **关于页面**：新增 QQ 支持群组，并提升更新面板的稳定性。\n\n## 二、问题修复\n\n1. **截图与捕获**：截图捕获遵循光标显示设置；恢复 OCR 结果上无需点击的悬停光标更新；工具提示覆盖相邻触发元素时保留悬停状态。\n2. **贴图**：识别内容上的控件保持可点击；受控交互后保留指针路由。\n3. **录制**：macOS 音频流中禁用光标捕获；录制浮层保持在截图界面之下。\n4. **窗口选择**：Windows 窗口边界包含标题栏。\n5. **更新器**：启动 IPC 不再触发提权。\n\n## 三、性能与构建\n\n1. **截图性能**：降低坐标显示的更新开销。\n2. **版本**：Snow Shot 更新至 `1.1.4-beta`。\n\n> macOS 安装包仍使用临时签名。替换应用后若系统权限未生效，请在“系统设置 → 隐私与安全性”中重新启用“屏幕与系统音频录制”和“辅助功能”权限。",
+        "en": "## 一、新功能\n\n1. **截图**：取色器新增相对坐标显示，并支持切换物理像素与逻辑像素读数。\n2. **关于页面**：新增 QQ 支持群组，并提升更新面板的稳定性。\n\n## 二、问题修复\n\n1. **截图与捕获**：截图捕获遵循光标显示设置；恢复 OCR 结果上无需点击的悬停光标更新；工具提示覆盖相邻触发元素时保留悬停状态。\n2. **贴图**：识别内容上的控件保持可点击；受控交互后保留指针路由。\n3. **录制**：macOS 音频流中禁用光标捕获；录制浮层保持在截图界面之下。\n4. **窗口选择**：Windows 窗口边界包含标题栏。\n5. **更新器**：启动 IPC 不再触发提权。\n\n## 三、性能与构建\n\n1. **截图性能**：降低坐标显示的更新开销。\n2. **版本**：Snow Shot 更新至 `1.1.4-beta`。\n\n> macOS 安装包仍使用临时签名。替换应用后若系统权限未生效，请在“系统设置 → 隐私与安全性”中重新启用“屏幕与系统音频录制”和“辅助功能”权限。"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v1.1.3-beta",
+      "version": "1.1.3-beta",
+      "name": "v1.1.3-beta",
+      "publishedAt": "2026-09-24T23:31:48Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.1.3-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "## 一、新功能\n\n1. **标注与导出**：新增可搜索、保存、删除和复用的绘图模板；识别结果可保存为源文件。\n2. **工具栏与绘制**：绘图工具栏支持自定义分隔符、撤销和重做的位置；自由绘制截图区域使用笔画稳定处理，减少指针抖动。\n3. **AI 与界面**：自定义 AI 模型增加推理支持，更新 Snow Shot 图标；macOS 上应用不再显示在 Dock 中。\n\n## 二、问题修复\n\n1. **截图与画布**：修复选区变化时控制柄未及时重绘，以及跨过选区边框拖动画布时操作中断的问题。\n2. **贴图**：恢复剪贴板文字时使用当前主题，并兼容缺少可选字段的贴图数据。\n\n## 三、性能与构建\n\n1. **构建检查**：增加 Windows 的 Clang 可移植性诊断。\n2. **版本**：Snow Shot 更新至 `1.1.3-beta`。\n\n> macOS 安装包仍使用临时签名。替换应用后若系统权限未生效，请在“系统设置 → 隐私与安全性”中重新启用“屏幕与系统音频录制”和“辅助功能”权限。",
+        "en": "## 一、新功能\n\n1. **标注与导出**：新增可搜索、保存、删除和复用的绘图模板；识别结果可保存为源文件。\n2. **工具栏与绘制**：绘图工具栏支持自定义分隔符、撤销和重做的位置；自由绘制截图区域使用笔画稳定处理，减少指针抖动。\n3. **AI 与界面**：自定义 AI 模型增加推理支持，更新 Snow Shot 图标；macOS 上应用不再显示在 Dock 中。\n\n## 二、问题修复\n\n1. **截图与画布**：修复选区变化时控制柄未及时重绘，以及跨过选区边框拖动画布时操作中断的问题。\n2. **贴图**：恢复剪贴板文字时使用当前主题，并兼容缺少可选字段的贴图数据。\n\n## 三、性能与构建\n\n1. **构建检查**：增加 Windows 的 Clang 可移植性诊断。\n2. **版本**：Snow Shot 更新至 `1.1.3-beta`。\n\n> macOS 安装包仍使用临时签名。替换应用后若系统权限未生效，请在“系统设置 → 隐私与安全性”中重新启用“屏幕与系统音频录制”和“辅助功能”权限。"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v1.1.2-beta",
+      "version": "1.1.2-beta",
+      "name": "v1.1.2-beta",
+      "publishedAt": "2026-09-24T08:19:26Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.1.2-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "## 一、新功能\n\n1. **多区域截图**：支持在截图中添加或扣减选区，并加入对应图标和快捷键。\n2. **贴图管理**：新增已关闭贴图历史、贴图管理入口、完整图像预览与销毁快捷键，改进贴图窗口的恢复和清理。\n3. **标注与更新**：支持沿箭头路径拖动文字标签；仅检查更新模式发现新版本时会通知用户。\n\n## 二、问题修复\n\n1. **截图与导出**：自动保存遵循已配置的图像格式，重新截图时排除可见的取色器，并修复圆角阴影、显示器边界与选区快捷键问题。\n2. **贴图与界面**：修复 Windows 上贴图控制按钮的悬停状态和选区轮廓显示，调整侧边栏空白区域及像素尺寸单位文字。\n3. **macOS**：加强截图区域快捷键及系统集成，并启用本地 Crashpad 崩溃记录。\n\n## 三、性能与构建\n\n1. **性能**：缓存缩略图、延后贴图清理，减少拖动箭头文字时的排版工作，并在截图完成后释放选区预览缓存。\n2. **版本**：Snow Shot 更新至 `1.1.2-beta`。\n\n> macOS 安装包仍使用临时签名。替换应用后若系统权限未生效，请在“系统设置 → 隐私与安全性”中重新启用“屏幕与系统音频录制”和“辅助功能”权限。",
+        "en": "## 一、新功能\n\n1. **多区域截图**：支持在截图中添加或扣减选区，并加入对应图标和快捷键。\n2. **贴图管理**：新增已关闭贴图历史、贴图管理入口、完整图像预览与销毁快捷键，改进贴图窗口的恢复和清理。\n3. **标注与更新**：支持沿箭头路径拖动文字标签；仅检查更新模式发现新版本时会通知用户。\n\n## 二、问题修复\n\n1. **截图与导出**：自动保存遵循已配置的图像格式，重新截图时排除可见的取色器，并修复圆角阴影、显示器边界与选区快捷键问题。\n2. **贴图与界面**：修复 Windows 上贴图控制按钮的悬停状态和选区轮廓显示，调整侧边栏空白区域及像素尺寸单位文字。\n3. **macOS**：加强截图区域快捷键及系统集成，并启用本地 Crashpad 崩溃记录。\n\n## 三、性能与构建\n\n1. **性能**：缓存缩略图、延后贴图清理，减少拖动箭头文字时的排版工作，并在截图完成后释放选区预览缓存。\n2. **版本**：Snow Shot 更新至 `1.1.2-beta`。\n\n> macOS 安装包仍使用临时签名。替换应用后若系统权限未生效，请在“系统设置 → 隐私与安全性”中重新启用“屏幕与系统音频录制”和“辅助功能”权限。"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v1.1.1-beta",
+      "version": "1.1.1-beta",
+      "name": "v1.1.1-beta",
+      "publishedAt": "2026-09-23T02:40:36Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.1.1-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "## 一、新功能\n\n1. **历史记录**：可从历史记录直接贴图，并保留截图时的选区位置；新增贴图与更多操作，同时支持单独配置展示图像压缩。\n2. **截图与导出**：支持在截图时隐藏选区工具栏，并可配置截图质量和压缩率。\n3. **标注与托盘**：新增可调节的箭头头部比例，以及安全重启应用的托盘操作。\n\n## 二、问题修复\n\n1. **macOS**：修复截图叠层输入、选区单位、窗口定位和托盘中键操作，并改进安装包签名。\n2. **贴图与历史记录**：修复分数缩放时的像素偏移和截图内容变化，保留历史记录贴图的桌面位置。\n3. **界面与更新**：稳定取色器提示层、文本装饰和箭头边界，并修复更新时的注册表权限处理。\n\n## 三、性能与构建\n\n1. **性能**：减少 macOS 桌面捕获中的全帧拷贝与初始化开销，并减少截图装饰的无效重绘。\n2. **版本**：Snow Shot 更新至 `1.1.1-beta`。\n\n> macOS 安装包仍使用临时签名。替换应用后若系统权限未生效，请在“系统设置 → 隐私与安全性”中重新启用“屏幕与系统音频录制”和“辅助功能”权限。",
+        "en": "## 一、新功能\n\n1. **历史记录**：可从历史记录直接贴图，并保留截图时的选区位置；新增贴图与更多操作，同时支持单独配置展示图像压缩。\n2. **截图与导出**：支持在截图时隐藏选区工具栏，并可配置截图质量和压缩率。\n3. **标注与托盘**：新增可调节的箭头头部比例，以及安全重启应用的托盘操作。\n\n## 二、问题修复\n\n1. **macOS**：修复截图叠层输入、选区单位、窗口定位和托盘中键操作，并改进安装包签名。\n2. **贴图与历史记录**：修复分数缩放时的像素偏移和截图内容变化，保留历史记录贴图的桌面位置。\n3. **界面与更新**：稳定取色器提示层、文本装饰和箭头边界，并修复更新时的注册表权限处理。\n\n## 三、性能与构建\n\n1. **性能**：减少 macOS 桌面捕获中的全帧拷贝与初始化开销，并减少截图装饰的无效重绘。\n2. **版本**：Snow Shot 更新至 `1.1.1-beta`。\n\n> macOS 安装包仍使用临时签名。替换应用后若系统权限未生效，请在“系统设置 → 隐私与安全性”中重新启用“屏幕与系统音频录制”和“辅助功能”权限。"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v1.1.0-beta",
+      "version": "1.1.0-beta",
+      "name": "v1.1.0-beta",
+      "publishedAt": "2026-09-22T05:15:35Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.1.0-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "## 一、新功能\n\n1. **macOS**：首次正式发布 Apple Silicon（arm64）版本，支持截图、贴图、屏幕录制、Finder 文件贴图、登录时启动和官网更新检查；最低支持 macOS 15。\n2. **识别**：新增显示原图开关，便于在 OCR/二维码识别结果与原始截图之间切换。\n3. **贴图**：新增显示边框开关并重新整理右键菜单。\n4. **标注**：新增内凹三角箭头、双头锥形箭杆，并支持从开放自由绘制线条的端点继续绘制。\n\n## 二、问题修复\n\n1. **macOS**：修复截图与贴图流程、屏幕录制、多显示器界面、窗口层级、滚动截图输入、辅助功能选区恢复和快捷键稳定性问题。\n2. **贴图**：稳定跨显示缩放时的窗口几何信息，并在离开识别模式后保留已选择的绘图工具。\n3. **智能选区**：可穿过冗余 UI Automation 结构分支定位被遮蔽的内容。\n4. **界面**：统一侧边栏与标题栏的主题颜色，并调整录制光标选项弹层的展开方向。\n\n## 三、重构与构建\n\n1. **版本**：Snow Shot 版本更新至 `1.1.0-beta`。\n2. **发布**：Windows 与 macOS 安装包现可从同一提交构建、审计并原子发布。\n3. **macOS 构建**：支持仅安装 Command Line Tools 的构建主机，完善静态 Qt、FFmpeg、ONNX Runtime 与系统 Framework 的链接处理。\n4. **macOS 兼容性**：统一原生依赖与应用的部署目标，避免较新 SDK 生成的对象污染 macOS 15 发布包。\n\n> macOS 是首次正式发布。安装后请按系统提示授予“屏幕与系统音频录制”和“辅助功能”权限；由于当前应用使用临时签名，替换应用后若权限未生效，请在“系统设置 → 隐私与安全性”中重新启用相应权限。",
+        "en": "## 一、新功能\n\n1. **macOS**：首次正式发布 Apple Silicon（arm64）版本，支持截图、贴图、屏幕录制、Finder 文件贴图、登录时启动和官网更新检查；最低支持 macOS 15。\n2. **识别**：新增显示原图开关，便于在 OCR/二维码识别结果与原始截图之间切换。\n3. **贴图**：新增显示边框开关并重新整理右键菜单。\n4. **标注**：新增内凹三角箭头、双头锥形箭杆，并支持从开放自由绘制线条的端点继续绘制。\n\n## 二、问题修复\n\n1. **macOS**：修复截图与贴图流程、屏幕录制、多显示器界面、窗口层级、滚动截图输入、辅助功能选区恢复和快捷键稳定性问题。\n2. **贴图**：稳定跨显示缩放时的窗口几何信息，并在离开识别模式后保留已选择的绘图工具。\n3. **智能选区**：可穿过冗余 UI Automation 结构分支定位被遮蔽的内容。\n4. **界面**：统一侧边栏与标题栏的主题颜色，并调整录制光标选项弹层的展开方向。\n\n## 三、重构与构建\n\n1. **版本**：Snow Shot 版本更新至 `1.1.0-beta`。\n2. **发布**：Windows 与 macOS 安装包现可从同一提交构建、审计并原子发布。\n3. **macOS 构建**：支持仅安装 Command Line Tools 的构建主机，完善静态 Qt、FFmpeg、ONNX Runtime 与系统 Framework 的链接处理。\n4. **macOS 兼容性**：统一原生依赖与应用的部署目标，避免较新 SDK 生成的对象污染 macOS 15 发布包。\n\n> macOS 是首次正式发布。安装后请按系统提示授予“屏幕与系统音频录制”和“辅助功能”权限；由于当前应用使用临时签名，替换应用后若权限未生效，请在“系统设置 → 隐私与安全性”中重新启用相应权限。"
+      },
+      "notesLanguage": {
+        "zh": "mixed",
+        "en": "mixed"
+      }
+    },
+    {
+      "tag": "v1.0.9-beta",
+      "version": "1.0.9-beta",
+      "name": "v1.0.9-beta",
+      "publishedAt": "2026-09-20T17:19:21Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.0.9-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "## 一、新功能\n\n1. **录制**：新增鼠标高亮与鼠标点击叠加效果。\n2. **滚动截图**：新增按住式工具栏按钮，可在滚动截图中拖动调整选区；拖动期间暂停采集，结束后自动恢复。\n3. **贴图**：支持将本地图片文件拖放到贴图上替换其内容，有效拖动悬停时高亮边框。\n4. **贴图**：导出的贴图图片按窗口不透明度设置渲染，并统一相关导出逻辑。\n\n## 二、问题修复\n\n1. **平台**：Windows 下 minizip 归档路径按 UTF-8 编码，修复传统代码页之外的安装路径无法打开配置归档、OCR 运行时解压失败的问题；归档写入失败时清理残留的 .part 文件。\n2. **设置**：设置文案统一将滚轮按钮改称鼠标中键。\n\n## 三、重构与构建\n\n1. **版本**：Snow Shot 版本更新至 `1.0.9-beta`。",
+        "en": "## 一、新功能\n\n1. **录制**：新增鼠标高亮与鼠标点击叠加效果。\n2. **滚动截图**：新增按住式工具栏按钮，可在滚动截图中拖动调整选区；拖动期间暂停采集，结束后自动恢复。\n3. **贴图**：支持将本地图片文件拖放到贴图上替换其内容，有效拖动悬停时高亮边框。\n4. **贴图**：导出的贴图图片按窗口不透明度设置渲染，并统一相关导出逻辑。\n\n## 二、问题修复\n\n1. **平台**：Windows 下 minizip 归档路径按 UTF-8 编码，修复传统代码页之外的安装路径无法打开配置归档、OCR 运行时解压失败的问题；归档写入失败时清理残留的 .part 文件。\n2. **设置**：设置文案统一将滚轮按钮改称鼠标中键。\n\n## 三、重构与构建\n\n1. **版本**：Snow Shot 版本更新至 `1.0.9-beta`。"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v1.0.8-beta",
+      "version": "1.0.8-beta",
+      "name": "v1.0.8-beta",
+      "publishedAt": "2026-09-20T08:01:46Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.0.8-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "## 一、新功能\n\n1. **macOS**：新增 ScreenCaptureKit 截图支持、全局鼠标手势与截图排除区域，并集中管理应用权限。\n2. **标题栏**：采用 Windows 原生窗口标题行为；自定义标题栏恢复 Windows 风格窗口按钮。\n3. **快捷键**：新增专用热键切换全局快捷键开关；新增热键切换全屏窗口快捷键抑制。\n4. **画布**：新增选中元素对齐与分布操作；空白画布上创建元素时先取消现有选区。\n5. **截图**：选区边框颜色支持自定义。\n6. **历史**：截图历史支持多选批量删除。\n7. **托盘**：点击更新气泡通知可跳转关于页面。\n\n## 二、问题修复\n\n1. **macOS**：屏蔽暂不支持的截图功能并使用原生应用外观。\n2. **截图**：长宽比快捷键在选区拖动开始前即已激活。\n3. **识别**：微信二维码模型改为内存加载，兼容含非 ASCII 字符的安装路径。\n4. **画布**：字号滚轮跟随样式工具栏来源；Alt 拖动复制选区时支持活动文本草稿。\n5. **安装器**：卸载时容忍部分安装状态，避免卸载失败。\n\n## 三、性能优化\n\n1. **智能擦除**：加速图块搜索与投票，并将重建上下文裁剪至空洞边界。\n2. **画布**：预计算可复用的场景渲染顺序计划。\n3. **工具栏**：弹出层内容惰性构建，隐藏后即时释放。\n\n## 四、重构与构建\n\n1. **更新器**：以 Rust 边车进程替换原 C++ 更新器。\n2. **测试**：修复测试套件失败与偶发不稳定的根因。\n3. **构建**：静态发布二进制导入 offscreen 平台插件，修复更新探针卡死导致的发布审计失败。\n4. **版本**：Snow Shot 版本更新至 `1.0.8-beta`。",
+        "en": "## 一、新功能\n\n1. **macOS**：新增 ScreenCaptureKit 截图支持、全局鼠标手势与截图排除区域，并集中管理应用权限。\n2. **标题栏**：采用 Windows 原生窗口标题行为；自定义标题栏恢复 Windows 风格窗口按钮。\n3. **快捷键**：新增专用热键切换全局快捷键开关；新增热键切换全屏窗口快捷键抑制。\n4. **画布**：新增选中元素对齐与分布操作；空白画布上创建元素时先取消现有选区。\n5. **截图**：选区边框颜色支持自定义。\n6. **历史**：截图历史支持多选批量删除。\n7. **托盘**：点击更新气泡通知可跳转关于页面。\n\n## 二、问题修复\n\n1. **macOS**：屏蔽暂不支持的截图功能并使用原生应用外观。\n2. **截图**：长宽比快捷键在选区拖动开始前即已激活。\n3. **识别**：微信二维码模型改为内存加载，兼容含非 ASCII 字符的安装路径。\n4. **画布**：字号滚轮跟随样式工具栏来源；Alt 拖动复制选区时支持活动文本草稿。\n5. **安装器**：卸载时容忍部分安装状态，避免卸载失败。\n\n## 三、性能优化\n\n1. **智能擦除**：加速图块搜索与投票，并将重建上下文裁剪至空洞边界。\n2. **画布**：预计算可复用的场景渲染顺序计划。\n3. **工具栏**：弹出层内容惰性构建，隐藏后即时释放。\n\n## 四、重构与构建\n\n1. **更新器**：以 Rust 边车进程替换原 C++ 更新器。\n2. **测试**：修复测试套件失败与偶发不稳定的根因。\n3. **构建**：静态发布二进制导入 offscreen 平台插件，修复更新探针卡死导致的发布审计失败。\n4. **版本**：Snow Shot 版本更新至 `1.0.8-beta`。"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v1.0.7-beta",
+      "version": "1.0.7-beta",
+      "name": "v1.0.7-beta",
+      "publishedAt": "2026-09-19T02:10:53Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.0.7-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "## 一、新功能\n\n1. **设置**：新增配置导出与导入，支持通过 zip 压缩包迁移设置。\n2. **窗口**：记住主窗口位置大小与翻译窗口尺寸，跨会话保留。\n3. **箭头**：绑定端点新增悬停高亮，并统一箭头端点绑定策略。\n4. **工具栏**：记住上次使用的绘制工具；识别文本结果新增跳转翻译页按钮。\n5. **序号工具**：新增无数字圆形类型；按下即创建序号，可拖动文本定位，释放后进入编辑。\n6. **选区**：Alt 拖动复制选区并实时预览；长宽比锁定偏好跨会话保留。\n7. **截图**：通过取消快捷键丢弃截图前增加确认。\n8. **置顶窗口**：每个置顶窗口可单独切换总是置顶，并保留偏好。\n\n## 二、问题修复\n\n1. **更新器**：通过已认证的交接会话报告最终更新状态。\n2. **截图**：窗口选择时忽略透明穿透窗口。\n3. **主题**：小数 DPI 下所有表面以无提示轮廓渲染，消除文字模糊。\n4. **画布**：滤镜覆盖层不再参与对象吸附。\n\n## 三、重构与构建\n\n1. **样式**：解决各工作区的 clang-format 与 clippy 告警。\n2. **版本**：Snow Shot 版本更新至 `1.0.7-beta`。",
+        "en": "## 一、新功能\n\n1. **设置**：新增配置导出与导入，支持通过 zip 压缩包迁移设置。\n2. **窗口**：记住主窗口位置大小与翻译窗口尺寸，跨会话保留。\n3. **箭头**：绑定端点新增悬停高亮，并统一箭头端点绑定策略。\n4. **工具栏**：记住上次使用的绘制工具；识别文本结果新增跳转翻译页按钮。\n5. **序号工具**：新增无数字圆形类型；按下即创建序号，可拖动文本定位，释放后进入编辑。\n6. **选区**：Alt 拖动复制选区并实时预览；长宽比锁定偏好跨会话保留。\n7. **截图**：通过取消快捷键丢弃截图前增加确认。\n8. **置顶窗口**：每个置顶窗口可单独切换总是置顶，并保留偏好。\n\n## 二、问题修复\n\n1. **更新器**：通过已认证的交接会话报告最终更新状态。\n2. **截图**：窗口选择时忽略透明穿透窗口。\n3. **主题**：小数 DPI 下所有表面以无提示轮廓渲染，消除文字模糊。\n4. **画布**：滤镜覆盖层不再参与对象吸附。\n\n## 三、重构与构建\n\n1. **样式**：解决各工作区的 clang-format 与 clippy 告警。\n2. **版本**：Snow Shot 版本更新至 `1.0.7-beta`。"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v1.0.6-beta",
+      "version": "1.0.6-beta",
+      "name": "v1.0.6-beta",
+      "publishedAt": "2026-09-17T22:05:57Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.0.6-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "## 一、新功能\n\n1. **移动工具子工具栏**：截图移动工具新增子工具栏，支持重新截取与光标捕获。\n2. **智能擦除**：支持通过背景修补重建，一键移除截图中的对象。\n3. **录屏增强**：新增可调启动延迟与倒计时，倒计时改为统一时钟驱动的环形进度动画；视频与动图帧率新增 5 fps 选项。\n4. **选区增强**：新增选区调整大小模式（可选跟随鼠标位置），选区边缘精确吸附到指针所在像素。\n5. **二维码识别**：改用 OpenCV wechat_qrcode 检测，提升识别准确率。\n6. **置顶窗口增强**：新增调整窗口大小工具、可调的点击穿透不透明度，穿透点击控件新增移动按钮。\n7. **序号工具**：新增类型选项，支持实心/空心的圆形与方形样式。\n8. **绘制增强**：线条工具支持直线/曲线类型切换；自由绘制点击即可画点，笔刷光标十字新增光晕。\n9. **快捷键**：新增跨平台快捷键绑定。\n10. **macOS 支持**：新增 macOS 构建与打包支持、选中文字捕获，并内置并校验 macOS ARM64 OCR 运行时。\n\n## 二、问题修复\n\n1. **macOS**：修复工具栏在 macOS 上的逻辑尺寸问题。\n2. **工具栏**：修复模糊与高亮模式记忆未跨会话保留的问题。\n3. **水印**：修复模板选择弹窗添加按钮信号连接范围导致的崩溃。\n4. **安装器**：修复卸载时因启动注册表 hive 不可访问而中止的问题。\n5. **设置**：将任务计划程序账户名正确视为当前用户。\n\n## 三、性能优化\n\n1. **选择器**：命中测试结果分阶段交付并由后台线程细化，选区交互更流畅。\n\n## 四、重构与构建\n\n1. **画布**：笔刷与橡皮擦光标改为原生位图绘制。\n2. **工具栏**：样式编辑器按构建时标识分阶段加载。\n3. **版本**：Snow Shot 版本更新至 `1.0.6-beta`。",
+        "en": "## 一、新功能\n\n1. **移动工具子工具栏**：截图移动工具新增子工具栏，支持重新截取与光标捕获。\n2. **智能擦除**：支持通过背景修补重建，一键移除截图中的对象。\n3. **录屏增强**：新增可调启动延迟与倒计时，倒计时改为统一时钟驱动的环形进度动画；视频与动图帧率新增 5 fps 选项。\n4. **选区增强**：新增选区调整大小模式（可选跟随鼠标位置），选区边缘精确吸附到指针所在像素。\n5. **二维码识别**：改用 OpenCV wechat_qrcode 检测，提升识别准确率。\n6. **置顶窗口增强**：新增调整窗口大小工具、可调的点击穿透不透明度，穿透点击控件新增移动按钮。\n7. **序号工具**：新增类型选项，支持实心/空心的圆形与方形样式。\n8. **绘制增强**：线条工具支持直线/曲线类型切换；自由绘制点击即可画点，笔刷光标十字新增光晕。\n9. **快捷键**：新增跨平台快捷键绑定。\n10. **macOS 支持**：新增 macOS 构建与打包支持、选中文字捕获，并内置并校验 macOS ARM64 OCR 运行时。\n\n## 二、问题修复\n\n1. **macOS**：修复工具栏在 macOS 上的逻辑尺寸问题。\n2. **工具栏**：修复模糊与高亮模式记忆未跨会话保留的问题。\n3. **水印**：修复模板选择弹窗添加按钮信号连接范围导致的崩溃。\n4. **安装器**：修复卸载时因启动注册表 hive 不可访问而中止的问题。\n5. **设置**：将任务计划程序账户名正确视为当前用户。\n\n## 三、性能优化\n\n1. **选择器**：命中测试结果分阶段交付并由后台线程细化，选区交互更流畅。\n\n## 四、重构与构建\n\n1. **画布**：笔刷与橡皮擦光标改为原生位图绘制。\n2. **工具栏**：样式编辑器按构建时标识分阶段加载。\n3. **版本**：Snow Shot 版本更新至 `1.0.6-beta`。"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v1.0.4-beta",
+      "version": "1.0.4-beta",
+      "name": "v1.0.4-beta",
+      "publishedAt": "2026-09-15T21:02:11Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.0.4-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "## 一、新功能\n\n1. **置顶窗口增强**：支持从剪贴板或选中文件加载新的置顶内容，支持穿透点击，并可删除指定窗口组。\n2. **水印与标注增强**：支持可复用的文本与时间戳水印模板，并新增标注浮雕滤镜。\n3. **录屏与媒体能力**：新增 macOS 原生媒体采集与录制支持，并让录屏效果跟随截图绘制样式。\n\n## 二、问题修复\n\n1. **置顶窗口与交互**：修复置顶窗口分组区分、内容加载、点击穿透相关问题。\n2. **OCR 与绘图**：修复大表格数字复制为 Excel 时的文本保留问题，并修复自动滤镜填充的橡皮擦清除与模态框外边距问题。\n3. **稳定性与构建**：补齐直接录屏 FFI 类型，修复 Windows 发布构建链路，并统一 Snow Shot Rust FFI 静态归档，避免 Release 链接时重复定义录屏符号。\n\n## 三、性能优化\n\n1. **录屏**：继续完善原生媒体采集与录制链路，为后续跨平台录制能力提供基础。\n\n## 四、重构与构建\n\n1. **Windows 发布**：修复发布构建所需的 vcpkg Python 辅助工具安装与打包流程。\n2. **版本**：Snow Shot 版本更新至 `1.0.4-beta`。",
+        "en": "## 一、新功能\n\n1. **置顶窗口增强**：支持从剪贴板或选中文件加载新的置顶内容，支持穿透点击，并可删除指定窗口组。\n2. **水印与标注增强**：支持可复用的文本与时间戳水印模板，并新增标注浮雕滤镜。\n3. **录屏与媒体能力**：新增 macOS 原生媒体采集与录制支持，并让录屏效果跟随截图绘制样式。\n\n## 二、问题修复\n\n1. **置顶窗口与交互**：修复置顶窗口分组区分、内容加载、点击穿透相关问题。\n2. **OCR 与绘图**：修复大表格数字复制为 Excel 时的文本保留问题，并修复自动滤镜填充的橡皮擦清除与模态框外边距问题。\n3. **稳定性与构建**：补齐直接录屏 FFI 类型，修复 Windows 发布构建链路，并统一 Snow Shot Rust FFI 静态归档，避免 Release 链接时重复定义录屏符号。\n\n## 三、性能优化\n\n1. **录屏**：继续完善原生媒体采集与录制链路，为后续跨平台录制能力提供基础。\n\n## 四、重构与构建\n\n1. **Windows 发布**：修复发布构建所需的 vcpkg Python 辅助工具安装与打包流程。\n2. **版本**：Snow Shot 版本更新至 `1.0.4-beta`。"
+      },
+      "notesLanguage": {
+        "zh": "mixed",
+        "en": "mixed"
+      }
+    },
+    {
+      "tag": "v1.0.3-beta",
+      "version": "1.0.3-beta",
+      "name": "v1.0.3-beta",
+      "publishedAt": "2026-09-14T20:17:30Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.0.3-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "## 一、新功能\n\n1. **快速保存**：截图新增一键快速保存操作，并支持 Ctrl+Shift+S 快捷键\n2. **自定义 AI 模型**：支持接入自定义 AI 模型，自定义模型编辑器可从 API 直接拉取模型列表\n3. **OCR 增强**：新增 PP-OCR V4 / V5 模型，识别结果可保存为图片，置顶窗口可直接选择识别出的文本而无需展示 OCR 结果\n4. **图片置顶增强**：支持从资源管理器/桌面将图片文件拖拽置顶到屏幕，新增\"隐藏到顶部\"停靠模式、聚焦边框颜色自定义，并优化控件显隐时机\n5. **录屏增强**：鼠标/键盘效果在录制画布上实时预览，键帽尺寸随标签自适应（按键图例保持英文），导出的动图可选择是否循环，新增录制文件夹快捷键\n6. **主题自定义**：新增主题主色配置\n7. **翻译增强**：优化原图翻译布局，选中文本翻译支持在独立可调整大小的窗口中打开\n8. **更新机制**：支持签名自更新与事务性发布，更新状态与进度移入版本卡片，更新就绪使用专用通知气泡\n9. **其他**：支持以管理员身份运行；滚动截图与录制可捕获应用自身 UI；新增滚动截图静默失败的端到端诊断与视觉区域检测器\n\n## 二、问题修复\n\n1. 高分屏适配**：全面修复跨 DPI 及混合 DPI 下的工具栏显示、置顶窗口控件悬停、弹窗命中测试、水印预览与导出缩放不一致、小数 DPI 文字渲染、小数 DPR 平铺滤镜漏像素等问题\n2. **录屏**：修复录屏窗口层级错误导致工具栏无法点击、工具栏定位偏移、DPI 变化时工具栏不稳定等问题\n3. **快捷键**：修复 F12 全局快捷键注册失败，并统一快捷键与按钮行为逻辑\n4. **工具栏**：修复小尺寸工具栏内容偏移、紧凑/折叠工具栏控件显示、懒加载组合弹窗、箭头图标显示等\n5. **置顶窗口**：修复缩略图模式异常、指针穿过窗口边框时控件消失、悬停判断不准（改从实时光标判断）、延迟设置前识别操作不可用等问题\n6. **稳定性加固**：修复中断的拖拽/抓取无法恢复、关闭超时卡死（限制等待并回收废弃工作线程）、滤镜缓存损坏、表格识别冻结工具栏弹窗、回调删除控件导致选区调整异常等\n7. **更新与安装**：修复升级时无法恢复已保存的安装目录\n8. **其他**：统一\"置顶\"相关术语的中文表述，修复托盘复制与布局、颜色输入与弹窗生命周期、文本编辑时 Delete 键误删等问题\n\n## 三、性能优化\n\n1. **OCR**：新增常驻识别进程，实现模型热启动，显著降低重复识别延迟\n2. **录屏**：捕获会话移出 GUI 线程，捕获帧保留在 GPU 上走硬件编码，效果设置对话框延迟到首次使用才构建\n3. **基准测试**：为实时录制管线新增分阶段指标基准测试\n\n## 四、重构与构建\n\n1. **重构**：工具栏控件共享化，统一截图翻译服务，设置页操作行整合，全局鼠标改用统一配置表单，关于页重新设计并复用 Ant Design divider 组件\n2. **i18n**：翻译目录按功能拆分为独立片段",
+        "en": "## 一、新功能\n\n1. **快速保存**：截图新增一键快速保存操作，并支持 Ctrl+Shift+S 快捷键\n2. **自定义 AI 模型**：支持接入自定义 AI 模型，自定义模型编辑器可从 API 直接拉取模型列表\n3. **OCR 增强**：新增 PP-OCR V4 / V5 模型，识别结果可保存为图片，置顶窗口可直接选择识别出的文本而无需展示 OCR 结果\n4. **图片置顶增强**：支持从资源管理器/桌面将图片文件拖拽置顶到屏幕，新增\"隐藏到顶部\"停靠模式、聚焦边框颜色自定义，并优化控件显隐时机\n5. **录屏增强**：鼠标/键盘效果在录制画布上实时预览，键帽尺寸随标签自适应（按键图例保持英文），导出的动图可选择是否循环，新增录制文件夹快捷键\n6. **主题自定义**：新增主题主色配置\n7. **翻译增强**：优化原图翻译布局，选中文本翻译支持在独立可调整大小的窗口中打开\n8. **更新机制**：支持签名自更新与事务性发布，更新状态与进度移入版本卡片，更新就绪使用专用通知气泡\n9. **其他**：支持以管理员身份运行；滚动截图与录制可捕获应用自身 UI；新增滚动截图静默失败的端到端诊断与视觉区域检测器\n\n## 二、问题修复\n\n1. **DPI\n2. **录屏**：修复录屏窗口层级错误导致工具栏无法点击、工具栏定位偏移、DPI 变化时工具栏不稳定等问题\n3. **快捷键**：修复 F12 全局快捷键注册失败，并统一快捷键与按钮行为逻辑\n4. **工具栏**：修复小尺寸工具栏内容偏移、紧凑/折叠工具栏控件显示、懒加载组合弹窗、箭头图标显示等\n5. **置顶窗口**：修复缩略图模式异常、指针穿过窗口边框时控件消失、悬停判断不准（改从实时光标判断）、延迟设置前识别操作不可用等问题\n6. **稳定性加固**：修复中断的拖拽/抓取无法恢复、关闭超时卡死（限制等待并回收废弃工作线程）、滤镜缓存损坏、表格识别冻结工具栏弹窗、回调删除控件导致选区调整异常等\n7. **更新与安装**：修复升级时无法恢复已保存的安装目录\n8. **其他**：统一\"置顶\"相关术语的中文表述，修复托盘复制与布局、颜色输入与弹窗生命周期、文本编辑时 Delete 键误删等问题\n\n## 三、性能优化\n\n1. **OCR**：新增常驻识别进程，实现模型热启动，显著降低重复识别延迟\n2. **录屏**：捕获会话移出 GUI 线程，捕获帧保留在 GPU 上走硬件编码，效果设置对话框延迟到首次使用才构建\n3. **基准测试**：为实时录制管线新增分阶段指标基准测试\n\n## 四、重构与构建\n\n1. **重构**：工具栏控件共享化，统一截图翻译服务，设置页操作行整合，全局鼠标改用统一配置表单，关于页重新设计并复用 Ant Design divider 组件\n2. **i18n**：翻译目录按功能拆分为独立片段"
+      },
+      "notesLanguage": {
+        "zh": "mixed",
+        "en": "mixed"
+      }
+    },
+    {
+      "tag": "v1.0.0-beta",
+      "version": "1.0.0-beta",
+      "name": "v1.0.0-beta",
+      "publishedAt": "2026-09-08T23:52:38Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.0.0-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. OCR 默认禁用 DirectML 加速\n2. 修复表格识别点击后未切换的问题\n3. 允许关闭快门提示音\n4. 修复竖屏的截图问题\n5. 优化原图翻译效果\n6. 优化滚动截图的性能\n7. 允许永久保存截图历史\n8. 添加全局鼠标功能\n9. 修复按钮边框显示不全的问题\n10. 修复序列号数值延续到下一次截图的问题\n11. 固定到屏幕增加双击和鼠标中键功能\n12. 安装包默认创建桌面快捷方式\n13. 为屏幕录制添加绘图工具并加快视频导出速度\n14. 使用识别快捷键切换 OCR 结果可见性\n15. 添加不带 # 前缀的十六进制颜色格式\n16. 稳定窗口销毁和快捷键恢复\n17. 为分组操作保留快捷键提示\n18. 箭头元素支持嵌入文本\n19. 记住上次手动保存的格式\n20. 序列号支持手动输入\n21. 添加关于页面\n22. 支持将图像转换为 Markdown 和 HTML\n23. 优化视频渲染\n24. 添加翻译页面",
+        "en": "1. OCR 默认禁用 DirectML 加速\n2. 修复表格识别点击后未切换的问题\n3. 允许关闭快门提示音\n4. 修复竖屏的截图问题\n5. 优化原图翻译效果\n6. 优化滚动截图的性能\n7. 允许永久保存截图历史\n8. 添加全局鼠标功能\n9. 修复按钮边框显示不全的问题\n10. 修复序列号数值延续到下一次截图的问题\n11. 固定到屏幕增加双击和鼠标中键功能\n12. 安装包默认创建桌面快捷方式\n13. 为屏幕录制添加绘图工具并加快视频导出速度\n14. 使用识别快捷键切换 OCR 结果可见性\n15. 添加不带 # 前缀的十六进制颜色格式\n16. 稳定窗口销毁和快捷键恢复\n17. 为分组操作保留快捷键提示\n18. 箭头元素支持嵌入文本\n19. 记住上次手动保存的格式\n20. 序列号支持手动输入\n21. 添加关于页面\n22. 支持将图像转换为 Markdown 和 HTML\n23. 优化视频渲染\n24. 添加翻译页面"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.8.1-dev",
+      "version": "0.8.1-dev",
+      "name": "v0.8.1-dev",
+      "publishedAt": "2026-09-07T12:02:37Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.8.1-dev",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 跨捕获会话持久化智能框选模式\n2. 支持 PrintScreen 按键\n3. 解决固定到屏幕窗口中缓存的 OCR 渲染坐标不匹配问题\n4. 支持图片翻译\n5. 为智能框选添加可配置的窗口元素 API\n6. OCR 和翻译结果支持固定到屏幕\n7. 完善的日志支持\n8. 添加在截图中包含鼠标光标的选项\n9. 在画布重置前隐藏覆盖层，避免取消时出现白屏闪烁\n10. 支持自定义截图工具栏\n11. 在滚动模式显示或隐藏子工具栏后重新定位\n12. 添加应用内“保存为文件”对话框，带实时导出预览\n13. 提供便携版打包支持\n14. Windows 10 的兼容支持\n15. 支持更多的 OCR 模型",
+        "en": "1. 跨捕获会话持久化智能框选模式\n2. 支持 PrintScreen 按键\n3. 解决固定到屏幕窗口中缓存的 OCR 渲染坐标不匹配问题\n4. 支持图片翻译\n5. 为智能框选添加可配置的窗口元素 API\n6. OCR 和翻译结果支持固定到屏幕\n7. 完善的日志支持\n8. 添加在截图中包含鼠标光标的选项\n9. 在画布重置前隐藏覆盖层，避免取消时出现白屏闪烁\n10. 支持自定义截图工具栏\n11. 在滚动模式显示或隐藏子工具栏后重新定位\n12. 添加应用内“保存为文件”对话框，带实时导出预览\n13. 提供便携版打包支持\n14. Windows 10 的兼容支持\n15. 支持更多的 OCR 模型"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.8.0-dev",
+      "version": "0.8.0-dev",
+      "name": "v0.8.0-dev",
+      "publishedAt": "2026-09-06T12:22:54Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.8.0-dev",
+      "prerelease": true,
+      "notes": {
+        "zh": "基于 Qt 和 Rust 彻底重写的全新版本\n\n在线版本根据需要安装 OCR 模型，离线版本已打包好 OCR 模型",
+        "en": "基于 Qt 和 Rust 彻底重写的全新版本\n\n在线版本根据需要安装 OCR 模型，离线版本已打包好 OCR 模型"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.7.8-beta",
+      "version": "0.7.8-beta",
+      "name": "v0.7.8-beta",
+      "publishedAt": "2025-11-06T10:33:19Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.7.8-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "# 最新版 Windows 的 WebView 在 4K 分辨率及以上的显示器（或多个显示器组合）上存在渲染性能问题，请尝试使用 fixedRuntime 版本修复\n\n### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes\n\n- 渲染引擎回退到 WebGL &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/778 [<samp>(08665)</samp>](https://github.com/mg-chao/snow-shot/commit/086655ed)\n- 修复 macOS 下关闭主窗口的问题、修复操作的焦点问题 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/779 [<samp>(b2f78)</samp>](https://github.com/mg-chao/snow-shot/commit/b2f780c0)\n- 移除无效代码 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/780 [<samp>(eda38)</samp>](https://github.com/mg-chao/snow-shot/commit/eda38b6e)\n\n##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/mg-chao/snow-shot/compare/v0.7.7-beta...v0.7.8-beta)",
+        "en": "# 最新版 Windows 的 WebView 在 4K 分辨率及以上的显示器（或多个显示器组合）上存在渲染性能问题，请尝试使用 fixedRuntime 版本修复\n\n### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes\n\n- 渲染引擎回退到 WebGL &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/778 [<samp>(08665)</samp>](https://github.com/mg-chao/snow-shot/commit/086655ed)\n- 修复 macOS 下关闭主窗口的问题、修复操作的焦点问题 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/779 [<samp>(b2f78)</samp>](https://github.com/mg-chao/snow-shot/commit/b2f780c0)\n- 移除无效代码 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/780 [<samp>(eda38)</samp>](https://github.com/mg-chao/snow-shot/commit/eda38b6e)\n\n##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/mg-chao/snow-shot/compare/v0.7.7-beta...v0.7.8-beta)"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.7.7-beta",
+      "version": "0.7.7-beta",
+      "name": "v0.7.7-beta",
+      "publishedAt": "2025-11-05T20:51:45Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.7.7-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes\n\n- 修复快捷键提示透明度 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/753 [<samp>(a17f7)</samp>](https://github.com/mg-chao/snow-shot/commit/a17f79c6)\n- 增强 HDR 截图的兼容性 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/755 [<samp>(c5e3b)</samp>](https://github.com/mg-chao/snow-shot/commit/c5e3bee9)\n- 修复 HDR 最低版本支持判断 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/756 [<samp>(5b331)</samp>](https://github.com/mg-chao/snow-shot/commit/5b331420)\n- 修复序列号类型问题 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/764 [<samp>(74e78)</samp>](https://github.com/mg-chao/snow-shot/commit/74e78689)\n- MacOS 允许通过 dock 打开主界面 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/768 [<samp>(f65b5)</samp>](https://github.com/mg-chao/snow-shot/commit/f65b5f66)\n- 修复 Windows 无法隐藏窗口 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/769 [<samp>(fd75b)</samp>](https://github.com/mg-chao/snow-shot/commit/fd75b28c)\n- 禁用通过按键进行路由跳转 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/770 [<samp>(4f979)</samp>](https://github.com/mg-chao/snow-shot/commit/4f979e6f)\n\n### &nbsp;&nbsp;&nbsp;🏎 Performance\n\n- 优化渲染性能 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/763 [<samp>(14303)</samp>](https://github.com/mg-chao/snow-shot/commit/14303bc9)\n- 尝试优化窗口缩放性能 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/765 [<samp>(43f25)</samp>](https://github.com/mg-chao/snow-shot/commit/43f255f6)\n- 优化滤镜渲染性能 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/767 [<samp>(d69f1)</samp>](https://github.com/mg-chao/snow-shot/commit/d69f1c44)\n\n##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/mg-chao/snow-shot/compare/v0.7.6-beta...v0.7.7-beta)",
+        "en": "### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes\n\n- 修复快捷键提示透明度 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/753 [<samp>(a17f7)</samp>](https://github.com/mg-chao/snow-shot/commit/a17f79c6)\n- 增强 HDR 截图的兼容性 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/755 [<samp>(c5e3b)</samp>](https://github.com/mg-chao/snow-shot/commit/c5e3bee9)\n- 修复 HDR 最低版本支持判断 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/756 [<samp>(5b331)</samp>](https://github.com/mg-chao/snow-shot/commit/5b331420)\n- 修复序列号类型问题 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/764 [<samp>(74e78)</samp>](https://github.com/mg-chao/snow-shot/commit/74e78689)\n- MacOS 允许通过 dock 打开主界面 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/768 [<samp>(f65b5)</samp>](https://github.com/mg-chao/snow-shot/commit/f65b5f66)\n- 修复 Windows 无法隐藏窗口 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/769 [<samp>(fd75b)</samp>](https://github.com/mg-chao/snow-shot/commit/fd75b28c)\n- 禁用通过按键进行路由跳转 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/770 [<samp>(4f979)</samp>](https://github.com/mg-chao/snow-shot/commit/4f979e6f)\n\n### &nbsp;&nbsp;&nbsp;🏎 Performance\n\n- 优化渲染性能 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/763 [<samp>(14303)</samp>](https://github.com/mg-chao/snow-shot/commit/14303bc9)\n- 尝试优化窗口缩放性能 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/765 [<samp>(43f25)</samp>](https://github.com/mg-chao/snow-shot/commit/43f255f6)\n- 优化滤镜渲染性能 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/767 [<samp>(d69f1)</samp>](https://github.com/mg-chao/snow-shot/commit/d69f1c44)\n\n##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/mg-chao/snow-shot/compare/v0.7.6-beta...v0.7.7-beta)"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.7.6-beta",
+      "version": "0.7.6-beta",
+      "name": "v0.7.6-beta",
+      "publishedAt": "2025-11-04T19:42:48Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.7.6-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "### &nbsp;&nbsp;&nbsp;🚀 Features\n\n- 支持显示主界面、打开图片保存目录、打开截图历史快捷操作 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/740 [<samp>(163a0)</samp>](https://github.com/mg-chao/snow-shot/commit/163a037f)\n- 截图历史支持全选 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/742 [<samp>(0dad7)</samp>](https://github.com/mg-chao/snow-shot/commit/0dad78a9)\n\n### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes\n\n- 修复快捷键设置异常影响重写注册 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/733 [<samp>(671ac)</samp>](https://github.com/mg-chao/snow-shot/commit/671ac6c8)\n- 禁用绿色版的自动升级 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/734 [<samp>(d5fc3)</samp>](https://github.com/mg-chao/snow-shot/commit/d5fc3910)\n- 修复无法复制截图翻译的文本 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/735 [<samp>(d316b)</samp>](https://github.com/mg-chao/snow-shot/commit/d316b381)\n- 修复 Firefox 自动框选的问题 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/736 [<samp>(20ad4)</samp>](https://github.com/mg-chao/snow-shot/commit/20ad44bf)\n- 隐藏托盘后可通过固定到屏幕的右键菜单显示主界面 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/737 [<samp>(ea9d8)</samp>](https://github.com/mg-chao/snow-shot/commit/ea9d87fd)\n- 修复跳转到截图历史后，快捷键失效 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/741 [<samp>(0ece1)</samp>](https://github.com/mg-chao/snow-shot/commit/0ece1cf8)\n- 提高 macOS 下自动滚动的速度 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/743 [<samp>(d6547)</samp>](https://github.com/mg-chao/snow-shot/commit/d6547513)\n- 修复视频录制的一些问题 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/744 [<samp>(2804b)</samp>](https://github.com/mg-chao/snow-shot/commit/2804b1e2)\n\n##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/mg-chao/snow-shot/compare/v0.7.5-beta...v0.7.6-beta)",
+        "en": "### &nbsp;&nbsp;&nbsp;🚀 Features\n\n- 支持显示主界面、打开图片保存目录、打开截图历史快捷操作 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/740 [<samp>(163a0)</samp>](https://github.com/mg-chao/snow-shot/commit/163a037f)\n- 截图历史支持全选 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/742 [<samp>(0dad7)</samp>](https://github.com/mg-chao/snow-shot/commit/0dad78a9)\n\n### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes\n\n- 修复快捷键设置异常影响重写注册 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/733 [<samp>(671ac)</samp>](https://github.com/mg-chao/snow-shot/commit/671ac6c8)\n- 禁用绿色版的自动升级 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/734 [<samp>(d5fc3)</samp>](https://github.com/mg-chao/snow-shot/commit/d5fc3910)\n- 修复无法复制截图翻译的文本 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/735 [<samp>(d316b)</samp>](https://github.com/mg-chao/snow-shot/commit/d316b381)\n- 修复 Firefox 自动框选的问题 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/736 [<samp>(20ad4)</samp>](https://github.com/mg-chao/snow-shot/commit/20ad44bf)\n- 隐藏托盘后可通过固定到屏幕的右键菜单显示主界面 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/737 [<samp>(ea9d8)</samp>](https://github.com/mg-chao/snow-shot/commit/ea9d87fd)\n- 修复跳转到截图历史后，快捷键失效 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/741 [<samp>(0ece1)</samp>](https://github.com/mg-chao/snow-shot/commit/0ece1cf8)\n- 提高 macOS 下自动滚动的速度 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/743 [<samp>(d6547)</samp>](https://github.com/mg-chao/snow-shot/commit/d6547513)\n- 修复视频录制的一些问题 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/744 [<samp>(2804b)</samp>](https://github.com/mg-chao/snow-shot/commit/2804b1e2)\n\n##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/mg-chao/snow-shot/compare/v0.7.5-beta...v0.7.6-beta)"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.7.5-beta",
+      "version": "0.7.5-beta",
+      "name": "v0.7.5-beta",
+      "publishedAt": "2025-11-03T19:27:39Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.7.5-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "### &nbsp;&nbsp;&nbsp;🚀 Features\n\n- 上传到云端支持滚动截图、固定到屏幕、重写资源地址 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/717 [<samp>(7af8e)</samp>](https://github.com/mg-chao/snow-shot/commit/7af8ea05)\n- 支持自定义截图双击行为 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/724 [<samp>(b1e75)</samp>](https://github.com/mg-chao/snow-shot/commit/b1e75003)\n\n### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes\n\n- 修复截图报错的问题 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/712 [<samp>(12a27)</samp>](https://github.com/mg-chao/snow-shot/commit/12a2769d)\n- 修复手动进行滚动截图可能截取到提示的问题 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/713 [<samp>(704e6)</samp>](https://github.com/mg-chao/snow-shot/commit/704e6a4b)\n- 修复快速固定剪贴板到屏幕崩溃的问题 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/723 [<samp>(ff813)</samp>](https://github.com/mg-chao/snow-shot/commit/ff813649)\n- 修复部分页面导航缺失的问题 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/725 [<samp>(fa20e)</samp>](https://github.com/mg-chao/snow-shot/commit/fa20e119)\n\n### &nbsp;&nbsp;&nbsp;🏎 Performance\n\n- 优化滤镜渲染的性能 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/721 [<samp>(1a4fc)</samp>](https://github.com/mg-chao/snow-shot/commit/1a4fcf1a)\n\n##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/mg-chao/snow-shot/compare/v0.7.4-beta...v0.7.5-beta)",
+        "en": "### &nbsp;&nbsp;&nbsp;🚀 Features\n\n- 上传到云端支持滚动截图、固定到屏幕、重写资源地址 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/717 [<samp>(7af8e)</samp>](https://github.com/mg-chao/snow-shot/commit/7af8ea05)\n- 支持自定义截图双击行为 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/724 [<samp>(b1e75)</samp>](https://github.com/mg-chao/snow-shot/commit/b1e75003)\n\n### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes\n\n- 修复截图报错的问题 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/712 [<samp>(12a27)</samp>](https://github.com/mg-chao/snow-shot/commit/12a2769d)\n- 修复手动进行滚动截图可能截取到提示的问题 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/713 [<samp>(704e6)</samp>](https://github.com/mg-chao/snow-shot/commit/704e6a4b)\n- 修复快速固定剪贴板到屏幕崩溃的问题 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/723 [<samp>(ff813)</samp>](https://github.com/mg-chao/snow-shot/commit/ff813649)\n- 修复部分页面导航缺失的问题 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/725 [<samp>(fa20e)</samp>](https://github.com/mg-chao/snow-shot/commit/fa20e119)\n\n### &nbsp;&nbsp;&nbsp;🏎 Performance\n\n- 优化滤镜渲染的性能 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/721 [<samp>(1a4fc)</samp>](https://github.com/mg-chao/snow-shot/commit/1a4fcf1a)\n\n##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/mg-chao/snow-shot/compare/v0.7.4-beta...v0.7.5-beta)"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.7.4-beta",
+      "version": "0.7.4-beta",
+      "name": "v0.7.4-beta",
+      "publishedAt": "2025-11-02T19:26:47Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.7.4-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "### &nbsp;&nbsp;&nbsp;🚀 Features\n\n- 全屏画布支持重置画布 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/694 [<samp>(1c37f)</samp>](https://github.com/mg-chao/snow-shot/commit/1c37ff76)\n- 支持存在被聚焦的全屏窗口时自动禁用全局快捷键 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/695 [<samp>(95efb)</samp>](https://github.com/mg-chao/snow-shot/commit/95efb71f)\n\n### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes\n\n- 优化 macOS 下的自动框选 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/690 [<samp>(d2f4f)</samp>](https://github.com/mg-chao/snow-shot/commit/d2f4f49c)\n- 尝试修复 macOS 无法录制视频的问题 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/692 [<samp>(48669)</samp>](https://github.com/mg-chao/snow-shot/commit/48669a01)\n- 修复 Github Actions 编译 macOS 的问题 &nbsp;-&nbsp; by @mg-chao [<samp>(6e350)</samp>](https://github.com/mg-chao/snow-shot/commit/6e3504ad)\n- 修复 Github Actions 编译 macOS 的问题 &nbsp;-&nbsp; by @mg-chao [<samp>(2ea4f)</samp>](https://github.com/mg-chao/snow-shot/commit/2ea4fa37)\n- 修复 macOS 窗口框选会框选光标 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/696 [<samp>(93404)</samp>](https://github.com/mg-chao/snow-shot/commit/934044ee)\n- 修复 macOS 权限请求文档链接 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/697 [<samp>(467d4)</samp>](https://github.com/mg-chao/snow-shot/commit/467d434e)\n\n### &nbsp;&nbsp;&nbsp;🏎 Performance\n\n- 提高录制动图的压缩率 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/693 [<samp>(d807a)</samp>](https://github.com/mg-chao/snow-shot/commit/d807a9b8)\n\n##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/mg-chao/snow-shot/compare/v0.7.3-beta...v0.7.4-beta)",
+        "en": "### &nbsp;&nbsp;&nbsp;🚀 Features\n\n- 全屏画布支持重置画布 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/694 [<samp>(1c37f)</samp>](https://github.com/mg-chao/snow-shot/commit/1c37ff76)\n- 支持存在被聚焦的全屏窗口时自动禁用全局快捷键 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/695 [<samp>(95efb)</samp>](https://github.com/mg-chao/snow-shot/commit/95efb71f)\n\n### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes\n\n- 优化 macOS 下的自动框选 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/690 [<samp>(d2f4f)</samp>](https://github.com/mg-chao/snow-shot/commit/d2f4f49c)\n- 尝试修复 macOS 无法录制视频的问题 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/692 [<samp>(48669)</samp>](https://github.com/mg-chao/snow-shot/commit/48669a01)\n- 修复 Github Actions 编译 macOS 的问题 &nbsp;-&nbsp; by @mg-chao [<samp>(6e350)</samp>](https://github.com/mg-chao/snow-shot/commit/6e3504ad)\n- 修复 Github Actions 编译 macOS 的问题 &nbsp;-&nbsp; by @mg-chao [<samp>(2ea4f)</samp>](https://github.com/mg-chao/snow-shot/commit/2ea4fa37)\n- 修复 macOS 窗口框选会框选光标 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/696 [<samp>(93404)</samp>](https://github.com/mg-chao/snow-shot/commit/934044ee)\n- 修复 macOS 权限请求文档链接 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/697 [<samp>(467d4)</samp>](https://github.com/mg-chao/snow-shot/commit/467d434e)\n\n### &nbsp;&nbsp;&nbsp;🏎 Performance\n\n- 提高录制动图的压缩率 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/693 [<samp>(d807a)</samp>](https://github.com/mg-chao/snow-shot/commit/d807a9b8)\n\n##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/mg-chao/snow-shot/compare/v0.7.3-beta...v0.7.4-beta)"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.7.3-beta",
+      "version": "0.7.3-beta",
+      "name": "v0.7.3-beta",
+      "publishedAt": "2025-11-01T21:07:24Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.7.3-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes\n\n- 修复视频录制监听键盘操作未正确终止 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/685 [<samp>(00248)</samp>](https://github.com/mg-chao/snow-shot/commit/0024850)\n- 修复高亮、水印缺失描边颜色设置 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/687 [<samp>(9b61a)</samp>](https://github.com/mg-chao/snow-shot/commit/9b61acb)\n\n##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/mg-chao/snow-shot/compare/v0.7.2-beta...v0.7.3-beta)",
+        "en": "### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes\n\n- 修复视频录制监听键盘操作未正确终止 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/685 [<samp>(00248)</samp>](https://github.com/mg-chao/snow-shot/commit/0024850)\n- 修复高亮、水印缺失描边颜色设置 &nbsp;-&nbsp; by @mg-chao in https://github.com/mg-chao/snow-shot/issues/687 [<samp>(9b61a)</samp>](https://github.com/mg-chao/snow-shot/commit/9b61acb)\n\n##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/mg-chao/snow-shot/compare/v0.7.2-beta...v0.7.3-beta)"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.7.2-beta",
+      "version": "0.7.2-beta",
+      "name": "v0.7.2-beta",
+      "publishedAt": "2025-10-31T19:34:36Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.7.2-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 自动更新支持\n2. 提高 HDR 内容转换的兼容性\n3. 截图历史支持多选\n4. 全屏画布工具栏支持靠边自动隐藏\n5. 修复选中序列号更改数字不生效\n6. 支持暗黑主题独立设置托盘图标\n7. 录制时支持显示按键\n8. 提高固定到屏幕的速度\n9. 修复部分情况固定截图到屏幕画面过渡异常",
+        "en": "1. 自动更新支持\n2. 提高 HDR 内容转换的兼容性\n3. 截图历史支持多选\n4. 全屏画布工具栏支持靠边自动隐藏\n5. 修复选中序列号更改数字不生效\n6. 支持暗黑主题独立设置托盘图标\n7. 录制时支持显示按键\n8. 提高固定到屏幕的速度\n9. 修复部分情况固定截图到屏幕画面过渡异常"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.7.1-beta",
+      "version": "0.7.1-beta",
+      "name": "0.7.1-beta",
+      "publishedAt": "2025-10-30T17:56:55Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.7.1-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 禁用 Windows 下截图窗口的显示动画\n2. 优化动画性能\n3. 提高自动框选的速度\n4. 提高自定义 AI 对话的兼容性",
+        "en": "1. 禁用 Windows 下截图窗口的显示动画\n2. 优化动画性能\n3. 提高自动框选的速度\n4. 提高自定义 AI 对话的兼容性"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.7.0-beta",
+      "version": "0.7.0-beta",
+      "name": "0.7.0-beta",
+      "publishedAt": "2025-10-29T20:32:00Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.7.0-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复滚动截图在部分情况下失效的问题\n2. 修复右键菜单无法点击、进程无响应等问题\n3. 修复划词翻译使用在线服务首次翻译失败\n4. 划选文本时增加容错\n5. 优化网络请求",
+        "en": "1. 修复滚动截图在部分情况下失效的问题\n2. 修复右键菜单无法点击、进程无响应等问题\n3. 修复划词翻译使用在线服务首次翻译失败\n4. 划选文本时增加容错\n5. 优化网络请求"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.6.9-beta",
+      "version": "0.6.9-beta",
+      "name": "0.6.9-beta",
+      "publishedAt": "2025-10-29T05:18:27Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.6.9-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 支持图片转为 Markdown 文档",
+        "en": "1. 支持图片转为 Markdown 文档"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.6.8-beta",
+      "version": "0.6.8-beta",
+      "name": "0.6.8-beta",
+      "publishedAt": "2025-10-28T19:54:15Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.6.8-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 新增外观配色功能\n2. 支持视觉理解模型以将图像转为 HTML\n3. 修复 AI 对话配置不显示的问题",
+        "en": "1. 新增外观配色功能\n2. 支持视觉理解模型以将图像转为 HTML\n3. 修复 AI 对话配置不显示的问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.6.7-beta",
+      "version": "0.6.7-beta",
+      "name": "0.6.7-beta",
+      "publishedAt": "2025-10-27T11:28:54Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.6.7-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 翻译更改为插件\n2. 优化 AI 翻译在 OCR 结果上的排版\n3. 修复固定图片到剪贴板崩溃、不显示的问题\n4. 修复绘制截图阴影后固定到屏幕绘制内容存在偏移\n5. 选择工具下多选文本元素点击时优先拖拽",
+        "en": "1. 翻译更改为插件\n2. 优化 AI 翻译在 OCR 结果上的排版\n3. 修复固定图片到剪贴板崩溃、不显示的问题\n4. 修复绘制截图阴影后固定到屏幕绘制内容存在偏移\n5. 选择工具下多选文本元素点击时优先拖拽"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.6.6-beta",
+      "version": "0.6.6-beta",
+      "name": "0.6.6-beta",
+      "publishedAt": "2025-10-26T16:40:30Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.6.6-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 尝试修复开机自启不显示托盘",
+        "en": "1. 尝试修复开机自启不显示托盘"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.6.5-beta",
+      "version": "0.6.5-beta",
+      "name": "0.6.5-beta",
+      "publishedAt": "2025-10-26T16:00:04Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.6.5-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "## What's Changed\n* feat: 更好的翻译功能 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/627\n* feat: 支持翻译固定到屏幕的 OCR 内容 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/628\n\n\n**Full Changelog**: https://github.com/mg-chao/snow-shot/compare/0.6.4-beta...0.6.5-beta",
+        "en": "## What's Changed\n* feat: 更好的翻译功能 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/627\n* feat: 支持翻译固定到屏幕的 OCR 内容 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/628\n\n\n**Full Changelog**: https://github.com/mg-chao/snow-shot/compare/0.6.4-beta...0.6.5-beta"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.6.4-beta",
+      "version": "0.6.4-beta",
+      "name": "0.6.4-beta",
+      "publishedAt": "2025-10-24T15:49:56Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.6.4-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复旋转固定到屏幕的内容后复制的内容和显示内容不一致\n2. 修复固定 HTML 内容到屏幕绘制高亮元素背景无效\n3. 修复 OCR 结果不显示的问题\n4. OCR 识别时忽略绘制内容\n5. 修复旋转固定图片后 OCR 结果异常\n6. 修复部分情况下固定截图到屏幕后滤镜等元素不显示\n7. 优化固定到屏幕、截图的数据传输效率",
+        "en": "1. 修复旋转固定到屏幕的内容后复制的内容和显示内容不一致\n2. 修复固定 HTML 内容到屏幕绘制高亮元素背景无效\n3. 修复 OCR 结果不显示的问题\n4. OCR 识别时忽略绘制内容\n5. 修复旋转固定图片后 OCR 结果异常\n6. 修复部分情况下固定截图到屏幕后滤镜等元素不显示\n7. 优化固定到屏幕、截图的数据传输效率"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.6.3-beta",
+      "version": "0.6.3-beta",
+      "name": "0.6.3-beta",
+      "publishedAt": "2025-10-23T16:03:46Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.6.3-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "## What's Changed\n* fix: 修复 macOS 下滚动截图崩溃的问题 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/616\n* perf: 优化 RGBA 转 RGB 数据的效率 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/617\n* fix: 修复保存截图历史时阻塞主线程的问题 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/618\n* fix: 修复固定到屏幕旋转后滤镜等工具绘制存在偏移 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/619\n\n\n**Full Changelog**: https://github.com/mg-chao/snow-shot/compare/0.6.2-beta...0.6.3-beta",
+        "en": "## What's Changed\n* fix: 修复 macOS 下滚动截图崩溃的问题 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/616\n* perf: 优化 RGBA 转 RGB 数据的效率 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/617\n* fix: 修复保存截图历史时阻塞主线程的问题 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/618\n* fix: 修复固定到屏幕旋转后滤镜等工具绘制存在偏移 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/619\n\n\n**Full Changelog**: https://github.com/mg-chao/snow-shot/compare/0.6.2-beta...0.6.3-beta"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.6.2-beta",
+      "version": "0.6.2-beta",
+      "name": "0.6.2-beta",
+      "publishedAt": "2025-10-22T20:49:09Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.6.2-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 固定到屏幕支持自动缩放以适应显示器大小\n2. 高亮元素背景透明时支持拖动\n3. 修复固定截图后绘制内容偏移的问题\n4. 修复编辑截图历史不保存截图历史的问题\n5. 固定到屏幕禁止缩略模式下的复制\n6. 修复固定颜色到屏幕绘制模式下的显示问题\n7. 修复固定到屏幕旋转后的复制图片内容不正确\n8. 提高固定滚动截图到屏幕的速度\n9. 提高固定图片到屏幕的速度\n10. 修复固定图片到屏幕无法进行 OCR",
+        "en": "1. 固定到屏幕支持自动缩放以适应显示器大小\n2. 高亮元素背景透明时支持拖动\n3. 修复固定截图后绘制内容偏移的问题\n4. 修复编辑截图历史不保存截图历史的问题\n5. 固定到屏幕禁止缩略模式下的复制\n6. 修复固定颜色到屏幕绘制模式下的显示问题\n7. 修复固定到屏幕旋转后的复制图片内容不正确\n8. 提高固定滚动截图到屏幕的速度\n9. 提高固定图片到屏幕的速度\n10. 修复固定图片到屏幕无法进行 OCR"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.6.1-beta",
+      "version": "0.6.1-beta",
+      "name": "0.6.1-beta",
+      "publishedAt": "2025-10-21T18:42:45Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.6.1-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 提高固定截图的显示速度",
+        "en": "1. 提高固定截图的显示速度"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.6.0-beta",
+      "version": "0.6.0-beta",
+      "name": "0.6.0-beta",
+      "publishedAt": "2025-10-21T16:37:01Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.6.0-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 固定截图支持编辑截图中绘制的元素\n2. 修复固定到屏幕缩放后部分绘制内容显示异常\n3. 修复描边宽度无法通过输入框编辑\n4. 修复固定到屏幕 HTML 内容不显示绘制的滤镜效果\n5. 修复截图历史保存底图错误的问题\n6. 尝试修复部分情况的闪退问题\n7. 修复固定截图后部分内存未回收",
+        "en": "1. 固定截图支持编辑截图中绘制的元素\n2. 修复固定到屏幕缩放后部分绘制内容显示异常\n3. 修复描边宽度无法通过输入框编辑\n4. 修复固定到屏幕 HTML 内容不显示绘制的滤镜效果\n5. 修复截图历史保存底图错误的问题\n6. 尝试修复部分情况的闪退问题\n7. 修复固定截图后部分内存未回收"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.5.9-beta",
+      "version": "0.5.9-beta",
+      "name": "0.5.9-beta",
+      "publishedAt": "2025-10-20T21:59:32Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.5.9-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 固定到屏幕支持绘制滤镜等工具（刚测试发现 HTML 内容绘制滤镜等内容后完成绘制，滤镜效果会隐藏，后续修复，不影响复制）\n2. 修复编辑截图历史失效的问题\n3. 修复 OCR 结果在暗黑模式下的显示问题\n4. 修复固定到屏幕绘制时无法拖动滑块、更改颜色和无法使用序列号等问题",
+        "en": "1. 固定到屏幕支持绘制滤镜等工具（刚测试发现 HTML 内容绘制滤镜等内容后完成绘制，滤镜效果会隐藏，后续修复，不影响复制）\n2. 修复编辑截图历史失效的问题\n3. 修复 OCR 结果在暗黑模式下的显示问题\n4. 修复固定到屏幕绘制时无法拖动滑块、更改颜色和无法使用序列号等问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.5.8-beta",
+      "version": "0.5.8-beta",
+      "name": "0.5.8-beta",
+      "publishedAt": "2025-10-19T15:33:52Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.5.8-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复锁定宽高比设置值非整数的问题\n2. 修复全屏画布切换鼠标穿透后工具状态未保存\n3. 提高 OCR 的识别速度",
+        "en": "1. 修复锁定宽高比设置值非整数的问题\n2. 修复全屏画布切换鼠标穿透后工具状态未保存\n3. 提高 OCR 的识别速度"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.5.7-beta",
+      "version": "0.5.7-beta",
+      "name": "0.5.7-beta",
+      "publishedAt": "2025-10-18T17:17:01Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.5.7-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复锁定宽高比的计算问题\n2. 修复截图时屏蔽固定到屏幕全局快捷键失效的问题\n3. 提高固定截图到屏幕的性能\n4. 提高复制图片的速度",
+        "en": "1. 修复锁定宽高比的计算问题\n2. 修复截图时屏蔽固定到屏幕全局快捷键失效的问题\n3. 提高固定截图到屏幕的性能\n4. 提高复制图片的速度"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.5.6-beta",
+      "version": "0.5.6-beta",
+      "name": "0.5.6-beta",
+      "publishedAt": "2025-10-17T21:45:20Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.5.6-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "## 做了涉及所有代码的修改，有问题欢迎反馈~\n\n1. 支持锁定手动拖拽选区的比例 \n2. 支持复制普通截图时复制文件路径\n3. OCR 后自动执行新增入口区分\n4. 修复通过鼠标更改窗口大小时会同步修改其它窗口的问题\n5. 修复固定截图到屏幕的透明内容显示异常\n6. 保持查找窗口元素或查找子元素的切换状态\n7. 修复滚动截图保存失败的问题\n8. 修复检测 HDR 信息时获取失败异常\n9. 修复截取焦点窗口未进行 HDR 转换",
+        "en": "## 做了涉及所有代码的修改，有问题欢迎反馈~\n\n1. 支持锁定手动拖拽选区的比例 \n2. 支持复制普通截图时复制文件路径\n3. OCR 后自动执行新增入口区分\n4. 修复通过鼠标更改窗口大小时会同步修改其它窗口的问题\n5. 修复固定截图到屏幕的透明内容显示异常\n6. 保持查找窗口元素或查找子元素的切换状态\n7. 修复滚动截图保存失败的问题\n8. 修复检测 HDR 信息时获取失败异常\n9. 修复截取焦点窗口未进行 HDR 转换"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.5.5-beta",
+      "version": "0.5.5-beta",
+      "name": "0.5.5-beta",
+      "publishedAt": "2025-10-15T19:15:53Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.5.5-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复截图后使用固定剪贴板到屏幕失效的问题",
+        "en": "1. 修复截图后使用固定剪贴板到屏幕失效的问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.5.4-beta",
+      "version": "0.5.4-beta",
+      "name": "0.5.4-beta",
+      "publishedAt": "2025-10-15T14:23:36Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.5.4-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 选区设置支持锁定宽高\n2. 固定到屏幕支持点击鼠标中键快速恢复缩放\n3. 支持通过鼠标缩放固定到屏幕窗口\n4. 截图时禁用固定剪贴板内容到屏幕\n5. 固定到屏幕新增编辑按钮\n6. 修复取色器的定位问题\n7. 修复开始录制全局快捷键无法使用的问题\n8. 修复全屏画布启动时屏幕闪烁的问题",
+        "en": "1. 选区设置支持锁定宽高\n2. 固定到屏幕支持点击鼠标中键快速恢复缩放\n3. 支持通过鼠标缩放固定到屏幕窗口\n4. 截图时禁用固定剪贴板内容到屏幕\n5. 固定到屏幕新增编辑按钮\n6. 修复取色器的定位问题\n7. 修复开始录制全局快捷键无法使用的问题\n8. 修复全屏画布启动时屏幕闪烁的问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.5.3-beta",
+      "version": "0.5.3-beta",
+      "name": "0.5.3-beta",
+      "publishedAt": "2025-10-14T22:12:07Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.5.3-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 支持预设选区参数\n2. 固定到屏幕支持旋转\n3. 添加反色滤镜\n4. 支持热加载页面\n5. 固定到屏幕 HTML 自动识别背景色\n6. 修复 AI 对话无法使用的问题\n7. 修复部分情况鼠标移动异常\n8. 降低 HTML 的注入风险\n9. 优化工具栏选择相似工具的逻辑",
+        "en": "1. 支持预设选区参数\n2. 固定到屏幕支持旋转\n3. 添加反色滤镜\n4. 支持热加载页面\n5. 固定到屏幕 HTML 自动识别背景色\n6. 修复 AI 对话无法使用的问题\n7. 修复部分情况鼠标移动异常\n8. 降低 HTML 的注入风险\n9. 优化工具栏选择相似工具的逻辑"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.5.2-beta",
+      "version": "0.5.2-beta",
+      "name": "0.5.2-beta",
+      "publishedAt": "2025-10-13T18:44:58Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.5.2-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 拖动截图选区四角时取色器自动吸附\n2. 支持关闭双击复制截图\n3. 支持隐藏翻译过程\n4. 更精细的大小控制支持输入框控制值 \n5. 上传到云端支持 Markdown 链接\n6. 优化固定到屏幕 HTML 内容在暗黑模式下的显示效果\n7. 修复删除截图历史未立刻删除截图结果\n8. 修复截图历史无法翻页的问题\n9. 修复截图历史编辑后错误保存图片的问题\n10. 修复弹窗标题换行显示问题\n11. 修复滚动截图有概率截取到选取边缘产生黑线\n12. 修复较低版本的 Windows 截图报错问题\n13. 修复视频工具栏不显示的问题",
+        "en": "1. 拖动截图选区四角时取色器自动吸附\n2. 支持关闭双击复制截图\n3. 支持隐藏翻译过程\n4. 更精细的大小控制支持输入框控制值 \n5. 上传到云端支持 Markdown 链接\n6. 优化固定到屏幕 HTML 内容在暗黑模式下的显示效果\n7. 修复删除截图历史未立刻删除截图结果\n8. 修复截图历史无法翻页的问题\n9. 修复截图历史编辑后错误保存图片的问题\n10. 修复弹窗标题换行显示问题\n11. 修复滚动截图有概率截取到选取边缘产生黑线\n12. 修复较低版本的 Windows 截图报错问题\n13. 修复视频工具栏不显示的问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.5.1-beta",
+      "version": "0.5.1-beta",
+      "name": "0.5.1-beta",
+      "publishedAt": "2025-10-12T21:33:25Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.5.1-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 支持 S3 协议的云端保存\n2. 修复延迟截图失败的问题\n3. 修复拖拽图标在暗黑模式下的显示问题\n4. 修复 WebView Shared Buffer 的兼容性问题\n5. 修复固定到屏幕 HTML 内容的加载问题",
+        "en": "1. 支持 S3 协议的云端保存\n2. 修复延迟截图失败的问题\n3. 修复拖拽图标在暗黑模式下的显示问题\n4. 修复 WebView Shared Buffer 的兼容性问题\n5. 修复固定到屏幕 HTML 内容的加载问题"
+      },
+      "notesLanguage": {
+        "zh": "mixed",
+        "en": "mixed"
+      }
+    },
+    {
+      "tag": "0.5.0-beta",
+      "version": "0.5.0-beta",
+      "name": "0.5.0-beta",
+      "publishedAt": "2025-10-11T19:15:55Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.5.0-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 支持删除截图历史\n2. 截图历史默认支持保存截图结果\n3. 截图历史添加来源\n4. 支持关闭截图历史\n5. 修复序列号的一些问题\n6. 修复侧边栏折叠按钮消失",
+        "en": "1. 支持删除截图历史\n2. 截图历史默认支持保存截图结果\n3. 截图历史添加来源\n4. 支持关闭截图历史\n5. 修复序列号的一些问题\n6. 修复侧边栏折叠按钮消失"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.4.9-beta",
+      "version": "0.4.9-beta",
+      "name": "0.4.9-beta",
+      "publishedAt": "2025-10-10T15:05:51Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.4.9-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复安装程序自动启动应用后截图异常\n2. 修复编辑箭头时切换选择工具无法选中元素\n\n### 0.4.7-beta 版本有问题，未正式发版，以下是 0.4.7-beta 更新内容\n\n1. 支持截取 HDR 内容\n2. 支持还原颜色滤镜\n3. 允许拖拽固定到屏幕中的绘制工具栏\n4. 支持紧凑布局\n5. 提高 Windows 下截图的传输速度\n6. 视频录制默认在录制画面中隐藏工具栏\n7. 截图历史预览编辑时默认使用选择工具\n8. 修复视频录制启用麦克风状态的保存问题\n9. 修复截图历史中的取色异常\n10. 修复视频录制插件加载失败的问题\n11. 修复托盘图标加载问题\n12. 修复截图时未隐藏工具栏\n13. 修复主窗口较小时菜单无法滚动的问题\n14. 修复暗黑模式下侧边栏菜单的显示问题\n15. 修复全屏画布样式无法保存问题、全屏画布闪退问题\n16. 修复截图历史预览的列表分页问题\n17. 修复复制序列号无法编辑等问题",
+        "en": "1. 修复安装程序自动启动应用后截图异常\n2. 修复编辑箭头时切换选择工具无法选中元素\n\n### 0.4.7-beta 版本有问题，未正式发版，以下是 0.4.7-beta 更新内容\n\n1. 支持截取 HDR 内容\n2. 支持还原颜色滤镜\n3. 允许拖拽固定到屏幕中的绘制工具栏\n4. 支持紧凑布局\n5. 提高 Windows 下截图的传输速度\n6. 视频录制默认在录制画面中隐藏工具栏\n7. 截图历史预览编辑时默认使用选择工具\n8. 修复视频录制启用麦克风状态的保存问题\n9. 修复截图历史中的取色异常\n10. 修复视频录制插件加载失败的问题\n11. 修复托盘图标加载问题\n12. 修复截图时未隐藏工具栏\n13. 修复主窗口较小时菜单无法滚动的问题\n14. 修复暗黑模式下侧边栏菜单的显示问题\n15. 修复全屏画布样式无法保存问题、全屏画布闪退问题\n16. 修复截图历史预览的列表分页问题\n17. 修复复制序列号无法编辑等问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.4.7-beta",
+      "version": "0.4.7-beta",
+      "name": "0.4.7-beta",
+      "publishedAt": "2025-10-09T20:26:02Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.4.7-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "### 首次安装后有问题，重启后能正常使用\n\n1. 支持截取 HDR 内容\n2. 支持还原颜色滤镜\n3. 允许拖拽固定到屏幕中的绘制工具栏\n4. 支持紧凑布局\n5. 提高 Windows 下截图的传输速度\n6. 视频录制默认在录制画面中隐藏工具栏\n7. 截图历史预览编辑时默认使用选择工具\n8. 修复视频录制启用麦克风状态的保存问题\n9. 修复截图历史中的取色异常\n10. 修复视频录制插件加载失败的问题\n11. 修复托盘图标加载问题\n12. 修复截图时未隐藏工具栏\n13. 修复主窗口较小时菜单无法滚动的问题\n14. 修复暗黑模式下侧边栏菜单的显示问题\n15. 修复全屏画布样式无法保存问题、全屏画布闪退问题\n16. 修复截图历史预览的列表分页问题\n17. 修复复制序列号无法编辑等问题",
+        "en": "### 首次安装后有问题，重启后能正常使用\n\n1. 支持截取 HDR 内容\n2. 支持还原颜色滤镜\n3. 允许拖拽固定到屏幕中的绘制工具栏\n4. 支持紧凑布局\n5. 提高 Windows 下截图的传输速度\n6. 视频录制默认在录制画面中隐藏工具栏\n7. 截图历史预览编辑时默认使用选择工具\n8. 修复视频录制启用麦克风状态的保存问题\n9. 修复截图历史中的取色异常\n10. 修复视频录制插件加载失败的问题\n11. 修复托盘图标加载问题\n12. 修复截图时未隐藏工具栏\n13. 修复主窗口较小时菜单无法滚动的问题\n14. 修复暗黑模式下侧边栏菜单的显示问题\n15. 修复全屏画布样式无法保存问题、全屏画布闪退问题\n16. 修复截图历史预览的列表分页问题\n17. 修复复制序列号无法编辑等问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.4.6-beta",
+      "version": "0.4.6-beta",
+      "name": "0.4.6-beta",
+      "publishedAt": "2025-10-06T07:48:59Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.4.6-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复全局快捷键无法注册的问题\n2. 支持关闭 OCR 热启动、写入模型到内存以降低应用待机的内存占用\n3. 绿色版默认使用程序所在目录\n4. 修复托盘图标加载问题\n5. 修复资源回收配置",
+        "en": "1. 修复全局快捷键无法注册的问题\n2. 支持关闭 OCR 热启动、写入模型到内存以降低应用待机的内存占用\n3. 绿色版默认使用程序所在目录\n4. 修复托盘图标加载问题\n5. 修复资源回收配置"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.4.5-beta",
+      "version": "0.4.5-beta",
+      "name": "0.4.5-beta",
+      "publishedAt": "2025-10-05T21:09:49Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.4.5-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 新增个性化配置\n2. 截取全屏添加到托盘菜单\n3. 视频录制支持全局快捷键开始录制和结束录制",
+        "en": "1. 新增个性化配置\n2. 截取全屏添加到托盘菜单\n3. 视频录制支持全局快捷键开始录制和结束录制"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.4.3-beta",
+      "version": "0.4.3-beta",
+      "name": "0.4.3-beta",
+      "publishedAt": "2025-10-04T21:27:45Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.4.3-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 支持截取全屏\n2. 新增高亮工具\n3. 滚动截图支持自动滚动\n4. 修复截图历史日期筛选问题 \n5. 修复选择组件鼠标悬浮提示显示错误\n6. 自动框选切换层级反转 Y 轴以符合操作直觉\n7. 修复多显示器下滤镜选择组件显示问题\n8. 修复取消截图等待确认时依旧可以响应快捷键\n9. 修复运行日志未生效的问题",
+        "en": "1. 支持截取全屏\n2. 新增高亮工具\n3. 滚动截图支持自动滚动\n4. 修复截图历史日期筛选问题 \n5. 修复选择组件鼠标悬浮提示显示错误\n6. 自动框选切换层级反转 Y 轴以符合操作直觉\n7. 修复多显示器下滤镜选择组件显示问题\n8. 修复取消截图等待确认时依旧可以响应快捷键\n9. 修复运行日志未生效的问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.4.2-beta",
+      "version": "0.4.2-beta",
+      "name": "0.4.2-beta",
+      "publishedAt": "2025-10-02T18:41:35Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.4.2-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 截图历史预览\n2. 模糊画笔\n3. 模糊工具更改为滤镜工具以支持更多的图像效果\n4. 支持开关日志输出\n5. 优化应用的管理员权限和开机自启设置",
+        "en": "1. 截图历史预览\n2. 模糊画笔\n3. 模糊工具更改为滤镜工具以支持更多的图像效果\n4. 支持开关日志输出\n5. 优化应用的管理员权限和开机自启设置"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.4.1-beta",
+      "version": "0.4.1-beta",
+      "name": "0.4.1-beta",
+      "publishedAt": "2025-09-30T19:53:28Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.4.1-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 支持取消画笔压感\n2. 支持禁用指定工具的快速选择相同元素\n3. 选择工具下支持更改序列号数字\n4. 修复 macOS 下多显示器截图错误\n5. 使用滚轮更改线条粗细等不再循环\n6. 修复子工具栏初始定位的问题\n7. 修复样式编辑栏响应更改粗细的滚动事件\n8. 修复选中文本无法更改文本大小",
+        "en": "1. 支持取消画笔压感\n2. 支持禁用指定工具的快速选择相同元素\n3. 选择工具下支持更改序列号数字\n4. 修复 macOS 下多显示器截图错误\n5. 使用滚轮更改线条粗细等不再循环\n6. 修复子工具栏初始定位的问题\n7. 修复样式编辑栏响应更改粗细的滚动事件\n8. 修复选中文本无法更改文本大小"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.4.0-beta",
+      "version": "0.4.0-beta",
+      "name": "0.4.0-beta",
+      "publishedAt": "2025-09-27T15:29:21Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.4.0-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "## What's Changed\n* fix: 修复 Iter.reduce 在较低版本 WebView 不兼容的问题 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/408\n\n\n**Full Changelog**: https://github.com/mg-chao/snow-shot/compare/0.3.9-beta...0.4.0-beta",
+        "en": "## What's Changed\n* fix: 修复 Iter.reduce 在较低版本 WebView 不兼容的问题 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/408\n\n\n**Full Changelog**: https://github.com/mg-chao/snow-shot/compare/0.3.9-beta...0.4.0-beta"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.3.9-beta",
+      "version": "0.3.9-beta",
+      "name": "0.3.9-beta",
+      "publishedAt": "2025-09-26T16:03:14Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.3.9-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "## What's Changed\n* fix: 修复辅助线保留的问题 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/403\n* fix: 修复更改视频等目录后默认输出目录错误 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/406\n* fix: 固定到屏幕绘制无法通过鼠标编辑文本\n\n\n**Full Changelog**: https://github.com/mg-chao/snow-shot/compare/0.3.8-beta...0.3.9-beta",
+        "en": "## What's Changed\n* fix: 修复辅助线保留的问题 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/403\n* fix: 修复更改视频等目录后默认输出目录错误 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/406\n* fix: 固定到屏幕绘制无法通过鼠标编辑文本\n\n\n**Full Changelog**: https://github.com/mg-chao/snow-shot/compare/0.3.8-beta...0.3.9-beta"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.3.8-beta",
+      "version": "0.3.8-beta",
+      "name": "0.3.8-beta",
+      "publishedAt": "2025-09-24T18:42:52Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.3.8-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 提高二维码识别能力\n2. 优化 OCR 的展示效\n3. 修复截图历史可能因数据丢失而不删除过期文件\n4.  固定到屏幕支持色值\n5. 优化渲染性能\n6. 修复序列号配置和文本配置冲突\n7. 优化文本移动",
+        "en": "1. 提高二维码识别能力\n2. 优化 OCR 的展示效\n3. 修复截图历史可能因数据丢失而不删除过期文件\n4.  固定到屏幕支持色值\n5. 优化渲染性能\n6. 修复序列号配置和文本配置冲突\n7. 优化文本移动"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.3.7-beta",
+      "version": "0.3.7-beta",
+      "name": "0.3.7-beta",
+      "publishedAt": "2025-09-21T13:17:11Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.3.7-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复固定到屏幕拖动时会选中图片\n2. 修复 OCR 结果显示异常\n3. 修复工具栏初始定位问题\n4. 修复 OCR 结果为空的一些问题",
+        "en": "1. 修复固定到屏幕拖动时会选中图片\n2. 修复 OCR 结果显示异常\n3. 修复工具栏初始定位问题\n4. 修复 OCR 结果为空的一些问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.3.6-beta",
+      "version": "0.3.6-beta",
+      "name": "0.3.6-beta",
+      "publishedAt": "2025-09-20T19:28:20Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.3.6-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复工具栏切换问题\n2. 修复 OCR 结果的显示效果\n3. 优化工具栏定位\n4. 修复绘制样式出现文字背景等设置",
+        "en": "1. 修复工具栏切换问题\n2. 修复 OCR 结果的显示效果\n3. 优化工具栏定位\n4. 修复绘制样式出现文字背景等设置"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.3.5-beta",
+      "version": "0.3.5-beta",
+      "name": "0.3.5-beta",
+      "publishedAt": "2025-09-19T18:27:12Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.3.5-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 文本支持背景和描边\n2. 支持隐藏水印工具\n3. 修复 OCR 划选到意外的文本 \n4. 修复选区渲染错误\n5. 修复界面缩放的问题\n6. 修复选中图层后依旧显示工具切换按钮\n7. 修复截图历史的一些问题\n8. 修复切换绘制工具抖动的问题\n9. 优化选区渲染效率",
+        "en": "1. 文本支持背景和描边\n2. 支持隐藏水印工具\n3. 修复 OCR 划选到意外的文本 \n4. 修复选区渲染错误\n5. 修复界面缩放的问题\n6. 修复选中图层后依旧显示工具切换按钮\n7. 修复截图历史的一些问题\n8. 修复切换绘制工具抖动的问题\n9. 优化选区渲染效率"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.3.3-beta",
+      "version": "0.3.3-beta",
+      "name": "0.3.3-beta",
+      "publishedAt": "2025-09-17T17:34:12Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.3.3-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 降低复制图片的大小\n2. 动图录制支持 WebP 格式\n3. 支持隐藏托盘\n4. 支持关闭多显示器截图\n5. 支持启用更精细的大小控制\n6. 支持配置独立的工具样式\n7. 支持缩放截图界面\n8. 修复 OCR 复制可能复制到提示文本\n9. 修复子工具栏缩放、拖拽的问题\n10. 修复 OCR 划选文本可能选取到取色器内容",
+        "en": "1. 降低复制图片的大小\n2. 动图录制支持 WebP 格式\n3. 支持隐藏托盘\n4. 支持关闭多显示器截图\n5. 支持启用更精细的大小控制\n6. 支持配置独立的工具样式\n7. 支持缩放截图界面\n8. 修复 OCR 复制可能复制到提示文本\n9. 修复子工具栏缩放、拖拽的问题\n10. 修复 OCR 划选文本可能选取到取色器内容"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.3.2-beta",
+      "version": "0.3.2-beta",
+      "name": "0.3.2-beta",
+      "publishedAt": "2025-09-15T18:39:42Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.3.2-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 延迟截图\n2. 支持空格整体移动选区\n3. 修复 CPU 占用过高\n4. 修复序列号无法编辑\n5. 修复部分绘制属性不保存的问题",
+        "en": "1. 延迟截图\n2. 支持空格整体移动选区\n3. 修复 CPU 占用过高\n4. 修复序列号无法编辑\n5. 修复部分绘制属性不保存的问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.3.1-beta",
+      "version": "0.3.1-beta",
+      "name": "0.3.1-beta",
+      "publishedAt": "2025-09-13T20:37:23Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.3.1-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复多显示器缩放不一致的显示问题\n2. 修复切换 OCR 和 OCR 翻译时翻译结果会应用到 OCR 显示\n3. 尝试修复读取剪贴板文本内容失败\n4. Windows 下更快的截图复制",
+        "en": "1. 修复多显示器缩放不一致的显示问题\n2. 修复切换 OCR 和 OCR 翻译时翻译结果会应用到 OCR 显示\n3. 尝试修复读取剪贴板文本内容失败\n4. Windows 下更快的截图复制"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.3.0-beta",
+      "version": "0.3.0-beta",
+      "name": "0.3.0-beta",
+      "publishedAt": "2025-09-11T20:38:37Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.3.0-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 尝试修复自动框选的问题\n2. Windows 下如果具有管理员权限则使用管理员权限自启动\n3. 静默启动",
+        "en": "1. 尝试修复自动框选的问题\n2. Windows 下如果具有管理员权限则使用管理员权限自启动\n3. 静默启动"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.9-beta",
+      "version": "0.2.9-beta",
+      "name": "0.2.9-beta",
+      "publishedAt": "2025-09-10T17:42:38Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.9-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. Windows 下应用放大镜反色效果时取消反色\n2. 多线程优化",
+        "en": "1. Windows 下应用放大镜反色效果时取消反色\n2. 多线程优化"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.8-beta",
+      "version": "0.2.8-beta",
+      "name": "0.2.8-beta",
+      "publishedAt": "2025-09-09T16:47:28Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.8-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 绘制样式菜单支持颜色拾取\n2. 支持自定义数据目录\n3. 修复扫描二维码无法复制的问题\n4. 修复意外生成水印的问题",
+        "en": "1. 绘制样式菜单支持颜色拾取\n2. 支持自定义数据目录\n3. 修复扫描二维码无法复制的问题\n4. 修复意外生成水印的问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.7-beta",
+      "version": "0.2.7-beta",
+      "name": "0.2.7-beta",
+      "publishedAt": "2025-09-08T21:11:16Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.7-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 水印功能 \n2. 支持配置选区遮罩颜色\n3. 关闭窗口时默认自动开启对话\n4. 保存文件名支持窗口应用名变量\n5. 修复绘制文本双击将复制截图\n6. 复制 AI 对话中的代码换行异常",
+        "en": "1. 水印功能 \n2. 支持配置选区遮罩颜色\n3. 关闭窗口时默认自动开启对话\n4. 保存文件名支持窗口应用名变量\n5. 修复绘制文本双击将复制截图\n6. 复制 AI 对话中的代码换行异常"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.6-beta",
+      "version": "0.2.6-beta",
+      "name": "0.2.6-beta",
+      "publishedAt": "2025-09-03T16:39:03Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.6-beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 支持锁定选区宽高比\n2. 支持固定到屏幕后自动复制\n3. 支持设置 GIF 清晰度和帧率\n4. 视频录制支持 APNG\n5. 固定到屏幕支持旋转\n6. 修复序列号使用箭头时自增序号异常\n7. 修复自动框选部分情况下初始化异常\n8. 修复刘海屏遮挡提示\n9. 优化部分设置的描述",
+        "en": "1. 支持锁定选区宽高比\n2. 支持固定到屏幕后自动复制\n3. 支持设置 GIF 清晰度和帧率\n4. 视频录制支持 APNG\n5. 固定到屏幕支持旋转\n6. 修复序列号使用箭头时自增序号异常\n7. 修复自动框选部分情况下初始化异常\n8. 修复刘海屏遮挡提示\n9. 优化部分设置的描述"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.5-beta-20250903",
+      "version": "0.2.5-beta-20250903",
+      "name": "0.2.5-beta-20250903",
+      "publishedAt": "2025-09-02T16:23:00Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.5-beta-20250903",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 快速编辑序列号\n2. 支持自定义截图阴影颜色\n3. 绘制类的子工具移动到样式编辑工具栏\n4. 主窗口允许更改大小\n5. 修复设置阴影后 OCR 结果偏移\n6. 修复绘图样式保存问题\n7. 修复更改序列号文字大小时不更改序列号大小\n8. 修复快速选择元素进行变换不记录历史\n9. 修复全屏画布无法撤销",
+        "en": "1. 快速编辑序列号\n2. 支持自定义截图阴影颜色\n3. 绘制类的子工具移动到样式编辑工具栏\n4. 主窗口允许更改大小\n5. 修复设置阴影后 OCR 结果偏移\n6. 修复绘图样式保存问题\n7. 修复更改序列号文字大小时不更改序列号大小\n8. 修复快速选择元素进行变换不记录历史\n9. 修复全屏画布无法撤销"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.4-beta-20250902",
+      "version": "0.2.4-beta-20250902",
+      "name": "0.2.4-beta-20250902",
+      "publishedAt": "2025-09-01T19:46:09Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.4-beta-20250902",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复通过任务栏关闭主窗口无法唤出截图等功能（崩溃问题很可能是因为通过任务栏关闭了主窗口）\n2. 截图绘制时支持快速选择同类型元素和右键编辑元素样式\n3. 固定到屏幕支持聚焦模式\n4. 绘制模式添加确认按钮\n5. 修复序列号箭头起始点定位异常问题\n6. 修复截图调整大小表单重置值的问题\n7. 修复快速切换缩略模式边框未恢复的问题",
+        "en": "1. 修复通过任务栏关闭主窗口无法唤出截图等功能（崩溃问题很可能是因为通过任务栏关闭了主窗口）\n2. 截图绘制时支持快速选择同类型元素和右键编辑元素样式\n3. 固定到屏幕支持聚焦模式\n4. 绘制模式添加确认按钮\n5. 修复序列号箭头起始点定位异常问题\n6. 修复截图调整大小表单重置值的问题\n7. 修复快速切换缩略模式边框未恢复的问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.3-beta-20250901",
+      "version": "0.2.3-beta-20250901",
+      "name": "0.2.3-beta-20250901",
+      "publishedAt": "2025-08-31T16:51:09Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.3-beta-20250901",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 支持设置圆角和阴\n2. 修复自动 OCR 失效的问题",
+        "en": "1. 支持设置圆角和阴\n2. 修复自动 OCR 失效的问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.2-beta-20250831",
+      "version": "0.2.2-beta-20250831",
+      "name": "0.2.2-beta-20250831",
+      "publishedAt": "2025-08-30T20:00:57Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.2-beta-20250831",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 固定到屏幕支持绘制\n2. OCR 的非文字区域允许拖拽\n3. 修复编辑文本时双击后复制截图\n4. 修复固定到屏幕无法复制文本的问题\n5. 日志文件使用用户系统时区\n6. 优化主题跟随系统\n7. 提高配置文件加载速度\n8. 修复快速切换缩略模式后窗口异常显示的问题",
+        "en": "1. 固定到屏幕支持绘制\n2. OCR 的非文字区域允许拖拽\n3. 修复编辑文本时双击后复制截图\n4. 修复固定到屏幕无法复制文本的问题\n5. 日志文件使用用户系统时区\n6. 优化主题跟随系统\n7. 提高配置文件加载速度\n8. 修复快速切换缩略模式后窗口异常显示的问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.1-beta-20250826",
+      "version": "0.2.1-beta-20250826",
+      "name": "0.2.1-beta-20250826",
+      "publishedAt": "2025-08-25T17:47:01Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.1-beta-20250826",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 尝试修复崩溃问题\n2. 提高截图选区的渲染性能\n3. 自启动时不显示窗口\n4. 支持跟随系统主题\n5. 优化鼠标监听性能\n6. 修复 OCR 后自动执行在截图翻译上生效\n7. 支持调整固定到屏幕的透明度",
+        "en": "1. 尝试修复崩溃问题\n2. 提高截图选区的渲染性能\n3. 自启动时不显示窗口\n4. 支持跟随系统主题\n5. 优化鼠标监听性能\n6. 修复 OCR 后自动执行在截图翻译上生效\n7. 支持调整固定到屏幕的透明度"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.1-beta-20250823",
+      "version": "0.2.1-beta-20250823",
+      "name": "0.2.1-beta-20250823",
+      "publishedAt": "2025-08-22T18:00:42Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.1-beta-20250823",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复快捷键无法唤起功能问题\n2. 安装包多语言支持\n3. 固定到屏幕切换窗口置顶\n4. 截图可配置显示器中心辅助线颜色、颜色拾取器中心辅助线颜色",
+        "en": "1. 修复快捷键无法唤起功能问题\n2. 安装包多语言支持\n3. 固定到屏幕切换窗口置顶\n4. 截图可配置显示器中心辅助线颜色、颜色拾取器中心辅助线颜色"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.0-beta-20250822-02",
+      "version": "0.2.0-beta-20250822-02",
+      "name": "0.2.0-beta-20250822-02",
+      "publishedAt": "2025-08-22T06:33:46Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.0-beta-20250822-02",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复复制后自动保存、快速保存的绘制内容丢失\n2. 提高复制后自动保存的性能",
+        "en": "1. 修复复制后自动保存、快速保存的绘制内容丢失\n2. 提高复制后自动保存的性能"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.0-beta-20250822",
+      "version": "0.2.0-beta-20250822",
+      "name": "0.2.0-beta-20250822",
+      "publishedAt": "2025-08-21T19:54:30Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.0-beta-20250822",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 滚动截图去除重复边框\n2. 内存优化",
+        "en": "1. 滚动截图去除重复边框\n2. 内存优化"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.0-beta-20250820",
+      "version": "0.2.0-beta-20250820",
+      "name": "0.2.0-beta-20250820",
+      "publishedAt": "2025-08-20T14:37:04Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.0-beta-20250820",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 尝试修复应用崩溃（可能修复了）\n2. 更换应用图标、托盘默认支持多种图标\n4. 优化应用日志",
+        "en": "1. 尝试修复应用崩溃（可能修复了）\n2. 更换应用图标、托盘默认支持多种图标\n4. 优化应用日志"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.0-beta-20250818",
+      "version": "0.2.0-beta-20250818",
+      "name": "0.2.0-beta-20250818",
+      "publishedAt": "2025-08-18T16:07:22Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.0-beta-20250818",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复自定义模型的请求失败问题\n2. 优化截图响应速度\n3. 修复截图初始化的渲染卡顿问题\n4. OCR 内存回收优化\n5. 修复托盘图标重复加载问题",
+        "en": "1. 修复自定义模型的请求失败问题\n2. 优化截图响应速度\n3. 修复截图初始化的渲染卡顿问题\n4. OCR 内存回收优化\n5. 修复托盘图标重复加载问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.0-beta-20250815-02",
+      "version": "0.2.0-beta-20250815-02",
+      "name": "0.2.0-beta-20250815-02",
+      "publishedAt": "2025-08-15T01:21:07Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.0-beta-20250815-02",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复模糊工具失效",
+        "en": "1. 修复模糊工具失效"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.0-beta-20250815",
+      "version": "0.2.0-beta-20250815",
+      "name": "0.2.0-beta-20250815",
+      "publishedAt": "2025-08-14T18:21:55Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.0-beta-20250815",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 截图复制到剪贴板支持默认支持回车键\n2. 优化 macOS 下应用权限请求\n3. 自定义工具栏\n4. 修正应用程序名称和完善权限文档\n5. 自定义托盘左键行为\n6. 修复 PrintScreen 键录入问题",
+        "en": "1. 截图复制到剪贴板支持默认支持回车键\n2. 优化 macOS 下应用权限请求\n3. 自定义工具栏\n4. 修正应用程序名称和完善权限文档\n5. 自定义托盘左键行为\n6. 修复 PrintScreen 键录入问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.0-beta-20250813",
+      "version": "0.2.0-beta-20250813",
+      "name": "0.2.0-beta-20250813",
+      "publishedAt": "2025-08-13T13:53:25Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.0-beta-20250813",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 禁用选取窗口元素增强\n2. 优化选取窗口/选取窗口子元素的切换逻辑\n3. 优化托盘菜单\n4. 修复固定到屏幕内容偏移、模糊问题\n5. 修复视频录制工具栏定位问题\n6. 禁止视频录制时通过截图更改录制区域\n7. 修复全屏画布定位问题\n8. 视频录制清晰度默认 1080p，增加清晰度设置\n9. 视频录制的计时在停止录制后改为记录停止操作的耗时记录",
+        "en": "1. 禁用选取窗口元素增强\n2. 优化选取窗口/选取窗口子元素的切换逻辑\n3. 优化托盘菜单\n4. 修复固定到屏幕内容偏移、模糊问题\n5. 修复视频录制工具栏定位问题\n6. 禁止视频录制时通过截图更改录制区域\n7. 修复全屏画布定位问题\n8. 视频录制清晰度默认 1080p，增加清晰度设置\n9. 视频录制的计时在停止录制后改为记录停止操作的耗时记录"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.0-beta-20250812-02",
+      "version": "0.2.0-beta-20250812-02",
+      "name": "0.2.0-beta-20250812-02",
+      "publishedAt": "2025-08-12T13:47:07Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.0-beta-20250812-02",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复未结束手动选区后退出唤起截图依旧保留选择状态的问题\n2. 修复超出选区外的元素不兼容截图历史问题\n3. 修复切换截图历史后回到当前截图时绘制内容丢失",
+        "en": "1. 修复未结束手动选区后退出唤起截图依旧保留选择状态的问题\n2. 修复超出选区外的元素不兼容截图历史问题\n3. 修复切换截图历史后回到当前截图时绘制内容丢失"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.0-beta-20250812",
+      "version": "0.2.0-beta-20250812",
+      "name": "0.2.0-beta-20250812",
+      "publishedAt": "2025-08-12T10:11:24Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.0-beta-20250812",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 支持截图历史\n2. 支持 Windows 下 Win 键的全局快捷键\n3. 支持视频录制快捷操作\n4. 简化托盘菜单\n5. 更换额外工具图标\n6. 修复更新后截图模糊、固定到屏幕模糊问题\n7. 修复固定到屏幕窗口在缩略模式快速操作时拖动失效\n\n截图历史默认保存 7 天，可在系统设置里配置：\n\n<img width=\"983\" height=\"421\" alt=\"图片\" src=\"https://github.com/user-attachments/assets/08a557d3-c7fb-4505-93c5-bd6816bd9c90\" />",
+        "en": "1. 支持截图历史\n2. 支持 Windows 下 Win 键的全局快捷键\n3. 支持视频录制快捷操作\n4. 简化托盘菜单\n5. 更换额外工具图标\n6. 修复更新后截图模糊、固定到屏幕模糊问题\n7. 修复固定到屏幕窗口在缩略模式快速操作时拖动失效\n\n截图历史默认保存 7 天，可在系统设置里配置：\n\n<img width=\"983\" height=\"421\" alt=\"图片\" src=\"https://github.com/user-attachments/assets/08a557d3-c7fb-4505-93c5-bd6816bd9c90\" />"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.0-beta-20250810",
+      "version": "0.2.0-beta-20250810",
+      "name": "0.2.0-beta-20250810",
+      "publishedAt": "2025-08-10T16:16:06Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.0-beta-20250810",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 支持 OCR 自动翻译\n2. 修复 Windows 下截图固定到屏幕窗口时异常聚焦\n3. 修复截图窗口多显示器的弹窗定位问题\n\n忘记了 OCR 的 V5 模型支持多语言，有需要的可以切换下哈~（但因为多语言支持降低了识别精度）\n\n<img width=\"999\" height=\"365\" alt=\"图片\" src=\"https://github.com/user-attachments/assets/a4ef971a-0f40-4762-8a88-40f8724c370e\" />\n\n新增的 OCR 翻译和 OCR 提供的功能有些重叠，可以在界面设置里关闭在工具栏的显示：\n\n<img width=\"969\" height=\"678\" alt=\"图片\" src=\"https://github.com/user-attachments/assets/c93d9469-1730-4009-b968-c8cff7d927f7\" />",
+        "en": "1. 支持 OCR 自动翻译\n2. 修复 Windows 下截图固定到屏幕窗口时异常聚焦\n3. 修复截图窗口多显示器的弹窗定位问题\n\n忘记了 OCR 的 V5 模型支持多语言，有需要的可以切换下哈~（但因为多语言支持降低了识别精度）\n\n<img width=\"999\" height=\"365\" alt=\"图片\" src=\"https://github.com/user-attachments/assets/a4ef971a-0f40-4762-8a88-40f8724c370e\" />\n\n新增的 OCR 翻译和 OCR 提供的功能有些重叠，可以在界面设置里关闭在工具栏的显示：\n\n<img width=\"969\" height=\"678\" alt=\"图片\" src=\"https://github.com/user-attachments/assets/c93d9469-1730-4009-b968-c8cff7d927f7\" />"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.0-beta-20250809-02",
+      "version": "0.2.0-beta-20250809-02",
+      "name": "0.2.0-beta-20250809-02",
+      "publishedAt": "2025-08-09T07:27:22Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.0-beta-20250809-02",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 序列号文字居中\n2. 提高截图响应速度\n\n截图响应在多显示器下优化比较明显。\n\n前几天有用户反馈软件报毒问题，这里做了个扫描报告，单独做个软件只为了植入病毒……成本过高，应该没人会这样做吧……\n\n#### 扫描文件：\n\n文件名：Snow.Shot_0.2.0-beta-20250809-02_windows.exe \nSHA256：41C1B740319FD11D324919F6FCBB150A7189DB13ACED8B9F61830AE0BFC63686\n\n之前的版本扫描的话结果应该是类似的。比较敏感的功能可能是截图时的鼠标控制、固定到屏幕窗口的鼠标监听、Mac OS 部分功能下的键盘监听（特殊键的点击事件如 Shift、Command 需要使用系统 API 进行监听）、使用命令行实现视频录制相关功能。\n\n[VirsSan 分析报告](https://www.virscan.org/report/41c1b740319fd11d324919f6fcbb150a7189db13aced8b9f61830ae0bfc63686)\n[Kaspersky 分析报告](https://opentip.kaspersky.com/41C1B740319FD11D324919F6FCBB150A7189DB13ACED8B9F61830AE0BFC63686/results?tab=upload)\n\nVirsSan 中有一个引擎报毒了：F-Prot 报了 W32/Felix:EX:007!Eldorado，我查了下应该是旧的扫描引擎误报。\nKaspersky 扫描是安全的，但提示了 3 个高风险的可疑活动，我点击详情加载不出来，没法解释了……\n\nSnow Shot 携带病毒木马的可能来源是 Snow Shot 引用了其他开源的软件，被引用的软件被其作者植入病毒了。这点目前看是安全的。",
+        "en": "1. 序列号文字居中\n2. 提高截图响应速度\n\n截图响应在多显示器下优化比较明显。\n\n前几天有用户反馈软件报毒问题，这里做了个扫描报告，单独做个软件只为了植入病毒……成本过高，应该没人会这样做吧……\n\n#### 扫描文件：\n\n文件名：Snow.Shot_0.2.0-beta-20250809-02_windows.exe \nSHA256：41C1B740319FD11D324919F6FCBB150A7189DB13ACED8B9F61830AE0BFC63686\n\n之前的版本扫描的话结果应该是类似的。比较敏感的功能可能是截图时的鼠标控制、固定到屏幕窗口的鼠标监听、Mac OS 部分功能下的键盘监听（特殊键的点击事件如 Shift、Command 需要使用系统 API 进行监听）、使用命令行实现视频录制相关功能。\n\n[VirsSan 分析报告](https://www.virscan.org/report/41c1b740319fd11d324919f6fcbb150a7189db13aced8b9f61830ae0bfc63686)\n[Kaspersky 分析报告](https://opentip.kaspersky.com/41C1B740319FD11D324919F6FCBB150A7189DB13ACED8B9F61830AE0BFC63686/results?tab=upload)\n\nVirsSan 中有一个引擎报毒了：F-Prot 报了 W32/Felix:EX:007!Eldorado，我查了下应该是旧的扫描引擎误报。\nKaspersky 扫描是安全的，但提示了 3 个高风险的可疑活动，我点击详情加载不出来，没法解释了……\n\nSnow Shot 携带病毒木马的可能来源是 Snow Shot 引用了其他开源的软件，被引用的软件被其作者植入病毒了。这点目前看是安全的。"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.0-beta-20250809",
+      "version": "0.2.0-beta-20250809",
+      "name": "0.2.0-beta-20250809",
+      "publishedAt": "2025-08-09T06:32:30Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.0-beta-20250809",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 截图初始化时响应更快使用更流畅",
+        "en": "1. 截图初始化时响应更快使用更流畅"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.0-beta-20250807",
+      "version": "0.2.0-beta-20250807",
+      "name": "0.2.0-beta-20250807",
+      "publishedAt": "2025-08-07T14:04:16Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.0-beta-20250807",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复固定到屏幕不显示问题\n2. 修复截取焦点窗口保存文件失败问题\n3. 移除“保存文件增强”开关\n4. 焦点窗口截图保存到剪贴板可在设置中关闭\n\n<img width=\"1536\" height=\"992\" alt=\"图片\" src=\"https://github.com/user-attachments/assets/b857beb0-47b1-41d4-b530-e06a9c689a3a\" />",
+        "en": "1. 修复固定到屏幕不显示问题\n2. 修复截取焦点窗口保存文件失败问题\n3. 移除“保存文件增强”开关\n4. 焦点窗口截图保存到剪贴板可在设置中关闭\n\n<img width=\"1536\" height=\"992\" alt=\"图片\" src=\"https://github.com/user-attachments/assets/b857beb0-47b1-41d4-b530-e06a9c689a3a\" />"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.0-beta-20250806",
+      "version": "0.2.0-beta-20250806",
+      "name": "0.2.0-beta-20250806",
+      "publishedAt": "2025-08-06T14:26:26Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.0-beta-20250806",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 跨屏截图支持（macOS 在多显示器显示比例一致时生效）\n2. 修复复制问题\n3. 截图绘制支持对齐选区边框（默认按 Ctrl 或 Command 对齐）\n4. 修复 OCR 结果复制异常\n\nMacOS 重新安装后会有权限问题，需删除授权后重新授权：\n\n[macOS 下权限异常说明](https://github.com/mg-chao/snow-shot/blob/main/docs/macos-permissions.md#macos-%E4%B8%8B%E6%9D%83%E9%99%90%E5%BC%82%E5%B8%B8%E8%AF%B4%E6%98%8E)",
+        "en": "1. 跨屏截图支持（macOS 在多显示器显示比例一致时生效）\n2. 修复复制问题\n3. 截图绘制支持对齐选区边框（默认按 Ctrl 或 Command 对齐）\n4. 修复 OCR 结果复制异常\n\nMacOS 重新安装后会有权限问题，需删除授权后重新授权：\n\n[macOS 下权限异常说明](https://github.com/mg-chao/snow-shot/blob/main/docs/macos-permissions.md#macos-%E4%B8%8B%E6%9D%83%E9%99%90%E5%BC%82%E5%B8%B8%E8%AF%B4%E6%98%8E)"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.2.0-beta-20250803",
+      "version": "0.2.0-beta-20250803",
+      "name": "0.2.0-beta-20250803",
+      "publishedAt": "2025-08-03T16:23:13Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.2.0-beta-20250803",
+      "prerelease": true,
+      "notes": {
+        "zh": "### 更新说明\n\n1. 适配 macOS\n2. 优化编译速度\n3. 切换工具后结束文本编辑状态\n4. 绘制阶段支持更改选区\n5. 修复无法复制的问题\n6. 修复键盘控制鼠标移动无法更改选区的问题\n7. 修复副屏视频录制问题\n8. 修复全屏画布默认工具设置无效问题\n9. 修复副屏自动框选问题\n10. 点击托盘图标改为截图\n11. 修复图片文件固定到屏幕无法保存到文件\n\n适配 macOS 做了很大的改动，很多修复也受此堆积在当前版本了，可能有些 bug，测试了下基本功能没问题。\n\n### macOS 权限说明\n\n辅助功能：用于控制鼠标移动，部分功能监听键盘\n录屏与系统录音：截图和视频录制功能\n麦克风：视频录制时获取",
+        "en": "### 更新说明\n\n1. 适配 macOS\n2. 优化编译速度\n3. 切换工具后结束文本编辑状态\n4. 绘制阶段支持更改选区\n5. 修复无法复制的问题\n6. 修复键盘控制鼠标移动无法更改选区的问题\n7. 修复副屏视频录制问题\n8. 修复全屏画布默认工具设置无效问题\n9. 修复副屏自动框选问题\n10. 点击托盘图标改为截图\n11. 修复图片文件固定到屏幕无法保存到文件\n\n适配 macOS 做了很大的改动，很多修复也受此堆积在当前版本了，可能有些 bug，测试了下基本功能没问题。\n\n### macOS 权限说明\n\n辅助功能：用于控制鼠标移动，部分功能监听键盘\n录屏与系统录音：截图和视频录制功能\n麦克风：视频录制时获取"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.1.9-beta-20250729",
+      "version": "0.1.9-beta-20250729",
+      "name": "0.1.9-beta-20250729",
+      "publishedAt": "2025-07-28T17:20:44Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.1.9-beta-20250729",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 提高自动框选速度",
+        "en": "1. 提高自动框选速度"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.1.3-beta-20250729",
+      "version": "0.1.3-beta-20250729",
+      "name": "0.1.3-beta-20250729",
+      "publishedAt": "2025-07-28T16:13:43Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.1.3-beta-20250729",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 截图自动框选防抖（提高框选响应速度）\n2. 截图后固定到屏幕保留已有的 OCR 结果\n3. 支持截图自动复制并关闭窗口\n4. 固定到屏幕缩略模式切换动画\n5. 隐藏部分窗口的右键菜单\n6. 修复不能保存截图中正在编辑的文本\n7. OCR 区域双击不进行复制截图操作\n8. 视频录制支持 GIF",
+        "en": "1. 截图自动框选防抖（提高框选响应速度）\n2. 截图后固定到屏幕保留已有的 OCR 结果\n3. 支持截图自动复制并关闭窗口\n4. 固定到屏幕缩略模式切换动画\n5. 隐藏部分窗口的右键菜单\n6. 修复不能保存截图中正在编辑的文本\n7. OCR 区域双击不进行复制截图操作\n8. 视频录制支持 GIF"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.1.3-beta-20250712",
+      "version": "0.1.3-beta-20250712",
+      "name": "0.1.3-beta-20250712",
+      "publishedAt": "2025-07-12T07:24:32Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.1.3-beta-20250712",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复截图自动框选阻塞手动选择\n2. 修复 OCR 的复制方式设置不生效\n3. 可配置固定到屏幕的初始窗口位置",
+        "en": "1. 修复截图自动框选阻塞手动选择\n2. 修复 OCR 的复制方式设置不生效\n3. 可配置固定到屏幕的初始窗口位置"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.1.3-beta-20250710",
+      "version": "0.1.3-beta-20250710",
+      "name": "0.1.3-beta-20250710",
+      "publishedAt": "2025-07-10T05:16:23Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.1.3-beta-20250710",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 翻译功能新增清空、复制按钮\n2. 优化配置加载速度\n\n出去玩了几天，没注意时间，一看最新版是一个星期前发的了……",
+        "en": "1. 翻译功能新增清空、复制按钮\n2. 优化配置加载速度\n\n出去玩了几天，没注意时间，一看最新版是一个星期前发的了……"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.1.3-beta-20250703",
+      "version": "0.1.3-beta-20250703",
+      "name": "0.1.3-beta-20250703",
+      "publishedAt": "2025-07-03T12:43:14Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.1.3-beta-20250703",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复部分情况无法拖动窗口（固定到屏幕窗口拖动现在只有 60 帧，拖动会有些卡顿，获取刷新率处理会比较复杂，暂时先这样吧……）\n2. 修复未完成文字编辑后再次唤起截图工具栏显示错误\n3. 可设置截图快捷键提示透明度\n\n明天开始会鸽几天，后面开始 Mac 的适配工作，Linux 适配困难暂停开发。",
+        "en": "1. 修复部分情况无法拖动窗口（固定到屏幕窗口拖动现在只有 60 帧，拖动会有些卡顿，获取刷新率处理会比较复杂，暂时先这样吧……）\n2. 修复未完成文字编辑后再次唤起截图工具栏显示错误\n3. 可设置截图快捷键提示透明度\n\n明天开始会鸽几天，后面开始 Mac 的适配工作，Linux 适配困难暂停开发。"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.1.3-beta-20250702",
+      "version": "0.1.3-beta-20250702",
+      "name": "0.1.3-beta-20250702",
+      "publishedAt": "2025-07-02T07:33:51Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.1.3-beta-20250702",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复滚动截图时会截取到工具栏",
+        "en": "1. 修复滚动截图时会截取到工具栏"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.1.3-beta-20250701",
+      "version": "0.1.3-beta-20250701",
+      "name": "0.1.3-beta-20250701",
+      "publishedAt": "2025-07-01T17:54:35Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.1.3-beta-20250701",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 提高 OCR 在部分情况下的识别效果",
+        "en": "1. 提高 OCR 在部分情况下的识别效果"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.1.3-beta-20250630",
+      "version": "0.1.3-beta-20250630",
+      "name": "0.1.3-beta-20250630",
+      "publishedAt": "2025-06-30T14:15:56Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.1.3-beta-20250630",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 首次选定元素忽略动画\n2. 修复序列号在画布缩放或偏移后绘制异常\n3. 修复序列号工具激活时无法平移、缩放画布\n4. 修复工具栏二维码选中状态和视频录制选中状态冲突\n5. 固定到屏幕窗口缩放默认随鼠标位置缩放\n6. 固定到屏幕的缩略模式只随鼠标位置进行缩放\n7. 修复固定到屏幕缩略模式无法拖动\n8. 调整固定到屏幕的设置分类\n9. 修复选中元素无法通过滚轮修改粗细等操作\n10. 修复固定到屏幕中的链接内容跳转异常",
+        "en": "1. 首次选定元素忽略动画\n2. 修复序列号在画布缩放或偏移后绘制异常\n3. 修复序列号工具激活时无法平移、缩放画布\n4. 修复工具栏二维码选中状态和视频录制选中状态冲突\n5. 固定到屏幕窗口缩放默认随鼠标位置缩放\n6. 固定到屏幕的缩略模式只随鼠标位置进行缩放\n7. 修复固定到屏幕缩略模式无法拖动\n8. 调整固定到屏幕的设置分类\n9. 修复选中元素无法通过滚轮修改粗细等操作\n10. 修复固定到屏幕中的链接内容跳转异常"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.1.3-beta-20250629",
+      "version": "0.1.3-beta-20250629",
+      "name": "0.1.3-beta-20250629",
+      "publishedAt": "2025-06-29T17:49:19Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.1.3-beta-20250629",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 快速截取具有焦点的窗口 #140 \n2. 修复滚动截图异常 #142 \n3. 修复未完成编辑的箭头未及时清除\n4. 修复双击结束编辑箭头时和双击复制截图逻辑重复\n5. 修复滚动截图的截图逻辑被意外延迟\n6. 添加选择上次截图区域的功能提示\n7. 视频录制的默认保存位置从 Snow Shot Videos 改为 Snow Shot（统一图片的默认保存位置）",
+        "en": "1. 快速截取具有焦点的窗口 #140 \n2. 修复滚动截图异常 #142 \n3. 修复未完成编辑的箭头未及时清除\n4. 修复双击结束编辑箭头时和双击复制截图逻辑重复\n5. 修复滚动截图的截图逻辑被意外延迟\n6. 添加选择上次截图区域的功能提示\n7. 视频录制的默认保存位置从 Snow Shot Videos 改为 Snow Shot（统一图片的默认保存位置）"
+      },
+      "notesLanguage": {
+        "zh": "mixed",
+        "en": "mixed"
+      }
+    },
+    {
+      "tag": "0.1.3-beta-20250628",
+      "version": "0.1.3-beta-20250628",
+      "name": "0.1.3-beta-20250628",
+      "publishedAt": "2025-06-27T17:53:21Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.1.3-beta-20250628",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 滚动截图优化（截图、识别分开进行，提高快速滚动时的成功率）\n2. 默认 OCR 模型回退到 V4（可在 系统设置-截图 切换回 V5）\n3. OCR 默认关闭角度检测（可在 系统设置-截图 打开）\n4. 绘图工具支持绘制后自动回退到选择状态（不锁定工具，可在 功能设置-截图-锁定绘制工具 启用）\n5. 修复全屏画布使用序列号后无法点击工具栏\n6. 修复选择窗口元素时某些元素可能超出窗口范围",
+        "en": "1. 滚动截图优化（截图、识别分开进行，提高快速滚动时的成功率）\n2. 默认 OCR 模型回退到 V4（可在 系统设置-截图 切换回 V5）\n3. OCR 默认关闭角度检测（可在 系统设置-截图 打开）\n4. 绘图工具支持绘制后自动回退到选择状态（不锁定工具，可在 功能设置-截图-锁定绘制工具 启用）\n5. 修复全屏画布使用序列号后无法点击工具栏\n6. 修复选择窗口元素时某些元素可能超出窗口范围"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.1.3-beta-20250627",
+      "version": "0.1.3-beta-20250627",
+      "name": "0.1.3-beta-20250627",
+      "publishedAt": "2025-06-26T16:52:09Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.1.3-beta-20250627",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 通过焦点获取窗口元素后自动恢复排列\n2. OCR 优化",
+        "en": "1. 通过焦点获取窗口元素后自动恢复排列\n2. OCR 优化"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.1.3-beta-20250626",
+      "version": "0.1.3-beta-20250626",
+      "name": "0.1.3-beta-20250626",
+      "publishedAt": "2025-06-25T20:20:37Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.1.3-beta-20250626",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复部分情况下只能选取桌面元素的问题\n2. 修复窗口最小化后依旧能被自动选取识别\n3. 修复无法选取到 Firefox 中的元素、修复 Edge 首次启动无法选取元素（通过设置启用）\n4. 增加版本号比较（避免高于官网版本但依旧提示升级，用于后续维护不同渠道）\n\n**需要在 Firefox 中选取元素可以启用以下功能**\n\n![图片](https://github.com/user-attachments/assets/b20c1635-eac8-44eb-b5ce-0c04a4da8dc2)\n\n**Edge 在第二次选取元素时才能选择网页内容，可以启用以下功能**\n\n![图片](https://github.com/user-attachments/assets/d8aeb5b8-6676-47b2-9ab5-1b6bc48dc344)",
+        "en": "1. 修复部分情况下只能选取桌面元素的问题\n2. 修复窗口最小化后依旧能被自动选取识别\n3. 修复无法选取到 Firefox 中的元素、修复 Edge 首次启动无法选取元素（通过设置启用）\n4. 增加版本号比较（避免高于官网版本但依旧提示升级，用于后续维护不同渠道）\n\n**需要在 Firefox 中选取元素可以启用以下功能**\n\n![图片](https://github.com/user-attachments/assets/b20c1635-eac8-44eb-b5ce-0c04a4da8dc2)\n\n**Edge 在第二次选取元素时才能选择网页内容，可以启用以下功能**\n\n![图片](https://github.com/user-attachments/assets/d8aeb5b8-6676-47b2-9ab5-1b6bc48dc344)"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.1.3-beta-20250625",
+      "version": "0.1.3-beta-20250625",
+      "name": "0.1.3-beta-20250625",
+      "publishedAt": "2025-06-24T19:39:16Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.1.3-beta-20250625",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 更好的截图自动框选（Firefox 一直读不到元素，不清楚为什么……）\n2. 滚动截图无法操作工具栏修复\n\n主要是修复滚动截图，自动框选还是有概率读取不到所有窗口，明天继续。没做好，自选更新吧……",
+        "en": "1. 更好的截图自动框选（Firefox 一直读不到元素，不清楚为什么……）\n2. 滚动截图无法操作工具栏修复\n\n主要是修复滚动截图，自动框选还是有概率读取不到所有窗口，明天继续。没做好，自选更新吧……"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.1.3-beta-20250623",
+      "version": "0.1.3-beta-20250623",
+      "name": "0.1.3-beta-20250623",
+      "publishedAt": "2025-06-23T15:55:04Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.1.3-beta-20250623",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 固定到屏幕支持图片文件（支持 png、jpg、webp、gif、avif 格式）\n2. OCR 支持识别后自动复制、自动复制后关闭窗口、截图复制操作改为复制文字\n3. 修复滚动截图问题\n\n最近在进行适配 Ubuntu 的工作，所有不会进行大功能更新。",
+        "en": "1. 固定到屏幕支持图片文件（支持 png、jpg、webp、gif、avif 格式）\n2. OCR 支持识别后自动复制、自动复制后关闭窗口、截图复制操作改为复制文字\n3. 修复滚动截图问题\n\n最近在进行适配 Ubuntu 的工作，所有不会进行大功能更新。"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.1.3-beta-20250622",
+      "version": "0.1.3-beta-20250622",
+      "name": "0.1.3-beta-20250622",
+      "publishedAt": "2025-06-22T07:36:15Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.1.3-beta-20250622",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复关闭自动更新未立即生效\n 2. 修复滚动截图后按钮失效\n 3. 优化滚动截图\n 4. 版本更新通知只通知一次\n 5. 优化视频录制功能\n\n[Snow Shot 官网](https://snowshot.top/)",
+        "en": "1. 修复关闭自动更新未立即生效\n 2. 修复滚动截图后按钮失效\n 3. 优化滚动截图\n 4. 版本更新通知只通知一次\n 5. 优化视频录制功能\n\n[Snow Shot 官网](https://snowshot.top/)"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.1.3-beta-20250621",
+      "version": "0.1.3-beta-20250621",
+      "name": "0.1.3-beta-20250621",
+      "publishedAt": "2025-06-21T13:33:30Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.1.3-beta-20250621",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复无法录制视频\n2. 修复路径不存在导致快速保存失败的问题\n\n国内加速下载：[Snow Shot](https://snowshot.top/)",
+        "en": "1. 修复无法录制视频\n2. 修复路径不存在导致快速保存失败的问题\n\n国内加速下载：[Snow Shot](https://snowshot.top/)"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "0.1.3-beta-20250620",
+      "version": "0.1.3-beta-20250620",
+      "name": "0.1.3-beta-20250620",
+      "publishedAt": "2025-06-20T16:17:36Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/0.1.3-beta-20250620",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 屏幕录制\n2. 修复滚动截图偶发无法点击问题\n3. 修复内存优化导致用户操作失去焦点\n4. 修复全屏画布组件定位不正确\n5. 可关闭软件更新检查\n\n国内加速下载：[Snow Shot](https://snowshot.top/)",
+        "en": "1. 屏幕录制\n2. 修复滚动截图偶发无法点击问题\n3. 修复内存优化导致用户操作失去焦点\n4. 修复全屏画布组件定位不正确\n5. 可关闭软件更新检查\n\n国内加速下载：[Snow Shot](https://snowshot.top/)"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250618",
+      "version": "0.1.3-beta-20250618",
+      "name": "v0.1.3_beta_20250618",
+      "publishedAt": "2025-06-17T18:02:13Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250618",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 发布新版本的系统通知提示\n\n国内加速下载：[Snow Shot](https://snowshot.top/)",
+        "en": "1. 发布新版本的系统通知提示\n\n国内加速下载：[Snow Shot](https://snowshot.top/)"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250617",
+      "version": "0.1.3-beta-20250617",
+      "name": "v0.1.3_beta_20250617",
+      "publishedAt": "2025-06-16T17:12:48Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250617",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 固定到屏幕的文本类内容支持保存为图片\n2. 全屏画布支持配置默认工具\n3. 全屏画布鼠标穿透体验优化\n4. 保存文件的默认文件名格式支持自定义\n5. 全局快捷键均可配置 PrintScreen 键",
+        "en": "1. 固定到屏幕的文本类内容支持保存为图片\n2. 全屏画布支持配置默认工具\n3. 全屏画布鼠标穿透体验优化\n4. 保存文件的默认文件名格式支持自定义\n5. 全局快捷键均可配置 PrintScreen 键"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250616",
+      "version": "0.1.3-beta-20250616",
+      "name": "v0.1.3_beta_20250616",
+      "publishedAt": "2025-06-15T19:49:16Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250616",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 优化滚动截图未识别到时返回截取边缘位置重新识别的体验\n2. 修复部分场景下滚动截图无法识别到目标的问题\n3. 修复部分场景下滚动截图预览效果与实际不一致的问题\n4. 优化部分场景下 OCR 的识别速率",
+        "en": "1. 优化滚动截图未识别到时返回截取边缘位置重新识别的体验\n2. 修复部分场景下滚动截图无法识别到目标的问题\n3. 修复部分场景下滚动截图预览效果与实际不一致的问题\n4. 优化部分场景下 OCR 的识别速率"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250615_02",
+      "version": "0.1.3-beta-20250615-02",
+      "name": "v0.1.3_beta_20250615_02",
+      "publishedAt": "2025-06-15T08:25:48Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250615_02",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复系统字体缩放后截图内容异常问题",
+        "en": "1. 修复系统字体缩放后截图内容异常问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250615",
+      "version": "0.1.3-beta-20250615",
+      "name": "v0.1.3_beta_20250615",
+      "publishedAt": "2025-06-15T07:45:59Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250615",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复滚动截图自动隐藏工具栏时结束截图后工具栏不显示的问题",
+        "en": "1. 修复滚动截图自动隐藏工具栏时结束截图后工具栏不显示的问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250614",
+      "version": "0.1.3-beta-20250614",
+      "name": "v0.1.3_beta_20250614",
+      "publishedAt": "2025-06-13T19:54:38Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250614",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复截图工具栏偶发不显示（可能还有问题，明天继续排查）\n2. 提升 OCR 效果（将 Paddle OCR V4 模型升级到 V5，感觉效果没鼓吹的那么好……）\n3. 滚动截图提高截取频率\n\n![SnowShot_2025-06-14_03-44-29](https://github.com/user-attachments/assets/a12f5a95-2c00-40d7-9bc8-c5b7b473fa63)",
+        "en": "1. 修复截图工具栏偶发不显示（可能还有问题，明天继续排查）\n2. 提升 OCR 效果（将 Paddle OCR V4 模型升级到 V5，感觉效果没鼓吹的那么好……）\n3. 滚动截图提高截取频率\n\n![SnowShot_2025-06-14_03-44-29](https://github.com/user-attachments/assets/a12f5a95-2c00-40d7-9bc8-c5b7b473fa63)"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250601_02",
+      "version": "0.1.3-beta-20250601-02",
+      "name": "v0.1.3_beta_20250601_02",
+      "publishedAt": "2025-06-01T14:06:44Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250601_02",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 提高 OCR 效果和修复 OCR 翻译问题",
+        "en": "1. 提高 OCR 效果和修复 OCR 翻译问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250601",
+      "version": "0.1.3-beta-20250601",
+      "name": "v0.1.3_beta_20250601",
+      "publishedAt": "2025-06-01T08:56:53Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250601",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 工具栏定位问题\n2. 选区大小数据不同步问题\n3. 固定到屏幕窗口自动对齐屏幕顶部问题\n4. 多显示器自动选区的定位错误问题\n5. 多显示器固定到屏幕的窗口定位问题\n\n放假了主要修复为主哈，休息一下~\n祝大家儿童节快乐",
+        "en": "1. 工具栏定位问题\n2. 选区大小数据不同步问题\n3. 固定到屏幕窗口自动对齐屏幕顶部问题\n4. 多显示器自动选区的定位错误问题\n5. 多显示器固定到屏幕的窗口定位问题\n\n放假了主要修复为主哈，休息一下~\n祝大家儿童节快乐"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250530_03",
+      "version": "0.1.3-beta-20250530-03",
+      "name": "v0.1.3_beta_20250530_03",
+      "publishedAt": "2025-05-30T11:55:01Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250530_03",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 优化截图响应速度（获取截图图像数据时不再阻塞 UI，应该有 100ms 左右的提升，改动涉及的面非常多，如遇到问题请回退上一个版本）\n2. 改进内存优化策略",
+        "en": "1. 优化截图响应速度（获取截图图像数据时不再阻塞 UI，应该有 100ms 左右的提升，改动涉及的面非常多，如遇到问题请回退上一个版本）\n2. 改进内存优化策略"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250530_02",
+      "version": "0.1.3-beta-20250530-02",
+      "name": "v0.1.3_beta_20250530_02",
+      "publishedAt": "2025-05-30T05:04:57Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250530_02",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复 AI 对话中的网页链接跳转问题\n2. 关于页面",
+        "en": "1. 修复 AI 对话中的网页链接跳转问题\n2. 关于页面"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250530",
+      "version": "0.1.3-beta-20250530",
+      "name": "v0.1.3_beta_20250530",
+      "publishedAt": "2025-05-29T18:39:47Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250530",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 增加 DeepL 自定义 API 功能\n2. 添加 Google 网页翻译\n3.  AI 对话自定义 API 修复",
+        "en": "1. 增加 DeepL 自定义 API 功能\n2. 添加 Google 网页翻译\n3.  AI 对话自定义 API 修复"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250529",
+      "version": "0.1.3-beta-20250529",
+      "name": "v0.1.3_beta_20250529",
+      "publishedAt": "2025-05-29T08:50:00Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250529",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复鼠标双击无法复制截图\n2. 全屏画布（因为改动比较大，只能先合并了，用鼠标穿透的话记得绑定快捷键，不然无法取消穿透了……）",
+        "en": "1. 修复鼠标双击无法复制截图\n2. 全屏画布（因为改动比较大，只能先合并了，用鼠标穿透的话记得绑定快捷键，不然无法取消穿透了……）"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250528_04",
+      "version": "0.1.3-beta-20250528-04",
+      "name": "v0.1.3_beta_20250528_04",
+      "publishedAt": "2025-05-28T08:40:29Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250528_04",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复截图时固定截图失效的问题",
+        "en": "1. 修复截图时固定截图失效的问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250528_03",
+      "version": "0.1.3-beta-20250528-03",
+      "name": "v0.1.3_beta_20250528_03",
+      "publishedAt": "2025-05-28T08:22:01Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250528_03",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修正 PrintScreen 作为快捷键的提示（其实是可以单独注册使用的……光速打脸）\n\n需要注册 PrintScreen  为全局快捷键的话，需要禁用系统自带的截图功能，如仍然无效，则可尝试重启系统。\n\n![图片](https://github.com/user-attachments/assets/f6daba73-587d-40c8-b6bf-895f51ef7bb1)\n![图片](https://github.com/user-attachments/assets/192a9e06-149b-45d2-b978-7f9039806508)",
+        "en": "1. 修正 PrintScreen 作为快捷键的提示（其实是可以单独注册使用的……光速打脸）\n\n需要注册 PrintScreen  为全局快捷键的话，需要禁用系统自带的截图功能，如仍然无效，则可尝试重启系统。\n\n![图片](https://github.com/user-attachments/assets/f6daba73-587d-40c8-b6bf-895f51ef7bb1)\n![图片](https://github.com/user-attachments/assets/192a9e06-149b-45d2-b978-7f9039806508)"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250528_02",
+      "version": "0.1.3-beta-20250528-02",
+      "name": "v0.1.3_beta_20250528_02",
+      "publishedAt": "2025-05-28T07:33:26Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250528_02",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复固定到屏幕快捷键和截图快捷键冲突\n2. 优化工具栏显示\n3. 支持录入 PrintScreen",
+        "en": "1. 修复固定到屏幕快捷键和截图快捷键冲突\n2. 优化工具栏显示\n3. 支持录入 PrintScreen"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250528",
+      "version": "0.1.3-beta-20250528",
+      "name": "v0.1.3_beta_20250528",
+      "publishedAt": "2025-05-28T05:50:02Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250528",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复滚动截图截取到工具栏\n2.  AI 对话复制失效",
+        "en": "1. 修复滚动截图截取到工具栏\n2.  AI 对话复制失效"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250527_02",
+      "version": "0.1.3-beta-20250527-02",
+      "name": "v0.1.3_beta_20250527_02",
+      "publishedAt": "2025-05-27T15:02:10Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250527_02",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 只允许同时打开一个主窗口",
+        "en": "1. 只允许同时打开一个主窗口"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250527_01",
+      "version": "0.1.3-beta-20250527-01",
+      "name": "v0.1.3_beta_20250527_01",
+      "publishedAt": "2025-05-27T11:40:45Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250527_01",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复滚动截图时截取到取色器",
+        "en": "1. 修复滚动截图时截取到取色器"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250527",
+      "version": "0.1.3-beta-20250527",
+      "name": "v0.1.3_beta_20250527",
+      "publishedAt": "2025-05-26T18:39:52Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250527",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 绘图新增序列号工具\n2. 固定屏幕展示优化，更好地展示 html 格式的内容\n3. 滚动截图支持固定到屏幕\n4. 固定到屏幕支持以鼠标为中心进行缩放、缩略模式、快捷键关闭",
+        "en": "1. 绘图新增序列号工具\n2. 固定屏幕展示优化，更好地展示 html 格式的内容\n3. 滚动截图支持固定到屏幕\n4. 固定到屏幕支持以鼠标为中心进行缩放、缩略模式、快捷键关闭"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250526",
+      "version": "0.1.3-beta-20250526",
+      "name": "v0.1.3_beta_20250526",
+      "publishedAt": "2025-05-25T19:45:55Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250526",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 剪贴板内容固定到屏幕\n2. 保存功能增强（支持复制到剪贴板自动保存到指定目录和一键保存按钮）\n3. 可配置选择截图区域时的全屏辅助线\n\n固定到屏幕有较大更改，可能有 Bug，欢迎大家随时反馈哈~\n明天再改进一版 html 的贴图效果……改的时候只测了代码复制，刚试了多个场景，表现一般",
+        "en": "1. 剪贴板内容固定到屏幕\n2. 保存功能增强（支持复制到剪贴板自动保存到指定目录和一键保存按钮）\n3. 可配置选择截图区域时的全屏辅助线\n\n固定到屏幕有较大更改，可能有 Bug，欢迎大家随时反馈哈~\n明天再改进一版 html 的贴图效果……改的时候只测了代码复制，刚试了多个场景，表现一般"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250525",
+      "version": "0.1.3-beta-20250525",
+      "name": "v0.1.3_beta_20250525",
+      "publishedAt": "2025-05-24T17:56:00Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250525",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 自定义托盘图标\n2. 可配置快捷键直接退出截图\n3. 截图工具栏整理\n4. 减少默认注册的全局快捷键\n5. 允许更小的滚动截图范围（200x200 限制，300x300 提示，过小的截图区域捕获不到特征，效果不好）\n6. 修复部分窗口在滚动截图时无法自动获取焦点，可通过双击截图区域获取焦点\n7. 支持取消截图过渡动画（取消了是真闪眼啊）\n\n修订：\n\n补充顶部导航菜单",
+        "en": "1. 自定义托盘图标\n2. 可配置快捷键直接退出截图\n3. 截图工具栏整理\n4. 减少默认注册的全局快捷键\n5. 允许更小的滚动截图范围（200x200 限制，300x300 提示，过小的截图区域捕获不到特征，效果不好）\n6. 修复部分窗口在滚动截图时无法自动获取焦点，可通过双击截图区域获取焦点\n7. 支持取消截图过渡动画（取消了是真闪眼啊）\n\n修订：\n\n补充顶部导航菜单"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250524",
+      "version": "0.1.3-beta-20250524",
+      "name": "v0.1.3_beta_20250524",
+      "publishedAt": "2025-05-23T17:29:29Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250524",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 小问题的改进",
+        "en": "1. 小问题的改进"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250523_02",
+      "version": "0.1.3-beta-20250523-02",
+      "name": "v0.1.3_beta_20250523_02",
+      "publishedAt": "2025-05-23T14:11:31Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250523_02",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 滚轮切换粗细\n2. 颜色拾取器显示逻辑优化\n3. 未选定选区时 ESC 退出\n4. 固定图片自动 OCR 可配置\n5. 二维码识别\n6. 更多图片格式支持\n7. 截图区域双击后复制\n\n还有些未记录的修改......\n\n改动挺多的，有问题欢迎随时反馈哈~",
+        "en": "1. 滚轮切换粗细\n2. 颜色拾取器显示逻辑优化\n3. 未选定选区时 ESC 退出\n4. 固定图片自动 OCR 可配置\n5. 二维码识别\n6. 更多图片格式支持\n7. 截图区域双击后复制\n\n还有些未记录的修改......\n\n改动挺多的，有问题欢迎随时反馈哈~"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250523",
+      "version": "0.1.3-beta-20250523",
+      "name": "v0.1.3_beta_20250523",
+      "publishedAt": "2025-05-22T19:36:59Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250523",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 滚动截图性能提高 10 倍（真不吹）",
+        "en": "1. 滚动截图性能提高 10 倍（真不吹）"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250522_04",
+      "version": "0.1.3-beta-20250522-04",
+      "name": "v0.1.3_beta_20250522_04",
+      "publishedAt": "2025-05-22T14:42:45Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250522_04",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 用户反馈长截图效果变差了，回退下",
+        "en": "1. 用户反馈长截图效果变差了，回退下"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.3_beta_20250522_03",
+      "version": "0.1.3-beta-20250522-03",
+      "name": "v0.1.3_beta_20250522_03",
+      "publishedAt": "2025-05-22T12:48:36Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.3_beta_20250522_03",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 颜色拾取的颜色格式切换\n2. 丰富托盘菜单\n3. 各类问题修复",
+        "en": "1. 颜色拾取的颜色格式切换\n2. 丰富托盘菜单\n3. 各类问题修复"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.2_beta_20250522_02",
+      "version": "0.1.2-beta-20250522-02",
+      "name": "v0.1.2_beta_20250522_02",
+      "publishedAt": "2025-05-22T08:49:01Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.2_beta_20250522_02",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复内存占用优化后造成的复制到剪贴板的功能失效",
+        "en": "1. 修复内存占用优化后造成的复制到剪贴板的功能失效"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.2_beta_20250522",
+      "version": "0.1.2-beta-20250522",
+      "name": "v0.1.2_beta_20250522",
+      "publishedAt": "2025-05-22T06:17:52Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.2_beta_20250522",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复滚动截图未识别到特征点的异常问题",
+        "en": "1. 修复滚动截图未识别到特征点的异常问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.2_beta_20250521_03",
+      "version": "0.1.2-beta-20250521-03",
+      "name": "v0.1.2_beta_20250521_03",
+      "publishedAt": "2025-05-21T20:08:32Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.2_beta_20250521_03",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 支持图片翻译\n\n![SnowShot_2025-05-22_03-57-30](https://github.com/user-attachments/assets/22d278e9-3fea-4d6a-b514-23919749eb57)",
+        "en": "1. 支持图片翻译\n\n![SnowShot_2025-05-22_03-57-30](https://github.com/user-attachments/assets/22d278e9-3fea-4d6a-b514-23919749eb57)"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.2_beta_20250521_02",
+      "version": "0.1.2-beta-20250521-02",
+      "name": "v0.1.2_beta_20250521_02",
+      "publishedAt": "2025-05-21T12:46:27Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.2_beta_20250521_02",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 更好的滚动截图\n2. 降低内存消耗（可能有截图响应慢的问题，后续看反馈）\n\n滚动截图识别效果优化了几天……终于差不多了\n\n内存优化的效果能做到待机占用满打满算 400mb，WebView 自带 GPU 进程占用 150MB 实在没办法（可多个程序公用）\n\n实际占用 200MB 左右\n\n![SnowShot_2025-05-21_21-58-20](https://github.com/user-attachments/assets/47a8ec99-fee5-4967-aaba-72992a0f248a)\n \n![SnowShot_2025-05-21_22-00-26](https://github.com/user-attachments/assets/7d3191c1-972b-42c1-b167-d6b21b235a4a)",
+        "en": "1. 更好的滚动截图\n2. 降低内存消耗（可能有截图响应慢的问题，后续看反馈）\n\n滚动截图识别效果优化了几天……终于差不多了\n\n内存优化的效果能做到待机占用满打满算 400mb，WebView 自带 GPU 进程占用 150MB 实在没办法（可多个程序公用）\n\n实际占用 200MB 左右\n\n![SnowShot_2025-05-21_21-58-20](https://github.com/user-attachments/assets/47a8ec99-fee5-4967-aaba-72992a0f248a)\n \n![SnowShot_2025-05-21_22-00-26](https://github.com/user-attachments/assets/7d3191c1-972b-42c1-b167-d6b21b235a4a)"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.2_beta_20250521",
+      "version": "0.1.2-beta-20250521",
+      "name": "v0.1.2_beta_20250521",
+      "publishedAt": "2025-05-20T20:08:18Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.2_beta_20250521",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 改进了滚动截图在长文本文字截取上的效果\n\n明天改进下重复结构的效果，还不是很理想",
+        "en": "1. 改进了滚动截图在长文本文字截取上的效果\n\n明天改进下重复结构的效果，还不是很理想"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v1.1.2_beta_20250520",
+      "version": "1.1.2-beta-20250520",
+      "name": "v0.1.2_beta_20250520",
+      "publishedAt": "2025-05-20T06:19:32Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.1.2_beta_20250520",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 滚动截图支持\n\n支持纵向和横向滚动，目前默认参数对于重复结构的识别效果不是很好。\n\n像代码的滚动截图因为重复结构和文字的特征不是很突出，默认参数的采样很容易重复……或许可以考虑优先比较头尾的内容？\n\n后续优化，有需要的可以把特征描述长度拉高：\n\n![图片](https://github.com/user-attachments/assets/366ddf61-59e8-42c9-ac86-8ccd5328de36)",
+        "en": "1. 滚动截图支持\n\n支持纵向和横向滚动，目前默认参数对于重复结构的识别效果不是很好。\n\n像代码的滚动截图因为重复结构和文字的特征不是很突出，默认参数的采样很容易重复……或许可以考虑优先比较头尾的内容？\n\n后续优化，有需要的可以把特征描述长度拉高：\n\n![图片](https://github.com/user-attachments/assets/366ddf61-59e8-42c9-ac86-8ccd5328de36)"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.1_dev_20250519",
+      "version": "0.1.1-dev-20250519",
+      "name": "v0.1.1_dev_20250519",
+      "publishedAt": "2025-05-19T05:18:03Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.1_dev_20250519",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 修复鼠标偏移问题",
+        "en": "1. 修复鼠标偏移问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.1_beta_20250516_03",
+      "version": "0.1.1-beta-20250516-03",
+      "name": "v0.1.1_beta_20250516_03",
+      "publishedAt": "2025-05-16T13:31:38Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.1_beta_20250516_03",
+      "prerelease": true,
+      "notes": {
+        "zh": "优化固定到屏幕的窗口闪烁问题",
+        "en": "优化固定到屏幕的窗口闪烁问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.1_beta_20250516_02",
+      "version": "0.1.1-beta-20250516-02",
+      "name": "v0.1.1_beta_20250516_02",
+      "publishedAt": "2025-05-16T06:37:03Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.1_beta_20250516_02",
+      "prerelease": true,
+      "notes": {
+        "zh": "1.  修复 OCR 部分情况下文字丢失的问题\n2. 修复截图固定到屏幕窗口闪烁的问题",
+        "en": "1.  修复 OCR 部分情况下文字丢失的问题\n2. 修复截图固定到屏幕窗口闪烁的问题"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.1_beta_20250516",
+      "version": "0.1.1-beta-20250516",
+      "name": "v0.1.1_beta_20250516",
+      "publishedAt": "2025-05-15T16:07:35Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.1_beta_20250516",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. [feats: 移动查找窗口子元素到功能设置页面](https://github.com/mg-chao/snow-shot/commit/3ad344557c7ef94102f41b3f01099e1cfd7d9bbf)\n2. [feats: 增加颜色选择器是否始终显示配置](https://github.com/mg-chao/snow-shot/commit/5eea5de252e43d90fbc6c2c74e6bfb0d67d9a419)\n3. [feats: 超出选取元素遮罩](https://github.com/mg-chao/snow-shot/commit/c0361504d979bd753018a90e7f8fd683936e94f3)",
+        "en": "1. [feats: 移动查找窗口子元素到功能设置页面](https://github.com/mg-chao/snow-shot/commit/3ad344557c7ef94102f41b3f01099e1cfd7d9bbf)\n2. [feats: 增加颜色选择器是否始终显示配置](https://github.com/mg-chao/snow-shot/commit/5eea5de252e43d90fbc6c2c74e6bfb0d67d9a419)\n3. [feats: 超出选取元素遮罩](https://github.com/mg-chao/snow-shot/commit/c0361504d979bd753018a90e7f8fd683936e94f3)"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.1_beta_20250515_02",
+      "version": "0.1.1-beta-20250515-02",
+      "name": "v0.1.1_beta_20250515_02",
+      "publishedAt": "2025-05-15T13:12:22Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.1_beta_20250515_02",
+      "prerelease": true,
+      "notes": {
+        "zh": "1. 支持自定义 AI 模型\n2.  修复快捷键退出截图未正确退出的问题 #23",
+        "en": "1. 支持自定义 AI 模型\n2.  修复快捷键退出截图未正确退出的问题 #23"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.1_beta_20250515",
+      "version": "0.1.1-beta-20250515",
+      "name": "v0.1.1_beta_20250515",
+      "publishedAt": "2025-05-15T04:42:29Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.1_beta_20250515",
+      "prerelease": true,
+      "notes": {
+        "zh": "### 1. 优化了在无 GPU 环境下的性能（虽然还是会卡顿的），有 GPU 的环境下的性能表现会更好，负载大幅降低（因为重构了渲染 API，可能存在问题，有问题的话可以尝试前一个版本）。",
+        "en": "### 1. 优化了在无 GPU 环境下的性能（虽然还是会卡顿的），有 GPU 的环境下的性能表现会更好，负载大幅降低（因为重构了渲染 API，可能存在问题，有问题的话可以尝试前一个版本）。"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.1_beta",
+      "version": "0.1.1-beta",
+      "name": "v0.1.1_beta(20250514)",
+      "publishedAt": "2025-05-14T11:43:45Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.1_beta",
+      "prerelease": true,
+      "notes": {
+        "zh": "# 如果大家出现翻译或 AI 对话报错的问题，可以下载当前版本的前一个版本\n\n（因为换了域名解析地址，有些地区的 DNS 可能解析为了之前的地址）",
+        "en": "# 如果大家出现翻译或 AI 对话报错的问题，可以下载当前版本的前一个版本\n\n（因为换了域名解析地址，有些地区的 DNS 可能解析为了之前的地址）"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.0_dev2025051302",
+      "version": "0.1.0-dev2025051302",
+      "name": "v0.1.0_dev2025051302",
+      "publishedAt": "2025-05-13T14:34:39Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.0_dev2025051302",
+      "prerelease": true,
+      "notes": {
+        "zh": "### Fixs: \n\n1. 修复当窗口堆叠时，窗口置顶功能未选中正确窗口\n2. 修复选择区域后的默认工具不为“移动”问题\n\n**Full Changelog**: https://github.com/mg-chao/snow-shot/compare/v0.1.0_dev2025051301...v0.1.0_dev2025051302",
+        "en": "### Fixs: \n\n1. 修复当窗口堆叠时，窗口置顶功能未选中正确窗口\n2. 修复选择区域后的默认工具不为“移动”问题\n\n**Full Changelog**: https://github.com/mg-chao/snow-shot/compare/v0.1.0_dev2025051301...v0.1.0_dev2025051302"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.0_dev2025051301",
+      "version": "0.1.0-dev2025051301",
+      "name": "v0.1.0_dev2025051301",
+      "publishedAt": "2025-05-13T09:23:32Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.0_dev2025051301",
+      "prerelease": true,
+      "notes": {
+        "zh": "## What's Changed\n* fix: 修复部分情况下 OCR 结果文字过小的问题 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/15\n* feats: 一键窗口置顶、Chat 页面的快捷键优化和部分问题修复 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/16\n* feats: 对话工作流 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/17\n\n\n**Full Changelog**: https://github.com/mg-chao/snow-shot/compare/v0.1.0...v0.1.0_dev2025051301",
+        "en": "## What's Changed\n* fix: 修复部分情况下 OCR 结果文字过小的问题 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/15\n* feats: 一键窗口置顶、Chat 页面的快捷键优化和部分问题修复 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/16\n* feats: 对话工作流 by @mg-chao in https://github.com/mg-chao/snow-shot/pull/17\n\n\n**Full Changelog**: https://github.com/mg-chao/snow-shot/compare/v0.1.0...v0.1.0_dev2025051301"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    },
+    {
+      "tag": "v0.1.0",
+      "version": "0.1.0",
+      "name": "v0.1.0 (2025-05-10)",
+      "publishedAt": "2025-05-10T05:48:13Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v0.1.0",
+      "prerelease": false,
+      "notes": {
+        "zh": "### 功能说明\n\n- 截图功能\n- 划词翻译功能\n- 划词 AI 对话功能\n\n_注意：软件正在快速迭代中，Bug 和使用问题难以避免。且因为尚处测试阶段，非本地功能（如翻译和 AI 对话）的 API 服务可能日后不会兼容旧的客户端，如果你试图寻求一个稳定的工具软件，目前请谨慎选择当前软件。_",
+        "en": "### 功能说明\n\n- 截图功能\n- 划词翻译功能\n- 划词 AI 对话功能\n\n_注意：软件正在快速迭代中，Bug 和使用问题难以避免。且因为尚处测试阶段，非本地功能（如翻译和 AI 对话）的 API 服务可能日后不会兼容旧的客户端，如果你试图寻求一个稳定的工具软件，目前请谨慎选择当前软件。_"
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "zh"
+      }
+    }
+  ]
+}

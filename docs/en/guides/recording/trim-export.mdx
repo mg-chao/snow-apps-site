@@ -1,0 +1,55 @@
+---
+title: Preview, trim, change speed, and export
+description: Trim a Snow Shot recording on its timeline, preview retained frames, set playback and export speed, and configure output resolution, frame rate, and encoding.
+---
+
+import GuideRecordingDemo from '../../../../theme/components/GuideRecordingDemo';
+
+# Preview, trim, change speed, and export
+
+Trim a recording to remove waiting at the beginning or end. Change speed when the demonstration moves too slowly. Choose MP4 before recording when you need sound.
+
+## Enter preview and trim the ends
+
+1. While recording or paused, click **Trim video** on the recording toolbar. Capture ends and the preview is prepared. Wait until the timeline is available before dragging.
+2. The left boundary is **Trim start**. Drag its handle to the right. The preview jumps to the new starting frame; stop at the first frame you want to retain.
+3. The right boundary is **Trim end**. Drag its handle to the left and inspect the final retained frame. The boundaries cannot cross and must retain at least one frame.
+4. Click **Replay** to check from the start of the retained range. **Play/Pause** controls only the current preview. Seek on the timeline to inspect individual frames.
+5. Drag either boundary again until the opening, ending, and intermediate actions flow as intended.
+
+<GuideRecordingDemo mode="trim" />
+
+## Change playback and export speed
+
+**Speed** beside the timeline offers **0.25x, 0.5x, 0.75x, 1.0x, 1.25x, 1.5x, 1.75x, 2.0x, and 3.0x**. It changes both preview and export speed; it is not a preview-only player setting.
+
+After selecting 1.5x, replay the range and confirm that text and actions remain readable. Select 1.0x to restore the original pace. Speed and trim boundaries are independent; changing speed does not remove waiting at either end.
+
+## Save or copy the result
+
+In the trimming preview, click **Save to file** and choose a destination file. Choose a different path from the original recording; the app asks for another file to preserve the original. **Copy recording** places the result on the clipboard as a file for applications that accept files.
+
+Wait for rendering to finish before playing, sending, or moving the result. The progress window distinguishes preparation, rendering, and finalization. After cancelling rendering, you can choose **Retry** or **Keep source files**. Errors show the source-file directory; preserve it before attempting recovery. Choose **Discard** only when you no longer need the source data.
+
+## Choose output parameters before recording
+
+**Settings → Screen recording** and **Screen recording settings** in the recording interface share the ordinary recording parameters. Format, effects, and webcam are configured in **Export settings**.
+
+| Parameter | How to choose and check it |
+| --- | --- |
+| Screen recording clarity | 4K, 2K, 1080p, 720p, and 480p are maximum output-size limits. Larger captures are reduced; this cannot recreate missing detail. |
+| Frame rate | 5, 10, 15, 24, 30, 60, 120, or 83. Higher rates help continuous motion; lower rates reduce data for static actions. Capture capability still limits the actual rate. |
+| Video quality | Changes MP4 quality and size. Compare text edges and file size using a short clip. |
+| Encoder | H.264, H.265, and their hardware choices. The recipient's player must support H.265. Unavailable hardware falls back to software for the same codec. |
+| Encoding preset | From ultrafast and veryfast through medium and veryslow to maximum compression, balancing processing speed and compression efficiency. |
+| Animated image clarity | 1080p, 720p, or 480p, independent of video settings. |
+| Animated image frame rate | 5, 10, 15, or 24. Consider file size before increasing it. |
+| Loop animated images | Controls looping in saved GIF, APNG, and WebP files. |
+
+Fresh video defaults are 1080p, 30 fps, H.264, and quality 80; animation defaults are 720p and 10 fps. Existing configurations use the values shown in the interface. Change the directory and filename format under **Settings → Export & storage → Video export**.
+
+## Preview or export problems
+
+If preview is unavailable, record the exact error and preserve the source files. Repeatedly exporting will not resolve the underlying problem. Choose a writable output directory if the current one is missing or inaccessible. Reduce animation size or frame rate for large files. For unplayable output, check the extension, codec, and player support, and first test a short H.264 MP4 recording.
+
+Continue with [start, pause, and stop](./start), [audio and tracks](./audio-camera), or [storage and temporary-file cleanup](../settings/storage-backup).

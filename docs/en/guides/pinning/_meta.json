@@ -1,0 +1,37 @@
+[
+  {
+    "type": "file",
+    "name": "image",
+    "label": "Image and clipboard pins"
+  },
+  {
+    "type": "file",
+    "name": "transform",
+    "label": "Pin transforms and cropping"
+  },
+  {
+    "type": "file",
+    "name": "text",
+    "label": "Text and annotations in pins"
+  },
+  {
+    "type": "file",
+    "name": "color",
+    "label": "Color cards and color format conversion"
+  },
+  {
+    "type": "file",
+    "name": "management",
+    "label": "Groups, batch management, and recovery"
+  },
+  {
+    "type": "file",
+    "name": "animation",
+    "label": "Animated pins and frame-by-frame playback"
+  },
+  {
+    "type": "file",
+    "name": "live-window",
+    "label": "Live window pins"
+  }
+]

@@ -1,0 +1,88 @@
+---
+title: "Text annotations and layout"
+description: "Create and re-edit multiline text, move it, adjust font, size, color, emphasis, alignment, fill, outline and corners, and distinguish text input from canvas editing."
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Text annotations and layout
+
+Text annotations add explanations, name objects and describe steps. Prepare a screenshot or open an image so the editable canvas and annotation toolbar are visible.
+
+## Enter and finish text
+
+1. Click **Text** in the main toolbar and choose text color and font size.
+2. Click where the explanation should appear to open a text-input area.
+3. Type your text and insert line breaks inside the input area for multiple lines. During input, arrow keys, deletion and selection operate on text content.
+4. Press **Esc** to commit the text and finish input. You can also use **Ctrl + Enter** on Windows or **Command + Return** on macOS. Confirm that the caret has disappeared before switching tools.
+5. Press **V** for **Select elements**, click truly empty canvas to clear the selection, then press and drag the unselected text in one gesture. Selecting the text with a separate click before dragging its letters re-enters text editing.
+
+<GuideSteps title="Text annotations and layout" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-text-1.svg",
+    "alt": "Click to open text input",
+    "label": "Click to open text input",
+    "caption": "Click to open text input"
+  },
+  {
+    "src": "/images/guides/en/ann-text-2.svg",
+    "alt": "Enter multiple lines",
+    "label": "Enter multiple lines",
+    "caption": "Enter multiple lines"
+  },
+  {
+    "src": "/images/guides/en/ann-text-3.svg",
+    "alt": "Finish input and move the object",
+    "label": "Finish input and move the object",
+    "caption": "Finish input and move the object"
+  }
+]} />
+
+## Re-edit the content
+
+With **Select elements** or Text active, first click the existing text to select it, then click its content to edit. Type after the insertion caret appears. A border without a caret means the object is selected rather than being edited.
+
+Press **Esc** to commit changes and finish input. Clicking outside the input area can also finish it; another click on empty canvas while Text remains active prepares new text. If an unwanted empty input area appears, press Esc to finish it, then V to select elements.
+
+Backspace deletes characters during input. With **Delete text after the cursor** enabled, Delete removes the selected text or the character after the caret. After leaving input and selecting the whole object, the delete key removes the text object. Do not delete the whole object when you only want to change a character.
+
+## Font, size and alignment
+
+| Setting | Purpose | Check afterward |
+| --- | --- | --- |
+| Font | Change letterforms | Whether the system substitutes a font for some characters |
+| Font size | Change text size | Whether it obscures the image or wraps in a narrow area |
+| Bold / Italic | Emphasize words | Whether the emphasized text remains readable |
+| Text color | Change the letters themselves | Contrast against the background |
+| Left / Center / Right alignment | Arrange lines or a text block | Line edges and object placement |
+
+For specific text styles, switch to Text and select the target, or enter that text’s editing mode. With no target selected, settings apply to the next text object. Available fonts depend on the current computer and may differ on another device.
+
+## Backgrounds, borders and corners
+
+Text **fill color** adds a background, useful on a complex image; transparent fill preserves the image below. Fill style changes its interior pattern. **Text outline width and color** add a stroke around the letters, separate from the text-block background.
+
+Background, border and rounded-corner controls depend on the current text style. Enter a short explanation first, then adjust the background and boundaries. If the text is obscured, check foreground color, background color and stacking order rather than only increasing font size.
+
+## Move, resize and rotate
+
+To move text, press Esc to finish input, press V, and click empty canvas to deselect. Then press and drag the unselected text directly. If it is already selected, drag the blank margin or edge of its selection frame, avoiding the letters, corner resize handles and rotation handle.
+
+<GuideSteps title="Move text after finishing input" sourceLabel="In-app steps" frames={[
+  {src: '/images/guides/ann-text-move-app-before.webp', alt: 'Step 1 remains in its original position with text selection boundaries visible', label: 'Finish input and deselect', caption: 'Step 1 is still in its original position. Press Esc to finish input, press V, then click empty canvas to deselect.'},
+  {src: '/images/guides/ann-text-move-app-after.webp', alt: 'Step 1 has moved down and right while the rectangle and arrow stay in place', label: 'Drag the text directly', caption: 'Press and drag the unselected Step 1 text down and right in one gesture. The whole text object moves while the rectangle and arrow stay in place.'}
+]} />
+
+Clicking the contents of selected text re-enters input, where dragging selects characters. To resize or rotate, finish input and use the corresponding bounding-box handles.
+
+The canvas supports text associated with shapes or arrows. When the description should move with its object, move the body after creation and verify that the text follows. Independently placed text can still be moved together using multiselection.
+
+## Correct and export
+
+Re-enter editing to fix content; select and delete the object to remove the entire explanation. Undo accidental size changes, movement or deletion; Redo restores them. Copy to clipboard exports the whole composite image, unlike copying selected characters inside the input area.
+
+**Clicking opens another empty input area:** the existing text was missed. Leave input, choose Select elements and follow “select → click content.”
+
+**Dragging selects characters without moving the text:** clicking selected text re-entered input. Press Esc, then V, click empty canvas to deselect, and directly drag the unselected text. Use a corner handle for resizing.
+
+Related: [Speech bubbles](./speech-bubbles.mdx) · [Sequence numbers](./sequence.mdx) · [Element editing](./elements.mdx).

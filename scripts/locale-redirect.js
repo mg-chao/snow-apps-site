@@ -7,7 +7,7 @@
     window.dispatchEvent(
       new CustomEvent('snow-shot:locale-debug', {
         detail: {
-          revision: 'locale-debug-4',
+          revision: 'locale-auto-1',
           decision,
           ...details,
         },

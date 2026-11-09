@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="430" viewBox="0 0 760 430" role="img" aria-labelledby="title desc" font-family="system-ui,sans-serif">
+  <title id="title">自动滤镜填充区域的七种类别与立即应用方式</title>
+  <desc id="desc">操作示意。类别顺序为文本、框内文本、图像、头像、图标、消息框、文本块。单击一个类别即填充，再恢复入口文字。</desc>
+  <rect width="760" height="430" rx="12" fill="#f3f7fc" />
+  <g fill="#24384f">
+    <text x="24" y="35" font-size="25">填充区域：选择类别即应用</text>
+    <text x="24" y="65" font-size="18" fill="#536c86">检测完成且有可用区域后，打开分类入口</text>
+  </g>
+  <rect x="35" y="90" width="290" height="260" rx="8" fill="white" stroke="#b9cce0" />
+  <rect x="44" y="99" width="272" height="33" rx="4" fill="#d8eafb" />
+  <g fill="#24384f" font-size="22">
+    <text x="63" y="124" fill="#2877bd">文本</text>
+    <text x="63" y="160">框内文本</text>
+    <text x="63" y="196">图像</text>
+    <text x="63" y="232">头像</text>
+    <text x="63" y="268">图标</text>
+    <text x="63" y="304">消息框</text>
+    <text x="63" y="340">文本块</text>
+  </g>
+  <path d="M337 115 H400 V154 H433" fill="none" stroke="#2877bd" stroke-width="3" />
+  <path d="M422 147 L435 154 L422 161" fill="none" stroke="#2877bd" stroke-width="3" />
+  <rect x="450" y="132" width="248" height="47" rx="7" fill="white" stroke="#2877bd" />
+  <text x="510" y="163" font-size="23" fill="#2877bd">填充区域</text>
+  <g fill="#24384f" font-size="21">
+    <text x="373" y="221">单击类别，立即应用当前滤镜</text>
+    <text x="373" y="258">入口恢复“填充区域”文字</text>
+    <text x="373" y="295">需要另一类时，再打开选择</text>
+  </g>
+  <text x="24" y="380" font-size="18" fill="#536c86">单击一个类别，将滤镜应用到对应区域。</text>
+  <text x="24" y="412" font-size="15" fill="#536c86">操作示意；控件布局为流程示意</text>
+</svg>

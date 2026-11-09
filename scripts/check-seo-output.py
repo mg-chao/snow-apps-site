@@ -7,7 +7,7 @@ import sys
 import xml.etree.ElementTree as ET
 
 ORIGIN = 'https://snowshot.top'
-REPOSITORY = 'https://github.com/mg-chao/snow-apps'
+REPOSITORY = 'https://github.com/mg-chao/snow-shot'
 
 
 class Page(HTMLParser):

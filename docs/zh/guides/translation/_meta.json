@@ -1,0 +1,22 @@
+[
+  {
+    "type": "file",
+    "name": "screenshot",
+    "label": "截图翻译与原图翻译"
+  },
+  {
+    "type": "file",
+    "name": "text",
+    "label": "文本翻译"
+  },
+  {
+    "type": "file",
+    "name": "selected-text",
+    "label": "划词翻译"
+  },
+  {
+    "type": "file",
+    "name": "services",
+    "label": "翻译服务与自定义模型"
+  }
+]

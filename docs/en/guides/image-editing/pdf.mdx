@@ -1,0 +1,68 @@
+---
+title: Images to PDF and paper layout
+description: Switch image stitching to PDF output, arrange pages or templates, configure paper, orientation, margins, and spacing, transform images within cells, and export combined or separate pages with progress and failure checks.
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Images to PDF and paper layout
+
+PDF output arranges images on paper for card fronts and backs, scanned material, and printable screenshots. Snow Shot exports PDFs through **Image stitching**; it does not edit arbitrary existing PDF text.
+
+## Enter PDF mode from images
+
+1. Open **Image stitching** through the main-window **Stitch selected images** action. Click **Add images** or drag in sources and wait for loading.
+2. Change **Image type** from Static image to **PDF document**. Preview and settings switch to paper layout.
+3. Choose a **Stitching method**: page-based or template stitching.
+4. Set paper size, orientation, and margins. Check page count and image placement.
+5. Choose an export mode, click Save, select a PDF path or destination folder as prompted, and wait.
+
+<GuideSteps title="Arrange images as a PDF" frames={[
+  {src: '/images/guides/en/img-pdf-1.svg', alt: 'Switch output to PDF document', label: 'Choose PDF output', caption: 'Change Image type to PDF document.'},
+  {src: '/images/guides/en/img-pdf-2.svg', alt: 'Choose a template and arrange images', label: 'Arrange a template', caption: 'Select a layout and inspect image placement.'},
+  {src: '/images/guides/en/img-pdf-3.svg', alt: 'Set paper and export a combined PDF', label: 'Set paper and export', caption: 'Check paper settings, then export the complete document.'}
+]} />
+
+
+## Page-based and template stitching
+
+**Page-based stitching** arranges sources in image order on individual pages. Check page thumbnails and reorder sources if needed.
+
+**Template stitching** places multiple images in cells on one page. Templates include two through nine images and **ID card**. A template defines cells; check each image's orientation and visible range.
+
+For front and back card images, confirm their order before choosing ID card. Adjust position and scale within cells if sources contain blank borders.
+
+![Separate pages place card sides on different sheets, while the ID-card template arranges two card areas on one sheet](/images/guides/en/img-audit-pdf-layout.svg)
+
+*Instructional illustration. Card areas preserve a specific aspect ratio within paper and cell limits; this does not guarantee life-size printing.*
+
+## Paper, orientation, and margins
+
+Paper options include A3, A4, A5, B5, Letter, Legal, Custom, and Image size in applicable modes. **Custom paper** accepts width and height. **Portrait / Landscape** changes orientation, and **Margins** sets whitespace around paper edges.
+
+Dimensions and margins use millimeters. Excessive margins can leave insufficient placement space. Resolve field errors before checking the preview. Image size generates pages from image dimensions and does not follow ordinary paper-margin and orientation assumptions.
+
+Template mode also provides **Image spacing**. It separates images within the layout; margins separate content from paper edges.
+
+## Adjust images on a page
+
+Select a preview image to move or scale it, rotate clockwise or counterclockwise by 90°, flip horizontally or vertically, or reset transforms. Enlarged parts outside the current cell are clipped. Check text and card edges remain visible.
+
+Rotation corrects orientation; flipping mirrors text and can be inappropriate for documents. After each transform, check other pages or cells to ensure you did not change the wrong source through an order or selection mistake.
+
+<GuideSteps title="Images and PDF cell boundaries" frames={[
+  {src: '/images/guides/en/img-audit-pdf-transform-1.svg', alt: 'Select an image on a template page and inspect its handles', label: 'Select one image', caption: 'Click the target and confirm handles and selection bounds.'},
+  {src: '/images/guides/en/img-audit-pdf-transform-2.svg', alt: 'Scale from the center and inspect clipping at cell edges', label: 'Scale and inspect clipping', caption: 'Drag a handle to scale around the center. Content beyond the cell provides context but is not all exported.'},
+  {src: '/images/guides/en/img-audit-pdf-transform-3.svg', alt: 'Correct orientation and check text and edges again', label: 'Recheck orientation', caption: 'After rotating or flipping, inspect edges and text; reset the image if needed.'}
+]} />
+
+## Combined or separate-page export
+
+- **Combined export** writes every page into one PDF for continuous material.
+- **Export each page** writes a separate PDF per page and asks for a folder, suitable for independent distribution.
+
+Export shows page counts and progress. To stop, click Cancel and wait for “Canceling export” to finish. Check saved files and missing pages; existing partial files are not a complete document.
+
+For failure, keep the layout window, check the destination, free disk space, and error message, then retry. For partial success, inspect existing files first. Reopen the finished PDF and check page order, orientation, edges, and small text.
+
+Related: [Image collage](./collage.mdx), [Image splitting](./split.mdx), and [Copying and saving](../output/copy-save.md).

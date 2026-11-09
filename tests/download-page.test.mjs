@@ -65,6 +65,14 @@ describe('Snow Shot Mini downloads', () => {
   for (const locale of ['en', 'zh']) {
     const host = locale === 'zh' ? 'gitee.com' : 'github.com';
 
+    it(`offers release notes in the same language before downloading in ${locale}`, () => {
+      for (const platform of ['windows', 'macos']) {
+        const html = render(locale, platform);
+        const href = locale === 'zh' ? '/zh/changelog.html' : '/changelog.html';
+        assert.ok(html.includes(`href="${href}"`));
+      }
+    });
+
     it(`renders both Windows Mini packages and all full packages in ${locale}`, () => {
       const html = render(locale, 'windows');
       assert.equal((html.match(/class="snow-download-card /g) ?? []).length, 4);
@@ -82,7 +90,7 @@ describe('Snow Shot Mini downloads', () => {
         assert.equal(url.hostname, host);
         assert.equal(
           url.pathname,
-          `/mg-chao/snow-apps/releases/download/v${releaseVersion}_snow-shot/${releaseAssets[asset]}`,
+          `/mg-chao/${locale === 'zh' ? 'snow-apps' : 'snow-shot'}/releases/download/v${releaseVersion}_snow-shot/${releaseAssets[asset]}`,
         );
       }
       assert.ok(!html.includes('-macos-arm64.dmg'));
@@ -288,7 +296,7 @@ describe('macOS terminal installation', () => {
       assert.equal(new URL(scriptUrl).hostname, host);
       assert.equal(
         new URL(scriptUrl).pathname,
-        `/mg-chao/snow-apps/releases/download/v${releaseVersion}_snow-shot/install-snow-shot-macos.sh`,
+        `/mg-chao/${locale === 'zh' ? 'snow-apps' : 'snow-shot'}/releases/download/v${releaseVersion}_snow-shot/install-snow-shot-macos.sh`,
       );
       assert.ok(html.includes(`href="${scriptUrl}"`));
       assert.ok(html.includes('class="snow-macos-install"'));

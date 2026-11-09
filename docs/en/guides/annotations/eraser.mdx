@@ -1,0 +1,65 @@
+---
+title: "Element, rectangle and brush erasers"
+description: "Delete whole annotations or restore the background within rectangle or brush ranges, set brush width, undo accidental erasure and distinguish source pixels from editable annotations."
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Element, rectangle and brush erasers
+
+Erasers clean up annotations. Decide whether to remove an entire element or restore only a local area, then choose a mode in **Eraser**.
+
+## Remove a whole incorrect annotation
+
+1. Open **Eraser** in the screenshot toolbar and choose **Element eraser**.
+2. Move over the incorrect line, shape or text and press the left mouse button. Hold and drag across several annotations to remove the objects you hit.
+3. Release, then check whether neighboring annotations were also removed.
+4. Use **Undo** to restore objects removed by the last erasing gesture, then try a narrower gesture.
+
+Element eraser deletes objects. Hitting a small part of a stroke can remove the entire stroke. Use Brush or Rectangle eraser when you want to preserve the rest.
+
+<GuideSteps title="Element, rectangle and brush erasers" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-eraser-1.svg",
+    "alt": "Element eraser removes a whole stroke",
+    "label": "Element eraser removes a whole stroke",
+    "caption": "Element eraser removes a whole stroke"
+  },
+  {
+    "src": "/images/guides/en/ann-eraser-2.svg",
+    "alt": "Restore the background in a rectangle",
+    "label": "Restore the background in a rectangle",
+    "caption": "Restore the background in a rectangle"
+  },
+  {
+    "src": "/images/guides/en/ann-eraser-3.svg",
+    "alt": "Restore a small area with a narrow brush",
+    "label": "Restore a small area with a narrow brush",
+    "caption": "Restore a small area with a narrow brush"
+  }
+]} />
+
+## Restore a rectangular area
+
+Choose **Rectangle eraser** and drag from one corner to the opposite corner. On release, the annotated area within the rectangle returns to the background. This suits a horizontal explanation or annotations in a larger area.
+
+This restores background beneath current annotations. It does not understand and remove buttons, text or people contained in the original screenshot. To change source-image content, see [Filters and Smart erase](./filters.mdx).
+
+## Erase locally with a brush
+
+1. Choose **Brush eraser** and set its width, starting narrow.
+2. Hold the left mouse button and trace the area to restore. Annotations under the brush are erased locally.
+3. Release to finish the stroke, inspect what remains and add another stroke for missed areas.
+4. If too much was erased, undo, reduce width and try again.
+
+Width determines the area affected in each pass. Canvas zoom helps inspect edges; it does not change the configured eraser width or turn it into another tool.
+
+## Continue editing after erasing
+
+Use Undo first when you want to remove a background-restoration range or reverse erasure, rather than covering it again and creating more layers. Element deletion and local restoration behave differently; check the mode before continuing.
+
+**Original text cannot be erased:** it belongs to source pixels. Element eraser targets editable elements. Use filters, Smart erase or a solid-filled shape instead.
+
+**An entire line disappears:** Element eraser is active. Undo and use Brush eraser for local cleanup.
+
+Deselect, inspect the restored area and copy or save the image. Related: [Brush](./brush.mdx) · [Filters](./filters.mdx) · [Element editing](./elements.mdx).

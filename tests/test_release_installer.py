@@ -18,9 +18,10 @@ spec.loader.exec_module(website)
 VERSION = "1.2.3"
 SCRIPT = b"#!/bin/bash\nset -Eeuo pipefail\nprintf '%s\\n' 'Snow Shot installer'\n"
 URLS = [
-    f"https://{host}/mg-chao/snow-apps/releases/download/"
+    f"{repository}/releases/download/"
     f"v{VERSION}_snow-shot/install-snow-shot-macos.sh"
-    for host in ("github.com", "gitee.com")
+    for repository in ("https://github.com/mg-chao/snow-shot",
+                       "https://gitee.com/mg-chao/snow-apps")
 ]
 
 

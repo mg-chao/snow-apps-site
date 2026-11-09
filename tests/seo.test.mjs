@@ -11,6 +11,29 @@ import {
   canonicalUrl,
   defaultLanguageUrl,
 } from '../theme/seo.ts';
+import { afterSearch, guideSearchHref } from '../theme/guide-search.ts';
+
+it('keeps guide search results directly addressable while preserving sections and ranking', () => {
+  assert.equal(
+    guideSearchHref('/zh/guides/annotations/distance#scale'),
+    '/zh/guides/annotations/distance.html#scale',
+  );
+  assert.equal(guideSearchHref('/zh/guides/'), '/zh/guides/index.html');
+  assert.equal(guideSearchHref('/zh/download'), '/zh/download');
+  const result = [
+    {
+      group: 'title',
+      result: [{ link: '/zh/guides/annotations/distance', title: 'Distance' }],
+    },
+  ];
+  assert.equal(afterSearch('distance', result), undefined);
+  assert.equal(result.length, 1);
+  assert.equal(
+    result[0].result[0].link,
+    '/zh/guides/annotations/distance.html',
+  );
+  assert.equal(result[0].result[0].title, 'Distance');
+});
 
 it('consolidates homepage, directory and download variants without query parameters', () => {
   for (const path of ['/', '/index', '/index.html']) {
@@ -35,6 +58,14 @@ it('consolidates homepage, directory and download variants without query paramet
     defaultLanguageUrl('/zh/guides/index.html'),
     'https://snowshot.top/guides/index.html',
   );
+  assert.equal(
+    defaultLanguageUrl('/zh/guides/annotations/arrows.html'),
+    'https://snowshot.top/guides/annotations/arrows.html',
+  );
+  assert.equal(
+    defaultLanguageUrl('/zh/download.html'),
+    'https://snowshot.top/download.html',
+  );
 });
 
 it('redirects every configured alias to its canonical route while retaining download parameters', () => {
@@ -47,7 +78,7 @@ it('redirects every configured alias to its canonical route while retaining down
       /location = (\S+) \{ return 301 (\S+)\$is_args\$args; \}/g,
     ),
   ];
-  assert.equal(rules.length, 27);
+  assert.equal(rules.length, 31);
   for (const [, alias, destination] of rules) {
     assert.equal(destination, canonicalUrl(alias));
     assert.notEqual(
@@ -57,6 +88,21 @@ it('redirects every configured alias to its canonical route while retaining down
     );
     assert.ok(!/api|setup|npm|plugins/.test(alias));
   }
+});
+
+it('consolidates changelog aliases and release fragments in both languages', () => {
+  for (const prefix of ['', '/zh']) {
+    for (const suffix of ['', '/', '.html', '.html#v1-5-2']) {
+      assert.equal(
+        canonicalUrl(`${prefix}/changelog${suffix}`),
+        `https://snowshot.top${prefix}/changelog.html`,
+      );
+    }
+  }
+  assert.equal(
+    defaultLanguageUrl('/zh/changelog.html#v1-5-2'),
+    'https://snowshot.top/changelog.html',
+  );
 });
 
 it('emits a unique sitemap of canonical pages excluding errors', () => {
@@ -76,7 +122,7 @@ it('emits a unique sitemap of canonical pages excluding errors', () => {
 it('identifies the official application and repository without invented ratings', () => {
   for (const locale of ['en', 'zh']) {
     const data = applicationSchema(locale);
-    assert.equal(data.sameAs, 'https://github.com/mg-chao/snow-apps');
+    assert.equal(data.sameAs, 'https://github.com/mg-chao/snow-shot');
     assert.equal(data.offers.price, '0');
     assert.ok(!('aggregateRating' in data));
     assert.ok(
@@ -93,7 +139,7 @@ it('refuses empty, invalid-key or unowned-host IndexNow submissions', () => {
   assert.throws(() => indexNowPayload(sitemap, 'bad'), /key/);
   assert.throws(
     () =>
-      indexNowPayload('<loc>https://github.com/mg-chao/snow-apps</loc>', key),
+      indexNowPayload('<loc>https://github.com/mg-chao/snow-shot</loc>', key),
     /canonical/,
   );
   assert.throws(

@@ -1,0 +1,59 @@
+---
+title: "Annotation templates"
+description: "Save selected annotations as reusable templates, name and search them, insert and edit instances in another image, and manage templates you no longer need."
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Annotation templates
+
+Annotation templates save groups of editable elements for repeated arrow explanations, step layouts and consistent callouts. They store annotation combinations. For tiled text templates, see [Watermarks](./watermark.mdx).
+
+## Create a template from selected annotations
+
+1. Finish a group of annotations in a screenshot or image-editing canvas and check its text, colors and stacking.
+2. Switch to **Select elements**. Marquee-select objects or Shift-click them individually; exclude temporary marks you do not need.
+3. Open **Annotation templates** in the selection toolbar and click **Add template**.
+4. Enter a descriptive name, such as “Blue bidirectional dimension callout,” and click **Add**. The name must not be empty. A saved template appears in the list.
+5. If the app cannot capture the selected elements, close the dialog, confirm that editable objects are selected and try again.
+
+<GuideSteps title="Annotation templates" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-templates-1.svg",
+    "alt": "Select reusable annotations",
+    "label": "Select reusable annotations",
+    "caption": "Select reusable annotations"
+  },
+  {
+    "src": "/images/guides/en/ann-templates-2.svg",
+    "alt": "Name and save the template",
+    "label": "Name and save the template",
+    "caption": "Name and save the template"
+  },
+  {
+    "src": "/images/guides/en/ann-templates-3.svg",
+    "alt": "Insert a template, then move it",
+    "label": "Insert a template, then move it",
+    "caption": "Insert a template, then move it"
+  }
+]} />
+
+## Use it on another image
+
+Open another screenshot or image, choose Select elements and open the annotation-template dropdown. Search by name and choose a template. It inserts immediately at the current selection or canvas center as editable objects. Check its initial position, then drag it to the target.
+
+Select the inserted group, move it into place and scale it for the new image. Edit its text and arrow targets individually. Reusing a template does not replace content checking: old text and directions may not fit the new image.
+
+If a template is missing, clear the search first. “No matching templates” usually means the filter has no matches; “No templates yet” means you need to create one.
+
+## Edit instances and manage templates
+
+Inserted objects are editable like ordinary annotations; see [Element editing](./elements.mdx). To create another reusable variant, edit the group, select it again and save under a distinct name.
+
+To delete a template, choose its delete action in the list, check the name and confirm. The prompt warns that deletion cannot be undone; canvas Undo is not a template-library recovery tool. An existing canvas instance and its library template are separate targets, so check which one you are changing.
+
+## Check before saving
+
+Include only necessary elements, reusable text and correct stacking. A template is not screenshot history and does not guarantee inclusion of the background picture. Save a file for a complete finished image.
+
+If saving fails, keep the canvas open, check the name and selected objects, then retry. Related: [Element editing](./elements.mdx) · [Text](./text.mdx) · [Watermark templates](./watermark.mdx).

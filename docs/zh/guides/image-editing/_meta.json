@@ -1,0 +1,27 @@
+[
+  {
+    "type": "file",
+    "name": "editor",
+    "label": "打开图片与裁剪行列"
+  },
+  {
+    "type": "file",
+    "name": "collage",
+    "label": "图片拼接与排版"
+  },
+  {
+    "type": "file",
+    "name": "split",
+    "label": "图片分割与手动切线"
+  },
+  {
+    "type": "file",
+    "name": "pdf",
+    "label": "图片转 PDF 与纸张排版"
+  },
+  {
+    "type": "file",
+    "name": "canvas",
+    "label": "全屏画布与激光笔"
+  }
+]

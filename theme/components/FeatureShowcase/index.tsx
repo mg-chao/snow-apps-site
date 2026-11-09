@@ -1,4 +1,3 @@
-import { repositoryUrl } from '../../seo';
 import { AnnotationDemo, RegionSelectionDemo } from './CaptureDemos';
 import { HistoryDemo, PinDemo } from './LibraryDemos';
 import {
@@ -38,7 +37,7 @@ function FeatureCopy({
       <p>{description}</p>
       <a
         className="snow-text-link"
-        href={`${repositoryUrl}/blob/main/docs/guide/${isZh ? 'zh-CN/' : ''}${guide}.md`}
+        href={`${isZh ? '/zh' : ''}/guides/${guide}.html`}
       >
         {isZh ? '阅读官方使用指南' : 'Read the official guide'}
         <span aria-hidden="true">↗</span>
@@ -95,7 +94,7 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
               ? '拖出一个选区，调整边界，工具栏随之出现。画面之外淡去，重点自然留下。'
               : 'Draw a selection, fine-tune its edges, and bring up your tools. The rest fades away so your subject stands out.'
           }
-          guide="getting-started"
+          guide="capture/basics"
         />
         <RegionSelectionDemo isZh={isZh} />
       </article>
@@ -116,7 +115,7 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
               ? '用箭头指向问题，用矩形框出范围，用高亮留下重点。选一个工具，在截图上画出来。'
               : 'Point with an arrow, frame a detail, or highlight a line. Pick a tool and draw directly on the capture.'
           }
-          guide="getting-started"
+          guide="annotations/basics"
         />
         <AnnotationDemo isZh={isZh} />
       </article>
@@ -137,7 +136,7 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
               ? '从定位文字到逐行识别，原图与结果并排呈现。识别出的文字可选取、可复制。Snow Shot 支持本地文本识别。'
               : 'Locate the text, recognize each line, and compare it with the original. Select or copy the result. Snow Shot supports local text recognition.'
           }
-          guide="offline-ocr"
+          guide="recognition/text"
         />
         <TextRecognitionDemo isZh={isZh} />
       </article>
@@ -154,7 +153,7 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
               ? '表格保留行列，公式转为 LaTeX，二维码还原内容，文档变为 Markdown。切换样例，看见不同的输入与结果。'
               : 'Keep table rows and columns, turn formulas into LaTeX, decode QR codes, and convert documents to Markdown. Try each sample and inspect its output.'
           }
-          guide="offline-ocr"
+          guide="recognition/table"
         />
         <DocumentRecognitionDemo isZh={isZh} />
         <p className="snow-showcase-note">
@@ -177,7 +176,7 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
                 ? '把截图固定在窗口之上，一边参考，一边工作。拖动它，或调整透明度，让视线留在重要的地方。'
                 : 'Float a capture above your windows while you work. Move it or adjust its opacity to keep your reference close.'
             }
-            guide="pin-and-record"
+            guide="pinning/image"
           />
           <PinDemo isZh={isZh} />
         </article>
@@ -194,7 +193,7 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
                 ? '选择范围，开始录制。暂停时画面与计时一起停下，结束后回看刚才录下的过程。'
                 : 'Choose a region and start recording. Pause the scene and timer together, then stop and review what you captured.'
             }
-            guide="pin-and-record"
+            guide="recording/start"
           />
           <ScreenRecordingDemo isZh={isZh} />
         </article>
@@ -216,7 +215,7 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
               ? '刚才的评审截图、表格与文字素材都在这里。按来源筛选，选中缩略图，打开大图继续查看。'
               : 'Your review capture, table and text sample are here. Filter by source, select a thumbnail and open it for a closer look.'
           }
-          guide="getting-started"
+          guide="output/history"
         />
         <HistoryDemo isZh={isZh} />
       </article>

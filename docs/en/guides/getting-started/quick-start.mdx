@@ -1,0 +1,53 @@
+---
+title: Take your first screenshot
+description: Select an area in Snow Shot, add an arrow and text, correct annotations, then copy, save, or pin the result to complete your first screenshot task.
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Take your first screenshot
+
+Open the app you want to capture and show the entire target content. Practice with non-private text or a webpage. On Mac, complete [permission setup](./permissions.md) before the first capture.
+
+![Snow Shot main window on macOS, with screenshot actions on the Global shortcuts page](/images/guides/start-main-interface-macos.webp)
+
+*The image shows this computer's shortcut configuration. Use your own settings for customized bindings.*
+
+## Select the content to retain
+
+1. Start Snow Shot and press the capture shortcut: fresh defaults are Windows **F1** and macOS **Control+1**. Capture mode opens with magnified color and coordinate information near the pointer. Some Windows keyboards need **Fn+F1**. For customized bindings, use the value shown under **Global shortcuts** in the main window.
+2. Place the pointer at the target area's upper-left corner. Hold the left button, drag to the lower-right corner, and release. The bright area is the retained selection; the capture toolbar appears beside it.
+3. If the area is wrong, switch to **Move**, drag inside to reposition, or drag a border/corner to resize. Click the selection's dimension numbers to enter exact dimensions; see [precise selection](../capture/precise-selection.md).
+
+<GuideSteps title="From selecting an area to the capture toolbar" frames={[
+  {src:'/images/guides/en/cap-basics-1.svg',alt:'Target window and surrounding content before selecting a capture area',label:'Locate the target',caption:'Display all content you need before starting the screenshot.'},
+  {src:'/images/guides/en/cap-basics-2.svg',alt:'Dragging from selection upper-left point 1 to lower-right point 2',label:'Drag the selection',caption:'Hold the left button and drag from start to end while checking the boundary.'},
+  {src:'/images/guides/en/cap-basics-3.svg',alt:'Selection and capture toolbar appear after releasing the mouse',label:'Check the area',caption:'Release the left button, check the selection and toolbar, then add annotations.'},
+]} />
+
+## Add explanations and make corrections
+
+1. Click **Arrow** on the capture toolbar and choose **Straight arrow** in the style bar. Drag from the explanation toward the target; release to keep the arrow on the canvas.
+2. Click **Text**, click its position in the image, type a short explanation, and press **Esc** to finish typing. The text stays on the image; you can now switch tools to continue annotating.
+3. Click **Undo** for a mistake. To move an annotation, switch to **Select elements**, click the object, and drag after its control points appear. Moving a selection and moving an annotation use different tools.
+
+See [arrows](../annotations/arrows.mdx) for curvature, endpoint symbols, and later editing, or [text annotations](../annotations/text.mdx) for font size, stroke, and layout.
+
+## Choose where the result goes
+
+| Goal | Toolbar action | Check afterwards |
+| --- | --- | --- |
+| Send to a chat or document | **Copy to clipboard**, then paste in the destination app | The pasted image includes annotations within the selection. |
+| Keep a local file | **Save as file**, choose path and format, then save | Open the file and inspect its content and edges. |
+| Keep a desktop reference | **Pin to screen** | The image floats above other windows. |
+| Discard this attempt | **Cancel screenshot** or Esc | Capture closes without exporting this result. |
+
+For selecting and copying directly, use the global **Copy to clipboard** action: fresh defaults are Windows **Ctrl+F1** and macOS **Control+2**. It copies after selection confirmation, unlike the ordinary screenshot workflow with its full editing toolbar.
+
+## First-use troubleshooting order
+
+If the shortcut does nothing, confirm Snow Shot is running, then check Fn, conflicts, and global-shortcut state. If capture opens but the image is wrong, check screen-recording permission on Mac. On Windows, inspect the capture method in screenshot settings; see [basic capture](../capture/basics.mdx).
+
+Retrieve an earlier capture from [screenshot history](../output/history.md). History and exported files are independent: deleting an exported image does not clear its history record.
+
+Choose your next task: [scrolling screenshots](../capture/scrolling.mdx) · [recognize image text](../recognition/text.md) · [desktop pinning](../pinning/image.md) · [screen recording](../recording/start.mdx).

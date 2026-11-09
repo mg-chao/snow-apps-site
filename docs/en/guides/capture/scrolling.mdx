@@ -1,0 +1,70 @@
+---
+title: Scrolling capture and stitching checks
+description: Select scrolling content in Snow Shot, capture manually or automatically in either direction, adjust intervals, inspect stitching, drag trim boundaries and copy, save, edit or split the result while resolving missing or repeated content.
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Scrolling capture and stitching checks
+
+Scrolling capture repeatedly captures the target app and stitches overlapping content. It suits webpages, chats and wide tables. Let the page settle, scroll to the desired starting point and close overlays that would cover the content.
+
+## Select the content and start
+
+1. Use the screenshot shortcut (**F1** on Windows or **Control+1** on macOS by default). Select only content that changes while scrolling. Exclude fixed headers, chat inputs, sidebars and scrollbars where possible.
+2. Click **Scrolling screenshot** in the screenshot toolbar; its default local shortcut is **L**. The region enters scrolling capture, with a stitching preview and controls beside it.
+3. Choose **Vertical scrolling** or **Horizontal scrolling**. Try a short manual scroll to confirm the correct panel. Changing direction rebuilds stitching for that direction, so choose before continuous capture.
+4. Keep the pointer in the content region and scroll smoothly, retaining overlap between frames. The preview should grow with new content. Scroll back to inspect earlier content and check that the preview does not duplicate it.
+
+<GuideSteps title="Scroll, inspect, trim and export" frames={[
+ {src:'/images/guides/en/cap-scrolling-1.svg',alt:'A region limited to scrolling content beside a stitching preview',label:'Select the content',caption:'Exclude fixed headers and input fields before entering scrolling capture.'},
+ {src:'/images/guides/en/cap-scrolling-2.svg',alt:'New text joins the stitching preview after scrolling',label:'Scroll and inspect',caption:'Use small overlapping scrolls and inspect preview growth and seams.'},
+ {src:'/images/guides/en/cap-scrolling-3.svg',alt:'Trimming the start and end using preview boundaries',label:'Trim the result',caption:'Stop automatic scrolling and drag preview boundaries to retain the needed content.'},
+ {src:'/images/guides/en/cap-scrolling-4.svg',alt:'Exported long image inspected at top, middle and bottom',label:'Export and check',caption:'Copy or save, then examine the top, middle and bottom of the full image.'},
+]} />
+
+## Manual, automatic and horizontal scrolling
+
+In manual mode, you control the target app's wheel or scrollbar. Horizontal content requires an input that actually scrolls that panel horizontally. If the wrong panel moves, pause, return the pointer to the correct region and try a small scroll.
+
+Toggle **Auto-scroll** to send scroll input in the selected direction. Click again to stop input while keeping the stitched result for inspection or continuation. **Auto-scroll interval** accepts **128–1000 ms**. Larger intervals allow more time for updates; smaller intervals send input more often. Click the value to reset to **200 ms**. Try the default first and increase it for slower content.
+
+Automatic scrolling does not guarantee that the target app accepted the input. If the preview does not grow, check whether the panel can scroll manually, whether it reached the end and whether an overlay intercepts input. An enabled automatic toggle alone does not establish a complete image.
+
+## Inspect stitching and trim the ends
+
+Hover over a section of the thumbnail preview to examine its detail. When a long preview has a scrollbar, scroll inside it to browse captured content. This differs from scrolling in the original content region to capture new content.
+
+To remove the beginning or end, stop automatic scrolling and point at a trim boundary in the preview. When the resize pointer appears, hold the left button and drag. Vertical captures use top/bottom boundaries; horizontal captures use left/right. Nearby content is shown during the drag. Release to retain the chosen interval. To restore content while the result remains available, drag a boundary outward rather than immediately restarting the capture.
+
+The **Move selection horizontally (press and hold to drag)** and **Move selection vertically (press and hold to drag)** controls adjust the capture region along a specified axis. Stop automatic scrolling before adjusting so movement does not obscure stitching changes. For major region or direction changes, prepare the content and start a new capture to make the result easier to check.
+
+## Finish and obtain the long image
+
+Stop automatic scrolling and browse the entire preview. Confirm there are no missing lines, duplicates or moving overlays, then choose the destination:
+
+| Action | Result |
+| --- | --- |
+| **Copy to clipboard** | The stitched and trimmed image, ready to paste elsewhere |
+| **Save as file** | Choose a location and format, then open the file to inspect full dimensions |
+| **Pin to screen** | A desktop pin for continued viewing |
+| **Image editing** | Opens the stitched result in an editor for annotation and processing |
+| **Image splitting** | Divides the long image into sections for sharing or layout |
+| Close / Esc | Abandons the current capture workflow |
+
+See [image editing](../image-editing/editor.mdx) and [splitting](../image-editing/split.mdx). The scrolling setting **Capture UI during scrolling screenshots** determines whether application UI can participate in the captured image. Confirm the dialog after changing it. If a toolbar appears in output, inspect this option and the region position.
+
+## Incorrect stitching
+
+| Symptom | Cause and remedy |
+| --- | --- |
+| Repeated header or input field | The region includes fixed content; select only the scrolling body |
+| Missing or misaligned lines | Insufficient overlap; slow down or increase the automatic interval |
+| The same line repeats | Changing content, animation or repeated textures can confuse matching; compare a shorter section |
+| No new content | Check the scroll target, end position and response to input |
+| Layout jumps when images load | Let images and asynchronous content finish, then return to the start and retry |
+| A long preview is difficult to verify | Browse section by section, especially seams, then consider splitting |
+
+Keep window size, page zoom and display configuration stable during capture. Virtual lists replace visible content, and video continually changes pixels. If capture remains unstable, take shorter sections rather than treating an unchecked preview as a complete record.
+
+Next: [Text recognition](../recognition/text.md) · [Splitting long images](../image-editing/split.mdx) · [Saving formats and locations](../output/copy-save.md).

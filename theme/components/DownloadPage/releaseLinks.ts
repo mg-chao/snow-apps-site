@@ -1,5 +1,5 @@
 const giteeRepository = 'https://gitee.com/mg-chao/snow-apps';
-const githubRepository = 'https://github.com/mg-chao/snow-apps';
+const githubRepository = 'https://github.com/mg-chao/snow-shot';
 
 export const giteeReleases = `${giteeRepository}/releases/latest`;
 export const githubReleases = `${githubRepository}/releases/latest`;

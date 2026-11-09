@@ -1,0 +1,67 @@
+[
+  {
+    "type": "file",
+    "name": "index",
+    "label": "User manual · Find a task"
+  },
+  {
+    "type": "dir",
+    "name": "getting-started",
+    "label": "Getting started",
+    "collapsed": false
+  },
+  {
+    "type": "dir",
+    "name": "capture",
+    "label": "Screenshots and selections",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "annotations",
+    "label": "Drawing and annotations",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "image-editing",
+    "label": "Image processing",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "recognition",
+    "label": "Recognition and conversion",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "translation",
+    "label": "Translation",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "pinning",
+    "label": "Desktop pinning",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "recording",
+    "label": "Screen recording",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "output",
+    "label": "Saving and management",
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "settings",
+    "label": "Settings and integrations",
+    "collapsed": true
+  }
+]

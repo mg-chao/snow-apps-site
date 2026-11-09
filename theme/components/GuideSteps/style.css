@@ -1,0 +1,63 @@
+.snow-guide-steps {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 1px solid var(--rp-c-divider);
+  border-radius: 14px;
+  background: var(--rp-c-bg-soft);
+}
+.snow-guide-steps figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+.snow-guide-steps figcaption span {
+  color: var(--rp-c-text-2);
+  font-size: 0.85rem;
+}
+.snow-guide-steps img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.snow-guide-steps__controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.snow-guide-steps button {
+  color: var(--rp-c-text-1);
+  border: 1px solid var(--rp-c-divider);
+  background: var(--rp-c-bg);
+  border-radius: 6px;
+  padding: 0.35rem 0.65rem;
+  cursor: pointer;
+}
+.snow-guide-steps button:focus-visible {
+  outline: 3px solid var(--rp-c-brand);
+  outline-offset: 2px;
+}
+.snow-guide-steps button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.snow-guide-steps__transcript {
+  font-size: 0.9rem;
+}
+.snow-guide-steps__transcript button {
+  padding: 0.1rem 0.4rem;
+}
+.snow-guide-steps [aria-current="step"] {
+  border-color: var(--rp-c-brand);
+  color: var(--rp-c-brand);
+}
+/* Frames change discretely, without interpolation or automatic playback. */
+@media (prefers-reduced-motion: reduce) {
+  .snow-guide-steps *,
+  .snow-guide-steps *::before {
+    animation: none;
+    transition: none;
+  }
+}

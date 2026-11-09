@@ -1,0 +1,67 @@
+---
+title: Region, window and control capture
+description: Select rectangular areas in Snow Shot, detect window or child-control bounds, move and resize selections, select a display, and copy, save, refresh or cancel a capture, with troubleshooting for selection and display problems.
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Region, window and control capture
+
+Use the ordinary **Screenshot** action when you want to annotate before exporting. To immediately capture an entire window or the current display, use [direct capture](./modes.md). The keys below are defaults; if you have customized them, follow [Application shortcuts](../settings/shortcuts.mdx).
+
+## Start with a region capture
+
+1. Display all the content you need, then press the screenshot shortcut: **F1** on Windows or **Control+1** on macOS in a new configuration. The capture interface freezes the current screen, and selection and color hints follow the pointer.
+2. Hold the left mouse button at one corner and drag to the opposite corner. Watch the dimensions and bright region as you drag. Release to confirm the region and reveal the screenshot toolbar.
+3. To reposition it, switch to **Move** and drag inside the selection. To resize it, drag an edge or corner. Dragging the canvas while an arrow or text tool is active does not perform the same selection move.
+4. Check that the edges do not cut off text, then use **Copy to clipboard** or **Save as file**. Paste the copied image into your destination app, or open the saved file to check it.
+
+<GuideSteps title="Create and confirm a rectangular selection" frames={[
+  {src:'/images/guides/en/cap-basics-1.svg',alt:'Target app and the area to capture',label:'Prepare the content',caption:'Display the target and press the screenshot shortcut: F1 on Windows or Control+1 on macOS.'},
+  {src:'/images/guides/en/cap-basics-2.svg',alt:'Selection start point 1, endpoint 2 and drag direction',label:'Hold and drag',caption:'Hold the left button and drag between opposite corners, watching the bright preview.'},
+  {src:'/images/guides/en/cap-basics-3.svg',alt:'Confirmed region with a toolbar for annotation and export',label:'Release and inspect',caption:'Use the toolbar after releasing. Edges and corners remain adjustable.'},
+]} />
+
+## Select a window or a control inside it
+
+With smart selection enabled, start a capture and move the pointer over the target window. Inspect the candidate border, then click when it covers the right content. To target a button, panel or other child element, use **Tab** by default to switch between window and child-element targets. Inspect the border before clicking.
+
+Smart selection depends on the window and control information exposed by the target app. It cannot subdivide every screen into individual buttons. If the candidate is wrong, drag out a manual selection instead of repeatedly accepting it.
+
+To select a whole display, keep **Move** active without dragging and press the system Select All keys: **Ctrl+A** on Windows or **Command+A** on Mac. The first press selects the display under the pointer. If the confirmed selection already covers an entire display, another press expands it to the whole multi-display desktop. You can still annotate and export; this differs from the Current monitor action, which skips editing.
+
+## Refine, reselect or refresh
+
+| Task | Where and when to act | Result |
+| --- | --- | --- |
+| Edit width, height or coordinates | Click a size or coordinate value after making a selection | Opens the selection adjustment dialog; confirming updates the border |
+| Temporarily keep equal width and height | Hold the default Shift key while selecting or resizing a rectangle | Constrains it to 1:1 until you release the key |
+| Move the whole selection while dragging | Hold the default Space key during a selection drag | Repositions the starting point; release to resume sizing |
+| Capture the screen again | Use **Recapture** while Move is idle; default Alt+R on Windows or Option+R on macOS | Refreshes the image so you can inspect the selection again |
+| Show or hide the pointer | Toggle **Show cursor** while Move is idle; default backtick key | Changes whether the captured cursor image appears in output |
+| Abandon a capture | Press Esc or use Close | Exits the capture; an unfinished local operation may be canceled first |
+
+For numeric values, ratio locks, appearance and presets, see [exact selections](./precise-selection.md). To keep separate pieces or remove part of a selection, use [multiple regions](./multiple-regions.mdx) without first saving and combining them in another app.
+
+## Capture settings and common problems
+
+Use **Settings → Screenshots** for smart selection, color picker display, guides and capture preferences. The arrow keys and WASD shortcuts move the **pointer** one pixel at a time; they do not resize the selection. Enter numeric values for an exact region.
+
+### Adapt mouse interactions
+
+1. Open **Settings → Screenshots → Interaction**. Change one option, start a new capture and inspect the selection or toolbar.
+2. **Smart selection** offers window child elements, windows or disabled. Choose windows for whole-window candidates, child elements for finer boundaries, or disabled to select manually.
+3. **Double-click action** and **Middle mouse button action** determine their corresponding actions in selection or annotation states. Choices include Copy to clipboard, Save as file, Quick save, Pin to screen, Text recognition, Copy after text recognition, Cancel screenshot, and None. A new configuration defaults to copy on double-click and pin on middle-click. Test with a practice selection after changing these settings, since they can finish the capture immediately.
+4. **Quick selection modification** allows edge resizing even with a tool other than Move active. Turn it off when drawing near the edge if accidental resizing is a concern, then explicitly switch to Move for adjustments.
+5. **Shutter sound notification** applies to direct current-display or focused-window captures. **Screenshot sound notification** applies when starting a screenshot. Set them separately according to the feedback you need.
+6. Enable **Confirm before exiting screenshot via shortcut** to avoid accidental exits. The cancel shortcut then asks for confirmation; read the dialog before choosing to exit or return to editing.
+
+For copying while pinning and preserving editable annotations, see [image pinning](../pinning/image.md). For automatic actions after recognition and automatic QR recognition, see [text recognition](../recognition/text.md) and [barcode recognition](../recognition/barcode.md).
+
+On Windows, **Screenshot capture API** offers Auto, DXGI, WGC and GDI. Auto chooses a path based on display conditions. If the result is abnormal, compare methods using the same content and retain a stable option. macOS does not show this Windows API selector; check [screen recording permission](../getting-started/permissions.md) first.
+
+Windows also offers UIA and MSAA under **Window element API** for child-element detection. This matters only for smart child-element selection. **Restore original screen colors** reverses supported full-screen color filters; it cannot fix every color difference. Change one option at a time and compare the same window.
+
+Use a manual region if smart bounds are wrong. For black or missing content, compare an ordinary window and check whether the target app restricts capture. For stale content, end the capture and prepare the new view, or retake the screenshot. When display scaling differs across monitors, confirm the current unit and display before entering coordinates.
+
+Related: [Annotation basics](../annotations/basics.mdx) · [Color picking](./color-picker.md) · [Saving and copying](../output/copy-save.md).

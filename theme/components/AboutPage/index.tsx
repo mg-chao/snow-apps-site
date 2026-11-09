@@ -15,7 +15,7 @@ type IconName =
   | 'arrow'
   | 'download';
 
-const projectUrl = 'https://github.com/mg-chao/snow-apps';
+const projectUrl = 'https://github.com/mg-chao/snow-shot';
 
 const copy = {
   en: {
@@ -276,10 +276,10 @@ const toolIcons: IconName[] = [
   'pin',
   'history',
 ];
-const resources: { icon: IconName; path: string }[] = [
+const resources: { icon: IconName; path: string; local?: boolean }[] = [
   { icon: 'code', path: '' },
   { icon: 'chat', path: '/issues' },
-  { icon: 'history', path: '/releases' },
+  { icon: 'history', path: '/changelog.html', local: true },
 ];
 const groups = [
   { name: '3', number: '1037819112', href: 'https://qm.qq.com/q/Ts3cwNdykW' },
@@ -288,7 +288,11 @@ const groups = [
 
 export function AboutPage({ locale }: { locale: Locale }) {
   // Rspress custom layouts use the site title unless the page supplies its own.
-  useHead({ title: locale === 'zh' ? '关于 Snow Shot' : 'About Snow Shot' });
+  const title = locale === 'zh' ? '关于 Snow Shot' : 'About Snow Shot';
+  useHead({
+    title,
+    meta: [{ property: 'og:title', content: title }],
+  });
   const t = copy[locale];
   const downloadHref = locale === 'zh' ? '/zh/download' : '/download';
 
@@ -444,9 +448,13 @@ export function AboutPage({ locale }: { locale: Locale }) {
               <a
                 key={resource.icon}
                 className="snow-about__resource"
-                href={`${projectUrl}${resource.path}`}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={
+                  resource.local
+                    ? `${locale === 'zh' ? '/zh' : ''}${resource.path}`
+                    : `${projectUrl}${resource.path}`
+                }
+                target={resource.local ? undefined : '_blank'}
+                rel={resource.local ? undefined : 'noopener noreferrer'}
               >
                 <AboutIcon name={resource.icon} />
                 <h3>{t.resources[index].title}</h3>

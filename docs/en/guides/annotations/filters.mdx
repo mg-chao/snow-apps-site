@@ -1,0 +1,178 @@
+---
+title: "Filters, mosaic and automatic filtering"
+description: "Apply filters to rectangles, brush paths or detected regions, adjust intensity and opacity, use local Smart erase, and recover from automatic region-detection failure."
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Filters, mosaic and automatic filtering
+
+Filters process local image areas. Mosaic and Gaussian blur commonly obscure detail; grayscale, inversion, emboss and brightness change appearance. Check the screenshot region, then choose **Filter** in the annotation toolbar.
+
+## Apply mosaic to an area
+
+1. Expand Filter, choose **Rectangle filter** and select **Mosaic** in **Filter type**.
+2. Hold the left mouse button at one corner, drag to the opposite corner, inspect the coverage and release.
+3. Keep Rectangle filter active and click the created region to select it. Adjust **Filter intensity** and check whether detail remains recognizable. To change blending with the source, switch to **Select elements**, select the filter again and adjust **Opacity** in the general selection toolbar.
+4. Use Select elements and handles to correct its boundaries, leaving no unintended gaps.
+5. Deselect, enlarge the view to inspect edges and output bounds, then copy or save.
+
+<GuideSteps title="Filters, mosaic and automatic filtering" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-filters-1.svg",
+    "alt": "Choose rectangular mosaic",
+    "label": "Choose rectangular mosaic",
+    "caption": "Choose rectangular mosaic"
+  },
+  {
+    "src": "/images/guides/en/ann-filters-2.svg",
+    "alt": "Drag coverage and adjust intensity",
+    "label": "Drag coverage and adjust intensity",
+    "caption": "Drag coverage and adjust intensity"
+  },
+  {
+    "src": "/images/guides/en/ann-filters-3.svg",
+    "alt": "Detect regions and fill by category",
+    "label": "Detect regions and fill by category",
+    "caption": "Detect regions and fill by category"
+  }
+]} />
+
+To change an existing object’s tool-specific style, switch back to **the matching filter**, then click the object to select it again. **Select elements** provides general transforms, stacking and opacity. Switching drawing tools clears the previous selection, so select the object again.
+
+## Rectangle and brush ranges
+
+**Rectangle filter** suits regular areas. **Brush filter** follows the pointer while the mouse button is held and finishes on release. Set brush width first: narrow for small details, wider for larger areas.
+
+Return to the matching Rectangle or Brush filter tool to edit an existing filter. Click rectangle filters with the left button. Brush filter disables left-click quick selection by default: right-click an existing range while idle, or remove it from **Tools that forbid quick selection of same-type elements** before using left-click selection. Select the object before changing type or intensity. For opacity, switch to Select elements and select the range again. Add a stroke for missed coverage; if too much was covered, undo and redraw with a narrower brush. Use Rectangle filter for precise right-angle boundaries.
+
+<GuideSteps title="Brush filtering follows a trajectory" sourceLabel="Actual app output" frames={[
+  {
+    "src": "/images/guides/ann-audit-pen-filter-1.webp",
+    "alt": "Fictional textured input with readable text and fine lines",
+    "label": "Set type and width first",
+    "caption": "Choose Brush filter, Mosaic and an appropriate width. This example uses width 44 pixels and intensity 80%."
+  },
+  {
+    "src": "/images/guides/ann-audit-pen-filter-2.webp",
+    "alt": "Actual mosaic along the first half of a winding trajectory, preserving texture outside",
+    "label": "Hold and trace the content",
+    "caption": "Hold the left mouse button and move. Only the traced area is affected; this frame shows the first part of the trajectory."
+  },
+  {
+    "src": "/images/guides/ann-audit-pen-filter-3.webp",
+    "alt": "Actual complete mosaic trajectory extending toward the lower right",
+    "label": "Release and inspect the edges",
+    "caption": "Inspect the brush boundary and any exposed characters. Add a stroke or Undo as needed."
+  }
+]} />
+
+*The first frame is unfiltered; the next two show how coverage expands along the brush path.*
+
+## Compare effects
+
+| Type | Result | What to inspect |
+| --- | --- | --- |
+| Mosaic | Reduce detail with color blocks | Sufficient intensity and coverage |
+| Gaussian blur | Smooth local detail | Whether text and edges remain recognizable |
+| Grayscale | Remove local color | Accurate coverage |
+| Inversion | Reverse colors | A visual effect, unsuitable for hiding information |
+| Emboss | Emphasize light/dark edges | Detail and bounds |
+| Brightness | Change local lightness | Actual brightness at the chosen intensity |
+| Smart erase | Reconstruct covered content from surrounding image areas | Continuous texture and remaining traces |
+
+### Remove source-image content with Smart erase
+
+1. With an image loaded in the editable canvas, choose **Filter → Rectangle filter → Filter type → Smart erase**. Brush filter also provides it for irregular ranges; Auto filter does not.
+2. Drag a small range over the source content, then release. The red translucent overlay during dragging previews the range; reconstruction starts after release. You do not need to select source-image text with Select elements.
+3. Wait until the red overlay is replaced by the reconstructed image, then check removal and edge continuity. **Filter intensity** is disabled for this type; increasing intensity cannot improve reconstruction.
+4. If unsuitable, undo and redraw a smaller range with more surrounding background available. Moving or resizing an existing range recomputes the result. Wait for completion before copying or saving.
+
+Inspect complex text, repeated textures and large areas individually. A persistent red overlay is not a completed result. Undo and retry a smaller area, or use manual mosaic or blur coverage.
+
+![Actual Smart erase result: original text remains on the left, the right text is replaced by the pale background, and both blue bars remain](/images/guides/ann-smart-erase-result.webp)
+
+*Only the right-hand text is removed; the left text and both blue bars remain. A small area on a simple background is a useful first attempt. Inspect complex textures separately. <a href="/images/guides/ann-smart-erase-result.webp" target="_blank" rel="noreferrer">Enlarge the result</a>.*
+
+![Actual macOS interface showing Rectangle filter set to Smart erase, disabled intensity and the completed image](/images/guides/ann-smart-erase-native-result.webp)
+
+*Smart erase is selected and intensity is disabled. The completed image is at lower right. <a href="/images/guides/ann-smart-erase-native-result.webp" target="_blank" rel="noreferrer">enlarge the original interface image</a>.*
+
+![The same color sample actually rendered with mosaic, Gaussian blur, grayscale, inversion, emboss and different brightness settings](/images/guides/ann-filter-effects-engine.webp)
+
+*Compare different filters on the same content and bounds. <a href="/images/guides/ann-filter-effects-engine.webp" target="_blank" rel="noreferrer">Enlarge the effects</a>.*
+
+### Intensity behaves differently for different filters
+
+Higher mosaic intensity generally creates larger blocks; stronger Gaussian blur removes more detail. **Grayscale and inversion do not change with the intensity slider**. Adjust selected-object opacity to blend them with the original.
+
+**Brightness** is unchanged at 50%, darker below it and lighter above it. Do not interpret 0% as no effect. Emboss intensity changes edge contrast.
+
+![Actual detail and block-size differences at mosaic intensities 10%, 50% and 90%](/images/guides/ann-filter-strength-engine.webp)
+
+*Compare 10%, 50% and 90% mosaic intensity on the same content. <a href="/images/guides/ann-filter-strength-engine.webp" target="_blank" rel="noreferrer">Enlarge the intensity comparison</a>.*
+
+## Detect regions, then fill
+
+**Auto filter** detects image regions before you choose what to process, useful for handling text, avatars or image blocks in batches.
+
+1. With an image loaded, choose **Auto filter**. Wait for the scanning band to finish. Detected regions flash red briefly; move over content to inspect its range afterward.
+2. Choose filter type and intensity, then left-click a detected region and release to apply it. Clicking a region that already has the same filter type removes its effect; clicking after choosing a different type replaces it.
+3. For a whole category, open **Fill regions** and choose **Text**, **Text in box**, **Image**, **Avatar**, **Icon**, **Message box** or **Text block**. This applies the current type and intensity to that category. Adjust intensity and fill the same category again to update it.
+4. Inspect every area afterward. Use Rectangle or Brush filter for missed content; Undo unwanted effects.
+
+![Seven Fill regions categories in order; clicking applies a category and restores the placeholder](/images/guides/en/ann-filter-category-menu.svg)
+
+*Choose one category to fill it immediately, then reopen the menu for another category. <a href="/images/guides/en/ann-filter-category-menu.svg" target="_blank" rel="noreferrer">Enlarge the category menu</a>.*
+
+<GuideSteps title="Actual text-category filling results" sourceLabel="Actual app output" frames={[
+  {
+    "src": "/images/guides/ann-auto-filter-before.webp",
+    "alt": "Fictional chat input containing three avatars, message boxes and several text lines",
+    "label": "Before processing",
+    "caption": "Locate the text and avatars, then decide what you need to obscure."
+  },
+  {
+    "src": "/images/guides/ann-auto-filter-text-result.webp",
+    "alt": "Actual mosaic after text-category filling; parts of avatar shapes are also classified and processed",
+    "label": "After filling text categories",
+    "caption": "Text and Text in box are filled with mosaic at 85% intensity."
+  }
+]} />
+
+*Enlarge the result and check for readable text or unintentionally obscured avatars and shapes. Correct the coverage with Rectangle or Brush filter.*
+
+You can also hold the left button and drag a marquee. Detected regions **intersecting** it are affected; full containment is unnecessary. Automatic detection does not guarantee discovery of all sensitive information. Processing is local and categories depend on the image. With no available regions, **Fill regions** is disabled; use manual ranges instead.
+
+### Retry detection after failure
+
+If **Region identification failed. Try auto filter again** appears, confirm the image has loaded, switch to **Rectangle filter**, then back to **Auto filter** to start detection again. There is no separate Retry button. If it still fails, use manual ranges rather than only waiting for the category menu.
+
+<GuideSteps title="Retry automatic region detection" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-filter-retry-1.svg",
+    "alt": "Identify the failure message",
+    "label": "Identify the failure message",
+    "caption": "Read the failure message; category filling is not available yet."
+  },
+  {
+    "src": "/images/guides/en/ann-filter-retry-2.svg",
+    "alt": "Switch away and return",
+    "label": "Switch away and return",
+    "caption": "Choose Rectangle filter, then Auto filter. A failed attempt stores no region record, so re-entering starts detection again."
+  },
+  {
+    "src": "/images/guides/en/ann-filter-retry-3.svg",
+    "alt": "Wait for another scan",
+    "label": "Wait for another scan",
+    "caption": "Wait while scanning. Fill only actual detected regions after completion; use manual ranges if detection still fails."
+  }
+]} />
+
+*A blank image can finish normally with no regions. Retry after an error; use manual ranges when no suitable regions are found.*
+
+## Inspect and correct the result
+
+Intensity alone cannot fix missed edges. Correct coverage before adjusting the effect. Low opacity reveals the source beneath. For complete solid coverage, use a filled shape and inspect the exported image.
+
+Editable filters can be undone or deleted. Reopening an exported picture gives flattened pixels. Related: [Erasers](./eraser.mdx) · [Shapes](./shapes.mdx) · [Element editing](./elements.mdx).

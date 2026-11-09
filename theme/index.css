@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap");
+@import "./fonts/index.css";
 
 :root {
   --rp-c-brand: #7052d8;
@@ -1701,10 +1701,6 @@ html.dark .snow-open-source__panel {
   display: none;
 }
 
-/* The download route is a focused marketing surface; remove the generated doc heading. */
-.rp-doc:has(.snow-download-page) > h1 {
-  display: none;
-}
 .snow-download-page {
   padding-top: 34px;
 }
