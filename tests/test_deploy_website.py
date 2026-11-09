@@ -98,6 +98,29 @@ class DeploymentTests(unittest.TestCase):
         self.assertTrue((Path(second["backup"]) / website.RECEIPT).is_file())
         self.assert_preserved()
 
+    def test_deployment_includes_seo_files_and_preserves_existing_services(self):
+        names = ('robots.txt', 'sitemap.xml', 'indexnow.txt',
+                 'guides/index.html', 'zh/guides/index.html')
+        for name in names:
+            target = self.root / name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(f'Previous: {name}', encoding='utf-8')
+        self.package()
+        result = self.publish()
+        for name in names:
+            self.assertEqual((self.root / name).read_bytes(), (self.build / name).read_bytes())
+            self.assertEqual((Path(result['backup']) / name).read_text(), f'Previous: {name}')
+        self.assert_preserved()
+
+    def test_missing_seo_artifact_stops_packaging(self):
+        for name in ('robots.txt', 'sitemap.xml', 'indexnow.txt', 'guides/index.html'):
+            target = self.build / name
+            original = target.read_bytes()
+            target.unlink()
+            with self.assertRaisesRegex(ValueError, 'Incomplete'):
+                self.package()
+            target.write_bytes(original)
+
     def test_deployment_replaces_both_privacy_pages_and_backs_up_previous_policy(self):
         for name in ("privacy.html", "zh/privacy.html"):
             target = self.root / name

@@ -3,6 +3,7 @@ import './index.css';
 
 import { useLang } from '@rspress/core/runtime';
 import { Layout as OriginalLayout } from '@rspress/core/theme-original';
+import { SeoMetadata } from './components/SeoMetadata';
 
 export * from '@rspress/core/theme-original';
 export { AboutPage } from './components/AboutPage';
@@ -17,7 +18,7 @@ function SnowNavTitle() {
     <a
       aria-label={lang === 'zh' ? 'Snow Shot 首页' : 'Snow Shot home'}
       className="snow-nav-brand"
-      href={lang === 'zh' ? '/zh/' : '/'}
+      href={lang === 'zh' ? '/zh/index.html' : '/index.html'}
     >
       <img
         alt=""
@@ -33,6 +34,7 @@ function SnowNavTitle() {
 export function Layout() {
   return (
     <>
+      <SeoMetadata />
       <OriginalLayout
         navTitle={<SnowNavTitle />}
         bottom={<SnowGlobalFooter />}
@@ -66,6 +68,12 @@ function SnowGlobalFooter() {
       </div>
       <div className="snow-home__footer-legal">
         <span>© 2025 Snow Apps</span>
+        <a href="https://github.com/mg-chao/snow-apps">
+          {isZh ? '官方 GitHub 仓库' : 'Official GitHub repository'}
+        </a>
+        <a href={isZh ? '/zh/guides/index.html' : '/guides/index.html'}>
+          {isZh ? '使用指南' : 'User guides'}
+        </a>
         <a href={isZh ? '/zh/privacy.html' : '/privacy.html'}>
           {isZh ? '隐私政策' : 'Privacy policy'}
         </a>

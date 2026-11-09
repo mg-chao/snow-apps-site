@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "rspress build",
+    "indexnow": "node scripts/submit-indexnow.mjs",
     "check": "biome check --write",
     "dev": "rspress dev",
     "lint": "biome lint",
