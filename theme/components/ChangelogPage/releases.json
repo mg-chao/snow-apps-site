@@ -1,7 +1,23 @@
 {
   "source": "https://github.com/mg-chao/snow-shot/releases",
-  "syncedAt": "2026-11-09T13:13:28.581Z",
+  "syncedAt": "2026-11-09T17:06:59.492Z",
   "releases": [
+    {
+      "tag": "v1.5.3_snow-shot",
+      "version": "1.5.3",
+      "name": "Snow Shot 1.5.3",
+      "publishedAt": "2026-11-09T17:01:52Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.5.3_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 高分屏截图可选择输出尺寸，让图片更适合分享与查看。\n- 支持在图片编辑器中粘贴剪贴板内容，并将剪贴板公式渲染为贴图。\n- 绘图工具可同步新建标注的颜色；荧光笔支持自定义预设颜色。\n- 序号工具的光标可预览即将添加的数字。\n- 改善启动、自动更新、截图导出和存储的稳定性。",
+        "en": "- Choose the output size of HiDPI screenshots for easier sharing and viewing.\n- Paste clipboard content into the image editor and pin clipboard formulas as rendered images.\n- Keep new annotation colors in sync across drawing tools and customize highlight color presets.\n- Preview the next number in the serial-number tool's cursor.\n- Improved reliability when starting the app, updating, exporting screenshots, and saving data."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
     {
       "tag": "v1.5.2_snow-shot",
       "version": "1.5.2",

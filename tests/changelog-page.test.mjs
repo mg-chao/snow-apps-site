@@ -193,8 +193,13 @@ describe('release note rendering', () => {
 
   for (const locale of ['en', 'zh']) {
     it(`server-renders the latest published notes and history links in ${locale}`, () => {
-      const html = render(locale);
       const latest = snapshot.releases.find((item) => !item.prerelease);
+      const html = render(
+        locale,
+        snapshot.releases.map((item) =>
+          item.tag === latest.tag ? { ...item, notes: release().notes } : item,
+        ),
+      );
       const articles = [
         ...html.matchAll(/<article\b[^>]*>[\s\S]*?<\/article>/g),
       ].map((match) => match[0]);
@@ -208,15 +213,15 @@ describe('release note rendering', () => {
       assert.ok(
         articles[0].includes(
           locale === 'zh'
-            ? '可将系统中选中的图片直接导入编辑器'
-            : 'Open selected images directly in the editor',
+            ? '截图支持滚动长图与 PDF 导出'
+            : 'Capture scrolling screenshots and export PDFs',
         ),
       );
       assert.ok(
         !articles[0].includes(
           locale === 'zh'
-            ? 'Open selected images directly in the editor'
-            : '可将系统中选中的图片直接导入编辑器',
+            ? 'Capture scrolling screenshots and export PDFs'
+            : '截图支持滚动长图与 PDF 导出',
         ),
       );
       assert.match(articles[0], /<ul>[\s\S]*<li>/);
