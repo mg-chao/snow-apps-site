@@ -283,6 +283,7 @@ const resources: { icon: IconName; path: string }[] = [
 ];
 const groups = [
   { name: '3', number: '1037819112', href: 'https://qm.qq.com/q/Ts3cwNdykW' },
+  { name: '4', number: '1131891935', href: 'https://qm.qq.com/q/GfZvSHi6E' },
 ];
 
 export function AboutPage({ locale }: { locale: Locale }) {
