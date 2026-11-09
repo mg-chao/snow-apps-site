@@ -207,6 +207,19 @@ the HTTPS `snowshot.top` server block. Back up both files before changes, run
 `nginx -t` before reload, and restore the backups if validation or reload fails.
 The normal content deployment preserves this server configuration.
 
+`deploy/nginx-www-redirect.conf` redirects HTTP and HTTPS requests from
+`www.snowshot.top` to `https://snowshot.top`, preserving the path and query string.
+The `www` DNS record must point to the website server. Install this standalone
+server block as `/etc/nginx/sites-available/www.snowshot.top.conf` and enable it
+with a matching symlink in `/etc/nginx/sites-enabled/`. It reuses the main site's
+certificate under `/etc/nginx/ssh_keys/snowshot.top/`; that certificate must cover
+both `snowshot.top` and `www.snowshot.top` whenever it is renewed or replaced.
+Back up any existing configuration, run `nginx -t` before reload, and restore the
+backup if validation or reload fails. Verify a URL such as
+`https://www.snowshot.top/download.html?os=windows` returns HTTP 301 with
+`Location: https://snowshot.top/download.html?os=windows`. Normal website releases
+preserve this configuration as well.
+
 After publishing changed content to `https://snowshot.top`, notify participating
 search engines with `bun run indexnow` (Node.js 24+). The command first verifies
 the public ownership key and sitemap, then submits only canonical URLs belonging
