@@ -62,7 +62,7 @@ Open **Settings → Screenshots → Capture interface**, make a change, then sta
 
 | Setting | Action and visible result |
 | --- | --- |
-| Screenshot selection transition animation | Choose fast, smooth or off, then watch transitions while moving between smart candidates |
+| Screenshot selection transition animation | Choose fast, smooth or off, then watch transitions while moving between Smart Selection candidates |
 | Selection border color | Choose a color and check that the current selection outline is distinguishable |
 | Selection mask color | Adjust the overlay outside the region and compare inside/outside contrast |
 | Shortcut hint opacity | Drag the slider and check legibility without obscuring content |

@@ -1,11 +1,11 @@
 ---
-title: Region, window and control capture
-description: Select rectangular areas in Snow Shot, detect window or child-control bounds, move and resize selections, select a display, and copy, save, refresh or cancel a capture, with troubleshooting for selection and display problems.
+title: Region capture and Smart Selection
+description: Create region captures and use Smart Selection for windows or child elements in Snow Shot. Resize selections, copy or save results, and fix capture issues.
 ---
 
 import { GuideSteps } from '../../../../theme/components/GuideSteps';
 
-# Region, window and control capture
+# Region capture and Smart Selection
 
 Use the ordinary **Screenshot** action when you want to annotate before exporting. To immediately capture an entire window or the current display, use [direct capture](./modes.md). The keys below are defaults; if you have customized them, follow [Application shortcuts](../settings/shortcuts.mdx).
 
@@ -22,11 +22,11 @@ Use the ordinary **Screenshot** action when you want to annotate before exportin
   {src:'/images/guides/en/cap-basics-3.svg',alt:'Confirmed region with a toolbar for annotation and export',label:'Release and inspect',caption:'Use the toolbar after releasing. Edges and corners remain adjustable.'},
 ]} />
 
-## Select a window or a control inside it
+## Use Smart Selection for windows or child elements
 
-With smart selection enabled, start a capture and move the pointer over the target window. Inspect the candidate border, then click when it covers the right content. To target a button, panel or other child element, use **Tab** by default to switch between window and child-element targets. Inspect the border before clicking.
+With Smart Selection enabled, start a capture and move the pointer over the target window. Inspect the candidate border, then click when it covers the right content. To target a button, panel or other child element, use **Tab** by default to switch between window and child-element targets. Inspect the border before clicking.
 
-Smart selection depends on the window and control information exposed by the target app. It cannot subdivide every screen into individual buttons. If the candidate is wrong, drag out a manual selection instead of repeatedly accepting it.
+Smart Selection depends on the window and control information exposed by the target app. It cannot subdivide every screen into individual buttons. If the candidate is wrong, drag out a manual selection instead of repeatedly accepting it.
 
 To select a whole display, keep **Move** active without dragging and press the system Select All keys: **Ctrl+A** on Windows or **Command+A** on Mac. The first press selects the display under the pointer. If the confirmed selection already covers an entire display, another press expands it to the whole multi-display desktop. You can still annotate and export; this differs from the Current monitor action, which skips editing.
 
@@ -45,23 +45,23 @@ For numeric values, ratio locks, appearance and presets, see [exact selections](
 
 ## Capture settings and common problems
 
-Use **Settings → Screenshots** for smart selection, color picker display, guides and capture preferences. The arrow keys and WASD shortcuts move the **pointer** one pixel at a time; they do not resize the selection. Enter numeric values for an exact region.
+Use **Settings → Screenshots** for Smart Selection, color picker display, guides and capture preferences. The arrow keys and WASD shortcuts move the **pointer** one pixel at a time; they do not resize the selection. Enter numeric values for an exact region.
 
 ### Adapt mouse interactions
 
 1. Open **Settings → Screenshots → Interaction**. Change one option, start a new capture and inspect the selection or toolbar.
-2. **Smart selection** offers window child elements, windows or disabled. Choose windows for whole-window candidates, child elements for finer boundaries, or disabled to select manually.
+2. **Smart Selection** offers window child elements, windows or disabled. Choose windows for whole-window candidates, child elements for finer boundaries, or disabled to select manually.
 3. **Double-click action** and **Middle mouse button action** determine their corresponding actions in selection or annotation states. Choices include Copy to clipboard, Save as file, Quick save, Pin to screen, Text recognition, Copy after text recognition, Cancel screenshot, and None. The defaults are copy on double-click and pin on middle-click. Try a small selection after changing these settings, since they can finish the capture immediately.
 4. **Quick selection modification** allows edge resizing even with a tool other than Move active. Turn it off when drawing near the edge if accidental resizing is a concern, then explicitly switch to Move for adjustments.
 5. **Shutter sound notification** applies to direct current-display or focused-window captures. **Screenshot sound notification** applies when starting a screenshot. Set them separately according to the feedback you need.
 6. Enable **Confirm before exiting screenshot via shortcut** to avoid accidental exits. The cancel shortcut then asks for confirmation; read the dialog before choosing to exit or return to editing.
 
-For copying while pinning and preserving editable annotations, see [image pinning](../pinning/image.md). For automatic actions after recognition and automatic QR recognition, see [text recognition](../recognition/text.md) and [barcode recognition](../recognition/barcode.md).
+For copying while pinning and preserving editable annotations, see [image pinning](../pinning/image.md). For automatic actions after recognition and automatic QR recognition, see [text recognition](../recognition/text.mdx) and [barcode recognition](../recognition/barcode.md).
 
 On Windows, **Screenshot capture API** offers Auto, DXGI, WGC and GDI. Auto chooses a path based on display conditions. If the result is abnormal, compare methods using the same content and retain a stable option. macOS does not show this Windows API selector; check [screen recording permission](../getting-started/permissions.md) first.
 
-Windows also offers UIA and MSAA under **Window element API** for child-element detection. This matters only for smart child-element selection. **Restore original screen colors** reverses supported full-screen color filters; it cannot fix every color difference. Change one option at a time and compare the same window.
+Windows also offers UIA and MSAA under **Window element API** for child-element detection. This matters only for Smart Selection in child-element mode. **Restore original screen colors** reverses supported full-screen color filters; it cannot fix every color difference. Change one option at a time and compare the same window.
 
-Use a manual region if smart bounds are wrong. For black or missing content, compare an ordinary window and check whether the target app restricts capture. For stale content, end the capture and prepare the new view, or retake the screenshot. When display scaling differs across monitors, confirm the current unit and display before entering coordinates.
+Use a manual region if Smart Selection detects the wrong bounds. For black or missing content, compare an ordinary window and check whether the target app restricts capture. For stale content, end the capture and prepare the new view, or retake the screenshot. When display scaling differs across monitors, confirm the current unit and display before entering coordinates.
 
 Related: [Annotation basics](../annotations/basics.mdx) · [Color picking](./color-picker.md) · [Saving and copying](../output/copy-save.md).

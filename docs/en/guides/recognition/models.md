@@ -60,4 +60,4 @@ For occasional recognition, start with the resident process and warm start disab
 
 Once local text recognition completes, you can organize and copy text without a network connection. **Text translation**, online table services or vision models, formula recognition, and image conversion each require their own service conditions. Recognized text does not establish that those online services are ready.
 
-Continue with [Text recognition](./text.md), [Table recognition](./table.mdx), or [Translation services and custom models](../translation/services.md).
+Continue with [Text recognition](./text.mdx), [Table recognition](./table.mdx), or [Translation services and custom models](../translation/services.md).

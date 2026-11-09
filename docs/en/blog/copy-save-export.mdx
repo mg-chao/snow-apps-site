@@ -1,0 +1,68 @@
+---
+title: "Copied successfully, but where is the file? Follow the three image output paths"
+description: "Trace clipboard copy, Save as file and Quick save in Snow Shot, verify folders and dimensions, then paste or reopen the result to confirm delivery."
+blog: true
+date: "2026-11-09"
+category: "answers"
+productVersion: "1.5.2"
+platforms: "Windows / macOS · Full / Mini"
+related: ["ocr-troubleshooting", "annotate-image-workflow", "release-1-5-2"]
+sidebar: false
+---
+
+# Copied successfully, but where is the file? Follow the three image output paths
+
+If copying creates no visible file or Quick save seems to lose an image, identify the output path first. This article covers images; recognized text and recordings produce different content types.
+
+## Identify the action you used
+
+| Action | Destination | Fastest check |
+| --- | --- | --- |
+| Copy to clipboard | System clipboard, usually for pasting an image | Paste into an image-capable app |
+| Save as file | Location selected in this save dialog | Reopen the file there |
+| Quick save | Preset image-export folder | Sort the folder by modification time |
+
+![Teaching diagram of clipboard, Save as file and Quick save destinations](/images/guides/en/out-copy-save.svg)
+
+*Teaching diagram. Clipboard content and a persistent file need separate checks.*
+
+After copy, first paste into your target chat, document or image app. Do not assume a file was written to Downloads. If you get text or a path, check whether OCR text is selected and which clipboard types the destination accepts.
+
+## Obtain a separate file with Save as file
+
+1. Finish the region or annotation and click **Save as file**. New configurations use the system dialog.
+2. Choose a writable, recognizable folder and a new name. Start with a PNG containing text so lossy compression does not complicate the check.
+3. If a file already exists, inspect it before replacing it. Cancel and choose another name to keep both.
+4. Reopen the saved file and inspect text, edges and pixel dimensions. Canceling does not create a substitute file elsewhere.
+
+![The macOS PNG save dialog showing the destination and filename](/images/blog/save-dialog-152.webp)
+
+*Check folder, name and format together before confirming. The screenshot uses a Chinese system dialog.*
+
+For resizing and advanced encoding, choose the Snow Shot dialog under **Settings → Export & storage → Image export → Save as file dialog**. Its controls differ from the system dialog. Choose pixels or percent, lock the aspect ratio when needed and inspect the preview. PNG, JPEG, WebP, JPEG XL, AVIF, TIFF and PDF expose different options and have different recipient compatibility. See the [output manual](../guides/output/copy-save.md).
+
+## Use Quick save with a known folder
+
+Under **Settings → Export & storage → Image export**, check the image folder, format, quality/compression and automatic filename pattern. Set a clear writable location, then run **Quick save** once. Sort the folder by modification time and inspect the new file, not an older one with a similar name.
+
+**Auto-save after action** can separately save copies of screenshots, scrolling captures and pins. Copy writes an additional file only when its relevant scenario is selected. **Copy image file to clipboard** provides file data as well as image data; the destination still decides which type it accepts.
+
+![An actual saved output containing arrows, a rectangle and a text label](/images/guides/img-editor-annotated-output.webp)
+
+*Actual exported result. Check the arrow, rectangle and label for completeness.*
+
+Viewing scale and output dimensions differ. The editor's 100%/Fit controls change the view; width and height in export change output dimensions. A chat preview displaying an image smaller does not establish that the local file lost pixels.
+
+## If saving, pasting or finding the result fails
+
+| Symptom | Next action | Success check |
+| --- | --- | --- |
+| No new file | Rule out clipboard-only copy; inspect Quick save folder and auto-save scenario | A newly written file opens |
+| Save is rejected | Try a writable folder; inspect space and the system error | The same small PNG writes successfully |
+| File cannot open | Try PNG; confirm format and extension | A system image viewer reads it |
+| Text appears instead of an image | Leave text-selection/recognition mode and use image output | An image-capable destination receives pixels |
+| Part of the image is missing | Inspect selection, crop and export dimensions | Boundaries match the source |
+
+If the local PNG is correct but a chat preview is wrong, retain the original and compare attaching the file with pasting. Avoid repeatedly lowering the original's quality to troubleshoot a recipient preview. For editable text use [OCR to TXT](./ocr-troubleshooting.mdx); for retained captures see [history](../guides/output/history.md).
+
+A useful report includes version, OS, action, dialog type, format, dimensions, error and whether a small PNG can be saved. Share a sanitized sample rather than private paths. [Download](../download.mdx) · [Changelog](../changelog.mdx) · [Export logs](../guides/settings/storage-backup.md).

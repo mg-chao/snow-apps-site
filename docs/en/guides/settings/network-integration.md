@@ -44,7 +44,7 @@ These options are under **Settings → General**. Change one at a time when inve
 
 1. Open **Settings → Network & connections → MCP** and enable **Enable MCP integration**. Check that the connection status shows a running service. Snow Shot must remain open.
 2. Inspect the generated configuration under **MCP connection and client setup**, then click **Copy configuration**.
-3. Add it to your MCP client's configuration. If other services already exist, merge server entries instead of replacing the whole configuration. Use the locally generated program path rather than manually pointing to another version's executable.
+3. Add it to your MCP client's configuration. If other services already exist, merge server entries instead of replacing the whole configuration. Use the locally generated program path.
 4. Restart or reconnect as required by the client. Return to Snow Shot and check the connection count to confirm a client connection.
 5. Disable integration when no longer needed. For a failed connection, check that Snow Shot is running, integration is enabled, and configured paths still exist, then restart the client.
 

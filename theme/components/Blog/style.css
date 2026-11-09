@@ -1,0 +1,102 @@
+.snow-blog-index {
+  margin: 2rem 0 4rem;
+}
+.snow-blog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+.snow-blog-filters button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  border: 1px solid var(--rp-c-divider);
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+  color: var(--rp-c-text-1);
+  background: var(--rp-c-bg);
+  font: inherit;
+  cursor: pointer;
+}
+.snow-blog-filters button[aria-pressed="true"] {
+  color: var(--rp-c-brand);
+  border-color: var(--rp-c-brand);
+  background: var(--rp-c-bg-soft);
+}
+.snow-blog-filters button span {
+  font-size: 0.8em;
+}
+.snow-blog-count {
+  color: var(--rp-c-text-2);
+  font-size: 0.9rem;
+}
+.snow-blog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+.snow-blog-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  border: 1px solid var(--rp-c-divider);
+  border-radius: 18px;
+  background: var(--rp-c-bg);
+  min-width: 0;
+}
+.snow-blog-card h2 {
+  margin: 1rem 0 0.5rem;
+  padding: 0;
+  border: 0;
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+.snow-blog-card h2 a {
+  color: var(--rp-c-text-1);
+}
+.snow-blog-card p {
+  flex: 1;
+  color: var(--rp-c-text-2);
+}
+.snow-blog-read {
+  margin-top: 0.75rem;
+  font-weight: 600;
+}
+.snow-blog-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 1rem;
+  margin: 1rem 0;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--rp-c-text-2);
+}
+.snow-blog-tag {
+  color: var(--rp-c-brand);
+  font-weight: 600;
+}
+.snow-blog-card .snow-blog-meta {
+  margin: 0;
+}
+.snow-blog-related {
+  margin: 3rem 0 1rem;
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--rp-c-divider);
+  background: var(--rp-c-bg-soft);
+}
+.snow-blog-related h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  border: 0;
+  padding: 0;
+}
+@media (max-width: 640px) {
+  .snow-blog-grid {
+    grid-template-columns: 1fr;
+  }
+  .snow-blog-card {
+    padding: 1.1rem;
+  }
+}

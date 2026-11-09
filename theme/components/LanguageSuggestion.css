@@ -1,0 +1,70 @@
+.snow-language-suggestion {
+  position: fixed;
+  z-index: 100;
+  inset-inline-start: 24px;
+  bottom: max(24px, env(safe-area-inset-bottom));
+  width: min(420px, calc(100vw - 48px));
+  padding: 20px;
+  border: 1px solid var(--snow-line);
+  border-radius: 12px;
+  background: var(--snow-paper);
+  color: var(--snow-ink);
+  box-shadow: 0 8px 32px rgba(11, 17, 40, 0.15);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.snow-language-suggestion p {
+  margin: 0 0 14px;
+}
+
+.snow-language-suggestion__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+}
+
+.snow-language-suggestion__actions a,
+.snow-language-suggestion__actions button {
+  padding: 9px 12px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.snow-language-suggestion__actions a {
+  background: var(--rp-c-brand);
+  color: var(--snow-paper);
+}
+
+.snow-language-suggestion__actions button {
+  background: transparent;
+  color: var(--snow-muted);
+}
+
+.snow-language-suggestion__actions a:hover {
+  background: var(--rp-c-brand-dark);
+}
+
+.snow-language-suggestion__actions button:hover {
+  color: var(--snow-ink);
+  border-color: var(--snow-line);
+}
+
+.snow-language-suggestion__actions a:focus-visible,
+.snow-language-suggestion__actions button:focus-visible {
+  outline: 2px solid var(--rp-c-brand);
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .snow-language-suggestion {
+    inset-inline-start: 16px;
+    bottom: max(16px, env(safe-area-inset-bottom));
+    width: calc(100vw - 32px);
+    padding: 16px;
+  }
+}

@@ -7,6 +7,8 @@ import { Layout as OriginalLayout } from '@rspress/core/theme-original';
 import { SeoMetadata } from './components/SeoMetadata';
 import { GuideLanguages } from './components/GuideLanguages';
 import { PageBreadcrumbs } from './components/PageBreadcrumbs';
+import { LanguageSuggestion } from './components/LanguageSuggestion';
+import { BlogArticleMeta, BlogRelated } from './components/Blog';
 import { footerSections } from './site-structure';
 
 export * from '@rspress/core/theme-original';
@@ -44,8 +46,19 @@ export function Layout() {
       <OriginalLayout
         navTitle={<SnowNavTitle />}
         afterNavMenu={<GuideLanguages />}
-        afterNav={<PageBreadcrumbs placement="custom" />}
-        beforeDocContent={<PageBreadcrumbs placement="doc" />}
+        afterNav={
+          <>
+            <LanguageSuggestion />
+            <PageBreadcrumbs placement="custom" />
+          </>
+        }
+        beforeDocContent={
+          <>
+            <PageBreadcrumbs placement="doc" />
+            <BlogArticleMeta />
+          </>
+        }
+        afterDocContent={<BlogRelated />}
         bottom={<SnowGlobalFooter />}
       />
     </>

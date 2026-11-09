@@ -1,0 +1,64 @@
+---
+title: "Explain an issue with arrows and text: from capture to a checked feedback image"
+description: "Select useful context in the screenshot window, draw and adjust arrows, add readable labels, then copy or save and verify the delivered image."
+blog: true
+date: "2026-11-09"
+category: "answers"
+productVersion: "1.5.2"
+platforms: "Windows / macOS · Full / Mini"
+related: ["copy-save-export", "release-1-5-0", "ocr-troubleshooting"]
+sidebar: false
+---
+
+# Explain an issue with arrows and text: from capture to a checked feedback image
+
+A useful feedback image shows where a problem occurs and what you expected. Complete the following workflow in the screenshot window, practicing with non-sensitive content first. To extract existing text rather than add a note, use [text recognition](./ocr-troubleshooting.mdx).
+
+## Retain enough context
+
+Display the relevant interface and start a capture (new configurations use F1 on Windows and Control+1 on macOS). Include the problem and nearby context. A nameless isolated button is hard to diagnose; unrelated chats, accounts and notifications add unnecessary exposure. Check the boundary before annotating so important text is not outside the image.
+
+![A complete text region selected in the screenshot window with annotation controls](/images/blog/ocr-capture-selection-152.webp)
+
+*App screenshot. The toolbar provides arrows, text and output actions. Check the selection boundary first.*
+
+## Draw an arrow and check its target
+
+1. Click **Arrow**, choose **Straight arrow** in the style toolbar and select a contrasting color and suitable width.
+2. Drag from empty space toward the target and release. Keep the endpoint near the detail without hiding text behind a thick arrow.
+3. Choose **Select elements**, click the arrow and adjust its endpoints. For arrow-specific styles, activate the arrow tool and select the object again before changing its style.
+4. If a straight line crosses important text, choose **Curved arrow** and adjust the middle control point to route around it. Finish and check one arrow before adding more.
+
+![Teaching diagram of annotation styles and selecting an object for adjustment](/images/guides/en/ann-basics-2.svg)
+
+*Teaching diagram. Select the existing object to change it; without a selection, style changes usually apply to the next object.*
+
+If a path follows the pointer after a click, you entered point-by-point drawing. Straight/curved arrows accept intermediate clicks and a final double-click. Press Esc to cancel an unfinished path and start again by dragging. A polyline arrow finishes on the second click instead. See the [arrow manual](../guides/annotations/arrows.mdx).
+
+## Add a short explanation and finish input
+
+Choose **Text**, click empty space and enter a concrete note such as “No window opens after clicking.” Describe the observed behavior rather than “wrong here.” Press **Esc** to finish text input, then check that the caret disappeared before switching tools.
+
+![Teaching diagram of finishing text input and moving a label away from the source](/images/guides/en/ann-text-3.svg)
+
+*Teaching diagram. Text input and object selection are different states; arrows and deletion act differently in each.*
+
+To move text, press V for selection, click empty space to clear selection, then drag directly from an unselected label. For an already selected label, drag its boundary or padding rather than the letters or resize handles. To edit its content, select it and click again; enter text after the caret appears.
+
+For crowded notes, shorten the sentence and reposition it before increasing size or adding a background. Keeping the original problem readable matters more than making every annotation larger. End input and select the whole object to delete it; deletion during text input changes characters.
+
+## Verify what the recipient gets
+
+Clear selection and inspect the result. Use **Copy to clipboard** and paste into the destination, or **Save as file** with a new PNG name and reopen it.
+
+![Actual image output containing an arrow, a region rectangle and a Step 1 label](/images/guides/img-editor-annotated-output.webp)
+
+*Actual exported image. The arrow connects objects, the rectangle identifies a region and the short label explains a step. Check that the source remains readable.*
+
+Ask three questions: does the arrow point correctly, is the text readable in the destination, and are the boundaries complete? If the local original is correct but a chat preview is tiny, deliver it as a file attachment. A normal PNG is flattened. For later object editing, consider [editable annotation handoff to pins](./release-1-5-0.mdx); a flattened file does not restore original objects.
+
+## When an action behaves unexpectedly
+
+For unresponsive tool keys, finish text input and try the button. If styling misses an old arrow, confirm it is selected. If dragging text starts editing, end input with Esc and drag from boundary padding. Use undo after a mistake before adding more annotations on top.
+
+A useful report includes action order, tool type, whether text input was active, whether an object was selected and sanitized before/after images. Keep source and exported images to distinguish canvas problems from output problems. [Annotation basics](../guides/annotations/basics.mdx) · [Text layout](../guides/annotations/text.mdx) · [Download](../download.mdx) · [Changelog](../changelog.mdx).

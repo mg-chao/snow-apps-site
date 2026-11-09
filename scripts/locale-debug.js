@@ -20,7 +20,7 @@
   const entryUrl = location.href;
   let output;
   let previousState;
-  let decisionReceived = false;
+  let suggestionReported = false;
   const readStorage = (key) => {
     try {
       return localStorage.getItem(key);
@@ -56,12 +56,9 @@
     output.value = JSON.stringify(
       {
         debugRevision: revision,
-        redirectScriptRevision: document
-          .getElementById('snow-shot-locale')
-          ?.getAttribute('data-revision'),
         loadId,
         entryUrl,
-        redirectScriptReported: decisionReceived,
+        languageSuggestionReported: suggestionReported,
         ...pageState(),
         ...browserInfo(),
         trace,
@@ -97,8 +94,8 @@
   };
 
   window.addEventListener('snow-shot:locale-debug', (event) => {
-    decisionReceived = true;
-    record('redirect script', event.detail);
+    suggestionReported = true;
+    record('language suggestion', event.detail);
   });
   window.addEventListener(
     'error',
@@ -221,7 +218,7 @@
     });
     panel.append(title, hint, output, copy, stop);
     document.body.append(panel);
-    record('DOM ready', { redirectScriptReported: decisionReceived });
+    record('DOM ready', { languageSuggestionReported: suggestionReported });
     const observer = new MutationObserver(() =>
       sample('HTML language changed'),
     );

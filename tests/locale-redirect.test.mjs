@@ -1,256 +1,97 @@
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
 import { describe, it } from 'node:test';
-import { runInNewContext } from 'node:vm';
+import { languageHref, preferredLanguage } from '../theme/locale.ts';
 
-const script = readFileSync(
-  new URL('../scripts/locale-redirect.js', import.meta.url),
-  'utf8',
-);
-const preferenceKey = 'snow-shot-language';
-
-function visit({
-  url = '/',
-  languages = ['zh-CN', 'en'],
-  language = languages?.[0] ?? 'zh-CN',
-  intlLocale = 'en-US',
-  storage = new Map(),
-  blockedStorage = false,
-  userAgent = 'Mozilla/5.0 Chrome/140.0.0.0',
-} = {}) {
-  const location = new URL(url, 'https://snow.example');
-  let redirect;
-  location.replace = (target) => {
-    redirect = target;
-  };
-  let click;
-  class Element {
-    constructor(link) {
-      this.link = link;
-    }
-    closest() {
-      return this.link;
-    }
-  }
-  const localStorage = {
-    getItem(key) {
-      return storage.get(key) ?? null;
-    },
-    setItem(key, value) {
-      storage.set(key, value);
-    },
-  };
-  const context = {
-    window: {},
-    location,
-    navigator: { languages, language, userAgent },
-    document: {
-      addEventListener(type, listener) {
-        assert.equal(type, 'click');
-        click = listener;
-      },
-    },
-    Element,
-    URL,
-    URLSearchParams,
-    Intl: {
-      DateTimeFormat: () => ({
-        resolvedOptions: () => ({ locale: intlLocale }),
-      }),
-    },
-    get localStorage() {
-      if (blockedStorage) throw new Error('Storage access denied');
-      return localStorage;
-    },
-  };
-  runInNewContext(script, context);
-  return {
-    redirect,
-    storage,
-    selectLanguage(lang, href = lang === 'zh' ? '/zh/' : '/') {
-      click({
-        target: new Element({ href, getAttribute: () => lang }),
-      });
-    },
-    clickOrdinaryLink() {
-      click({ target: new Element(null) });
-    },
-  };
-}
-
-describe('browser language selection', () => {
+describe('language suggestions', () => {
   for (const language of ['zh', 'zh-CN', 'zh-TW', 'zh-Hans-CN', 'ZH-cn']) {
-    it(`opens Chinese for ${language}`, () => {
-      assert.equal(visit({ languages: [language, 'en'] }).redirect, '/zh/');
+    it(`recognizes ${language} as a Chinese preference`, () => {
+      assert.equal(preferredLanguage({ languages: [language, 'en'] }), 'zh');
     });
   }
 
-  it('redirects returning visitors with the old Rspress visited flag', () => {
-    const storage = new Map([['rspress-visited', '1']]);
-    assert.equal(visit({ storage }).redirect, '/zh/');
-    assert.equal(visit({ storage }).redirect, '/zh/');
-    assert.equal(storage.has(preferenceKey), false);
-  });
-
-  it('follows changed browser preferences on a later visit', () => {
-    const storage = new Map();
-    assert.equal(visit({ languages: ['en-US'], storage }).redirect, undefined);
-    assert.equal(visit({ languages: ['zh-CN'], storage }).redirect, '/zh/');
-  });
-
-  it('uses the first supported language in browser preference order', () => {
+  it('uses the first supported browser language', () => {
     assert.equal(
-      visit({ languages: ['fr-FR', 'zh-CN', 'en'] }).redirect,
-      '/zh/',
+      preferredLanguage({ languages: ['fr-FR', 'zh-CN', 'en'] }),
+      'zh',
     );
-    assert.equal(visit({ languages: ['en-US', 'zh-CN'] }).redirect, undefined);
+    assert.equal(preferredLanguage({ languages: ['en-US', 'zh-CN'] }), 'en');
+    assert.equal(preferredLanguage({ languages: ['fr-FR', 'ja'] }), undefined);
+    assert.equal(preferredLanguage({ languages: [] }), undefined);
+  });
+
+  for (const regionalLocale of ['zh-CN', 'zh-TW', 'zh-Hans-CN', 'zh-Hant-HK']) {
+    it(`recognizes ${regionalLocale} even with English-only browser languages`, () => {
+      assert.equal(
+        preferredLanguage({ languages: ['en-US'], regionalLocale }),
+        'zh',
+      );
+    });
+  }
+
+  it('uses saved explicit choices before browser and regional preferences', () => {
     assert.equal(
-      visit({ languages: ['zh-CN', 'en'], language: 'en-US' }).redirect,
-      '/zh/',
+      preferredLanguage({
+        savedLanguage: 'en',
+        languages: ['zh-CN'],
+        regionalLocale: 'zh-CN',
+      }),
+      'en',
+    );
+    assert.equal(
+      preferredLanguage({ savedLanguage: 'zh', languages: ['en'] }),
+      'zh',
     );
   });
 
-  it('uses Chinese for the reported Edge language and regional-locale mismatch', () => {
-    const storage = new Map([['rspress-visited', '1']]);
+  it('ignores invalid preferences and unsupported regional locales', () => {
     assert.equal(
-      visit({
-        url: '/index.html',
+      preferredLanguage({ savedLanguage: 'invalid', languages: ['zh-CN'] }),
+      'zh',
+    );
+    assert.equal(
+      preferredLanguage({
         languages: ['en-US', 'zh-CN'],
-        language: 'en-US',
-        intlLocale: 'zh-CN',
-        storage,
-        userAgent:
-          'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36 Edg/153.0.0.0',
-      }).redirect,
-      '/zh/index.html',
+        regionalLocale: 'fr-FR',
+      }),
+      'en',
     );
-    assert.equal(storage.has(preferenceKey), false);
-  });
-
-  for (const intlLocale of ['zh-TW', 'zh-Hans-CN', 'zh-Hant-HK']) {
-    it(`recognizes the Chinese regional locale ${intlLocale}`, () => {
-      assert.equal(
-        visit({ languages: ['en-US', 'zh-CN'], intlLocale }).redirect,
-        '/zh/',
-      );
-    });
-  }
-
-  for (const url of ['/', '/index.html', '/about.html?from=home#features']) {
-    it(`uses the reported Chinese regional locale with an English-only list at ${url}`, () => {
-      assert.equal(
-        visit({
-          url,
-          languages: ['en-US', 'en'],
-          language: 'en-US',
-          intlLocale: 'zh-CN',
-        }).redirect,
-        `/zh${url}`,
-      );
-    });
-  }
-
-  it('uses the Chinese regional locale when the language list is unavailable', () => {
-    assert.equal(
-      visit({ languages: [], language: 'en-US', intlLocale: 'zh-CN' }).redirect,
-      '/zh/',
-    );
-  });
-
-  it('keeps browser preference order for an unsupported regional locale', () => {
-    assert.equal(
-      visit({ languages: ['en-US', 'zh-CN'], intlLocale: 'fr-FR' }).redirect,
-      undefined,
-    );
-  });
-
-  it('lets a saved English choice override the Chinese regional locale', () => {
-    assert.equal(
-      visit({
-        languages: ['en-US', 'en'],
-        intlLocale: 'zh-CN',
-        storage: new Map([[preferenceKey, 'en']]),
-      }).redirect,
-      undefined,
-    );
-  });
-
-  it('falls back to navigator.language when no language list is available', () => {
-    assert.equal(visit({ languages: [], language: 'zh-CN' }).redirect, '/zh/');
-    assert.equal(
-      visit({ languages: null, language: 'zh-CN' }).redirect,
-      '/zh/',
-    );
-  });
-
-  it('keeps English for unsupported browser languages', () => {
-    assert.equal(visit({ languages: ['fr-FR', 'ja'] }).redirect, undefined);
-  });
-
-  it('detects the language even when storage access throws', () => {
-    const page = visit({ blockedStorage: true });
-    assert.equal(page.redirect, '/zh/');
-    assert.doesNotThrow(() => page.selectLanguage('en'));
-  });
-
-  it('ignores invalid saved preferences', () => {
-    const storage = new Map([[preferenceKey, 'invalid']]);
-    assert.equal(visit({ storage }).redirect, '/zh/');
   });
 });
 
-describe('routes and explicit language choices', () => {
-  for (const url of [
-    '/index.html',
-    '/download',
-    '/about.html?from=home#features',
+describe('explicit language switch destinations', () => {
+  for (const [path, english] of [
+    ['/', '/index.html'],
+    ['/index.html', '/index.html'],
+    ['/zh', '/index.html'],
+    ['/zh/', '/index.html'],
+    [
+      '/download?os=macos&arch=x64#packages',
+      '/download.html?os=macos&arch=x64#packages',
+    ],
+    [
+      '/zh/download.html?os=windows&arch=arm64#mini',
+      '/download.html?os=windows&arch=arm64#mini',
+    ],
+    ['/zh/guides/', '/guides/index.html'],
+    [
+      '/guides/capture/scrolling.html#preview',
+      '/guides/capture/scrolling.html#preview',
+    ],
+    ['/zh/changelog.html#v1-5-2', '/changelog.html#v1-5-2'],
   ]) {
-    it(`preserves the entire URL when redirecting ${url}`, () => {
-      assert.equal(visit({ url }).redirect, `/zh${url}`);
+    it(`preserves the document, parameters and fragment for ${path}`, () => {
+      assert.equal(languageHref(path, 'en'), english);
+      assert.equal(languageHref(path, 'zh'), `/zh${english}`);
     });
   }
 
-  for (const url of ['/zh', '/zh/', '/zh/index.html', '/zh/download.html']) {
-    it(`honors the explicit Chinese URL ${url}`, () => {
-      assert.equal(visit({ url, languages: ['en'] }).redirect, undefined);
-      assert.equal(visit({ url }).redirect, undefined);
-    });
-  }
-
-  it('remembers English chosen in the menu across page loads', () => {
-    const page = visit({ url: '/zh/' });
-    page.selectLanguage('en');
-    assert.equal(page.storage.get(preferenceKey), 'en');
-    assert.equal(visit({ storage: page.storage }).redirect, undefined);
+  it('works with the current browser URL after download selectors change it', () => {
     assert.equal(
-      visit({ url: '/download.html', storage: page.storage }).redirect,
-      undefined,
+      languageHref(
+        'http://localhost:4173/download.html?os=macos&arch=arm64#full',
+        'zh',
+      ),
+      '/zh/download.html?os=macos&arch=arm64#full',
     );
-  });
-
-  it('remembers Chinese chosen in an English browser', () => {
-    const page = visit({ languages: ['en'] });
-    page.selectLanguage('zh');
-    assert.equal(
-      visit({ languages: ['en'], storage: page.storage }).redirect,
-      '/zh/',
-    );
-  });
-
-  it('honors explicit Chinese URLs even with a saved English preference', () => {
-    const storage = new Map([[preferenceKey, 'en']]);
-    assert.equal(visit({ url: '/zh/about.html', storage }).redirect, undefined);
-  });
-
-  it('does not save ordinary navigation or external language links as choices', () => {
-    const page = visit();
-    page.clickOrdinaryLink();
-    page.selectLanguage('zh', 'https://external.example/zh/');
-    page.selectLanguage('fr');
-    assert.equal(page.storage.has(preferenceKey), false);
-  });
-
-  it('does not redirect crawlers', () => {
-    assert.equal(visit({ userAgent: 'Googlebot' }).redirect, undefined);
   });
 });

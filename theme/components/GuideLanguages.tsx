@@ -6,7 +6,11 @@ import './GuideLanguages.css';
 export function GuideLanguages() {
   const { pathname, search, hash } = useLocation();
   const lang = useLang();
-  if (!/^\/(?:zh\/)?(?:guides(?:\/|$)|changelog(?:\.html)?\/?$)/.test(pathname))
+  if (
+    !/^\/(?:zh\/)?(?:(?:guides|blog)(?:\/|$)|changelog(?:\.html)?\/?$)/.test(
+      pathname,
+    )
+  )
     return null;
   const isZh = lang === 'zh';
   const englishPath = new URL(defaultLanguageUrl(pathname)).pathname;

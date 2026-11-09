@@ -56,8 +56,8 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
         </p>
         <h2 id="features-title">
           {isZh
-            ? '从截取画面，\n到清晰表达。'
-            : 'From a capture\nto a clear idea.'}
+            ? 'Snow Shot 截图\n与录屏功能'
+            : 'Snow Shot screenshot\nand recording features'}
         </h2>
         <p>
           {isZh
@@ -83,7 +83,9 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
         <FeatureCopy
           label={isZh ? '区域截图' : 'REGION CAPTURE'}
           title={
-            isZh ? '只留下，\n你想说的部分。' : 'Just the part\nthat matters.'
+            isZh
+              ? '区域截图，\n精确选择画面。'
+              : 'Region screenshots,\nprecisely selected.'
           }
           description={
             isZh
@@ -102,8 +104,8 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
           label={isZh ? '截图标注' : 'ANNOTATION'}
           title={
             isZh
-              ? '少解释几句，\n多画一笔。'
-              : 'Less explaining.\nMore showing.'
+              ? '截图标注，\n清楚表达重点。'
+              : 'Screenshot annotation,\nmade clear.'
           }
           description={
             isZh
@@ -122,8 +124,8 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
           label={isZh ? '文本识别' : 'TEXT RECOGNITION'}
           title={
             isZh
-              ? '图片里的文字，接着用。'
-              : 'The text in your image. Ready to use.'
+              ? '本地 OCR，提取图片文字。'
+              : 'Local OCR: extract text from images.'
           }
           description={
             isZh
@@ -140,7 +142,11 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
       >
         <FeatureCopy
           label={isZh ? '文档识别' : 'DOCUMENT RECOGNITION'}
-          title={isZh ? '不止文字，还有结构。' : 'Keep the structure, too.'}
+          title={
+            isZh
+              ? '文档识别，保留表格与公式。'
+              : 'Recognize tables, formulas & documents.'
+          }
           description={
             isZh
               ? '表格保留行列，公式转为 LaTeX，二维码还原内容，文档变为 Markdown。切换样例，看见不同的输入与结果。'
@@ -162,7 +168,11 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
         >
           <FeatureCopy
             label={isZh ? '桌面贴图' : 'PIN TO SCREEN'}
-            title={isZh ? '参考图，就在手边。' : 'Your reference, in reach.'}
+            title={
+              isZh
+                ? '桌面贴图，\n参考资料随手可见。'
+                : 'Pin screenshots\nabove your windows.'
+            }
             description={
               isZh
                 ? '把截图固定在窗口之上，一边参考，一边工作。拖动它，或调整透明度，让视线留在重要的地方。'
@@ -178,7 +188,11 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
         >
           <FeatureCopy
             label={isZh ? '屏幕录制' : 'SCREEN RECORDING'}
-            title={isZh ? '把过程，也讲清楚。' : 'Show how it happens.'}
+            title={
+              isZh
+                ? '屏幕录制，\n记录操作过程。'
+                : 'Screen recording,\nstep by step.'
+            }
             description={
               isZh
                 ? '选择范围，开始录制。暂停时画面与计时一起停下，结束后回看刚才录下的过程。'
@@ -197,8 +211,8 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
           label={isZh ? '截图历史' : 'SCREENSHOT HISTORY'}
           title={
             isZh
-              ? '用过的画面，不用重新截。'
-              : 'Find it again. Keep the context.'
+              ? '截图历史，快速查找与复用。'
+              : 'Screenshot history, ready to reuse.'
           }
           description={
             isZh

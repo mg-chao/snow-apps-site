@@ -18,7 +18,9 @@ export function Nav(props: ComponentProps<typeof OriginalNav>) {
   const items = useNav();
   const lang = useLang();
   if (
-    !/^\/(?:zh\/)?(?:guides(?:\/|$)|changelog(?:\.html)?\/?$)/.test(pathname)
+    !/^\/(?:zh\/)?(?:(?:guides|blog)(?:\/|$)|changelog(?:\.html)?\/?$)/.test(
+      pathname,
+    )
   ) {
     return <OriginalNav {...props} />;
   }

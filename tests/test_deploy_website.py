@@ -91,6 +91,48 @@ class DeploymentTests(unittest.TestCase):
         for name, entry in receipt["files"].items():
             self.assertEqual(entry["sha256"], website.digest(self.root / name))
 
+    def test_blog_articles_assets_and_previous_directory_are_in_the_transaction(self):
+        paths = ("blog/new-task.html", "zh/blog/new-task.html", "images/blog/task.webp")
+        for name in paths:
+            target = self.build / name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(f"Current: {name}", encoding="utf-8")
+            previous = self.root / name
+            previous.parent.mkdir(parents=True, exist_ok=True)
+            previous.write_text(f"Previous: {name}", encoding="utf-8")
+        self.package()
+        result = self.publish()
+        receipt = json.loads((self.root / website.RECEIPT).read_text())
+        for name in paths:
+            self.assertIn(name, receipt["files"])
+            self.assertEqual((self.root / name).read_text(), f"Current: {name}")
+            self.assertEqual((Path(result["backup"]) / name).read_text(), f"Previous: {name}")
+        self.assert_preserved()
+
+    def test_blog_directory_is_restored_after_a_later_replacement_fails(self):
+        previous = self.root / "blog/index.html"
+        previous.parent.mkdir(parents=True)
+        previous.write_text("Previous blog", encoding="utf-8")
+        self.package()
+        replace = website.os.replace
+
+        def fail_later(source, destination):
+            if Path(destination) == self.root / "download.html":
+                raise OSError("injected replacement failure")
+            return replace(source, destination)
+
+        with patch.object(website.os, "replace", side_effect=fail_later):
+            with self.assertRaisesRegex(OSError, "injected"):
+                self.publish()
+        self.assertEqual(previous.read_text(), "Previous blog")
+        self.assert_preserved()
+
+    def test_missing_blog_language_index_stops_packaging(self):
+        (self.build / "zh/blog/index.html").unlink()
+        with self.assertRaisesRegex(ValueError, "Incomplete"):
+            self.package()
+        self.assertFalse(self.archive.exists())
+
     def test_repeated_deployment_retains_previous_website(self):
         self.package()
         first = self.publish()

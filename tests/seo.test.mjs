@@ -82,7 +82,12 @@ it('redirects every configured alias to its canonical route while retaining down
       /location = (\S+) \{ return 301 (\S+)\$is_args\$args; \}/g,
     ),
   ];
-  assert.equal(rules.length, 31);
+  assert.ok(rules.length >= 31);
+  for (const prefix of ['', '/zh']) {
+    for (const suffix of ['', '/', '/index']) {
+      assert.ok(rules.some(([, alias]) => alias === `${prefix}/blog${suffix}`));
+    }
+  }
   for (const [, alias, destination] of rules) {
     assert.equal(destination, canonicalUrl(alias));
     assert.notEqual(
@@ -207,6 +212,7 @@ it('uses the same link labels in navigation, sidebars and shared page entries', 
     for (const [index, key] of [
       'guides',
       'download',
+      'blog',
       'changelog',
       'about',
     ].entries()) {

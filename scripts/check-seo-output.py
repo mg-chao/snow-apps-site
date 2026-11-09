@@ -109,6 +109,11 @@ def check(directory):
         assert alternates == {'en': f'{ORIGIN}/{english}',
                               'zh': f'{ORIGIN}/zh/{english}',
                               'x-default': f'{ORIGIN}/{english}'}, f'{name}: incorrect language links'
+        if english.startswith('blog/') and english != 'blog/index.html':
+            data = json.loads(page.scripts[0])
+            items = data['itemListElement']
+            blog_home = 'zh/blog/index.html' if name.startswith('zh/') else 'blog/index.html'
+            assert len(items) == 3 and items[1]['item'] == f'{ORIGIN}/{blog_home}', f'{name}: blog parent missing'
         if name in ('index.html', 'zh/index.html'):
             schemas = {data['@type']: data for data in map(json.loads, page.scripts)}
             assert len(page.scripts) == 2 and set(schemas) == {'SoftwareApplication', 'WebSite'}, f'{name}: missing homepage schemas'
@@ -149,7 +154,7 @@ def check(directory):
     for prefix in ('', 'zh/'):
         home = f'{prefix}index.html'
         for target in ('download.html', 'guides/index.html', 'guides/getting-started/install.html',
-                       'guides/settings/shortcuts.html', 'changelog.html', 'about.html'):
+                       'guides/settings/shortcuts.html', 'blog/index.html', 'changelog.html', 'about.html'):
             assert f'{prefix}{target}' in graph[home], f'{home}: missing direct link to {target}'
         visited, pending = set(), [home]
         while pending:

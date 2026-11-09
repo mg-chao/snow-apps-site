@@ -21,6 +21,18 @@
   height: auto;
   border-radius: 10px;
 }
+.snow-guide-steps__focus {
+  position: relative;
+  width: 100%;
+  overflow: clip;
+  border-radius: 10px;
+}
+.snow-guide-steps .snow-guide-steps__focus img {
+  position: absolute;
+  max-width: none;
+  height: auto;
+  border-radius: 0;
+}
 .snow-guide-steps__controls {
   display: flex;
   gap: 0.5rem;

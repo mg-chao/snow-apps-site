@@ -1,0 +1,70 @@
+---
+title: "1.5.0 explained: keep screenshot annotations editable after pinning"
+description: "Enable editable annotation handoff to pins, verify object selection and undo, and understand the difference between retained objects and a flattened PNG."
+blog: true
+date: "2026-11-09"
+category: "releases"
+productVersion: "1.5.0–1.5.2"
+platforms: "Windows / macOS · Full / Mini"
+related: ["annotate-image-workflow", "release-1-5-2", "copy-save-export"]
+sidebar: false
+releaseDate: "2026-11-07T17:02:45Z"
+---
+
+# 1.5.0 explained: keep screenshot annotations editable after pinning
+
+If a label needs moving after you pin a screenshot, **Snow Shot 1.5.0 introduced a setting to retain editable annotations** during that handoff. Here is how to enable it, test the retained objects and avoid expecting a PNG to recover its original annotation structure.
+
+The [1.5.0 Release](https://github.com/mg-chao/snow-shot/releases/tag/v1.5.0_snow-shot) was published on **November 7, 2026 (UTC)**. It also adds a pinned-text copy button and improves pin restoration, history re-editing, number ordering and split previews.
+
+## Decide whether you need retained objects
+
+Open **Settings → Screenshot → Operation** and enable **Keep annotations editable after pinning to screen** (固定到屏幕后保持标注可编辑). Test with a new capture after enabling it. New configurations default to off; an upgrade does not establish that your configuration has enabled it.
+
+| Handoff | What to expect | What it does not establish |
+| --- | --- | --- |
+| Retention disabled | View the composed image or add new annotations | That old arrow endpoints remain selectable |
+| Retention enabled | Select and modify original objects in annotation mode | That every exported file retains objects |
+| Open an existing PNG | Continue working with image pixels | Recovery of original text boxes and arrow handles |
+
+![Teaching diagram of screenshot and clipboard paths into a desktop pin](/images/guides/en/pin-image.svg)
+
+*Teaching diagram. This setting controls screenshot-to-pin handoff; it does not reverse flattening in arbitrary images.*
+
+## Run a test with an observable result
+
+1. Capture a small non-sensitive region. New configurations use **F1** on Windows and **Control+1** on macOS; check your actual global binding.
+2. Add an arrow and a label, finish text input, then click **Pin to screen**.
+3. Enter annotation mode on the pin, activate the relevant tool and select the original arrow. Look for endpoints or an object boundary, then change it. Check the original text object too.
+4. Use the undo and redo buttons to confirm the change. Merely seeing an image window does not verify object handoff.
+
+![A selected editable text object with its boundary](/images/guides/ann-text-move-app-before.webp)
+
+*App screenshot. Look for the selected object’s boundary or control points.*
+
+## Separate text input, object movement and window movement
+
+While the caret is inside text, keys edit text. Finish input before selecting an object. Dragging an object differs from dragging the pin window: the object must change position relative to the underlying image.
+
+![Step 1 text moved to a new position after text input has ended](/images/guides/ann-text-move-app-after.webp)
+
+*App screenshot. Compare the label’s position relative to the background.*
+
+Retaining objects preserves the original region layout and does not apply the compact multi-region layout. Decide which outcome you need and check the output rather than assuming both layouts remain identical after handoff.
+
+## Copy or save and check the received result
+
+Copy from the pin and paste into the destination, or use **Save as file** to create a PNG and reopen it. A correct on-screen edit does not establish that the recipient has the latest result. A normal image file is flattened; reopening it does not restore the old objects.
+
+For a text pin, select text and use the added copy button. This copies selected text, while an image pin may supply an image or file. Paste into a text editor to verify both content type and selection. See [pinned text](../guides/pinning/text.md).
+
+## If original objects are unavailable
+
+- Check that you are running 1.5.0 or later and that retention is enabled.
+- Test a simple capture created **after** enabling it, excluding old PNGs and flattened pins.
+- Enter annotation mode, finish text input and activate the appropriate tool before selecting.
+- If everything moves together, check whether you dragged the window. If output misses an edit, check that you saved the current result.
+
+Avoiding duplicate old annotations when re-editing history is another released fix. It does not promise complete object recovery from every history format. Restored pins apply current settings, so check borders, buttons and interaction after upgrading.
+
+For a report, include version, platform, setting state, content origin (capture, clipboard or file), minimal steps and shareable before/after images. Collect an archive using the [diagnostics guide](../guides/settings/storage-backup.md) and report through [Issues](https://github.com/mg-chao/snow-shot/issues). Related references: [image pins](../guides/pinning/image.md), [Download](../download.mdx), [Changelog](../changelog.mdx).

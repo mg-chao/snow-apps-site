@@ -986,9 +986,9 @@ html.dark {
 }
 .snow-download-hero h1 {
   margin: 0;
-  font-size: clamp(48px, 7vw, 82px);
+  font-size: clamp(32px, 5vw, 64px);
   font-weight: 700;
-  line-height: 0.98;
+  line-height: 1.08;
   letter-spacing: -0.045em;
 }
 .snow-download-hero h1 em {
@@ -1001,6 +1001,15 @@ html.dark {
   color: var(--snow-muted);
   font-size: 18px;
   line-height: 1.5;
+}
+.snow-download-hero__tagline {
+  margin: 22px 0 0;
+  color: var(--snow-ink);
+  font-size: 20px;
+  line-height: 1.5;
+}
+.snow-download-hero__tagline + .snow-download-hero__intro {
+  margin-top: 12px;
 }
 .snow-download-hero__meta {
   display: flex;

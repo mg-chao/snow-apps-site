@@ -47,6 +47,7 @@ type PlatformCopy = {
 
 const copy = {
   en: {
+    tagline: 'Make your screen worth sharing.',
     selectLabel: 'System',
     downloadButton: 'Download from GitHub',
     windowsStore: {
@@ -66,7 +67,7 @@ const copy = {
       'Snow Shot requires macOS 15 or later on an Intel Mac. Open the disk image, drag Snow Shot into Applications, then launch it from there. Snow Shot Mini is available only for Apple silicon Macs.',
     windows: {
       kicker: 'SNOW SHOT / WINDOWS',
-      title: ['Make your screen', 'worth sharing.'],
+      title: ['Download Snow Shot', 'and Snow Shot Mini'],
       intro:
         'A fast, focused toolkit for screenshots, recordings, annotations, and text recognition.',
       meta: ['Free to download', 'Ready in minutes'],
@@ -141,7 +142,7 @@ const copy = {
     },
     macos: {
       kicker: 'SNOW SHOT / MACOS',
-      title: ['Make your screen', 'worth sharing.'],
+      title: ['Download Snow Shot', 'and Snow Shot Mini'],
       intro:
         'A fast, focused toolkit for screenshots, recordings, annotations, and text recognition.',
       meta: ['Free to download', 'Ready in minutes'],
@@ -184,6 +185,7 @@ const copy = {
     },
   },
   zh: {
+    tagline: '让每一处画面都值得分享。',
     selectLabel: '系统',
     downloadButton: '从 Gitee 下载',
     windowsStore: {
@@ -203,7 +205,7 @@ const copy = {
       'Snow Shot 适用于运行 macOS 15 或更新版本的 Intel Mac。打开磁盘映像，把 Snow Shot 拖进应用程序文件夹，再从那里启动。Snow Shot Mini 仅支持 Apple 芯片 Mac。',
     windows: {
       kicker: 'SNOW SHOT / WINDOWS',
-      title: ['让每一处画面', '都值得分享。'],
+      title: ['下载 Snow Shot', '和 Snow Shot Mini'],
       intro: '截图、录屏、标注和文本识别，一套专注而快速的工具。',
       meta: ['免费下载', '几分钟即可开始'],
       sectionKicker: '选择安装方式',
@@ -273,7 +275,7 @@ const copy = {
     },
     macos: {
       kicker: 'SNOW SHOT / MACOS',
-      title: ['让每一处画面', '都值得分享。'],
+      title: ['下载 Snow Shot', '和 Snow Shot Mini'],
       intro: '截图、录屏、标注和文本识别，一套专注而快速的工具。',
       meta: ['免费下载', '几分钟即可开始'],
       sectionKicker: '选择安装方式',
@@ -317,6 +319,7 @@ const copy = {
 } as const satisfies Record<
   Locale,
   {
+    tagline: string;
     selectLabel: string;
     downloadButton: string;
     windowsStore: { title: string; body: string; button: string };
@@ -456,10 +459,10 @@ export function DownloadPage({ locale }: { locale: Locale }) {
         <div className="snow-download-hero__copy">
           <p className="snow-download-kicker">{content.kicker}</p>
           <h1>
-            {content.title[0]}
-            <br />
+            {content.title[0]} <br />
             <em>{content.title[1]}</em>
           </h1>
+          <p className="snow-download-hero__tagline">{page.tagline}</p>
           <p className="snow-download-hero__intro">{content.intro}</p>
           <SystemSelect
             page={page}

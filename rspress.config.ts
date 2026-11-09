@@ -19,8 +19,7 @@ export default defineConfig({
     selector: '.rspress-doc img:not(a img)',
   },
   route: {
-    // Our head script applies saved choices and browser language preferences.
-    // Keep Rspress's own redirect disabled so the two selectors cannot compete.
+    // Language preferences only suggest a switch; each URL keeps its language.
     localeRedirect: 'never',
   },
   builderConfig: {
@@ -34,18 +33,6 @@ export default defineConfig({
           },
           children: readFileSync(
             path.join(__dirname, 'scripts/locale-debug.js'),
-            'utf8',
-          ),
-          append: false,
-        },
-        {
-          tag: 'script',
-          attrs: {
-            id: 'snow-shot-locale',
-            'data-revision': 'locale-auto-1',
-          },
-          children: readFileSync(
-            path.join(__dirname, 'scripts/locale-redirect.js'),
             'utf8',
           ),
           append: false,

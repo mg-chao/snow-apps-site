@@ -25,7 +25,7 @@ Find the **Current monitor** and **Focused window** actions under **Global short
 
 These actions **skip the selection editor** and copy the capture directly to the clipboard. Paste into a chat, document or image editor to inspect it. Whether a file is also saved depends on whether **Settings → Export and storage** includes that capture method among its automatic save actions; see [copying and saving](../output/copy-save.md).
 
-Direct window capture differs from accepting a smart window border during an ordinary screenshot. The former quickly captures the whole window; the latter allows region adjustments and annotations. If a focused window, screen permission or target app prevents a useful direct capture, compare it with an ordinary screenshot.
+Direct window capture differs from using Smart Selection during an ordinary screenshot. The former quickly captures the whole window; the latter allows region adjustments and annotations. If a focused window, screen permission or target app prevents a useful direct capture, compare it with an ordinary screenshot.
 
 ## Perform an action immediately after selecting
 

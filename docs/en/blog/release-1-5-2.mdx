@@ -1,0 +1,76 @@
+---
+title: "1.5.2 explained: bring existing images into an editing and delivery workflow"
+description: "Use selected-file import, floating-toolbar entries and diagnostic archives in Snow Shot 1.5.2, then verify an edited image by reopening its saved output."
+blog: true
+date: "2026-11-09"
+category: "releases"
+productVersion: "1.5.2"
+platforms: "Windows / macOS · Full / Mini"
+related: ["annotate-image-workflow", "copy-save-export", "release-1-5-0"]
+sidebar: false
+releaseDate: "2026-11-08T16:14:35Z"
+---
+
+# 1.5.2 explained: bring existing images into an editing and delivery workflow
+
+Snow Shot 1.5.2 helps people who annotate existing screenshots, assemble image documents or report failures. It connects selected files to editing and improves collage previews, PDF layouts, history and diagnostics. This walkthrough takes a PNG from opening to a checked output.
+
+The product was released on **November 8, 2026 (UTC)**. See the original [1.5.2 Release](https://github.com/mg-chao/snow-shot/releases/tag/v1.5.2_snow-shot) for notes and packages.
+
+## What changes in everyday use
+
+| Change | Useful when | Check after updating |
+| --- | --- | --- |
+| Open selected images in the editor | A file needs arrows or explanatory text | Select a PNG, invoke the action, verify the loaded image |
+| More configurable floating-toolbar entries | You repeatedly open history, canvas or image tools | Add the action and invoke it once |
+| History browsing and storage improvements | Your history contains many captures | Browse and open records you need |
+| Logs and crash reports in one archive | You need to report a reproducible failure | Paste the ZIP and attach reproduction steps |
+
+Use the following workflow to check your everyday tasks after updating.
+
+## Open an existing file
+
+1. Find **Edit selected images** under **Global shortcuts**. It has no default binding. Assign an unused combination if you want to invoke it from a file manager.
+2. Select a PNG in Windows File Explorer or macOS Finder, keep the file manager focused, and invoke the combination. Multiple images open separate editor windows.
+3. Check that the loaded content matches the file. macOS may need permission to automate Finder. On Windows, File Explorer or the desktop must be foreground when invoking the action.
+4. To try the editor directly, search for the action in the main window, select the result and click the action row. With no selection available, use **Add image** in the empty window.
+
+![Diagram of selecting an image in a file manager before invoking the editing action](/images/guides/en/img-audit-files-edit-2.svg)
+
+*Teaching diagram. Selecting a file and invoking the correct action are both necessary; the capture shortcut does not import that file.*
+
+![A sample image loaded in the image editor](/images/guides/rec-local-image-input.webp)
+
+*Add image is 添加图像 in the Chinese interface. Check the source before annotating.*
+
+## Check the viewing scale, then edit and save
+
+At the bottom center, **Fit to canvas** is on the left and **100%** on the right. Fit shows the complete boundary; 100% helps inspect small text. These change the view, so a smaller on-screen image does not establish that pixels were removed.
+
+Choose the arrow tool and drag toward the relevant detail. Use the text tool to add an explanation in an empty area. Finish text input and check that the label does not cover the original problem. Select the existing object to correct it rather than covering an incorrect label with another one.
+
+![Saved output reopened in the released editor at 100 percent](/images/guides/img-editor-actual-size.webp)
+
+*Actual app screenshot. The image boundary and bottom controls distinguish viewing scale from output dimensions.*
+
+Click **Save as file**, use a new name, then reopen it. Check the arrows, text, edges and pixel dimensions. A flattened PNG does not preserve arbitrary annotation objects. For continuing with editable pins, read the [1.5.0 article](./release-1-5-0.mdx). For multi-image documents, see [collages](../guides/image-editing/collage.mdx) and [image-to-PDF layouts](../guides/image-editing/pdf.mdx).
+
+## Prepare frequent entries and useful reports
+
+Under **Settings → General → Floating toolbar**, open its configuration and move the history, full-screen canvas or image-editing action you need into a visible position. Close configuration and test it. Customized layouts change ordering; identify actions by their tooltips. See [toolbar settings](../guides/settings/toolbars-tray.md).
+
+For failures, open **Settings → Export & storage → Data storage**, click **Copy** under **Export logs**, and paste the ZIP into a file manager. This archive contains logs and crash reports. Keep it separate from configuration backups and image output. Review it and personal paths before submitting [an issue](https://github.com/mg-chao/snow-shot/issues) with OS, edition, app version, entry point, expected result and actual result.
+
+![Teaching diagram distinguishing data usage, configuration backup and diagnostics](/images/guides/en/set-storage-backup.svg)
+
+*Teaching diagram. Keep configuration and diagnostic archives separate so the correct file accompanies a report.*
+
+## Upgrade boundaries and checks
+
+Use the [installation guide](../guides/getting-started/install.md) to match platform and architecture. Avoid troubleshooting by downgrading over your only data copy. Automatic installer-cache cleanup does not mean clearing history or replacing an independent backup of important images.
+
+1. Open a non-sensitive image and check display, editing and saved output.
+2. Repeat from your usual entry to distinguish entry failures from editing failures.
+3. If selected-file import alone fails, test **Add image**, then inspect file-manager focus and Finder permission.
+
+ Get released packages from [Download](../download.mdx) and the full notes from [Changelog](../changelog.mdx).

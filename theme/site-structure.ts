@@ -34,8 +34,8 @@ export function siteLinks(locale: SiteLocale) {
     ),
     capture: link(
       '/guides/capture/basics.html',
-      '区域、窗口与控件截图',
-      'Region, window and control capture',
+      '区域截图与智能框选',
+      'Region capture and Smart Selection',
     ),
     annotation: link(
       '/guides/annotations/basics.html',
@@ -68,6 +68,7 @@ export function siteLinks(locale: SiteLocale) {
       '截图历史与批量处理',
       'Screenshot history and bulk actions',
     ),
+    blog: link('/blog/index.html', '博客', 'Blog'),
     changelog: link('/changelog.html', '更新日志', 'Changelog'),
     about: link('/about.html', '关于', 'About'),
   };
@@ -75,23 +76,38 @@ export function siteLinks(locale: SiteLocale) {
 
 export function footerSections(locale: SiteLocale) {
   const links = siteLinks(locale);
+  const shortLink = (link: SiteLink, zh: string, en: string): SiteLink => ({
+    ...link,
+    label: locale === 'zh' ? zh : en,
+  });
   return [
     {
       title: locale === 'zh' ? '开始使用' : 'Get started',
-      links: [links.download, links.install, links.quickStart, links.shortcuts],
+      links: [
+        links.download,
+        shortLink(links.install, '安装与更新', 'Installation'),
+        shortLink(links.quickStart, '快速上手', 'Quick start'),
+        shortLink(links.shortcuts, '快捷键', 'Shortcuts'),
+      ],
     },
     {
       title: locale === 'zh' ? '功能指南' : 'Feature guides',
       links: [
-        links.scrolling,
-        links.recognition,
-        links.pinning,
-        links.recording,
+        shortLink(links.scrolling, '滚动截图', 'Scrolling capture'),
+        shortLink(links.recognition, '文字识别', 'Text recognition'),
+        shortLink(links.pinning, '桌面贴图', 'Pin to screen'),
+        shortLink(links.recording, '屏幕录制', 'Screen recording'),
       ],
     },
     {
       title: locale === 'zh' ? '了解项目' : 'The project',
-      links: [links.home, links.guides, links.changelog, links.about],
+      links: [
+        links.home,
+        links.guides,
+        links.blog,
+        links.changelog,
+        links.about,
+      ],
     },
   ];
 }

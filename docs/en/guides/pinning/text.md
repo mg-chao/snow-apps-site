@@ -80,4 +80,4 @@ In Full, **Text type** in the pin menu can select **Recognition results** or **T
 
 Animated and live-window menus differ from static images. If annotation mode is absent, obtain a static frame first; live windows offer **Convert to image**. Repeatedly changing animation playback will not reveal static-image tools.
 
-Continue with [Text recognition](../recognition/text.md), [Pin transforms and cropping](./transform.mdx), or [Screenshot translation](../translation/screenshot.md).
+Continue with [Text recognition](../recognition/text.mdx), [Pin transforms and cropping](./transform.mdx), or [Screenshot translation](../translation/screenshot.md).

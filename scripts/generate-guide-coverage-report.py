@@ -53,7 +53,8 @@ accepted = [
     if row["Acceptance status"].startswith(("已完成", "验收通过", "完成："))
 ]
 development_native = [key for key, value in ops.items() if "构建原生UI：" in value]
-release_native = [key for key, value in ops.items() if "正式发行原生UI：" in value]
+release_native = [key for key, value in ops.items()
+                  if "正式发行原生UI：" in value or "正式发行普通UI" in value]
 native = sorted(set(development_native) | set(release_native))
 backend = [key for key, value in ops.items() if "后台MCP" in value]
 abnormal = [

@@ -12,7 +12,7 @@ COLS = ['Asset', 'Feature IDs', 'Teaching purpose', 'Documentation path', 'Assoc
 MIG = json.loads((ART / 'mdx-route-migration.json').read_text())
 SOURCE_NAMES = ['assets-annotations.csv', 'assets-capture-start.csv',
                 'assets-recognition-pinning.csv', 'assets-recording-settings.csv',
-                'assets-image-audit.csv']
+                'assets-image-audit.csv', 'assets-editor-crop-diagrams.csv']
 LOCALIZATION = ART / 'assets-english-localization.csv'
 
 
@@ -95,7 +95,7 @@ for source_name in SOURCE_NAMES:
         original = raw.get('Asset', raw.get('Asset file', ''))
         path = asset_path(original)
         feature_ids = ids(raw.get('Feature IDs', raw.get('Feature ID', '')))
-        # Correct attribution in the merged view, never rewrite the five source inputs.
+        # Correct attribution in the merged view without rewriting source inputs.
         if Path(path).stem == 'ann-arrow-native-edited':
             feature_ids = ['ANN-019', 'ANN-028']
         purpose = raw.get('Teaching purpose', raw.get('Teaching purpose and step', ''))
@@ -201,7 +201,9 @@ for gap in gaps:
     doc = norm_doc(coverage.get(fid, {}).get('Documentation path and section', ''))
     missing.append(dict(zip(COLS, ['MISSING:' + fid, fid, gap['Specific asset gap'], '; '.join(doc),
         coverage.get(fid, {}).get('Specific feature or operation', gap['Specific asset gap']),
-        'artifacts/annotation-asset-gaps.csv；对应 coverage-annotations.csv 与 research-annotations.md',
+        'artifacts/annotation-asset-gaps.csv；对应 coverage-annotations.csv；'
+        + ('artifacts/research-release-editor-crop.md' if fid.startswith('IMG-')
+           else 'artifacts/research-annotations.md'),
         '尚未制作；按具体捕获或教学重建计划实施', gap['Status'],
         '当前缺口/条件：' + gap['Current blocker or limitation'] + '；下一步：' + gap['Actionable next capture']])))
 missing_ids = {row['Feature ID'] for row in gaps}

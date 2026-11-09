@@ -10,6 +10,11 @@
     "activeMatch": "/download"
   },
   {
+    "text": "Blog",
+    "link": "/blog/index.html",
+    "activeMatch": "/blog/"
+  },
+  {
     "text": "Changelog",
     "link": "/changelog",
     "activeMatch": "/changelog"

@@ -66,4 +66,4 @@ description: 框选屏幕文字并翻译，比较原图覆盖译文与文字结�
 
 Mini 没有截图翻译工具；本地 OCR 可用也不代表翻译服务可离线使用。
 
-继续阅读：[文本翻译](./text.md) · [划词翻译](./selected-text.md) · [文本识别](../recognition/text.md)
+继续阅读：[文本翻译](./text.md) · [划词翻译](./selected-text.md) · [文本识别](../recognition/text.mdx)

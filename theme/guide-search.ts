@@ -4,7 +4,7 @@ export function guideSearchHref(href: string) {
   const url = new URL(href, siteOrigin);
   if (
     url.origin !== siteOrigin ||
-    !/^\/(?:zh\/)?guides(?:\/|$)/.test(url.pathname)
+    !/^\/(?:zh\/)?(?:guides|blog)(?:\/|$)/.test(url.pathname)
   ) {
     return href;
   }

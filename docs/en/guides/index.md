@@ -26,7 +26,7 @@ On Windows, the defaults are **F1** for a screenshot and **Ctrl+F1** to select a
 | Capture an exact size or several separate areas | [Dimensions and ratios](./capture/precise-selection.md) · [Multiple regions](./capture/multiple-regions.mdx) · [Irregular selections](./capture/irregular-regions.mdx) |
 | Mark a detail, add a note or obscure sensitive information | [Shapes](./annotations/shapes.mdx) · [Text](./annotations/text.mdx) · [Filters and redaction](./annotations/filters.mdx) |
 | Arrange several images into one image or multiple pages | [Collage](./image-editing/collage.mdx) · [Splitting](./image-editing/split.mdx) · [PDF](./image-editing/pdf.mdx) |
-| Extract editable content from an image | [Text](./recognition/text.md) · [Tables](./recognition/table.mdx) · [Formulas](./recognition/formula.md) |
+| Extract editable content from an image | [Text](./recognition/text.mdx) · [Tables](./recognition/table.mdx) · [Formulas](./recognition/formula.md) |
 | Translate a screen region or selected text | [Screenshot translation](./translation/screenshot.md) · [Selected text](./translation/selected-text.md) · [Services](./translation/services.md) |
 | Keep reference material visible | [Image pinning](./pinning/image.md) · [Live windows](./pinning/live-window.md) · [Pin management](./pinning/management.mdx) |
 | Recover or organize results | [Saving formats](./output/copy-save.md) · [History](./output/history.md) · [Storage and backups](./settings/storage-backup.md) |
@@ -39,7 +39,7 @@ On Windows, the defaults are **F1** for a screenshot and **Ctrl+F1** to select a
 
 ## Extract text with offline recognition
 
-Prepare [models and offline resources](./recognition/models.md), then follow [text recognition and correction](./recognition/text.md). Offline recognition resources and online translation services have separate settings. Each tutorial explains relevant Mini differences and entry points.
+Prepare [models and offline resources](./recognition/models.md), then follow [text recognition and correction](./recognition/text.mdx). Offline recognition resources and online translation services have separate settings. Each tutorial explains relevant Mini differences and entry points.
 
 <span id="pin-a-reference-or-record-a-demonstration"></span>
 
@@ -59,7 +59,7 @@ Expand the sidebar to find each individual tool. On mobile, open the page menu t
 
 ### Screenshots and selections
 
-- [Region, window and control capture](./capture/basics.mdx)
+- [Region capture and Smart Selection](./capture/basics.mdx)
 - [Exact dimensions, ratios and selection appearance](./capture/precise-selection.md)
 - [Multiple regions and region combinations](./capture/multiple-regions.mdx)
 - [Polyline, curve and freehand selections](./capture/irregular-regions.mdx)
@@ -99,7 +99,7 @@ Expand the sidebar to find each individual tool. On mobile, open the page menu t
 
 ### Recognition and conversion
 
-- [Text recognition and result cleanup](./recognition/text.md)
+- [Text recognition and result cleanup](./recognition/text.mdx)
 - [OCR models and offline preparation](./recognition/models.md)
 - [Table recognition and cell editing](./recognition/table.mdx)
 - [Barcode and QR code recognition](./recognition/barcode.md)

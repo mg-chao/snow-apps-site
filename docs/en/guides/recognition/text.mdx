@@ -1,7 +1,9 @@
 ---
 title: Text recognition and cleanup
-description: Extract editable text from screenshots, compare it with the original, correct recognition errors, adjust line breaks and punctuation, copy text, and troubleshoot OCR preparation or recognition failures.
+description: Extract editable text from screenshots or existing images, correct recognition errors, adjust line breaks and punctuation, copy selections or all text, and save image-recognition results as TXT.
 ---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
 
 # Text recognition and cleanup
 
@@ -22,9 +24,32 @@ You can also launch OCR without assigning a separate shortcut. In the main windo
 
 Do not repeatedly click while components are downloading. Use **Cancel screenshot** to end the session. Start again with a smaller, clearer selection if you need a different input.
 
+## Recognize an existing image and save its text
+
+For an image file you already have, extract text directly in the image editor. First check that the image is clear and contains complete text. Open the original in your system image viewer as well if you want to compare it beside the result.
+
+Mini hides the image editor's **Text recognition** button by default. After loading an image and focusing the canvas, use **Ctrl+D** (**Command+D** on macOS) to recognize it directly. To show the button, open **Settings → Pin to screen → Action toolbar → Pin to screen toolbar settings** and drag **Text recognition** from **Hidden tools** to a visible position. This layout is separate from the screenshot toolbar.
+
+1. Enter **Edit selected images** in the main window's **Search function**, choose the result to locate its action row, then click the row's title or empty area. An empty image editor opens when no usable selected file is available.
+2. Click **Add images**, choose one image in the file dialog, and open it. Wait for loading and confirm that the intended image appears on the canvas. Canceling the dialog leaves the new file unloaded.
+3. Click **Text recognition** in the image-editing toolbar. On macOS, the default is also **Command+D** while the image canvas has focus. Local tool shortcuts may not respond while you are typing in a text field; use the toolbar button in that case. Wait for the recognized text to appear.
+4. The result enters text editing automatically. Compare it with the image, select the text you want to change, and type its replacement. Practice by changing `Target` to `Goal` in this example; when proofreading your own image, make the result match the original. In macOS text editing, **Command+Z** undoes the change and **Command+Shift+Z** redoes it.
+5. Select the required text and copy to use only that part. To copy everything, select all first, then copy. On macOS, use **Command+C** to copy and **Command+A** to select all. Paste into a text editor and check whether you have the intended selection or the complete passage.
+6. Keep the text-recognition result active and click **Save as file** in the toolbar. Choose a folder, enter a filename, and save as **.txt**. This saves text rather than the original image. Canceling the dialog retains your text edits so you can keep editing or save again.
+7. Reopen the TXT in a system text editor and check its content and line breaks. The example saves `recognized-goal.txt`; reopening it shows `Start` and `Goal` on separate lines.
+
+The image editor's recognition result does not provide a **Show original image** toggle. That button in “Compare and edit” below belongs to screenshot recognition. To retain the picture itself, follow the image-saving steps in [Image editing](../image-editing/editor.mdx). Saving TXT does not overwrite the original picture.
+
+<GuideSteps title="Extract text from an image and save TXT" sourceLabel="In-app steps" frames={[
+  {src: '/images/guides/rec-local-image-input.webp', alt: 'The image editor displays an existing image with Start and Target in two boxes', label: 'Open an existing image', caption: 'Check that Start and Target are complete and clear before starting Text recognition.'},
+  {src: '/images/guides/rec-local-text-recognized.webp', alt: 'Recognition produces editable Start and Target on separate lines', label: 'Inspect editable text', caption: 'When recognition completes, locate the word or character you want to correct.', focus: {x: 40, y: 100, width: 350, height: 160, imageWidth: 2400, imageHeight: 1600}},
+  {src: '/images/guides/rec-local-text-edited.webp', alt: 'Target has been changed to Goal while the first line remains Start', label: 'Correct the text', caption: 'Change the second line to Goal. Check the first line and line break before copying or saving.', focus: {x: 40, y: 100, width: 350, height: 160, imageWidth: 2400, imageHeight: 1600}},
+  {src: '/images/guides/rec-local-txt-reopened.webp', alt: 'A text editor reopens recognized-goal.txt and displays Start and Goal on separate lines', label: 'Reopen the TXT', caption: 'Open recognized-goal.txt after saving and check that it contains both corrected lines.', focus: {x: 0, y: 0, width: 520, height: 140, imageWidth: 1312, imageHeight: 844}}
+]} />
+
 ## Compare and edit
 
-Check digits, letter case, path separators, and similar-looking characters against the original. Verify commands, amounts, and account details before copying them.
+For recognition launched from the screenshot toolbar, use the following steps to display the original and correct the result. Check digits, letter case, path separators, and similar-looking characters against the original. Verify commands, amounts, and account details before copying them.
 
 1. Click **Show original image** in the recognition property bar to display a reference alongside the result; click again to toggle it. **Show original image preview** in settings controls the initial state.
 2. Click **Edit**, locate a mistake in the editable result, and replace it. This changes the current recognition result, not the text in the source application.
@@ -33,7 +58,7 @@ Check digits, letter case, path separators, and similar-looking characters again
 
 ## Line breaks and punctuation
 
-Use **Format** and **Punctuation** in the property bar to clean up recognized text. Choose an option and inspect the result. Clear it or choose “None” to stop that conversion. These tools do not proofread text or decide whether punctuation in a command should change.
+Use **Formatting** and **Punctuation** in the property bar to clean up recognized text. Choose an option and inspect the result. Clear it or choose “None” to stop that conversion. These tools do not proofread text or decide whether punctuation in a command should change.
 
 | Option | Effect and use |
 | --- | --- |
@@ -50,9 +75,11 @@ Set default formatting and punctuation under **Settings → Text recognition & t
 
 **Copy to clipboard** transfers the current text result to a text editor. Check the copy range when a partial text selection exists. Paste into the destination once to check for missing characters or unwanted line breaks.
 
-Interpret **Save as file** together with the current result and output settings. **Save recognition results as an image** controls whether displayed recognition text is rendered into screenshot image exports. For editable text, copy into a text editor and save your own text file. For cell structure, use [Table recognition](./table.mdx).
+For recognition launched from the screenshot toolbar, interpret **Save as file** together with the current result and output settings. **Save recognition results as an image** controls whether displayed recognition text is rendered into screenshot image exports. For editable text, copy into a text editor and save it. When recognizing an existing file in the image editor, you can save TXT directly as described above. For cell structure, use [Table recognition](./table.mdx).
 
 ## Text background and highlighting
+
+The background and highlighting options below apply to screenshot recognition. The image editor's independent text result does not show these overlays on the original image.
 
 Under **Settings → Text recognition & translation → Text background**—the **Text recognition** page in Mini—you can change how recognized text appears over the original:
 

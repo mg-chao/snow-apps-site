@@ -4,7 +4,20 @@ export type Locale = 'en' | 'zh';
 export type Channel = 'stable' | 'preview' | 'all';
 export type Release = (typeof snapshot.releases)[number];
 
-export const releases = snapshot.releases;
+// Normalize legacy names on display, including after a release snapshot refresh.
+function normalizeCaptureTerms(notes: string) {
+  return notes
+    .replace(/智能选择|智能选区|控件截图/g, '智能框选')
+    .replace(/\bsmart selection\b/gi, 'Smart Selection');
+}
+
+export const releases = snapshot.releases.map((release) => ({
+  ...release,
+  notes: {
+    zh: normalizeCaptureTerms(release.notes.zh),
+    en: normalizeCaptureTerms(release.notes.en),
+  },
+}));
 export const latestRelease = releases.find((release) => !release.prerelease);
 
 export function releaseId(release: Pick<Release, 'tag'>) {

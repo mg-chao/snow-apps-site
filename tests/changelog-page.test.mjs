@@ -170,6 +170,27 @@ describe('release discovery', () => {
 });
 
 describe('release note rendering', () => {
+  it('uses Smart Selection terminology in historical notes and search', () => {
+    const legacy = release({
+      notes: {
+        zh: '- 智能选择支持控件截图，并改善智能选区动画。',
+        en: '- Improve smart selection and Smart selection animations.',
+      },
+    });
+    const chinese = render('zh', [legacy]);
+    assert.match(chinese, /智能框选/);
+    assert.doesNotMatch(chinese, /智能选择|智能选区|控件截图/);
+    const english = render('en', [legacy]);
+    assert.match(english, /Smart Selection/);
+    assert.doesNotMatch(english, /smart selection|Smart selection/);
+    const model = loadModel([legacy]);
+    assert.equal(model.filterReleases('all', '智能框选')[0].tag, legacy.tag);
+    assert.equal(
+      legacy.notes.zh,
+      '- 智能选择支持控件截图，并改善智能选区动画。',
+    );
+  });
+
   for (const locale of ['en', 'zh']) {
     it(`server-renders the latest published notes and history links in ${locale}`, () => {
       const html = render(locale);

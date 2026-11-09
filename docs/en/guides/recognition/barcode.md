@@ -48,4 +48,4 @@ For many codes, first capture one and confirm it can be read, then expand the ar
 
 For service or request errors, click **Retry** in the result to process the current input again. If the input is unclear, select a new area instead. Exiting and restarting capture gives a new input range.
 
-Continue with [Table recognition](./table.mdx), [Text recognition](./text.md), or [Image and clipboard pins](../pinning/image.md).
+Continue with [Table recognition](./table.mdx), [Text recognition](./text.mdx), or [Image and clipboard pins](../pinning/image.md).

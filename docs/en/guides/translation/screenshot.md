@@ -66,4 +66,4 @@ To share an image containing the translation, check the in-image result first, t
 
 Mini does not provide screenshot translation. Available local OCR does not mean translation services work offline.
 
-Continue with [Text translation](./text.md), [Selected-text translation](./selected-text.md), or [Text recognition](../recognition/text.md).
+Continue with [Text translation](./text.md), [Selected-text translation](./selected-text.md), or [Text recognition](../recognition/text.mdx).

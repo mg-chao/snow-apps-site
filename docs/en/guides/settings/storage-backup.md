@@ -17,7 +17,7 @@ Application data, independently exported images/videos, and configuration backup
 2. Refresh to inspect screenshot history, pinned content, OCR, recording temporary files, and other usage separately. Identify the growing data type before cleaning it.
 3. Check diagnostics, log location, and log status. Preserve this information when investigating a permission or write error.
 
-Modes can include application data, custom directory, portable, read-only (newer configuration), or unavailable. Read-only does not mean you forgot a Save button. If configuration comes from a newer version, use a compatible version rather than manually editing the database to bypass protection.
+Modes can include application data, custom directory, portable, read-only (newer configuration), or unavailable. If configuration comes from a newer version, use a compatible version rather than manually editing the database to bypass protection.
 
 ## Change the data directory on Windows
 
@@ -27,10 +27,10 @@ On macOS, this area primarily displays status and does not offer the same Window
 
 ## Export and restore configuration
 
-1. In the same data-storage section, click **Export configuration**. Choose whether to include **Canvas style configuration** when migrating saved annotation styles.
+1. In the same data-storage section, click **Export** under **Export configuration**. In the dialog, choose whether to include **Canvas style configuration** when migrating saved annotation styles, then click **Export** to create the archive. **Cancel** leaves without exporting.
 2. After the message confirms export to the clipboard, paste into a file manager and keep the ZIP with a recognizable date or purpose. Clipboard content alone is not a durable backup.
-3. Back up your current settings before restoring. Click **Import configuration** and select the earlier ZIP.
-4. Read the replacement confirmation: archive values replace current application settings, and some changes require a restart. Confirm to import, or cancel to keep the current configuration.
+3. Back up your current settings before restoring. Click **Import** under **Import configuration** and select the earlier ZIP. Canceling the file chooser leaves settings unchanged.
+4. Read the replacement confirmation: archive values replace current application settings, and some changes require a restart. Click **Import** to replace them, or **Cancel** to keep the current configuration.
 5. After success, check theme, shortcuts, and save directories, and restart if needed. When moving between computers, recheck local paths and device availability.
 
 The configuration archive contains app settings; it is not a backup of every screenshot or video. Preserve important output files separately. A log archive is another ZIP type and must not be imported as configuration.

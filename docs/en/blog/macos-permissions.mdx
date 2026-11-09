@@ -1,0 +1,62 @@
+---
+title: "Black captures or unresponsive input on macOS: check permissions by task"
+description: "Map Snow Shot tasks to capture, accessibility and input permissions, verify the running app copy, then restart and test a small non-sensitive sample."
+blog: true
+date: "2026-11-09"
+category: "answers"
+productVersion: "1.5.2"
+platforms: "macOS 15+ · Full / Mini"
+related: ["shortcut-troubleshooting", "choose-edition-installer", "scrolling-capture-fixes"]
+sidebar: false
+---
+
+# Black captures or unresponsive input on macOS: check permissions by task
+
+Requires **macOS 15 or later**. A blank capture, an unresponsive global mouse action and missing microphone audio can involve different permissions. Test an ordinary non-sensitive window first, so protected content and shortcut conflicts do not get mistaken for permission failures.
+
+## Start in the app's permission page
+
+Open **Settings → App permissions**, or search for that page in the main window. Read the task description and current status before opening the relevant system setting. The screenshot below shows four permission groups as granted. Check each status on your own machine.
+
+![Snow Shot permission page with screen/system audio recording, accessibility, input monitoring and microphone](/images/blog/permissions-152.webp)
+
+*App screenshot, Chinese interface. Check the status corresponding to your task.*
+
+## Check the permissions your task needs
+
+| Task or symptom | Relevant check | Test after allowing |
+| --- | --- | --- |
+| Blank or unavailable captured image | Screen & system audio recording | Capture an ordinary window; open the copied/saved image |
+| Global mouse or window-element action fails | Accessibility and input monitoring, as described in the app | Test the configured mouse action |
+| Video has no microphone voice | Microphone permission and recording input switches | Record a short clip and replay it |
+| Selected Finder images cannot be read | Automation when the prompt identifies Finder | Select a PNG in Finder and invoke the action |
+
+![Teaching diagram mapping macOS permission groups to tasks](/images/guides/en/start-permissions.svg)
+
+*Teaching diagram. One permission does not grant the others; microphone access does not prove system audio was recorded.*
+
+Camera permission is relevant when you enable camera features. Camera, microphone and system audio are separate inputs; see [audio and camera](../guides/recording/audio-camera.mdx).
+
+## Match the system entry to the running app
+
+1. Open the relevant section of **System Settings → Privacy & Security** from the app. Labels can vary with macOS version.
+2. Verify which Snow Shot copy is running. Applications, a mounted DMG and test folders can contain different copies with the same display name.
+3. Allow the required item as instructed by macOS. If it requests quit-and-reopen, finish editing or recording before restarting the correct copy.
+4. Read the app's status again and perform the task. Updated status and successful operation are separate checks.
+
+![Sequence for verifying the app copy, restarting and checking an output](/images/blog/en/permissions-check.svg)
+
+*Teaching diagram. Repeat the task after restarting; a switch alone is not an operational result.*
+
+Avoid disabling other apps' permissions or deleting whole system permission records. With multiple copies, quit the unnecessary copy, launch your intended version from Applications and test again.
+
+## Use a minimal test to separate causes
+
+Capture part of an ordinary window. New configurations use **Control+1**, not Command+1; direct invocation from the main action row also rules out the key binding. Save a PNG, reopen it and verify it is the new file.
+
+- Direct action works but the shortcut fails: check [binding, registration and fullscreen rules](./shortcut-troubleshooting.mdx).
+- Ordinary windows work but a specific video/app is blank: retain that comparison. Protected content may not be capturable; repeated authorization cannot guarantee a fix.
+- Permission looks granted but all capture still fails after restarting: check the running path and system version, record the error and try one small ordinary region.
+- The image is fine but audio is missing: check recording devices, mute state and relevant permissions. A screenshot cannot verify audio.
+
+For a report, include macOS/app version, chip architecture, Full/Mini, app path, failed action, permission states and ordinary-window comparison. Review an archive from the [diagnostics guide](../guides/settings/storage-backup.md) before sharing it through [official Issues](https://github.com/mg-chao/snow-shot/issues). [Permission manual](../guides/getting-started/permissions.md) · [Download](../download.mdx) · [Changelog](../changelog.mdx).

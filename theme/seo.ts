@@ -15,7 +15,9 @@ export function canonicalUrl(path: string) {
   if (
     pathname === '/zh' ||
     pathname === '/guides' ||
-    pathname === '/zh/guides'
+    pathname === '/zh/guides' ||
+    pathname === '/blog' ||
+    pathname === '/zh/blog'
   ) {
     pathname += '/';
   }
@@ -56,6 +58,12 @@ export function pageBreadcrumbs(
     url !== canonicalUrl(links.guides.href)
   ) {
     items.push(links.guides);
+  }
+  if (
+    /^\/(?:zh\/)?blog\//.test(new URL(url).pathname) &&
+    url !== canonicalUrl(links.blog.href)
+  ) {
+    items.push(links.blog);
   }
   items.push({ label: title, href: new URL(url).pathname });
   return items;

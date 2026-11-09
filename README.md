@@ -48,16 +48,18 @@ asset registry resolves converted files to their current WebP paths.
 
 ## Language selection
 
-Unprefixed URLs automatically redirect to Chinese for Chinese browser preferences,
-including Chromium configurations that report only English content languages but
-a Chinese regional locale. English users stay on the English pages; unsupported
-languages fall back to English. A language explicitly chosen in the site's menu
-takes priority over browser detection and is remembered when storage is available.
+Every URL keeps its language: unprefixed pages are English and `/zh/` pages are
+Chinese, for both visitors and crawlers. Browser preferences and saved choices
+never automatically redirect a visit. When a supported preference differs from
+the page language, a dismissible prompt offers the corresponding translated page.
+Switching preserves the page path, query parameters and fragment.
 
-Explicit `/zh/` URLs stay Chinese. Recognized crawler user agents keep the requested
-URL so both languages remain accessible for indexing. The selection script runs in
-the HTML head, preserves the path, query parameters and fragment, and also works
-when local storage is blocked. Visits alone do not save a language preference.
+An explicit choice in the language menu or prompt is remembered when storage is
+available. Choosing to keep reading saves the current language and dismisses the
+prompt. Visits alone do not save a preference. Chinese regional locales are also
+recognized when Chromium reports only English content languages. The prompt
+handles unavailable preference storage and keeps choices in memory while the
+current page remains open.
 
 Run the language regression tests with `bun run test`.
 
@@ -305,3 +307,18 @@ After deployment, check representative aliases, canonical pages, sitemap and
 robots URLs. Review Bing impressions/clicks and branded/category queries over
 time; use the app repository's `docs/guide/MAINTAINING.md` for the baseline and
 documentation maintenance checklist.
+
+
+## 博客维护
+
+文章位于 `docs/zh/blog/` 与 `docs/en/blog/`，两语使用相同 slug。每个主题只计一篇；列表、分类、日期和相关文章由 Rspress 的页面元数据自动生成，无须另维护文章清单。
+
+新增第 11 篇时：
+
+1. 在两个语言目录各新增一个 `.mdx`，写入 `title`、`description`、`blog: true`、真实撰写日期 `date: 'YYYY-MM-DD'`、`category: releases` 或 `answers`、`productVersion`、`platforms` 和 `related: [其他文章的slug]`。版本解读另加含时区的真实 `releaseDate`；答疑正文只保留影响操作的兼容条件。不要把历史产品发布日期当作文章日期。
+2. 使用 `sidebar: false`，保留普通文档布局和正文 H1，Rspress 自动提供文章目录。列表摘要直接取 description；页头和相关文章由主题自动插入。
+3. 正文提供入口、操作、预期结果、失败后的下一步和反馈信息。截图窗口已有的功能优先在那里展示。至少三张有教学作用的图，至少一张为真实应用截图或实际输出；示意图简短标注“操作示意”。英文使用对应英文图示，中文界面截图提供必要的控件名称对照。
+4. 新素材放 `docs/public/images/blog/`；位图按 `scripts/optimize-images.py` 的无损 WebP 参数处理，并核对解码像素。保留来源、版本、裁剪范围与文章映射到 `artifacts/blog-sources.md`；不在正文加入源码、制作或验收细节。小型流程图可参考 `scripts/generate-blog-diagrams.py`。
+5. 执行 `bun run format -- <本次修改的代码文件>`、`bun run lint`、`bun run build`、`node --test tests/blog.test.mjs tests/seo.test.mjs`、`python3 -m unittest discover -s tests -p 'test_deploy_website.py'`、`python3 scripts/check-seo-output.py` 和 `python3 scripts/check-blog-site.py`。再检查两语、手机/桌面、浅色/深色、分类、搜索和语言切换。
+
+博客沿用 `.html` canonical：英文 `/blog/slug.html`、中文 `/zh/blog/slug.html`，列表为各自 `/blog/index.html`。博客目录纳入网站打包、完整性校验和目录回滚；本地验收不运行发布或部署命令。调查、实施与交付证据分别维护在 `artifacts/blog-plan.md`、`artifacts/blog-sources.md`、`artifacts/blog-delivery.md`。

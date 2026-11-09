@@ -10,6 +10,11 @@
     "activeMatch": "/download"
   },
   {
+    "text": "博客",
+    "link": "/blog/index.html",
+    "activeMatch": "/blog/"
+  },
+  {
     "text": "更新日志",
     "link": "/changelog",
     "activeMatch": "/changelog"

@@ -27,7 +27,7 @@ Windows 默认 **F1** 截图、**Ctrl+F1** 框选后复制；Mac 默认物理 **
 | 精确到尺寸，或同时截取几块内容 | [尺寸与比例](./capture/precise-selection.md) · [多区域](./capture/multiple-regions.mdx) · [不规则选区](./capture/irregular-regions.mdx) |
 | 圈出重点、补充说明、遮挡敏感信息 | [形状](./annotations/shapes.mdx) · [文字](./annotations/text.mdx) · [滤镜与打码](./annotations/filters.mdx) |
 | 把几张图整理成一张或多页 | [拼图](./image-editing/collage.mdx) · [切分](./image-editing/split.mdx) · [PDF](./image-editing/pdf.mdx) |
-| 从图里提取可编辑内容 | [文字](./recognition/text.md) · [表格](./recognition/table.mdx) · [公式](./recognition/formula.md) |
+| 从图里提取可编辑内容 | [文字](./recognition/text.mdx) · [表格](./recognition/table.mdx) · [公式](./recognition/formula.md) |
 | 翻译画面或选中的文字 | [截图翻译](./translation/screenshot.md) · [划词翻译](./translation/selected-text.md) · [服务配置](./translation/services.md) |
 | 让参考内容一直可见 | [图片贴图](./pinning/image.md) · [实时窗口](./pinning/live-window.md) · [贴图管理](./pinning/management.mdx) |
 | 找回或整理结果 | [保存格式](./output/copy-save.md) · [历史](./output/history.md) · [存储备份](./settings/storage-backup.md) |
@@ -38,7 +38,7 @@ Windows 默认 **F1** 截图、**Ctrl+F1** 框选后复制；Mac 默认物理 **
 
 ## 使用离线文本识别提取文字
 
-先阅读[模型与离线资源](./recognition/models.md)，再进行[文字识别与结果校正](./recognition/text.md)。离线识别资源与在线翻译服务分别配置；Mini 的入口及功能差异在对应教程中说明。
+先阅读[模型与离线资源](./recognition/models.md)，再进行[文字识别与结果校正](./recognition/text.mdx)。离线识别资源与在线翻译服务分别配置；Mini 的入口及功能差异在对应教程中说明。
 
 ## 将资料贴到屏幕，或录制操作演示
 
@@ -56,7 +56,7 @@ Windows 默认 **F1** 截图、**Ctrl+F1** 框选后复制；Mac 默认物理 **
 
 ### 截图与选区
 
-- [区域、窗口与控件截图](./capture/basics.mdx)
+- [区域截图与智能框选](./capture/basics.mdx)
 - [精确尺寸、比例与选区外观](./capture/precise-selection.md)
 - [多区域截图与区域组合](./capture/multiple-regions.mdx)
 - [折线、曲线与自由选区](./capture/irregular-regions.mdx)
@@ -96,7 +96,7 @@ Windows 默认 **F1** 截图、**Ctrl+F1** 框选后复制；Mac 默认物理 **
 
 ### 识别与转换
 
-- [文本识别与结果整理](./recognition/text.md)
+- [文本识别与结果整理](./recognition/text.mdx)
 - [OCR 模型与离线准备](./recognition/models.md)
 - [表格识别与单元格编辑](./recognition/table.mdx)
 - [条码与二维码识别](./recognition/barcode.md)

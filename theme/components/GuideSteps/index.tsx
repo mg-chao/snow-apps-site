@@ -7,7 +7,40 @@ export type GuideFrame = {
   alt: string;
   label: string;
   caption: string;
+  focus?: {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+    imageWidth: number;
+    imageHeight: number;
+  };
 };
+
+function validFocus(focus: GuideFrame['focus']) {
+  if (
+    !focus ||
+    ![
+      focus.x,
+      focus.y,
+      focus.width,
+      focus.height,
+      focus.imageWidth,
+      focus.imageHeight,
+    ].every(Number.isFinite) ||
+    focus.x < 0 ||
+    focus.y < 0 ||
+    focus.width <= 0 ||
+    focus.height <= 0 ||
+    focus.imageWidth <= 0 ||
+    focus.imageHeight <= 0 ||
+    focus.x + focus.width > focus.imageWidth ||
+    focus.y + focus.height > focus.imageHeight
+  ) {
+    return undefined;
+  }
+  return focus;
+}
 
 /** Source-backed instructional frames. Never presented as an app recording. */
 export function GuideSteps({
@@ -39,6 +72,7 @@ export function GuideSteps({
   }, [playing, frames.length]);
   if (frames.length === 0) return null;
   const current = frames[step];
+  const focus = validFocus(current.focus);
   return (
     <figure className="snow-guide-steps" aria-labelledby={id}>
       <figcaption id={id}>
@@ -47,7 +81,26 @@ export function GuideSteps({
           {sourceLabel ?? t('操作示意', 'Instructional illustration')}
         </span>
       </figcaption>
-      <img src={current.src} alt={current.alt} width="960" height="480" />
+      {focus ? (
+        <div
+          className="snow-guide-steps__focus"
+          style={{ aspectRatio: `${focus.width} / ${focus.height}` }}
+        >
+          <img
+            src={current.src}
+            alt={current.alt}
+            width={focus.imageWidth}
+            height={focus.imageHeight}
+            style={{
+              width: `${(focus.imageWidth / focus.width) * 100}%`,
+              left: `${(-focus.x / focus.width) * 100}%`,
+              top: `${(-focus.y / focus.height) * 100}%`,
+            }}
+          />
+        </div>
+      ) : (
+        <img src={current.src} alt={current.alt} width="960" height="480" />
+      )}
       <p aria-live="polite">
         <strong>
           {step + 1}. {current.label}

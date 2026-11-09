@@ -80,4 +80,4 @@ description: 在贴图中显示和复制识别文字，设置始终可选文本�
 
 动图和实时窗口的菜单与静态图片不同。如果没有标注模式，先取得需要的静态画面；实时窗口可用**转换为图像**。不要为了寻找静态图工具而反复切换动画播放。
 
-继续阅读：[文本识别](../recognition/text.md) · [贴图变换与裁剪](./transform.mdx) · [截图翻译](../translation/screenshot.md)
+继续阅读：[文本识别](../recognition/text.mdx) · [贴图变换与裁剪](./transform.mdx) · [截图翻译](../translation/screenshot.md)

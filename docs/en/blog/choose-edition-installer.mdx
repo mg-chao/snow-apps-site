@@ -1,0 +1,66 @@
+---
+title: "Full, Mini, online or offline? Choose a package that fits your computer and task"
+description: "Match Snow Shot packages to OS and processor, compare Full and Mini capabilities, prepare offline resources, and check capture and OCR after installation."
+blog: true
+date: "2026-11-09"
+category: "answers"
+productVersion: "1.5.2"
+platforms: "Windows / macOS · Full / Mini"
+related: ["ocr-troubleshooting", "macos-permissions", "shortcut-troubleshooting"]
+sidebar: false
+---
+
+# Full, Mini, online or offline? Choose a package that fits your computer and task
+
+Check the OS and processor first, then choose features and installation format. Mini is smaller; that does not establish identical features or eliminate later downloads. This guide helps you choose a compatible package and verify capture and recognition after installation.
+
+## First: identify the system and processor
+
+On Windows, check **Settings → System → About** for x64 or ARM64. On a Mac, use **Apple menu → About This Mac**: Apple silicon uses arm64 and Intel uses x86_64. macOS requires **15 or later**. There is no Intel Mac Mini package.
+
+![Decision flow matching Windows or Mac processors to an architecture and edition](/images/blog/en/installer-choice.svg)
+
+*Teaching diagram. Establish architecture before choosing Full or Mini, so incompatibility is not mistaken for a broken installer.*
+
+Open [Download](../download.mdx), select OS, processor and edition, then verify the filename. Look for `windows-x64`, `windows-arm64`, `macos-arm64` or `macos-x86_64`. File size alone is not a compatibility check.
+
+## Second: choose the edition for your tasks
+
+| Need | Choice |
+| --- | --- |
+| Screenshots, annotations, pins, collages and recording | Both Full and Mini include these basic workflows |
+| Manual ordinary-text OCR | Mini supports it, with an entry point and prepared resources |
+| Tables, barcodes, formulas, image conversion and translation | Choose Full, then prepare the relevant model or online service |
+| Intel Mac | Choose the Full x86_64 package |
+
+Mini may hide OCR from the default screenshot toolbar. Use its main action or add **Text recognition** to the toolbar. A missing icon does not establish that ordinary OCR is unavailable. Conversely, local OCR working does not verify online translation or other conversion services; see [OCR troubleshooting](./ocr-troubleshooting.mdx).
+
+## Third: choose the installation format
+
+For ordinary Windows use, choose an online installer matching your processor. Before entering an offline environment that needs default OCR resources, choose the **Full offline installer**. Mini has no Windows offline installer; prepare and test its OCR while connected. Extract an entire portable ZIP to a writable folder rather than pulling out only the executable.
+
+On a Mac, open the DMG, drag the app into **Applications** and start it there. Apple silicon offers Full and Mini; Intel offers Full. Ordinary manual installation does not mean opening `-update.zip`, `.json`, `.sha256` or `-homebrew.tar.gz` as installers.
+
+![Offline preparation sequence separating installation, component readiness and a real recognition test](/images/blog/en/offline-check.svg)
+
+*Teaching diagram. An offline installer and a verified offline task are different checks.*
+
+## Fourth: run two small checks after starting
+
+1. Open the main window from the tray or macOS menu bar and find **Screenshot**. New defaults are F1 on Windows and Control+1 on macOS. If the key fails, invoke the row directly, then follow [shortcut checks](./shortcut-troubleshooting.mdx).
+2. Capture a small non-sensitive ordinary window, paste it into a document or save a PNG, and check content and boundaries. On macOS, follow [permission guidance](./macos-permissions.mdx).
+3. For OCR, recognize a few clear lines, finish component preparation, inspect and copy the text. Before relying on offline use, disconnect and repeat that task. A screenshot cannot substitute for a recognition test.
+
+![Actual main window showing the Screenshot action and its configured shortcut](/images/blog/shortcuts-152.webp)
+
+*App screenshot, Chinese interface. The title invokes the action; the key button configures it. Interface language is adjustable in Settings.*
+
+Prepare any other OCR model or recording component while connected too. Default OCR resources do not establish that every model, recording input or online service is ready.
+
+## If the installed app still behaves unexpectedly
+
+For incompatibility, recheck system information and architecture. If the version appears unchanged, check for an old portable folder or DMG copy. With multiple copies, quit the old process and launch the intended location.
+
+Before updating, finish editing or recording and save important outputs. Website installations update through the app's prompt or download page. Keep App Store/package-manager installations on their original channel. On macOS, automatic update checking does not mean the app is silently replaced in the background. See [installation and updates](../guides/getting-started/install.md).
+
+For installation reports, include OS, processor, Full/Mini, complete filename, channel and error. Recognition reports also need model and preparation state. [Download](../download.mdx) · [Changelog](../changelog.mdx) · [Logs and storage](../guides/settings/storage-backup.md).

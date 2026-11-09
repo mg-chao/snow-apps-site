@@ -33,7 +33,7 @@ The result area previews the document for checking paragraphs and structure. It 
 - **Save the document**: click **Save as file** and choose a folder and name. Markdown uses **.md**; HTML uses **.html**.
 - **Keep generated source**: saving also creates a matching **.txt** companion file. Check both files. Confirming replacement of existing names overwrites the corresponding files.
 
-For precise spreadsheet cell editing, use [Table recognition](./table.mdx) and export XLSX. For plain text, use [Text recognition](./text.md).
+For precise spreadsheet cell editing, use [Table recognition](./table.mdx) and export XLSX. For plain text, use [Text recognition](./text.mdx).
 
 ## Retry after a failure
 
@@ -43,4 +43,4 @@ For network, authentication, or model errors, check the API address, key, model 
 
 Use **Cancel screenshot** to leave the session. Copy or save existing content before exiting if you need it.
 
-Continue with [Text recognition](./text.md), [LaTeX recognition](./formula.md), or [Translation services and custom models](../translation/services.md).
+Continue with [Text recognition](./text.mdx), [LaTeX recognition](./formula.md), or [Translation services and custom models](../translation/services.md).
