@@ -203,7 +203,7 @@ const copy = {
     windows: {
       kicker: 'SNOW SHOT / WINDOWS',
       title: ['让每一处画面', '都值得分享。'],
-      intro: '截图、录屏、标注和文字识别，一套专注而快速的工具。',
+      intro: '截图、录屏、标注和文本识别，一套专注而快速的工具。',
       meta: ['免费下载', '几分钟即可开始'],
       sectionKicker: '选择安装方式',
       sectionTitle: ['选择适合你的版本。', '按你的方式下载。'],
@@ -251,10 +251,10 @@ const copy = {
           number: 'MINI',
           tag: '轻量版本',
           title: 'Snow Shot Mini',
-          body: '专注截图、标注、贴图和录屏的轻量版本。需要手动文字识别时，可在设置中开启。',
+          body: '专注截图、标注、贴图和录屏的轻量版本。需要手动文本识别时，可在设置中开启。',
           points: [
             '不包含二维码和表格识别',
-            '首次使用文字识别时下载组件',
+            '首次使用文本识别时下载组件',
             '提供在线安装包和便携版',
           ],
           asset: 'windowsMiniOnline',
@@ -273,7 +273,7 @@ const copy = {
     macos: {
       kicker: 'SNOW SHOT / MACOS',
       title: ['让每一处画面', '都值得分享。'],
-      intro: '截图、录屏、标注和文字识别，一套专注而快速的工具。',
+      intro: '截图、录屏、标注和文本识别，一套专注而快速的工具。',
       meta: ['免费下载', '几分钟即可开始'],
       sectionKicker: '选择安装方式',
       sectionTitle: ['选择适合你的版本。', '安装到你的 Mac。'],
@@ -300,7 +300,7 @@ const copy = {
           body: '适用于 Apple 芯片 Mac，专注截图、标注、贴图和录屏的轻量版本。',
           points: [
             'Apple 芯片 · macOS 15 或更新版本',
-            '内置文字识别，可在设置中开启',
+            '内置文本识别，可在设置中开启',
             '不包含二维码和表格识别',
           ],
           asset: 'macosMiniDmg',

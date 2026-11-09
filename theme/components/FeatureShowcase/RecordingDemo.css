@@ -1,0 +1,303 @@
+.snow-rec {
+  position: relative;
+}
+.snow-rec__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--snow-muted);
+}
+.snow-rec__status i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--snow-muted);
+}
+.snow-rec__status--recording i {
+  background: #e35555;
+}
+.snow-rec__status--paused i {
+  background: #ce9a38;
+}
+.snow-rec__status--result i {
+  background: #47a17a;
+}
+.snow-rec__status b {
+  font-family: "DM Mono", monospace;
+  font-weight: 400;
+}
+.snow-rec__canvas {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: var(--demo-stage-height, 330px);
+  padding: 0;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  background: var(--snow-surface);
+  overflow: hidden;
+  touch-action: none;
+  cursor: crosshair;
+}
+.snow-rec__canvas:focus-visible {
+  outline: 3px solid var(--snow-blue);
+  outline-offset: -3px;
+}
+.snow-rec__capture-content {
+  position: absolute;
+  inset: 0;
+}
+.snow-rec__scene {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--snow-sky) 42%, var(--snow-paper));
+}
+.snow-rec__window-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 36px;
+  padding: 0 18px;
+  color: var(--snow-muted);
+  background: var(--snow-paper);
+  border-bottom: 1px solid var(--snow-line);
+  font-size: 10px;
+}
+.snow-rec__window-dots {
+  display: flex;
+  gap: 5px;
+}
+.snow-rec__window-dots i {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--snow-line);
+}
+.snow-rec__board-title {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px 6% 16px;
+}
+.snow-rec__board-title strong {
+  font-size: 19px;
+  font-weight: 600;
+}
+.snow-rec__board-title > span {
+  font-size: 10px;
+  color: var(--snow-muted);
+}
+.snow-rec__columns {
+  position: absolute;
+  inset: 132px 4% 42px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.snow-rec__column {
+  border: 1px solid var(--snow-line);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--snow-paper) 50%, transparent);
+}
+.snow-rec__column > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 10px;
+  font-size: 10px;
+  color: var(--snow-muted);
+}
+.snow-rec__column b {
+  font-weight: 500;
+  color: var(--snow-violet);
+}
+.snow-rec__moving-card {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 27%;
+  padding: 12px;
+  border: 1px solid color-mix(in srgb, var(--snow-violet) 26%, var(--snow-line));
+  border-radius: 7px;
+  background: var(--snow-paper);
+  box-shadow: 0 5px 14px color-mix(in srgb, var(--snow-ink) 8%, transparent);
+  will-change: left, top;
+}
+.snow-rec__moving-card > span {
+  color: var(--snow-violet);
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+}
+.snow-rec__moving-card strong {
+  font-size: 12px;
+  font-weight: 600;
+}
+.snow-rec__moving-card small {
+  font-size: 9px;
+  color: var(--snow-muted);
+}
+.snow-rec__task-progress {
+  height: 3px;
+  background: var(--snow-surface);
+  overflow: hidden;
+  border-radius: 3px;
+}
+.snow-rec__task-progress i {
+  display: block;
+  height: 100%;
+  background: var(--snow-violet);
+}
+.snow-rec__cursor,
+.snow-rec__selection-cursor {
+  position: absolute;
+  z-index: 2;
+  width: 16px;
+  height: 20px;
+  background: var(--snow-violet);
+  clip-path: polygon(0 0, 100% 70%, 56% 73%, 40% 100%);
+  filter: drop-shadow(1px 1px 1px #fff);
+}
+.snow-rec__scene-note {
+  position: absolute;
+  bottom: 16px;
+  left: 6%;
+  font-size: 10px;
+  color: var(--snow-muted);
+}
+.snow-rec__region {
+  position: absolute;
+  z-index: 3;
+  border: 1.5px solid var(--snow-violet);
+  box-shadow: 0 0 0 800px rgb(9 15 37 / 24%);
+  pointer-events: none;
+}
+.snow-rec__region > span {
+  position: absolute;
+  top: -22px;
+  left: -1px;
+  padding: 3px 6px;
+  border-radius: 3px;
+  background: var(--snow-violet);
+  color: var(--snow-paper);
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  white-space: nowrap;
+}
+.snow-rec__region > i {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border: 1px solid var(--snow-violet);
+  background: var(--snow-paper);
+}
+.snow-rec__region > i:nth-of-type(1) {
+  left: -4px;
+  top: -4px;
+}
+.snow-rec__region > i:nth-of-type(2) {
+  right: -4px;
+  top: -4px;
+}
+.snow-rec__region > i:nth-of-type(3) {
+  right: -4px;
+  bottom: -4px;
+}
+.snow-rec__region > i:nth-of-type(4) {
+  left: -4px;
+  bottom: -4px;
+}
+.snow-rec__canvas--result {
+  cursor: default;
+}
+.snow-rec__canvas--result .snow-rec__region {
+  box-shadow: none;
+}
+.snow-rec__select-hint {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  border-radius: 6px;
+  padding: 10px 14px;
+  background: var(--snow-ink);
+  color: var(--snow-paper);
+  font-size: 11px;
+}
+.snow-rec__selection-cursor {
+  z-index: 4;
+}
+.snow-rec__reset {
+  min-width: 34px;
+  padding: 7px;
+}
+.snow-rec__timeline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 30px;
+  padding: 0 16px 12px;
+  font-size: 11px;
+  color: var(--snow-muted);
+}
+.snow-rec__timeline p {
+  margin: 0;
+  line-height: 1.7;
+}
+.snow-rec__timeline input {
+  min-width: 20px;
+  flex: 1;
+  accent-color: var(--snow-violet);
+}
+.snow-rec__timeline label {
+  white-space: nowrap;
+}
+.snow-rec__timeline > span {
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  white-space: nowrap;
+}
+.snow-rec__announcement {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+@media (max-width: 700px) {
+  .snow-rec__timeline {
+    padding-inline: 12px;
+  }
+}
+@media (max-width: 600px) {
+  .snow-rec__board-title strong {
+    font-size: 16px;
+  }
+  .snow-rec__columns {
+    inset: 120px 4% 36px;
+    gap: 6px;
+  }
+  .snow-rec__moving-card {
+    padding: 9px 6px;
+    gap: 6px;
+    width: 28%;
+  }
+  .snow-rec__moving-card strong {
+    font-size: 10px;
+  }
+  .snow-rec__moving-card small {
+    font-size: 8px;
+  }
+  .snow-rec__moving-card > span {
+    font-size: 7px;
+  }
+  .snow-rec__timeline {
+    gap: 8px;
+  }
+}

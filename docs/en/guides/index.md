@@ -1,12 +1,12 @@
 ---
-title: Screenshot, scrolling capture and OCR guides
-description: Learn how to install Snow Shot, take scrolling screenshots, extract text with offline OCR, pin images and record your screen. Read the maintained guides in the official GitHub repository.
+title: Screenshot, scrolling capture and text recognition guides
+description: Learn how to install Snow Shot, take scrolling screenshots, extract text with offline text recognition, pin images and record your screen. Read the maintained guides in the official GitHub repository.
 sidebar: false
 outline: true
 footer: true
 ---
 
-# Snow Shot screenshot and OCR guides
+# Snow Shot screenshot and text recognition guides
 
 Snow Shot is a free, open-source screenshot and screen recording tool for Windows
 and macOS. The **official GitHub repository** maintains the full user guides
@@ -29,13 +29,13 @@ troubleshoot fixed headers, moving content and repeated rows.
 
 [Read the scrolling screenshot guide on GitHub](https://github.com/mg-chao/snow-apps/blob/main/docs/guide/scrolling-screenshots.md)
 
-## Extract text with offline OCR
+## Extract text with offline text recognition
 
-Standard OCR runs on your device once the necessary resources are installed.
+Standard text recognition runs on your device once the necessary resources are installed.
 The guide explains offline preparation, recognition quality, full/Mini differences,
 and why online translation has separate network requirements.
 
-[Read the offline OCR guide on GitHub](https://github.com/mg-chao/snow-apps/blob/main/docs/guide/offline-ocr.md)
+[Read the offline text recognition guide on GitHub](https://github.com/mg-chao/snow-apps/blob/main/docs/guide/offline-ocr.md)
 
 ## Pin a reference or record a demonstration
 

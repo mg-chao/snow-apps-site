@@ -1,12 +1,12 @@
 ---
-title: 截图、滚动长截图与离线 OCR 使用指南
-description: Snow Shot 官方使用指南：安装与快捷键、截图标注、滚动长截图、离线 OCR 文字识别、桌面贴图和屏幕录制。完整文档在官方 GitHub 仓库持续维护。
+title: 截图、滚动长截图与离线文本识别使用指南
+description: Snow Shot 官方使用指南：安装与快捷键、截图标注、滚动长截图、离线文本识别、桌面贴图和屏幕录制。完整文档在官方 GitHub 仓库持续维护。
 sidebar: false
 outline: true
 footer: true
 ---
 
-# Snow Shot 截图与 OCR 使用指南
+# Snow Shot 截图与文本识别使用指南
 
 Snow Shot 是面向 Windows 和 macOS 的免费开源截图、录屏工具。
 完整使用文档与源码一起在**官方 GitHub 仓库**维护，便于随功能变化及时更新。
@@ -26,12 +26,12 @@ Snow Shot 是面向 Windows 和 macOS 的免费开源截图、录屏工具。
 
 [在 GitHub 阅读滚动长截图指南](https://github.com/mg-chao/snow-apps/blob/main/docs/guide/zh-CN/scrolling-screenshots.md)
 
-## 使用离线 OCR 提取文字
+## 使用离线文本识别提取文字
 
-安装所需资源后，标准文字识别在本机运行。
+安装所需资源后，标准文本识别在本机运行。
 指南说明离线环境准备、识别质量、完整版与 Mini 的区别，以及在线翻译为何有独立网络要求。
 
-[在 GitHub 阅读离线 OCR 指南](https://github.com/mg-chao/snow-apps/blob/main/docs/guide/zh-CN/offline-ocr.md)
+[在 GitHub 阅读离线文本识别指南](https://github.com/mg-chao/snow-apps/blob/main/docs/guide/zh-CN/offline-ocr.md)
 
 ## 将资料贴到屏幕，或录制操作演示
 

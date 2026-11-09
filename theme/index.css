@@ -76,10 +76,26 @@ body {
   background: var(--snow-paper);
 }
 .snow-hero {
+  --snow-hero-sky: #b8dff7;
+  --snow-hero-lavender: rgba(204, 182, 250, 0.82);
+  --snow-hero-peach: rgba(255, 208, 173, 0.78);
+  --snow-hero-corner-violet: rgba(140, 105, 211, 0.6);
+  --snow-hero-corner-peach: rgba(217, 143, 91, 0.65);
   position: relative;
   overflow: visible;
   isolation: isolate;
-  background: linear-gradient(180deg, #addcf7 0%, var(--snow-paper) 100%);
+  background:
+    radial-gradient(
+      ellipse 48% 44% at 10% 48%,
+      var(--snow-hero-lavender),
+      transparent 100%
+    ),
+    radial-gradient(
+      ellipse 42% 40% at 91% 54%,
+      var(--snow-hero-peach),
+      transparent 100%
+    ),
+    linear-gradient(180deg, var(--snow-hero-sky) 0%, var(--snow-paper) 96%);
   color: var(--snow-ink);
 }
 .snow-canvas {
@@ -151,14 +167,38 @@ body {
   margin: 68px auto 0;
   padding: 0 24px 40px;
 }
+/* Offset selection corners echo the capture demo without covering its controls. */
+.snow-hero__preview::before,
+.snow-hero__preview::after {
+  position: absolute;
+  z-index: -1;
+  width: 78px;
+  height: 78px;
+  pointer-events: none;
+  content: "";
+}
+.snow-hero__preview::before {
+  top: -18px;
+  left: 6px;
+  border-top: 2px solid var(--snow-hero-corner-violet);
+  border-left: 2px solid var(--snow-hero-corner-violet);
+  border-top-left-radius: 24px;
+}
+.snow-hero__preview::after {
+  right: 6px;
+  bottom: 22px;
+  border-right: 2px solid var(--snow-hero-corner-peach);
+  border-bottom: 2px solid var(--snow-hero-corner-peach);
+  border-bottom-right-radius: 24px;
+}
 .snow-hero__image-shell {
   overflow: hidden;
   border: 0;
   border-radius: 12px;
   background: transparent;
   box-shadow:
-    0 8px 18px rgba(0, 0, 0, 0.08),
-    0 22px 48px rgba(0, 0, 0, 0.12);
+    0 8px 18px rgba(49, 39, 76, 0.06),
+    0 24px 56px rgba(64, 50, 98, 0.14);
 }
 .snow-hero__image-shell .snow-app-preview {
   display: block;
@@ -817,6 +857,21 @@ body {
     margin-top: 44px;
     padding: 0 16px 24px;
   }
+  .snow-hero__preview::before,
+  .snow-hero__preview::after {
+    width: 36px;
+    height: 36px;
+  }
+  .snow-hero__preview::before {
+    top: -8px;
+    left: 8px;
+    border-top-left-radius: 16px;
+  }
+  .snow-hero__preview::after {
+    right: 8px;
+    bottom: 16px;
+    border-bottom-right-radius: 16px;
+  }
   .section-shell {
     padding: 76px 24px;
   }
@@ -1440,7 +1495,11 @@ html.dark .rp-nav {
   border-bottom-color: var(--snow-line);
 }
 html.dark .snow-hero {
-  background: linear-gradient(180deg, #18354f 0%, var(--snow-paper) 100%);
+  --snow-hero-sky: #18354f;
+  --snow-hero-lavender: rgba(112, 78, 173, 0.35);
+  --snow-hero-peach: rgba(172, 105, 78, 0.22);
+  --snow-hero-corner-violet: rgba(180, 152, 240, 0.65);
+  --snow-hero-corner-peach: rgba(233, 171, 125, 0.6);
 }
 
 html.dark .snow-button--primary {

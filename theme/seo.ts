@@ -45,7 +45,7 @@ export function applicationSchema(locale: 'en' | 'zh') {
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     description:
       locale === 'zh'
-        ? '免费开源截图工具，支持 Windows 和 macOS，提供截图标注、滚动长截图、本地 OCR、贴图与录屏。'
-        : 'Free, open-source screenshot tool for Windows and macOS with annotation, scrolling capture, local OCR, pinning and screen recording.',
+        ? '免费开源截图工具，支持 Windows 和 macOS，提供截图标注、滚动长截图、本地文本识别、贴图与录屏。'
+        : 'Free, open-source screenshot tool for Windows and macOS with annotation, scrolling capture, local text recognition, pinning and screen recording.',
   };
 }

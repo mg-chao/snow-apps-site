@@ -19,7 +19,7 @@ email **[chao@mgchao.top](mailto:chao@mgchao.top)**.
 
 ## Content on your device
 
-Screen capture, annotation, recording, standard text recognition (OCR), and QR code
+Screen capture, annotation, recording, standard text recognition, and QR code
 reading run on your device. Online features and connections to AI clients can send content
 elsewhere, as described below.
 
