@@ -1,3 +1,5 @@
+import { type SiteLink, type SiteLocale, siteLinks } from './site-structure.ts';
+
 export const siteOrigin = 'https://snowshot.top';
 export const repositoryUrl = 'https://github.com/mg-chao/snow-shot';
 
@@ -26,6 +28,50 @@ export function defaultLanguageUrl(path: string) {
   const pathname =
     new URL(path, siteOrigin).pathname.replace(/^\/zh(?=\/|$)/, '') || '/';
   return canonicalUrl(pathname);
+}
+
+export function websiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${siteOrigin}/#website`,
+    url: `${siteOrigin}/`,
+    name: 'Snow Shot',
+    alternateName: 'SnowShot',
+    inLanguage: ['en', 'zh-CN'],
+  };
+}
+
+export function pageBreadcrumbs(
+  path: string,
+  locale: SiteLocale,
+  title: string,
+): SiteLink[] {
+  const links = siteLinks(locale);
+  const url = canonicalUrl(path);
+  if (url === canonicalUrl(links.home.href) || !title) return [];
+  const items = [links.home];
+  if (
+    /^\/(?:zh\/)?guides\//.test(new URL(url).pathname) &&
+    url !== canonicalUrl(links.guides.href)
+  ) {
+    items.push(links.guides);
+  }
+  items.push({ label: title, href: new URL(url).pathname });
+  return items;
+}
+
+export function breadcrumbSchema(items: SiteLink[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.label,
+      item: canonicalUrl(item.href),
+    })),
+  };
 }
 
 export function applicationSchema(locale: 'en' | 'zh') {

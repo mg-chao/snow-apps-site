@@ -1,5 +1,6 @@
 import './style.css';
 import { useHead } from '@rspress/core/runtime';
+import { siteLinks } from '../../site-structure';
 
 type Locale = 'en' | 'zh';
 type IconName =
@@ -23,7 +24,6 @@ const copy = {
     title: ['Small tool.', 'Clearer ideas.'],
     intro:
       'A screenshot can say so much. Snow Shot helps you capture the right moment, add a little context, and make yourself understood.',
-    download: 'Get Snow Shot',
     source: 'Explore the source',
     free: 'Free & open source',
     platforms: 'For Windows & macOS',
@@ -86,7 +86,6 @@ const copy = {
     title: ['小小工具，', '让表达更清晰。'],
     intro:
       '一张截图，可以说很多。Snow Shot 帮你捕捉恰好的瞬间，添上必要的说明，让每一次表达都更容易被理解。',
-    download: '下载 Snow Shot',
     source: '探索源代码',
     free: '免费 · 开源',
     platforms: '适用于 Windows 和 macOS',
@@ -294,7 +293,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
     meta: [{ property: 'og:title', content: title }],
   });
   const t = copy[locale];
-  const downloadHref = locale === 'zh' ? '/zh/download' : '/download';
+  const links = siteLinks(locale);
 
   return (
     <main className="snow-about" id="top" lang={locale}>
@@ -314,10 +313,10 @@ export function AboutPage({ locale }: { locale: Locale }) {
             <div className="snow-about__actions">
               <a
                 className="snow-button snow-button--primary"
-                href={downloadHref}
+                href={links.download.href}
               >
                 <AboutIcon name="download" />
-                {t.download}
+                {links.download.label}
               </a>
               <a
                 className="snow-about__text-link"
@@ -457,10 +456,16 @@ export function AboutPage({ locale }: { locale: Locale }) {
                 rel={resource.local ? undefined : 'noopener noreferrer'}
               >
                 <AboutIcon name={resource.icon} />
-                <h3>{t.resources[index].title}</h3>
+                <h3>
+                  {resource.local
+                    ? links.changelog.label
+                    : t.resources[index].title}
+                </h3>
                 <p>{t.resources[index].body}</p>
                 <span>
-                  {t.resources[index].action}
+                  {resource.local
+                    ? links.changelog.label
+                    : t.resources[index].action}
                   <AboutIcon name="arrow" />
                 </span>
               </a>

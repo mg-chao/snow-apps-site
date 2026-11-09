@@ -22,23 +22,28 @@ Image editing handles existing images and helps clean up scrolling screenshots. 
 1. Enter **Edit selected images** in the main window's **Search function** and select the matching dropdown result. With the keyboard, use the down arrow to enter results, then Enter to select. The page locates and highlights the action row.
 2. Click the **Edit selected images** row's title or empty area to open editing. The shortcut or “Not set” button configures keys; clicking the action needs no assigned shortcut. With no usable selected files, an empty window opens.
 3. Click **Add images**, select one image in the file dialog, and open it. Wait for “Loading image…” to finish and confirm the image appears. Canceling the dialog leaves the empty window.
-4. Use **Fit image to window** for the whole image or **View at actual size (100%)** for pixel details. Viewing zoom does not directly change exported pixel dimensions.
+4. Find the two zoom controls at the **bottom center** of the canvas: **Fit image to window** on the left and **View at actual size (100%)** on the right. Hover over an icon to confirm its name. Click the right control for pixel details and the left to return to the full-image view. Whether 100% looks larger or smaller depends on the image and viewport sizes. Viewing zoom does not change exported pixel dimensions.
 5. Choose shapes, arrows, text, or filters from the annotation toolbar. To keep the result on the desktop, use **Pin to screen**; see [Image pins](../pinning/image.md#pin-from-an-image-editing-window).
 
-![Actual empty Snow Shot image editor with the Add images button in the center](/images/guides/img-editor-native-empty.webp)
+![Empty image editor with the Add images button in the center](/images/guides/img-editor-native-empty.webp)
 
 *Click Add images in the empty editor to choose a file. The Chinese button reads “添加图像” (Add images). On a phone, <a href="/images/guides/img-editor-native-empty.webp" target="_blank" rel="noreferrer">open the full-size screenshot</a> to read the button.*
+
+<GuideSteps title="Switch between Fit and 100% views" sourceLabel="In-app steps" frames={[
+  {src: '/images/guides/img-editor-fit-view.webp', alt: 'The complete annotated image in Fit view, with Fit on the left and 100% on the right of the bottom-center controls', label: 'Fit the whole image', caption: 'Click Fit image to window on the left of the bottom-center controls. The image adjusts to the window so you can inspect the whole composition.'},
+  {src: '/images/guides/img-editor-actual-size.webp', alt: 'The same 507×199 image appears smaller in the center at 100%, with both zoom controls still visible below', label: 'Inspect pixels at 100%', caption: 'Click View at actual size (100%) on the right. This 507×199 image looks smaller at 100%; the change depends on image and viewport sizes.'}
+]} />
 
 ### Add explanations, then save or pin
 
 1. After loading, choose **Arrow**, hold the left button near Start, drag toward Target, and release. For a regular outline, choose **Rectangle** and drag around the content to emphasize.
-2. Choose **Text**, click a position on the image, and type `Step 1`. Finish text input, then use **Select elements** to select and move the label. Select the rectangle and drag its handles to resize it.
+2. Choose **Text**, click a position on the image, and type `Step 1`. Press **Esc** to finish input, press **V** for **Select elements**, click empty canvas to deselect, then drag the unselected text directly to its destination. See [Moving text](../annotations/text.mdx#move-resize-and-rotate). Select the rectangle and drag its handles to resize it.
 3. Use **Save as file**, choose a folder, a new filename, and the required format such as PNG, then click **Save**. Reopen the saved file and check arrow direction, text, and edges. The macOS editor defaults to **Command+S** for saving; follow Application shortcuts if customized.
 4. Use **Pin to screen** to keep the same result on the desktop; the macOS editor defaults to **Command+F**. The new pin displays the current edited image. Save from the pin as well if you need a file. See [Image and clipboard pins](../pinning/image.md).
 
 ### Drag files or open multiple images
 
-The empty window also accepts image files dragged onto its prompt area. Adding multiple images opens each in a separate editing window. These are separate input paths from single-file selection above. The following illustration connects opening an image with cropping; later steps start with an image already on the canvas.
+You can also drag image files onto the empty window’s prompt area. Adding multiple images opens each in a separate editing window. Once an image appears, use the cropping steps below to remove unwanted strips.
 
 <GuideSteps title="Open an image and remove a strip" frames={[
   {src: '/images/guides/en/img-editor-1.svg', alt: 'Open an image and fit its complete view', label: 'Open and inspect', caption: 'Open an image and inspect the complete canvas.'},

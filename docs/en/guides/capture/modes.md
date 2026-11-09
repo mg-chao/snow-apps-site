@@ -29,9 +29,9 @@ Direct window capture differs from accepting a smart window border during an ord
 
 ## Perform an action immediately after selecting
 
-Global actions can enter workflows that select and then copy, save, quick-save, pin, recognize text or start scrolling capture. For **Copy to clipboard**, a new configuration defaults to **Ctrl+F1** on Windows and **Control+2** on macOS. Selecting a region performs the copy without another click on the ordinary screenshot toolbar.
+Global actions can enter workflows that select and then copy, save, quick-save, pin, recognize text or start scrolling capture. For **Copy to clipboard**, the defaults are **Ctrl+F1** on Windows and **Control+2** on macOS. Selecting a region performs the copy without another click on the ordinary screenshot toolbar.
 
-Use an ordinary screenshot (**F1** on Windows or **Control+1** on macOS by default) when you need to draw an arrow before export. Choose a dedicated global action when region selection should lead straight to output. Assign a key to an unbound action rather than guessing a combination from the documentation.
+Use an ordinary screenshot (**F1** on Windows or **Control+1** on macOS by default) when you need to draw an arrow before export. Choose a dedicated global action when region selection should lead straight to output. Assign a key under **Global shortcuts** before using an unbound action.
 
 ## Reuse a region or retake the screen
 

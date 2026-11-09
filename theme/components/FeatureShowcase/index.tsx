@@ -1,3 +1,4 @@
+import { type SiteLink, siteLinks } from '../../site-structure';
 import { AnnotationDemo, RegionSelectionDemo } from './CaptureDemos';
 import { HistoryDemo, PinDemo } from './LibraryDemos';
 import {
@@ -22,24 +23,19 @@ function FeatureCopy({
   title,
   description,
   guide,
-  isZh,
 }: {
   label: string;
   title: string;
   description: string;
-  guide: string;
-  isZh: boolean;
+  guide: SiteLink;
 }) {
   return (
     <div className="snow-showcase-copy">
       <p className="snow-eyebrow">{label}</p>
       <h3>{title}</h3>
       <p>{description}</p>
-      <a
-        className="snow-text-link"
-        href={`${isZh ? '/zh' : ''}/guides/${guide}.html`}
-      >
-        {isZh ? '阅读官方使用指南' : 'Read the official guide'}
+      <a className="snow-text-link" href={guide.href}>
+        {guide.label}
         <span aria-hidden="true">↗</span>
       </a>
     </div>
@@ -47,6 +43,7 @@ function FeatureCopy({
 }
 
 export function FeatureShowcase({ isZh }: { isZh: boolean }) {
+  const links = siteLinks(isZh ? 'zh' : 'en');
   return (
     <section
       className="snow-showcase section-shell"
@@ -84,7 +81,6 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
         id="demo-capture"
       >
         <FeatureCopy
-          isZh={isZh}
           label={isZh ? '区域截图' : 'REGION CAPTURE'}
           title={
             isZh ? '只留下，\n你想说的部分。' : 'Just the part\nthat matters.'
@@ -94,7 +90,7 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
               ? '拖出一个选区，调整边界，工具栏随之出现。画面之外淡去，重点自然留下。'
               : 'Draw a selection, fine-tune its edges, and bring up your tools. The rest fades away so your subject stands out.'
           }
-          guide="capture/basics"
+          guide={links.capture}
         />
         <RegionSelectionDemo isZh={isZh} />
       </article>
@@ -103,7 +99,6 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
         id="demo-annotate"
       >
         <FeatureCopy
-          isZh={isZh}
           label={isZh ? '截图标注' : 'ANNOTATION'}
           title={
             isZh
@@ -115,7 +110,7 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
               ? '用箭头指向问题，用矩形框出范围，用高亮留下重点。选一个工具，在截图上画出来。'
               : 'Point with an arrow, frame a detail, or highlight a line. Pick a tool and draw directly on the capture.'
           }
-          guide="annotations/basics"
+          guide={links.annotation}
         />
         <AnnotationDemo isZh={isZh} />
       </article>
@@ -124,7 +119,6 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
         id="demo-text"
       >
         <FeatureCopy
-          isZh={isZh}
           label={isZh ? '文本识别' : 'TEXT RECOGNITION'}
           title={
             isZh
@@ -136,7 +130,7 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
               ? '从定位文字到逐行识别，原图与结果并排呈现。识别出的文字可选取、可复制。Snow Shot 支持本地文本识别。'
               : 'Locate the text, recognize each line, and compare it with the original. Select or copy the result. Snow Shot supports local text recognition.'
           }
-          guide="recognition/text"
+          guide={links.recognition}
         />
         <TextRecognitionDemo isZh={isZh} />
       </article>
@@ -145,7 +139,6 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
         id="demo-documents"
       >
         <FeatureCopy
-          isZh={isZh}
           label={isZh ? '文档识别' : 'DOCUMENT RECOGNITION'}
           title={isZh ? '不止文字，还有结构。' : 'Keep the structure, too.'}
           description={
@@ -153,7 +146,7 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
               ? '表格保留行列，公式转为 LaTeX，二维码还原内容，文档变为 Markdown。切换样例，看见不同的输入与结果。'
               : 'Keep table rows and columns, turn formulas into LaTeX, decode QR codes, and convert documents to Markdown. Try each sample and inspect its output.'
           }
-          guide="recognition/table"
+          guide={links.table}
         />
         <DocumentRecognitionDemo isZh={isZh} />
         <p className="snow-showcase-note">
@@ -168,7 +161,6 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
           id="demo-pin"
         >
           <FeatureCopy
-            isZh={isZh}
             label={isZh ? '桌面贴图' : 'PIN TO SCREEN'}
             title={isZh ? '参考图，就在手边。' : 'Your reference, in reach.'}
             description={
@@ -176,7 +168,7 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
                 ? '把截图固定在窗口之上，一边参考，一边工作。拖动它，或调整透明度，让视线留在重要的地方。'
                 : 'Float a capture above your windows while you work. Move it or adjust its opacity to keep your reference close.'
             }
-            guide="pinning/image"
+            guide={links.pinning}
           />
           <PinDemo isZh={isZh} />
         </article>
@@ -185,7 +177,6 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
           id="demo-record"
         >
           <FeatureCopy
-            isZh={isZh}
             label={isZh ? '屏幕录制' : 'SCREEN RECORDING'}
             title={isZh ? '把过程，也讲清楚。' : 'Show how it happens.'}
             description={
@@ -193,7 +184,7 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
                 ? '选择范围，开始录制。暂停时画面与计时一起停下，结束后回看刚才录下的过程。'
                 : 'Choose a region and start recording. Pause the scene and timer together, then stop and review what you captured.'
             }
-            guide="recording/start"
+            guide={links.recording}
           />
           <ScreenRecordingDemo isZh={isZh} />
         </article>
@@ -203,7 +194,6 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
         id="demo-history"
       >
         <FeatureCopy
-          isZh={isZh}
           label={isZh ? '截图历史' : 'SCREENSHOT HISTORY'}
           title={
             isZh
@@ -215,7 +205,7 @@ export function FeatureShowcase({ isZh }: { isZh: boolean }) {
               ? '刚才的评审截图、表格与文字素材都在这里。按来源筛选，选中缩略图，打开大图继续查看。'
               : 'Your review capture, table and text sample are here. Filter by source, select a thumbnail and open it for a closer look.'
           }
-          guide="output/history"
+          guide={links.history}
         />
         <HistoryDemo isZh={isZh} />
       </article>

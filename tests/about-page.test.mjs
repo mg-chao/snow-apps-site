@@ -6,6 +6,7 @@ import { runInNewContext } from 'node:vm';
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { JsxEmit, ModuleKind, transpileModule } from 'typescript';
+import { siteLinks } from '../theme/site-structure.ts';
 
 const require = createRequire(import.meta.url);
 const source = readFileSync(
@@ -20,6 +21,7 @@ const heads = [];
 runInNewContext(compiled, {
   exports,
   require(name) {
+    if (name === '../../site-structure') return { siteLinks };
     if (name === './style.css') return {};
     if (name === '@rspress/core/runtime') {
       return { useHead: (head) => heads.push(head) };

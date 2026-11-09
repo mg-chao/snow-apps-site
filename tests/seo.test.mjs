@@ -8,9 +8,13 @@ import {
 } from '../scripts/submit-indexnow.mjs';
 import {
   applicationSchema,
+  breadcrumbSchema,
   canonicalUrl,
   defaultLanguageUrl,
+  pageBreadcrumbs,
+  websiteSchema,
 } from '../theme/seo.ts';
+import { footerSections, siteLinks } from '../theme/site-structure.ts';
 import { afterSearch, guideSearchHref } from '../theme/guide-search.ts';
 
 it('keeps guide search results directly addressable while preserving sections and ranking', () => {
@@ -128,6 +132,103 @@ it('identifies the official application and repository without invented ratings'
     assert.ok(
       data.url.includes(locale === 'zh' ? '/zh/index.html' : '/index.html'),
     );
+  }
+});
+
+it('declares a consistent domain-level site name on either homepage', () => {
+  const website = websiteSchema();
+  assert.equal(website['@type'], 'WebSite');
+  assert.equal(website.url, 'https://snowshot.top/');
+  assert.equal(website.name, 'Snow Shot');
+  assert.equal(website.alternateName, 'SnowShot');
+});
+
+it('uses real manual pages as breadcrumb parents without inventing directory routes', () => {
+  for (const locale of ['en', 'zh']) {
+    const prefix = locale === 'zh' ? '/zh' : '';
+    const links = siteLinks(locale);
+    assert.deepEqual(pageBreadcrumbs(`${prefix}/`, locale, 'Snow Shot'), []);
+    assert.deepEqual(pageBreadcrumbs(links.home.href, locale, 'Snow Shot'), []);
+    assert.deepEqual(pageBreadcrumbs(links.guides.href, locale, 'Manual'), [
+      links.home,
+      { label: 'Manual', href: links.guides.href },
+    ]);
+    const crumbs = pageBreadcrumbs(
+      `${prefix}/guides/recognition/text.html?mode=offline#copy`,
+      locale,
+      'Text recognition',
+    );
+    assert.deepEqual(crumbs, [
+      links.home,
+      links.guides,
+      {
+        label: 'Text recognition',
+        href: `${prefix}/guides/recognition/text.html`,
+      },
+    ]);
+    const schema = breadcrumbSchema(crumbs);
+    assert.equal(schema['@type'], 'BreadcrumbList');
+    assert.deepEqual(
+      schema.itemListElement.map((item) => item.position),
+      [1, 2, 3],
+    );
+    assert.equal(
+      schema.itemListElement[2].item,
+      `https://snowshot.top${prefix}/guides/recognition/text.html`,
+    );
+    assert.equal(
+      pageBreadcrumbs(`${prefix}/download?os=macos`, locale, 'Download').length,
+      2,
+    );
+  }
+});
+
+it('keeps the footer directory mirrored between languages with unique canonical targets', () => {
+  const english = footerSections('en').flatMap((section) => section.links);
+  const chinese = footerSections('zh').flatMap((section) => section.links);
+  assert.equal(new Set(english.map((link) => link.href)).size, english.length);
+  assert.equal(english.length, chinese.length);
+  for (const [index, link] of english.entries()) {
+    assert.equal(chinese[index].href, `/zh${link.href}`);
+    assert.notEqual(chinese[index].label, link.label);
+    assert.equal(canonicalUrl(link.href), `https://snowshot.top${link.href}`);
+  }
+});
+
+it('uses the same link labels in navigation, sidebars and shared page entries', () => {
+  for (const locale of ['en', 'zh']) {
+    const links = siteLinks(locale);
+    const nav = JSON.parse(
+      readFileSync(
+        new URL(`../docs/${locale}/_nav.json`, import.meta.url),
+        'utf8',
+      ),
+    );
+    for (const [index, key] of [
+      'guides',
+      'download',
+      'changelog',
+      'about',
+    ].entries()) {
+      assert.equal(nav[index].text, links[key].label);
+    }
+    for (const [key, link] of Object.entries(links)) {
+      const path = link.href.replace(/^\/zh\//, '/');
+      if (!path.startsWith('/guides/')) continue;
+      const directory = path.slice(0, path.lastIndexOf('/'));
+      const page = path.slice(path.lastIndexOf('/') + 1, -5);
+      const meta = JSON.parse(
+        readFileSync(
+          new URL(`../docs/${locale}${directory}/_meta.json`, import.meta.url),
+          'utf8',
+        ),
+      );
+      assert.equal(
+        meta.find((item) => item.name === page)?.label,
+        link.label,
+        `${locale} ${key}`,
+      );
+    }
   }
 });
 

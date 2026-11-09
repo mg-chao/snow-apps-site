@@ -2,9 +2,12 @@ import { useHead, useLang, useLocation, usePage } from '@rspress/core/runtime';
 import { useEffect } from 'react';
 import {
   applicationSchema,
+  breadcrumbSchema,
   canonicalUrl,
   defaultLanguageUrl,
+  pageBreadcrumbs,
   siteOrigin,
+  websiteSchema,
 } from '../seo';
 
 export function SeoMetadata() {
@@ -12,6 +15,7 @@ export function SeoMetadata() {
   const { page } = usePage();
   const locale = useLang() === 'zh' ? 'zh' : 'en';
   const isMissing = page.pageType === '404';
+  const breadcrumbs = pageBreadcrumbs(pathname, locale, page.title);
 
   // Rspress renders these links for direct requests but leaves them unchanged
   // during client-side navigation. Keep the server-rendered pair in sync.
@@ -62,8 +66,21 @@ export function SeoMetadata() {
               type: 'application/ld+json',
               innerHTML: JSON.stringify(applicationSchema(locale)),
             },
+            {
+              key: 'snow-shot-website',
+              type: 'application/ld+json',
+              innerHTML: JSON.stringify(websiteSchema()),
+            },
           ]
-        : [],
+        : !isMissing && breadcrumbs.length > 1
+          ? [
+              {
+                key: 'snow-shot-breadcrumbs',
+                type: 'application/ld+json',
+                innerHTML: JSON.stringify(breadcrumbSchema(breadcrumbs)),
+              },
+            ]
+          : [],
   });
   return null;
 }

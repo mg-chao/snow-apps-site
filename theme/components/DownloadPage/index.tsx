@@ -1,5 +1,6 @@
 import { IconArrowDown } from '@rspress/core/theme-original';
 import { useState } from 'react';
+import { siteLinks } from '../../site-structure';
 import {
   type DownloadArchitecture,
   type DownloadPlatform,
@@ -405,6 +406,7 @@ function rememberTarget(next: DownloadTarget) {
 }
 
 export function DownloadPage({ locale }: { locale: Locale }) {
+  const links = siteLinks(locale);
   const resolved = useResolvedDownloadTarget();
   const [override, setOverride] = useState<DownloadTarget | null>(null);
   const target = override ?? resolved;
@@ -482,9 +484,9 @@ export function DownloadPage({ locale }: { locale: Locale }) {
             ))}
             <a
               className="snow-download-card__alternate"
-              href={locale === 'zh' ? '/zh/changelog.html' : '/changelog.html'}
+              href={links.changelog.href}
             >
-              {locale === 'zh' ? '查看更新日志 →' : 'Read the changelog →'}
+              {links.changelog.label} <span aria-hidden="true">→</span>
             </a>
           </div>
         </div>

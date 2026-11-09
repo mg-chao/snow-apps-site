@@ -23,7 +23,7 @@ import { GuideSteps } from '../../../../theme/components/GuideSteps';
   {src: '/images/guides/ann-filters-3.svg', alt: '自动识别后按类别填充', label: '自动识别后按类别填充', caption: '自动识别后按类别填充'}
 ]} />
 
-修改已有对象的专属样式时，先切回 **对应滤镜** 工具，再单击原有对象使其选中。**选择元素** 提供通用变形、层级与透明度操作；切换绘图工具会清除原选择，需要重新点选。
+修改已有矩形或画笔滤镜的类型与强度时，先切回对应工具并选中范围：矩形用左键单击，画笔默认用空闲状态的右键单击。**选择元素** 提供通用变形、层级与透明度操作；切换绘图工具会清除原选择，需要重新选中。
 
 ## 矩形与画笔范围
 
@@ -68,7 +68,7 @@ import { GuideSteps } from '../../../../theme/components/GuideSteps';
 
 *样式条显示“智能擦除”，强度滑块不可用；右下方白色素材区域为处理结果。<a href="/images/guides/ann-smart-erase-native-result.webp" target="_blank" rel="noreferrer">放大查看原始界面图</a>。*
 
-![同一彩色素材经过马赛克、高斯模糊、灰度、反色、浮雕和不同亮度设置的实际渲染对比](/images/guides/ann-filter-effects-engine.webp)
+![同一内容使用马赛克、高斯模糊、灰度、反色、浮雕和不同亮度设置的对比](/images/guides/ann-filter-effects-engine.webp)
 
 *对照相同内容和范围下的不同滤镜效果。<a href="/images/guides/ann-filter-effects-engine.webp" target="_blank" rel="noreferrer">放大查看效果对比</a>。*
 
@@ -102,7 +102,7 @@ import { GuideSteps } from '../../../../theme/components/GuideSteps';
 
 *填充后放大检查文字是否仍可辨认、头像或图案是否被误处理，再用矩形或画笔滤镜修正。*
 
-也可以按住左键框选：与拖动框相交的已识别区域会被处理，无需把整块区域完全框住。“自动”表示自动找区域，不代表能够保证识别所有敏感信息。识别在本地进行，类别结果以当前图片为准；没有可用区域时，**填充区域**不可用，可改用矩形或画笔滤镜补充。
+也可以按住左键框选：与拖动框相交的已识别区域会被处理，无需把整块区域完全框住。自动识别仍可能漏掉敏感信息，应逐块检查；没有可用区域时，**填充区域**不可用，可改用矩形或画笔滤镜补充。
 
 ### 识别失败后重试
 

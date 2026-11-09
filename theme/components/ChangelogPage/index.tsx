@@ -3,6 +3,7 @@ import { useHead } from '@rspress/core/runtime';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Markdown, { defaultUrlTransform } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { siteLinks } from '../../site-structure';
 import {
   type Channel,
   type Locale,
@@ -25,8 +26,6 @@ const copy = {
     intro:
       '新功能、小改进，还有那些不易察觉的修复。这里记录 Snow Shot 一步步变好的过程。',
     latest: '最新正式版',
-    download: '下载最新版',
-    downloadShort: '下载最新版',
     jump: '阅读本次更新',
     jumpShort: '本次更新',
     history: '版本记录',
@@ -62,8 +61,6 @@ const copy = {
     intro:
       'New features, thoughtful improvements, and the fixes you might never notice. Follow the progress of Snow Shot, one release at a time.',
     latest: 'Latest stable release',
-    download: 'Get the latest version',
-    downloadShort: 'Download',
     jump: 'Read the release notes',
     jumpShort: 'Release notes',
     history: 'Release history',
@@ -154,6 +151,7 @@ export function ChangelogPage({ locale }: { locale: Locale }) {
     locale === 'zh' ? '更新日志 · Snow Shot' : 'Changelog · Snow Shot';
   useHead({ title, meta: [{ property: 'og:title', content: title }] });
   const t = copy[locale];
+  const links = siteLinks(locale);
   const [channel, setChannel] = useState<Channel>('stable');
   const [query, setQuery] = useState('');
   const [limit, setLimit] = useState(batchSize);
@@ -245,12 +243,9 @@ export function ChangelogPage({ locale }: { locale: Locale }) {
               </time>
               <a
                 className="snow-button snow-button--primary"
-                href={locale === 'zh' ? '/zh/download.html' : '/download.html'}
+                href={links.download.href}
               >
-                <span className="snow-changelog__wide-label">{t.download}</span>
-                <span className="snow-changelog__compact-label">
-                  {t.downloadShort}
-                </span>
+                {links.download.label}
                 <Arrow />
               </a>
               <a

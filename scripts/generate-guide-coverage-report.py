@@ -52,7 +52,9 @@ accepted = [
     row for row in released
     if row["Acceptance status"].startswith(("已完成", "验收通过", "完成："))
 ]
-native = [key for key, value in ops.items() if "构建原生UI：" in value]
+development_native = [key for key, value in ops.items() if "构建原生UI：" in value]
+release_native = [key for key, value in ops.items() if "正式发行原生UI：" in value]
+native = sorted(set(development_native) | set(release_native))
 backend = [key for key, value in ops.items() if "后台MCP" in value]
 abnormal = [
     row["Feature ID"] for row in released
@@ -176,7 +178,11 @@ for row in rows:
     evidence = row["Operational verification status"]
     constraint, next_step = task_context(row)
     gap = f"尚缺从普通用户入口完成「{operation}」的目标发行包/适用平台验收；源码与正文完成不能替代。"
-    if fid in native:
+    if fid in release_native:
+        gap = f"已有 macOS arm64 Full 正式发行包普通 UI 的局部核验记录（成功与未完成步骤见当前证据），仍缺「{operation}」的完整公开作用域核验。"
+        constraint = "已核对官方 DMG 与二进制身份，在独立数据目录运行；仅将实际执行的分支记为局部证据，不扩展至其他参数、平台或版本类型。"
+        next_step = "对照 release UI 记录和 acceptance ledger，只补未执行的分支与其他适用平台；保留成功的本地编辑、系统保存和贴图输出证据。"
+    elif fid in native:
         gap = f"已有 macOS 开发构建原生 UI 的局部核验记录（结果见当前证据），仍缺「{operation}」的完整公开作用域核验。"
         constraint = "实际运行副本为 macOS 1.5.2 开发构建，尚未证明二进制等同发布标签；已有的原生操作不需要当成从未发生。"
     elif fid in backend:
@@ -248,7 +254,8 @@ parts = [
     table(["检查层", "当前事实", "不据此推断"], [
         ["源码与发行可用性", f"{len(released)} 项已对照 v1.5.2_snow-shot/f02f50e 的 UI→事件/处理→结果链；IMG-040 仅主分支有", "发布源码包含不等于所有发行二进制和平台已经实操"],
         ["正文与网站接入", f"{len(released)} 项正文已编写、源码和中文标签交叉复核；{site['standalone_tutorials']} 篇独立教程和首页已接入", "页面存在、文字校对或 build 成功不等于教程操作验收"],
-        ["原生用户入口", f"{len(native)} 个 ID 记录局部原生核验：{', '.join(native)}；具体成功/失败以逐行结果为准，另观察主窗口和截图进入/退出", "只归于实际 macOS 开发构建，不扩展为其他工具/参数、Windows 或发行包"],
+        ["正式发行原生入口", f"{len(release_native)} 个 ID 记录局部原生核验：{', '.join(release_native)}；包含成功操作和未完成的自有保存窗口尝试，逐行区分", "仅归于官方 macOS arm64 Full 二进制的实际步骤；不扩展至 Windows、Mini、Intel Mac 或未执行的分支"],
+        ["开发构建原生入口", f"{len(development_native)} 个 ID 记录局部原生核验：{', '.join(development_native)}；另观察主窗口和截图进入/退出", "早期开发构建证据仍按原身份保留，不能改标为正式发行证据"],
         ["后台处理", f"{len(backend)} 个 ID 记录局部后台 MCP 核验：{', '.join(backend)}；具体结果保留在逐行记录", "MCP 不是普通 UI 入口；不能替代点击、焦点、菜单、设备权限的核对"],
         ["异常样本", f"{len(abnormal)} 项后台未得合格结果：{', '.join(abnormal)}", "未发布内部 QA 样本；不据此断定原生 UI 一定失败"],
         ["其他逐项运行", f"{len(released)-len(ops)-len(abnormal)} 项发布操作没有单独的部分成功/异常运行记录", "不是声称这些功能不存在或不可操作"],
@@ -260,7 +267,7 @@ parts = [
     "",
     f"显式验收由 [guide-acceptance-schema.md](guide-acceptance-schema.md)、两个 acceptance 输入 CSV 和 [guide-acceptance-evaluation.json](guide-acceptance-evaluation.json) 管理。当前有 {sum(len(item['accepted_scopes']) for item in evaluations.values())} 个作用域通过全部条件；每个平台/版本类型的部分证据和待补条件分别保留，不因重跑脚本强制清零已验证作用域，也不从源码/构建自动提升为完成。",
     "",
-    "原生访问早期因选中安装副本而超时，改选实际运行的开发 bundle 后已恢复；不再把这个旧问题列为普遍阻碍。开发构建路径为 /Users/chao/workspaces/snow-apps/build/snow-shot-macos-arm64-debug/run/snow_shot.app；/Applications/Snow Shot.app 的 1.5.0 元数据属于另一个副本。研究主分支 d361da1af7bffa80ba82ed2e634f101420309183 声明 1.5.2，发布标签指向 f02f50e5c6b132335247079398944b6fc9f7e6d6，当前运行副本未被证明与该提交相同。",
+    "开发构建与官方发行包分别记录：早期开发 bundle 的提交身份仍未证明等同发布标签。后续已启动 SHA256 匹配官方 DMG 的 macOS arm64 Full，嵌入 revision 为 f02f50e5c6b1、可执行文件 SHA256 为 93ad73ad4a53dd1d7456a0f253d094df04832af21a1b36d42973940ace82b959，采用独立 app data。其原生编辑→系统保存→固定→再保存→重开核对见 runtime-release-native-image-editor.json；自有保存窗口未完成的尝试见 runtime-release-save-dialog-choice.json。没有修改产品行为或授予屏幕权限。",
     "",
     "## 操作范围",
     "",
@@ -292,9 +299,9 @@ entry_rows = [
     ["工具分组、隐藏/更多和布局", "已查 screenshottoolpalette.cpp:564-595,6332,6669；components/settingscustomwidget.cpp:987-1330；toolbar layout", "局部选择箭头；全部组与隐藏/叠放的普通操作待核", "ANN、OCR、SET；工具各页与toolbars-tray"],
     ["截图及贴图上下文菜单", "已查 overlay 输入动作和 pinned/screenshotpinnedwindow.cpp:3410-4014；输出/分组/加载/动画处理", "菜单及平台分支未逐项操作", "CAP、PIN、OUT"],
     ["选区尺寸、比例、区域组合与样式", "已查 selection/screenshotselectiontoolbarwidget.cpp、screenshotselectionresizeworkflow.cpp；overlay inputhandler.cpp:1018-1260,1500-1555；selectionmodel", "后台替换/增加矩形区域并导出成功；数值/比例/多区域普通 UI 未逐项核验", "CAP、CAPSET；capture/各页"],
-    ["标注子类型与属性面板", "已查 tools/screenshottoolpalettestylecontrols.cpp、core/screenshotcanvastoolstyles.cpp；引擎 creation/input/renderer", "原生箭头创建与曲线控制点局部成功；后台箭杆/滤镜对照成功；其余见逐 ID", "ANN；annotations/各独立工具页"],
-    ["元素编辑、图层顺序与模板", "已查 screenshottoolpalette.cpp:8770-9167、toolbar/screenshottoolbarwindow.cpp:370-378 与引擎选择/重排", "V 点选与曲线中点修改、原生撤销/重做和 Backspace 局部成功；后台 undo/redo；其他变形/模板入口未逐项操作，最新逐 ID 记录为准", "ANN；elements、templates及各工具"],
-    ["独立图片编辑、拼图、分割、PDF、画布", "已查 imageediting/imageeditingwindow.cpp:305,851、collage/collageeditorwidget.cpp:2038、imagesplit/*、collage PDF 和 globalcanvas/globalcanvascontroller.cpp", "文件自然入口及输出闭环待测；开发版粘贴 IMG-040 单列不适用", "IMG；image-editing/"],
+    ["标注子类型与属性面板", "已查 tools/screenshottoolpalettestylecontrols.cpp、core/screenshotcanvastoolstyles.cpp；引擎 creation/input/renderer", "开发构建箭头与曲线控制点局部成功；正式包快捷键激活箭头/形状/文字并生成对象，未操作子类型/样式菜单；后台箭杆/滤镜对照成功", "ANN；annotations/各独立工具页"],
+    ["元素编辑、图层顺序与模板", "已查 screenshottoolpalette.cpp:8770-9167、toolbar/screenshottoolbarwindow.cpp:370-378 与引擎选择/重排", "正式包V选择、箭头端点、矩形缩放旋转、文字移动、撤销/重做及确认选中后Delete成功；旧开发构建曲线中点/Backspace按原身份保留；图层/模板及其余分支待测", "ANN；elements、templates及各工具"],
+    ["独立图片编辑、拼图、分割、PDF、画布", "已查 imageediting/imageeditingwindow.cpp:305,851、collage/collageeditorwidget.cpp:2038、imagesplit/*、collage PDF 和 globalcanvas/globalcanvascontroller.cpp", "正式包空编辑器添加单图、创建标注、系统保存、固定并重新打开成功；拖入/多图及拼图/分割/PDF/画布仍待逐项；开发版粘贴 IMG-040 单列不适用", "IMG；image-editing/"],
     ["文本识别入口与结果窗口", "已查 ocr/screenshotrecognitionsessioncontroller.cpp:3033、screenshotrecognitionwindow.cpp、screenshotocrtexttransform.cpp", "后台虚构图本地 OCR、文字校正与文本导出成功；普通 UI 未测", "OCR；recognition/text、models"],
     ["表格、条码、公式、图像转换", "已查 screenshottoolpalette.cpp:6669-6734、ocr/screenshottableeditor.cpp:576-745、table conversion、recognition file export", "普通入口、模型请求、结果编辑与导出未逐项实操", "OCR；recognition/工具页"],
     ["截图/文本/划词翻译与服务配置", "已查 components/screenshottranslationsettingsdialog.cpp、translationpagewidget.cpp 与控制器/提供商；settingscatalog.cpp:3553-3645", "尚无本项服务端到端运行记录；不能把未测试称为外部阻塞", "TR；translation/"],
@@ -302,7 +309,7 @@ entry_rows = [
     ["动图与实时窗口贴图", "已查 screenshotpinnedwindow.cpp:3410-3485,3701-3740；pinned/screenshotpinnedlive.cpp:293-304,512 与平台 source", "需虚构动图/普通源窗口完成暂停、逐帧和源状态验证；尚未运行", "PIN；animation、live-window"],
     ["录屏区域、工具栏、音源/摄像头/输入效果", "已查 recording/screenrecordingcontroller.cpp:630-760、screenshottoolpalette.cpp:8035-8115,10430-11060、webcam/audio/effects", "浏览器教学演示可运行；实际屏幕、设备和成片链未逐项录制", "REC；recording/"],
     ["录屏时间轴、渲染、导出和恢复", "已查 recording/recordingtrimtoolbar.cpp:20,92、recordingtrimsession.cpp:51-76,303、recordingrenderdialog.cpp:98-125", "网站时间轴分步/重置已检查；产品裁剪/变速/导出待实操", "REC；recording/trim-export.mdx"],
-    ["保存、打印、AirDrop、云上传、历史", "已查 services/screenshotsaveasfiledialog.cpp、screenshotimagefileservice.cpp、screenshotprintservice.cpp、screenshotairdropservice.cpp、screenshotclouduploadservice.cpp:128-262、components/screenshothistorypagewidget.cpp", "发布包文件/系统对话框/S3/历史自然入口未逐项操作；已有后台 PNG 仅证明局部结果", "OUT；output/"],
+    ["保存、打印、AirDrop、云上传、历史", "已查 services/screenshotsaveasfiledialog.cpp、screenshotimagefileservice.cpp、screenshotprintservice.cpp、screenshotairdropservice.cpp、screenshotclouduploadservice.cpp:128-262、components/screenshothistorypagewidget.cpp", "正式包编辑器/贴图系统保存目录、命名、PNG输出成功；自有窗口选择后导出未完成；S3/打印/AirDrop/历史自然入口仍待逐项", "OUT；output/"],
 ]
 parts += [table(["入口", "源码审计及位置", "实际运行核对", "文档映射"], entry_rows), ""]
 parts += [
@@ -398,6 +405,8 @@ print(json.dumps({
     "pending_rows": len(pending),
     "current_specialized_asset_gaps": len(gaps),
     "native_partial_ids": native,
+    "release_native_partial_ids": release_native,
+    "development_native_partial_ids": development_native,
     "backend_partial_ids": backend,
     "abnormal_result_ids": abnormal,
 }, ensure_ascii=False))

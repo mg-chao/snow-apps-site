@@ -8,6 +8,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import Markdown, { defaultUrlTransform } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { JsxEmit, ModuleKind, transpileModule } from 'typescript';
+import { siteLinks } from '../theme/site-structure.ts';
 
 const require = createRequire(import.meta.url);
 const snapshot = JSON.parse(
@@ -30,6 +31,7 @@ function loadModule(filename, modules) {
     exports,
     URL,
     require(name) {
+      if (name === '../../site-structure') return { siteLinks };
       return modules[name] ?? require(name);
     },
   });

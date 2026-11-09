@@ -17,7 +17,7 @@ export function ArrowDemo() {
     ? [
         'Prepare: select Arrow in the annotation toolbar, then choose a curved arrow in its style bar.',
         'Create: hold the left button at the start, drag to the target and release.',
-        'Select: switch to Select element and click the arrow. Endpoint and middle handles appear.',
+        'Select: switch to Select elements and click the arrow. Endpoint and middle handles appear.',
         'Edit: drag the middle handle to adjust the direction and amount of curvature.',
         'Finish: click blank space to deselect, then copy or save the whole screenshot.',
       ]

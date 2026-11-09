@@ -6,6 +6,8 @@ import { useLang } from '@rspress/core/runtime';
 import { Layout as OriginalLayout } from '@rspress/core/theme-original';
 import { SeoMetadata } from './components/SeoMetadata';
 import { GuideLanguages } from './components/GuideLanguages';
+import { PageBreadcrumbs } from './components/PageBreadcrumbs';
+import { footerSections } from './site-structure';
 
 export * from '@rspress/core/theme-original';
 export { AboutPage } from './components/AboutPage';
@@ -42,6 +44,8 @@ export function Layout() {
       <OriginalLayout
         navTitle={<SnowNavTitle />}
         afterNavMenu={<GuideLanguages />}
+        afterNav={<PageBreadcrumbs placement="custom" />}
+        beforeDocContent={<PageBreadcrumbs placement="doc" />}
         bottom={<SnowGlobalFooter />}
       />
     </>
@@ -54,6 +58,23 @@ function SnowGlobalFooter() {
 
   return (
     <footer className="snow-home__footer snow-global-footer">
+      <nav
+        className="snow-footer-nav"
+        aria-label={isZh ? '网站目录' : 'Site directory'}
+      >
+        {footerSections(isZh ? 'zh' : 'en').map((section) => (
+          <div key={section.title}>
+            <h2>{section.title}</h2>
+            <ul>
+              {section.links.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href}>{link.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </nav>
       <div className="snow-home__footer-main">
         <div className="snow-home__footer-brand">
           <img
@@ -75,12 +96,6 @@ function SnowGlobalFooter() {
         <span>© 2025 Snow Apps</span>
         <a href="https://github.com/mg-chao/snow-shot">
           {isZh ? '官方 GitHub 仓库' : 'Official GitHub repository'}
-        </a>
-        <a href={isZh ? '/zh/guides/index.html' : '/guides/index.html'}>
-          {isZh ? '使用指南' : 'User guides'}
-        </a>
-        <a href={isZh ? '/zh/changelog.html' : '/changelog.html'}>
-          {isZh ? '更新日志' : 'Changelog'}
         </a>
         <a href={isZh ? '/zh/privacy.html' : '/privacy.html'}>
           {isZh ? '隐私政策' : 'Privacy policy'}

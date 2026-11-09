@@ -6,6 +6,7 @@ import { runInNewContext } from 'node:vm';
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { JsxEmit, ModuleKind, transpileModule } from 'typescript';
+import { siteLinks } from '../theme/site-structure.ts';
 import {
   macosInstallCommand,
   microsoftStoreDownloadUrl,
@@ -28,6 +29,7 @@ function loadComponent(filename, modules, globals = {}) {
     ...globals,
     exports,
     require(name) {
+      if (name === '../../site-structure') return { siteLinks };
       return modules[name] ?? require(name);
     },
   });

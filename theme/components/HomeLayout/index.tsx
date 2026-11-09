@@ -1,6 +1,7 @@
 import { useDark, useLang } from '@rspress/core/runtime';
 import { downloadPageUrl, useDownloadTarget } from '../../platform';
 import { repositoryUrl } from '../../seo';
+import { siteLinks } from '../../site-structure';
 import { SnowCanvas } from '../SnowCanvas';
 import { FeatureShowcase } from '../FeatureShowcase';
 import { HeroAppPreview } from './HeroAppPreview';
@@ -61,6 +62,7 @@ export function HomeLayout() {
   const lang = useLang();
   const isDark = useDark();
   const isZh = lang.startsWith('zh');
+  const links = siteLinks(isZh ? 'zh' : 'en');
   const copy = isZh
     ? {
         titlePrefix: '免费',
@@ -144,6 +146,18 @@ export function HomeLayout() {
                 <ArrowIcon />
               </a>
             </div>
+            <nav
+              className="snow-hero__guides"
+              aria-label={
+                isZh ? '开始使用 Snow Shot' : 'Get started with Snow Shot'
+              }
+            >
+              {[links.guides, links.install, links.shortcuts].map((link) => (
+                <a key={link.href} href={link.href}>
+                  {link.label}
+                </a>
+              ))}
+            </nav>
           </div>
         </div>
         <div className="snow-hero__preview">

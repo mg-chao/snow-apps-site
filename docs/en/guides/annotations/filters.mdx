@@ -1,6 +1,6 @@
 ---
 title: "Filters, mosaic and automatic filtering"
-description: "Apply filters to rectangles, brush paths or detected regions, adjust intensity and opacity, use local Smart erase, and recover from automatic region-detection failure."
+description: "Apply filters to rectangles, brush paths or detected regions, adjust intensity and opacity, use Smart erase, and recover from automatic region-detection failure."
 ---
 
 import { GuideSteps } from '../../../../theme/components/GuideSteps';
@@ -38,7 +38,7 @@ Filters process local image areas. Mosaic and Gaussian blur commonly obscure det
   }
 ]} />
 
-To change an existing object’s tool-specific style, switch back to **the matching filter**, then click the object to select it again. **Select elements** provides general transforms, stacking and opacity. Switching drawing tools clears the previous selection, so select the object again.
+To change an existing rectangle or brush filter’s type or intensity, return to its matching tool and select the range: left-click a rectangle, or right-click a brush range while idle by default. **Select elements** provides general transforms, stacking and opacity. Switching drawing tools clears the previous selection, so select the object again.
 
 ## Rectangle and brush ranges
 
@@ -49,7 +49,7 @@ Return to the matching Rectangle or Brush filter tool to edit an existing filter
 <GuideSteps title="Brush filtering follows a trajectory" sourceLabel="Actual app output" frames={[
   {
     "src": "/images/guides/ann-audit-pen-filter-1.webp",
-    "alt": "Fictional textured input with readable text and fine lines",
+    "alt": "Unfiltered texture with readable text and fine lines",
     "label": "Set type and width first",
     "caption": "Choose Brush filter, Mosaic and an appropriate width. This example uses width 44 pixels and intensity 80%."
   },
@@ -98,7 +98,7 @@ Inspect complex text, repeated textures and large areas individually. A persiste
 
 *Smart erase is selected and intensity is disabled. The completed image is at lower right. <a href="/images/guides/ann-smart-erase-native-result.webp" target="_blank" rel="noreferrer">enlarge the original interface image</a>.*
 
-![The same color sample actually rendered with mosaic, Gaussian blur, grayscale, inversion, emboss and different brightness settings](/images/guides/ann-filter-effects-engine.webp)
+![The same content with mosaic, Gaussian blur, grayscale, inversion, emboss and different brightness settings](/images/guides/ann-filter-effects-engine.webp)
 
 *Compare different filters on the same content and bounds. <a href="/images/guides/ann-filter-effects-engine.webp" target="_blank" rel="noreferrer">Enlarge the effects</a>.*
 
@@ -108,7 +108,7 @@ Higher mosaic intensity generally creates larger blocks; stronger Gaussian blur 
 
 **Brightness** is unchanged at 50%, darker below it and lighter above it. Do not interpret 0% as no effect. Emboss intensity changes edge contrast.
 
-![Actual detail and block-size differences at mosaic intensities 10%, 50% and 90%](/images/guides/ann-filter-strength-engine.webp)
+![Detail and block-size differences at mosaic intensities 10%, 50% and 90%](/images/guides/ann-filter-strength-engine.webp)
 
 *Compare 10%, 50% and 90% mosaic intensity on the same content. <a href="/images/guides/ann-filter-strength-engine.webp" target="_blank" rel="noreferrer">Enlarge the intensity comparison</a>.*
 
@@ -128,7 +128,7 @@ Higher mosaic intensity generally creates larger blocks; stronger Gaussian blur 
 <GuideSteps title="Actual text-category filling results" sourceLabel="Actual app output" frames={[
   {
     "src": "/images/guides/ann-auto-filter-before.webp",
-    "alt": "Fictional chat input containing three avatars, message boxes and several text lines",
+    "alt": "Chat image containing three avatars, message boxes and several text lines",
     "label": "Before processing",
     "caption": "Locate the text and avatars, then decide what you need to obscure."
   },
@@ -142,7 +142,7 @@ Higher mosaic intensity generally creates larger blocks; stronger Gaussian blur 
 
 *Enlarge the result and check for readable text or unintentionally obscured avatars and shapes. Correct the coverage with Rectangle or Brush filter.*
 
-You can also hold the left button and drag a marquee. Detected regions **intersecting** it are affected; full containment is unnecessary. Automatic detection does not guarantee discovery of all sensitive information. Processing is local and categories depend on the image. With no available regions, **Fill regions** is disabled; use manual ranges instead.
+You can also hold the left button and drag a marquee. Detected regions **intersecting** it are affected; full containment is unnecessary. Automatic detection can miss sensitive information, so inspect every area. With no available regions, **Fill regions** is disabled; use manual ranges instead.
 
 ### Retry detection after failure
 

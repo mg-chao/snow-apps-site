@@ -244,12 +244,26 @@ Use the real product category in page titles and headings; avoid keyword lists,
 unsupported comparisons, fabricated ratings, or promises about search position.
 
 `theme/components/SeoMetadata.tsx` supplies self-canonical URLs, the default
-language alternate, social metadata and homepage SoftwareApplication data.
+language alternate, social metadata, homepage SoftwareApplication/WebSite data,
+and BreadcrumbList data for inner pages. `theme/site-structure.ts` defines the
+shared bilingual links used by homepage shortcuts, the grouped footer, and
+visible breadcrumbs and feature tutorial links. Navigation and sidebar labels
+are checked against the same definitions to prevent inconsistent link names.
+Guide breadcrumbs link to the actual manual hub rather
+than directory URLs without a page. Feature links use specific tutorial names.
 Rspress supplies the English/Chinese alternate links; the component updates
 them on client-side navigation. The existing `.html` routes remain canonical.
 `scripts/seo-build.ts` generates the sitemap from actual routes. The deployment
 workflow validates all generated pages with `scripts/check-seo-output.py` before
-uploading, including canonical/alternate links, descriptions and discovery files.
+uploading, including canonical/alternate links, descriptions, visible breadcrumbs,
+site naming, internal link reachability from both homepages and discovery files.
+
+Google selects sitelinks automatically; no structured-data field forces them.
+Keep important pages directly linked with clear names, and keep page titles and
+headings descriptive. After deployment, submit `/sitemap.xml` in Google Search
+Console and request indexing for changed key pages. Check the indexed/rendered
+HTML there; a submitted sitemap or a successful crawl does not guarantee sitelinks.
+See [Google's sitelink guidance](https://developers.google.com/search/docs/appearance/sitelinks).
 
 `deploy/nginx-seo-redirects.conf` consolidates extensionless and directory aliases
 with HTTP 301 and preserves query parameters used by download selection.
