@@ -1,7 +1,23 @@
 {
   "source": "https://github.com/mg-chao/snow-shot/releases",
-  "syncedAt": "2026-11-09T17:06:59.492Z",
+  "syncedAt": "2026-11-10T17:38:37.350Z",
   "releases": [
+    {
+      "tag": "v1.5.4_snow-shot",
+      "version": "1.5.4",
+      "name": "Snow Shot 1.5.4",
+      "publishedAt": "2026-11-10T17:19:44Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.5.4_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 录屏区域可跟随鼠标移动，更方便演示操作。\n- 文字识别与翻译更好地保留原文颜色、段落和排版。\n- 新增在线账户与积分管理，方便查看账户和用量。\n- 改善截图、菜单和自动更新的稳定性；修复 macOS 滚动截图快捷键与窗口遮挡问题。",
+        "en": "- Let the recording area follow your mouse for easier demonstrations.\n- Text recognition and translation better preserve original colors, paragraphs, and layout.\n- Manage your online account and credits, and check your usage in the app.\n- Improved screenshot, menu, and update reliability; fixed macOS scrolling-capture shortcuts and windows covering captures."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
     {
       "tag": "v1.5.3_snow-shot",
       "version": "1.5.3",
