@@ -1,6 +1,6 @@
 ---
 title: 折线、曲线与自由选区
-description: 在 Snow Shot 切换矩形、折线、曲线和自由绘制截图区域，通过逐点单击、拖动、双击或确认完成闭合范围，撤回顶点并结合添加和减去区域导出结果。
+description: 在 Snow Shot 切换矩形、折线、曲线和自由绘制截图区域，通过逐点单击后双击、或按住拖动后松开完成闭合范围，撤回顶点并结合添加和减去区域导出结果。
 ---
 
 import { GuideSteps } from '../../../../theme/components/GuideSteps';
@@ -19,20 +19,62 @@ import { GuideSteps } from '../../../../theme/components/GuideSteps';
 
 1. 选择 **折线区域**，在边界起点单击。移动鼠标，预览线连接起点与指针。
 2. 沿边界继续单击，每次固定一个拐点。不要只在一条直线上点三个点，需要形成有面积的范围。
-3. 最后一个点双击，或在已有有效边界后按 **Enter** 确认。画面闭合并保留内部区域，工具栏回到可处理结果的状态。
+3. 在最后一个点双击完成。画面闭合并保留内部区域，工具栏回到可处理结果的状态。
 4. 点错时，在仍然构建边界的状态按 **Backspace** 移除最后一个顶点；按 **Esc** 取消未完成草稿。
 
 <GuideSteps title="逐点建立不规则边界" frames={[
  {src:'/images/guides/cap-irregular-1.svg',alt:'折线选区第一个和第二个固定点',label:'开始取点',caption:'每次单击固定一个点，移动鼠标预览下一段。'},
- {src:'/images/guides/cap-irregular-2.svg',alt:'沿目标边缘创建五个顶点的开放路径',label:'完成边界',caption:'沿目标轮廓继续单击，最后双击或按 Enter 确认。'},
+ {src:'/images/guides/cap-irregular-2.svg',alt:'沿目标边缘创建五个顶点的开放路径',label:'完成边界',caption:'沿目标轮廓继续单击，在最后一个点双击完成。'},
  {src:'/images/guides/cap-irregular-3.svg',alt:'闭合路径内部被保留，外部被排除',label:'检查闭合',caption:'确认形成有效面积，再复制或保存内部画面。'},
 ]} />
 
 ## 曲线区域与自由绘制
 
-**曲线区域** 也通过连续取点描述边界，但边界以曲线连接，适合轮廓较柔和的对象。先沿轮廓布置点，再双击或确认结束；不必用大量紧挨着的点模拟每个像素。
+**曲线区域** 也通过连续取点描述边界，但边界以曲线连接，适合轮廓较柔和的对象。先沿轮廓布置点，在最后一个点双击结束；不必用大量紧挨着的点模拟每个像素。
+
+<GuideSteps title="曲线区域：取点、预览与闭合" sourceLabel="操作示意" frames={[
+  {
+    "src": "/images/guides/cap-curve-region-1.svg",
+    "alt": "单击放置曲线区域的点",
+    "label": "单击放置曲线区域的点",
+    "caption": "选择曲线区域，依次单击前几个点；移动指针会预览后续轮廓。"
+  },
+  {
+    "src": "/images/guides/cap-curve-region-2.svg",
+    "alt": "继续取点，检查闭合预览",
+    "label": "继续取点，检查闭合预览",
+    "caption": "沿轮廓继续单击。空心终点是预览位置，尚未固定。"
+  },
+  {
+    "src": "/images/guides/cap-curve-region-3.svg",
+    "alt": "双击终点完成曲线区域",
+    "label": "双击终点完成曲线区域",
+    "caption": "在预览终点双击完成，闭合内部成为截图区域。"
+  }
+]} />
 
 **自由绘制区域** 使用按住左键沿边缘拖动的方式，拖动中显示路径，松开后形成范围。适合手绘轮廓；如果路径没有围出有效面积，不能得到可导出的选区，重新围出完整范围再松开。
+
+<GuideSteps title="自由绘制：按住、拖动与松开" sourceLabel="操作示意" frames={[
+  {
+    "src": "/images/guides/cap-freehand-region-1.svg",
+    "alt": "按下左键，开始自由绘制",
+    "label": "按下左键，开始自由绘制",
+    "caption": "选择自由绘制区域，在轮廓起点按下左键。"
+  },
+  {
+    "src": "/images/guides/cap-freehand-region-2.svg",
+    "alt": "保持按住，沿轮廓拖动",
+    "label": "保持按住，沿轮廓拖动",
+    "caption": "保持左键按住，沿内容轮廓拖动；看到了草稿并不代表已经完成。"
+  },
+  {
+    "src": "/images/guides/cap-freehand-region-3.svg",
+    "alt": "松开左键，提交闭合区域",
+    "label": "松开左键，提交闭合区域",
+    "caption": "围出有效面积后松开左键。检查闭合边界，再复制或保存。"
+  }
+]} />
 
 两类区域都需要检查闭合后的实际边界。不要根据指针走过的位置推断每一个凹角都被精确保留，特别是快速自由绘制时。
 
@@ -48,4 +90,4 @@ import { GuideSteps } from '../../../../theme/components/GuideSteps';
 
 出现空选区时，检查是否只画成一条线、是否把所有内容减去、或草稿尚未确认。想重新开始时按 Esc 取消草稿，再选择区域类型并重画。
 
-相关教程：[基础截图](./basics.mdx) · [精确选区](./precise-selection.md) · [保存格式](../output/copy-save.md)。
+相关教程：[基础截图](./basics.mdx) · [精确选区](./precise-selection.mdx) · [保存格式](../output/copy-save.md)。

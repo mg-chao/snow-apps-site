@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1280" viewBox="0 0 720 1280" role="img"><title>只把所选贴图移到目标组</title>
+<rect width="720" height="1280" rx="24" fill="#f3f6fb"/>
+<g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+<text x="32" y="38" font-size="22" fill="#58708d" font-weight="600">操作示意</text>
+<text x="32" y="86" font-size="31" fill="#172e50" font-weight="700">只把所选贴图移到目标组</text>
+<rect x="32" y="140" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="156" width="624" height="64" rx="12" fill="#eaf0ff"/>
+<text x="60" y="198" font-size="28" fill="#2c57a5" font-weight="700">1. 从同组窗口中选 A、B</text>
+<text x="58" y="268" font-size="28" fill="#33465e" font-weight="400">用 Ctrl/Command 短单击选中 A、B。</text>
+<text x="58" y="310" font-size="28" fill="#33465e" font-weight="400">C 不选择，核对两个选择标记。</text>
+<text x="58" y="352" font-size="28" fill="#33465e" font-weight="400">右键选中窗口，打开「分组」。</text>
+<path d="M360 466v22m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round"/>
+<rect x="32" y="500" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="516" width="624" height="64" rx="12" fill="#fff2da"/>
+<text x="60" y="558" font-size="28" fill="#865414" font-weight="700">2. 选择已有组，或新建分组</text>
+<text x="58" y="628" font-size="28" fill="#33465e" font-weight="400">已有组：点击需要的目标名称。</text>
+<text x="58" y="670" font-size="28" fill="#33465e" font-weight="400">新建分组：填写不超过 16 字符的名称。</text>
+<text x="58" y="712" font-size="28" fill="#33465e" font-weight="400">名称不能空白，也不能与现有组重复。</text>
+<text x="58" y="754" font-size="28" fill="#33465e" font-weight="400">点击「添加」完成；取消则放弃新建。</text>
+<path d="M360 826v22m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round"/>
+<rect x="32" y="860" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="876" width="624" height="64" rx="12" fill="#e6f6ee"/>
+<text x="60" y="918" font-size="28" fill="#20614a" font-weight="700">3. 只移动这次所选的 A、B</text>
+<text x="58" y="988" font-size="28" fill="#33465e" font-weight="400">A、B 被移入目标组。</text>
+<text x="58" y="1030" font-size="28" fill="#33465e" font-weight="400">未选中的 C 保留在原组。</text>
+<text x="58" y="1072" font-size="28" fill="#33465e" font-weight="400">这与托盘菜单切换当前组不同。</text>
+<text x="32" y="1235" font-size="24" fill="#4c6481" font-weight="400">先核对目标，再执行菜单操作。</text>
+</g></svg>

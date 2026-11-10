@@ -32,7 +32,7 @@ b=panel(30,112,405,265,'两种音源分别确认',1)+panel(465,112,405,265,'摄�
 b+=text(60,202,'麦克风 → 人声')+badge(78,252,2)+text(112,261,'系统音频 → 电脑声')
 b+=box(65,289,325,28,'#e0f4e8','#bedbc8',6)+box(68,292,213,22,'#36a76a','#36a76a',4)
 b+=text(65,352,'悬停调增益：-24 ~ +24 dB',21)
-b+=box(490,175,352,174,'#edf6ff','#8bbcff',8)+box(707,245,110,84,'#d7eafa','#1677ff',8)
+b+=box(490,175,352,174,'#edf6ff','#8bbcff',8)+box(707,237,110,110,'#d7eafa','#1677ff',8)
 b+=text(715,292,'摄像头',23)+arrow(720,241,648,197)+text(501,211,'拖动位置',21)+text(500,369,'缩放 · 方形/圆形 · 旋转翻转',20)
 save('rec-audio-camera.svg','声音与摄像头准备',b,'MP4 支持声音；动图格式无音频。先确认预览，再开始。')
 
@@ -101,17 +101,10 @@ b+='<path d="M447 112V387M40 250H860" stroke="#78a7d9" stroke-width="2" stroke-d
 b+=badge(219,158,1)+text(60,149,'选区边框',24)+badge(81,313,2)+text(111,321,'选区外遮罩',24)+badge(695,226,3)+text(678,266,'中心辅助线',23)
 save('set-capture-interface.svg','截图界面颜色与辅助线',b,'界面边框/遮罩帮助选取范围；输出装饰在调整对话框单独设置。')
 
-for phase in range(1,4):
-    b=box(40,112,820,275,'#edf6ff','#8bbcff',12)+text(65,149,'录制区域（开始前）',24)
-    x=85 if phase==1 else 610
-    y=245 if phase!=2 else 175
-    w=130 if phase<3 else 190
-    h=90 if phase<3 else 135
-    b+=box(x,y,w,h,'#d1e5f8','#1677ff',10)+text(x+15,y+50,'摄像头',24)
-    b+=f'<rect x="{x+w-7}" y="{y+h-7}" width="14" height="14" fill="white" stroke="#1677ff" stroke-width="3"/>'
-    if phase==2:b+=arrow(210,285,588,211)+text(304,220,'拖动位置',26)
-    if phase==3:b+=arrow(744,265,800,310)+text(420,243,'拖动控制柄缩放',25)
-    save(f'rec-webcam-drag-{phase}.svg','摄像头移动与缩放',b,['开始前确认摄像头位置与尺寸。','把摄像头移到不挡住操作的位置。','再缩放画面，检查是否遮住重要控件。'][phase-1])
+# Keep corrected bilingual webcam frames in their focused generator.
+import subprocess
+import sys
+subprocess.run([sys.executable, str(Path(__file__).with_name('generate-guide-recording-webcam-assets.py'))], check=True)
 
 for phase in range(1,4):
     b=box(40,112,820,275,'#f6f9fd','#cbd8e9',12)+text(64,149,'工具栏布局预览',24)

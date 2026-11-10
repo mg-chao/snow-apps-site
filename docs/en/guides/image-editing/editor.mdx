@@ -61,6 +61,10 @@ With no selected images, the action opens an empty window where you can add file
 
 Vertical crop deletes whole rows along the image’s height. Find it in the image editor’s **floating main toolbar**, separate from the Fit / 100% controls at the bottom of the canvas. Hover over the icon to confirm **Vertical crop**. Neither crop tool has a dedicated default shortcut.
 
+![Identify the adjacent crop icons: the horizontal dashed line marks Vertical crop for rows, and the vertical dashed line marks Horizontal crop for columns](/images/guides/en/img-crop-tool-icons.svg)
+
+*Instructional illustration. Find these adjacent icons in the floating main toolbar, then hover to confirm Vertical crop or Horizontal crop.*
+
 1. Wait for the image to load, finish any text input, and click **Vertical crop**. The button becomes active; moving over the image shows a guide.
 2. Inside the image, hold the left button at the unwanted strip’s upper edge and drag down to its lower edge, or drag upward instead. The red preview spans the full image width. **N px** between its boundary lines is the number of source-image rows to remove.
 3. Check the entire strip for content you need, then **release the left button to apply**. No confirmation click is required. The remaining upper and lower parts join; height decreases by N pixels and width stays unchanged.
@@ -72,6 +76,15 @@ This deletes a strip rather than retaining the area inside a rectangle. You cann
   {src: '/images/guides/en/img-editor-1.svg', alt: 'The full image before choosing a horizontal strip to remove', label: 'Inspect the whole image', caption: 'Inspect the complete image and locate the horizontal strip to remove.'},
   {src: '/images/guides/en/img-editor-2.svg', alt: 'The red Vertical crop strip spans the full image width', label: 'Drag a whole-row range', caption: 'Drag along the height and check the entire strip for content you need to keep.'},
   {src: '/images/guides/en/img-editor-3.svg', alt: 'The upper and lower content joins after removing the horizontal strip', label: 'Release and inspect the join', caption: 'Release to remove the rows, then inspect the join before saving.'}
+]} />
+
+After canceling, release the mouse, then press and drag again to create a new range. The following steps distinguish canceling with Esc from applying by releasing.
+
+<GuideSteps title="Vertical crop: cancel a drag, then apply a new one" sourceLabel="Instructional illustration" frames={[
+  {"src": "/images/guides/en/img-crop-rows-cancel-1.svg", "alt": "Hold the left button to preview the full-width 40 px strip. The image is still 300×200.", "label": "Hold to preview 40 rows", "caption": "Hold the left button to preview the full-width 40 px strip. The image is still 300×200.", "focus": {"x": 20, "y": 90, "width": 610, "height": 410, "imageWidth": 960, "imageHeight": 560}},
+  {"src": "/images/guides/en/img-crop-rows-cancel-2.svg", "alt": "Press Esc, then release the left button. The red range disappears without cropping; Vertical crop stays active.", "label": "Esc, then release", "caption": "Press Esc, then release the left button. The red range disappears without cropping; Vertical crop stays active.", "focus": {"x": 20, "y": 90, "width": 610, "height": 410, "imageWidth": 960, "imageHeight": 560}},
+  {"src": "/images/guides/en/img-crop-rows-cancel-3.svg", "alt": "Press the left button again and drag out a new 40 px preview. Canceling did not submit the earlier drag.", "label": "Start a new drag", "caption": "Press the left button again and drag out a new 40 px preview. Canceling did not submit the earlier drag.", "focus": {"x": 20, "y": 90, "width": 610, "height": 410, "imageWidth": 960, "imageHeight": 560}},
+  {"src": "/images/guides/en/img-crop-rows-cancel-4.svg", "alt": "Release to apply the new drag. Height becomes 160; B shifts up 40 px. The remaining blue line is only a guide.", "label": "Release to apply", "caption": "Release to apply the new drag. Height becomes 160; B shifts up 40 px. The remaining blue line is only a guide.", "focus": {"x": 20, "y": 90, "width": 610, "height": 410, "imageWidth": 960, "imageHeight": 560}}
 ]} />
 
 ## Horizontal crop: remove a vertical strip
@@ -94,6 +107,16 @@ You cannot remove the entire image width, and a zero-width range makes no change
 
 Cropping and annotations share an editing history in the order you perform them. On the image canvas, click **Undo** or use the default **Ctrl+Z** on Windows / **Command+Z** on macOS to reverse the most recent edit. **Redo** defaults to **Ctrl+Y** on Windows / **Command+Y** on macOS. Undo immediately after a crop restores its strip and original dimensions; Redo removes it again. If you draw a stroke after cropping, the first Undo removes that stroke and the next restores the crop.
 
+In this example, crop first and then add an orange circle. Watch the most recent edit change first as you undo and redo.
+
+<GuideSteps title="After cropping, add a mark: Undo and Redo order" sourceLabel="Instructional illustration" frames={[
+  {"src": "/images/guides/en/img-crop-undo-order-1.svg", "alt": "After the 40-row crop, add an orange circle. This circle is now the most recent edit.", "label": "Crop, then add a circle", "caption": "After the 40-row crop, add an orange circle. This circle is now the most recent edit.", "focus": {"x": 20, "y": 90, "width": 610, "height": 410, "imageWidth": 960, "imageHeight": 560}},
+  {"src": "/images/guides/en/img-crop-undo-order-2.svg", "alt": "Undo removes the orange circle first. The base remains 300×160; the crop has not been undone.", "label": "First Undo: remove the circle", "caption": "Undo removes the orange circle first. The base remains 300×160; the crop has not been undone.", "focus": {"x": 20, "y": 90, "width": 610, "height": 410, "imageWidth": 960, "imageHeight": 560}},
+  {"src": "/images/guides/en/img-crop-undo-order-3.svg", "alt": "Undo again restores the 40 rows and the 300×200 base. The earlier purple arrow remains.", "label": "Second Undo: restore the strip", "caption": "Undo again restores the 40 rows and the 300×200 base. The earlier purple arrow remains.", "focus": {"x": 20, "y": 90, "width": 610, "height": 410, "imageWidth": 960, "imageHeight": 560}},
+  {"src": "/images/guides/en/img-crop-undo-order-4.svg", "alt": "Redo first reapplies the 40-row crop. The orange circle is still absent.", "label": "First Redo: apply the crop", "caption": "Redo first reapplies the 40-row crop. The orange circle is still absent.", "focus": {"x": 20, "y": 90, "width": 610, "height": 410, "imageWidth": 960, "imageHeight": 560}},
+  {"src": "/images/guides/en/img-crop-undo-order-5.svg", "alt": "Redo again restores the orange circle. The image remains 300×160.", "label": "Second Redo: restore the circle", "caption": "Redo again restores the orange circle. The image remains 300×160.", "focus": {"x": 20, "y": 90, "width": 610, "height": 410, "imageWidth": 960, "imageHeight": 560}}
+]} />
+
 During annotation text input, Undo affects the text; press Esc to finish input before using canvas history. Recognition text editing also has its own text history. To undo an image crop, click a crop tool to return to the image canvas first. Wait for the canvas and toolbar to become available after cropping or restoring a strip before editing, undoing again, or exporting.
 
 Crop before adding annotations when possible. Annotations added during this editing session keep their positions when a strip is removed from the underlying image. Check arrow targets and text placement afterward, and move them if needed. When you reopen a saved image, its existing annotations are part of the picture and are cropped with it.
@@ -107,9 +130,16 @@ The illustration keeps the same origin and viewing scale. A and B are part of th
   {src: '/images/guides/en/img-crop-history-4.svg', alt: 'Redo restores the 300×160 crop and B at y=105 while the arrow stays at y=145', label: 'Redo the crop', caption: 'Redo restores the 300×160 crop. Base B returns to y=105; the arrow stays at y=145.', focus: {x: 20, y: 90, width: 610, height: 410, imageWidth: 960, imageHeight: 560}}
 ]} />
 
+Both sides start with the same appearance, but the arrow on the right has been saved into an image and reopened. Remove the same 40 rows and compare editable and saved arrow positions.
+
+<GuideSteps title="The same crop affects editable and saved annotations differently" sourceLabel="Instructional illustration" frames={[
+  {"src": "/images/guides/en/img-crop-flattened-1.svg", "alt": "The left arrow is editable. The right arrow was saved into image pixels; both start at y=145.", "label": "Same appearance, different content", "caption": "The left arrow is editable. The right arrow was saved into image pixels; both start at y=145.", "focus": {"x": 20, "y": 90, "width": 920, "height": 410, "imageWidth": 960, "imageHeight": 560}},
+  {"src": "/images/guides/en/img-crop-flattened-2.svg", "alt": "After removing 40 rows, both base images move B to y=105. Only the editable arrow stays at y=145.", "label": "Remove the same 40 rows", "caption": "After removing 40 rows, both base images move B to y=105. Only the editable arrow stays at y=145.", "focus": {"x": 20, "y": 90, "width": 920, "height": 410, "imageWidth": 960, "imageHeight": 560}}
+]} />
+
 The toolbar can copy, save, or quick-save the current result and access text, table, barcode, and other recognition tools available in your edition. Recognition processes the current edited image; check crops and annotations first.
 
-Closing a window with unsaved edits offers **Discard changes** or **Continue editing**. Save the image first if you need the result; closing is not saving.
+After a successful copy, save, quick save, or pin, the editing window stays open so you can continue working; output again after further edits. If a prompt appears when closing, choose **Continue editing** to return or **Discard changes** to close. When you need a local file, use **Save as file** and check that file first. The presence or absence of a closing prompt does not tell you whether a file has been saved.
 
 ## Windows “Edit with Snow Shot”
 

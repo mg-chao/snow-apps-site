@@ -78,7 +78,34 @@ These settings do not turn the general Select elements toolbar into an arrow or 
 
 Click **Undo** to reverse the last completed edit, or **Redo** to restore the last undone action. Recover accidental deletion, movement or style changes without taking another screenshot.
 
-During drawing, **Esc** cancels the unfinished interaction. In the screenshot interface it can also leave the current state, so repeated Esc presses do not replace a single Undo. Finish or leave text input before using canvas operations.
+During text input, **Esc** commits the text and ends input. In screenshot annotation mode, the default Esc cancels the whole capture, with a confirmation dialog first if enabled; it does not merely discard the current annotation draft. To discard an unfinished arrow or line while keeping other annotations, switch to **Select elements**, then return to the drawing tool. In the image editor, Esc can discard an unfinished arrow or line. Use **Undo** for edits to completed objects.
+
+<GuideSteps title="Discard a draft or end capture" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-input-cancel-1.svg",
+    "alt": "A screenshot canvas has completed purple annotations and an unfinished red path with its preview shown dashed",
+    "label": "Separate finished work from a draft",
+    "caption": "Complete the purple annotations, then start a red click-by-click path without finishing it. Dashes distinguish the pointer preview in this illustration. The next three frames compare different actions from this same state."
+  },
+  {
+    "src": "/images/guides/en/ann-input-cancel-2.svg",
+    "alt": "Switching to Select elements removes the red draft while retaining the purple rectangle and arrow in the open capture",
+    "label": "Select elements keeps finished work",
+    "caption": "From frame 1, click Select elements. The red draft disappears, the purple annotations remain, and capture stays open. Return to Arrow or Line to draw again."
+  },
+  {
+    "src": "/images/guides/en/ann-input-cancel-3.svg",
+    "alt": "Default Esc ends the screenshot layer and returns to the original app without exporting this capture",
+    "label": "Same draft: Esc ends capture",
+    "caption": "Compare again from the capture draft in frame 1: press the default Esc. If asked, confirm exit. Capture closes instead of leaving you on the canvas with only the draft removed."
+  },
+  {
+    "src": "/images/guides/en/ann-input-cancel-4.svg",
+    "alt": "In the image editor, Esc removes the red path draft while retaining the purple annotations and base image",
+    "label": "Image editor: Esc drops the draft",
+    "caption": "Create the same path draft in the image editor, with no text input, crop or color picker handling keys. Esc removes the draft while completed annotations remain and the editor stays open."
+  }
+]} />
 
 ## Check and export
 

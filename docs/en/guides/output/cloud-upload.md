@@ -27,7 +27,7 @@ Cloud upload writes the current screenshot or pinned image to your own S3-compat
 | Public / CDN base URL | Optional public or CDN URL pointing to the bucket root, used to generate access links. |
 | Addressing style | Path-style or virtual-host-style, as required by the provider. |
 
-3. Click **Save**. Correct any missing fields, invalid URL, or duplicate name reported by the form. Resolve local configuration-storage errors before retrying a save.
+3. Click **Save**. Correct any missing fields, invalid URL, or duplicate name reported by the form. Resolve local configuration-storage errors before retrying a save. **Cancel** closes the form without saving the draft or changing an existing configuration.
 4. Back in the list, select this configuration as the default target. The first usable configuration is selected automatically; still check the default target. **None** means no upload target is selected.
 
 **Edit** changes a configuration. **Copy** creates a differently named copy for another prefix or bucket. **Delete** removes the local configuration. Deleting the default clears that selection; it does not delete cloud images.

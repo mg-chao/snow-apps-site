@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="650" viewBox="0 0 440 650">
+<title>Check for updates from About</title>
+<desc>Locate Check for updates, wait for its result, then follow the update channel.</desc>
+<style>text{font-family:Arial,"PingFang SC",sans-serif;fill:#243047} .muted{fill:#536174} .button{font-size:15px;font-weight:600}</style>
+<rect width="440" height="650" rx="16" fill="#f4f5fc"/>
+<text x="22" y="34" font-size="24" class="">Check for updates</text>
+<text x="22" y="62" font-size="16" class="muted">Main-window sidebar → About</text>
+<rect x="18" y="83" width="404" height="126" rx="10" fill="#fff" stroke="#cbd2df"/>
+<circle cx="39" cy="105" r="13" fill="#7050c8"/>
+<text x="39" y="110" text-anchor="middle" font-size="16" style="fill:#fff">1</text>
+<text x="62" y="111" font-size="17" class="">Start from About</text>
+<text x="35" y="146" font-size="17" class="">Update area</text>
+<rect x="244" y="152" width="155" height="36" rx="10" fill="#f6f4fe" stroke="#8770cc"/>
+<text x="254" y="176" font-size="15" class="button">Check for updates</text>
+<text x="35" y="188" font-size="15" class="muted">Click once and wait.</text>
+<path d="M220 213v19m-6-6 6 6 6-6" fill="none" stroke="#8b7db3" stroke-width="2"/>
+<rect x="18" y="238" width="404" height="112" rx="10" fill="#fff" stroke="#cbd2df"/>
+<circle cx="39" cy="261" r="13" fill="#7050c8"/>
+<text x="39" y="266" text-anchor="middle" font-size="16" style="fill:#fff">2</text>
+<text x="62" y="267" font-size="17" class="">Watch the check status</text>
+<text x="35" y="303" font-size="18" class="">Checking for updates…</text>
+<text x="35" y="330" font-size="15" class="muted">Wait for a result before continuing.</text>
+<path d="M220 355v19m-6-6 6 6 6-6" fill="none" stroke="#8b7db3" stroke-width="2"/>
+<rect x="18" y="381" width="404" height="217" rx="10" fill="#fff" stroke="#cbd2df"/>
+<circle cx="39" cy="405" r="13" fill="#7050c8"/>
+<text x="39" y="410" text-anchor="middle" font-size="16" style="fill:#fff">3</text>
+<text x="62" y="411" font-size="17" class="">Follow the result and channel</text>
+<text x="35" y="447" font-size="17" class="">No update: You are up to date</text>
+<text x="35" y="477" font-size="16" class="muted">When an update is available:</text>
+<text x="35" y="514" font-size="16" class="">Windows</text>
+<rect x="158" y="489" width="241" height="36" rx="10" fill="#f6f4fe" stroke="#8770cc"/>
+<text x="168" y="513" font-size="15" class="button">Download update</text>
+<text x="35" y="561" font-size="16" class="">macOS</text>
+<rect x="158" y="536" width="241" height="36" rx="10" fill="#f6f4fe" stroke="#8770cc"/>
+<text x="168" y="560" font-size="15" class="button">Download from GitHub</text>
+<text x="35" y="585" font-size="14" class="muted">Mac may instead show Download from Gitee.</text>
+<text x="22" y="631" font-size="13" class="muted">Instructional illustration</text>
+</svg>

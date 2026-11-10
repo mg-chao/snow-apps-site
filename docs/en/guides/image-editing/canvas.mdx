@@ -11,10 +11,10 @@ The full-screen canvas overlays the screen for live explanations. It provides a 
 
 ## Start a screen explanation
 
-1. Enter **Full-screen canvas** in the main window’s **Search function**, select the result, then click the **Full-screen canvas (enable/disable click-through)** action row. A transparent canvas and an independent floating toolbar appear.
+1. Enter **Full-screen canvas** in the main window’s **Search function**, select the result, then click the **Full-screen canvas (enable/disable click-through)** action row. A transparent canvas covers the screen containing the pointer at launch, with an independent floating toolbar. To start on a chosen monitor, assign this action a global shortcut, move the pointer to that monitor, then invoke it.
 2. Choose a brush, shape, arrow, or text tool and draw on screen. Mouse input initially goes to the canvas for creating and editing marks.
 3. Use **Select elements** to move, delete, or change existing annotations. General rules match screenshot annotation.
-4. Enable **Mouse click-through** on the toolbar to operate slides, pages, or software underneath.
+4. Enable **Click-through** on the toolbar to operate slides, pages, or software underneath.
 5. Disable click-through when finished operating the source and continue annotating.
 
 <GuideSteps title="Present with a full-screen canvas" frames={[
@@ -30,7 +30,33 @@ With click-through off, the pointer draws or selects canvas objects. With it on,
 
 The toolbar may fade while idle in click-through mode and return when pointed at. If annotations suddenly cannot be selected, check click-through first, then confirm Select elements is active.
 
+Invoking **Full-screen canvas (enable/disable click-through)** again toggles the existing canvas’s input state. It does not open a second canvas or clear annotations. Assign a global shortcut to return to drawing even while the underlying app has focus.
+
 Existing annotations do not understand or track objects in the underlying application. Recheck their positions after scrolling or changing slides; delete outdated marks and draw again as needed.
+
+## Zoom and pan the annotation layer
+
+Disable click-through, finish text input and color sampling, and put the pointer over the canvas. These gestures move or scale only Snow Shot’s annotation layer, not the application underneath. Marks previously aligned with screen content can become misaligned.
+
+| Action | Keys and visible result |
+| --- | --- |
+| Zoom the layer | Hold **Ctrl on Windows or Command on macOS** and scroll to zoom around the pointer, from **10% to 800%** |
+| Pan horizontally | Hold **Shift** and scroll to move the layer left or right |
+| Pan vertically | Hold **Ctrl+Shift on Windows or Command+Shift on macOS** and scroll to move the layer up or down |
+| Pan freely | Hold the middle mouse button and drag, then release; annotations retain their positions relative to each other |
+
+Follow the same screen content through all four gestures below. The example uses one upward mouse-wheel notch; trackpads and different scroll amounts may produce different distances. Watch A and B stay fixed while the purple ring and arrow change. Zoom and wheel panning take effect immediately; release the modifiers to continue annotating. To adjust back, scroll the other way or drag the middle button in the opposite direction, then check alignment with the underlying content again.
+
+<GuideSteps title="Four gestures for navigating the annotation layer" frames={[
+  {"src": "/images/guides/en/img-canvas-navigation-1.svg", "alt": "Disable click-through, finish text editing and color sampling, then choose Select elements. The purple ring and arrow are annotations; A and B belong to the application underneath.", "label": "Prepare the drawing layer", "caption": "Disable click-through, finish text editing and color sampling, then choose Select elements. The purple ring and arrow are annotations; A and B belong to the application underneath.", "focus": {"x": 60, "y": 154, "width": 840, "height": 280, "imageWidth": 960, "imageHeight": 600}},
+  {"src": "/images/guides/en/img-canvas-navigation-2.svg", "alt": "Point at the center of A, hold Ctrl on Windows or Command on macOS, and scroll up. This example changes 100% to about 113%. The annotation point under the pointer stays fixed while the layer scales around it.", "label": "Zoom around the pointer", "caption": "Point at the center of A, hold Ctrl on Windows or Command on macOS, and scroll up. This example changes 100% to about 113%. The annotation point under the pointer stays fixed while the layer scales around it.", "focus": {"x": 60, "y": 154, "width": 840, "height": 280, "imageWidth": 960, "imageHeight": 600}},
+  {"src": "/images/guides/en/img-canvas-navigation-3.svg", "alt": "Release the zoom modifier, hold Shift, and scroll. Here the ring and arrow both move 40 px right; A and B stay fixed.", "label": "Shift: pan horizontally", "caption": "Release the zoom modifier, hold Shift, and scroll. Here the ring and arrow both move 40 px right; A and B stay fixed.", "focus": {"x": 60, "y": 154, "width": 840, "height": 280, "imageWidth": 960, "imageHeight": 600}},
+  {"src": "/images/guides/en/img-canvas-navigation-4.svg", "alt": "Hold Ctrl+Shift on Windows or Command+Shift on macOS and scroll. Here the whole layer moves 40 px down, with no change to its scale or the application underneath.", "label": "Pan vertically", "caption": "Hold Ctrl+Shift on Windows or Command+Shift on macOS and scroll. Here the whole layer moves 40 px down, with no change to its scale or the application underneath.", "focus": {"x": 60, "y": 154, "width": 840, "height": 280, "imageWidth": 960, "imageHeight": 600}},
+  {"src": "/images/guides/en/img-canvas-navigation-5.svg", "alt": "Hold only the middle mouse button and drag from the dashed mouse position 60 px left and 30 px up. Both annotations follow the pointer.", "label": "Hold the middle button and drag", "caption": "Hold only the middle mouse button and drag from the dashed mouse position 60 px left and 30 px up. Both annotations follow the pointer.", "focus": {"x": 60, "y": 154, "width": 840, "height": 280, "imageWidth": 960, "imageHeight": 600}},
+  {"src": "/images/guides/en/img-canvas-navigation-6.svg", "alt": "Release the middle button to finish. The layer stays at its new position; no annotation is added and the underlying application remains fixed.", "label": "Release the middle button", "caption": "Release the middle button to finish. The layer stays at its new position; no annotation is added and the underlying application remains fixed.", "focus": {"x": 60, "y": 154, "width": 840, "height": 280, "imageWidth": 960, "imageHeight": 600}}
+]} />
+
+While creating an angle or with an angle object selected, the wheel may adjust that angle. Finish that operation and switch to Select elements before navigating the whole layer.
 
 ## Use the laser pointer
 
@@ -46,7 +72,7 @@ The canvas covers the current screen for viewing and editing; it is not itself a
 
 ## Clear and exit
 
-Marquee-select unwanted marks with Select elements and click Delete selected elements; Undo restores accidental deletion. Click **Exit** on the toolbar or press Esc in canvas state to finish. Retain needed explanations through a suitable recording or capture method before exiting.
+Marquee-select unwanted marks with Select elements and click **Delete selected elements**; Undo restores accidental deletion. Click **Exit** on the toolbar, or press **Esc** while the canvas has focus and no text input or color sampling is active. During text input, Esc commits and finishes typing first; during color sampling it cancels sampling first. With click-through enabled, the underlying app may have focus, so use the toolbar’s Exit. Exiting discards the annotation layer; capture or record it first if needed.
 
 **The mouse keeps operating underlying windows**: click-through is enabled; disable it on the toolbar.
 

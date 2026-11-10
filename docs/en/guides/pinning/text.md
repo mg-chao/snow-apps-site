@@ -21,7 +21,7 @@ Adjust defaults under **Settings → Pin to screen → Text style**, then create
 | --- | --- |
 | Maximum text width | Limits pin width including padding; compare wrapping and overall width using the same long sentence |
 | Default text font | Chooses the default font for new text; system defaults depend on the machine's interface font |
-| Default text size | Sets new text size; check readability in a new pin |
+| Default text font size | Sets new text size; check readability in a new pin |
 | Default text color | Changes text color where the source does not override it; the theme text color is used when unset |
 | Background color | Changes the text-pin background; follows the theme when unset |
 
@@ -54,10 +54,16 @@ Enable **Automatic text recognition** under **Settings → Pin to screen** to pr
 
 Always does not extract text from arbitrary pixels without a recognition result. Wait for recognition first. If text cannot be retrieved, check image quality and OCR resources through Text recognition.
 
+With selectable text, an ordinary left-drag selects words. To move the pin, finish text editing and unlock it, then hold **Alt (Option on macOS)** and left-drag its content. Release the left button at the new position.
+
+![Alt or Option dragging over selectable text moves the pin, while an ordinary left-drag selects words](/images/guides/en/pin-gesture-move.svg)
+
+*Instructional illustration. The modifier distinguishes selecting words from moving the window.*
+
 ## Mark selected text
 
-1. Set **Text selection on recognition results** to **Always** and enable **Quick annotation for selected text**.
-2. Select target words in a pin with recognition results. A quick-annotation toolbar appears beside the selection.
+1. Under **Settings → Pin to screen**, set **Text selection on recognition results** to **Always** and enable **Quick annotation for selected text**.
+2. Return to an ordinary image pin whose recognition has finished. If **Show text** is checked in its context menu, uncheck it to return to the original image. Drag across the target words on the image; the quick-annotation toolbar appears beside the selection.
 3. Click **Highlight**, **Wavy underline**, **Underline**, or **Strikethrough** and inspect the mark. Applying the same mark to the same range again toggles it.
 4. Choose a color in the tool's style controls. Line marks also provide applicable width, line-style, or rendering-style controls. Highlight color and line styles serve different purposes; use controls shown for the current tool.
 5. Use **Copy text** in the quick toolbar to copy the selected range.

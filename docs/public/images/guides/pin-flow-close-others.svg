@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1280" viewBox="0 0 720 1280" role="img"><title>保留所选贴图，关闭同组其他窗口</title>
+<rect width="720" height="1280" rx="24" fill="#f3f6fb"/>
+<g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+<text x="32" y="38" font-size="22" fill="#58708d" font-weight="600">操作示意</text>
+<text x="32" y="86" font-size="31" fill="#172e50" font-weight="700">保留所选贴图，关闭同组其他窗口</text>
+<rect x="32" y="140" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="156" width="624" height="64" rx="12" fill="#eaf0ff"/>
+<text x="60" y="198" font-size="28" fill="#2c57a5" font-weight="700">1. 先明确要留下的窗口</text>
+<text x="58" y="268" font-size="28" fill="#33465e" font-weight="400">同一活动组有 A、B、C 三张贴图。</text>
+<text x="58" y="310" font-size="28" fill="#33465e" font-weight="400">用 Ctrl/Command 短点选 A、B。</text>
+<text x="58" y="352" font-size="28" fill="#33465e" font-weight="400">C 保持未选，核对选择标记。</text>
+<path d="M360 466v22m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round"/>
+<rect x="32" y="500" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="516" width="624" height="64" rx="12" fill="#fff2da"/>
+<text x="60" y="558" font-size="28" fill="#865414" font-weight="700">2. 打开所选窗口菜单</text>
+<text x="58" y="628" font-size="28" fill="#33465e" font-weight="400">先保存仍需要的其他窗口内容。</text>
+<text x="58" y="670" font-size="28" fill="#33465e" font-weight="400">右键 A 或 B，查看选中数量。</text>
+<text x="58" y="712" font-size="28" fill="#33465e" font-weight="400">选择「关闭其他窗口」。</text>
+<path d="M360 826v22m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round"/>
+<rect x="32" y="860" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="876" width="624" height="64" rx="12" fill="#e6f6ee"/>
+<text x="60" y="918" font-size="28" fill="#20614a" font-weight="700">3. 保留 A、B，关闭 C</text>
+<text x="58" y="988" font-size="28" fill="#33465e" font-weight="400">已选择的 A、B 保留。</text>
+<text x="58" y="1030" font-size="28" fill="#33465e" font-weight="400">当前组中未选择的 C 被关闭。</text>
+<text x="58" y="1072" font-size="28" fill="#33465e" font-weight="400">不要与「关闭」或「销毁」所选混淆。</text>
+<text x="32" y="1235" font-size="24" fill="#4c6481" font-weight="400">先核对目标，再执行菜单操作。</text>
+</g></svg>

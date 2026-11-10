@@ -7,11 +7,11 @@ import { GuideSteps } from '../../../../theme/components/GuideSteps';
 
 # Text recognition and cleanup
 
-Use **Text recognition** to turn error messages, scanned documents, or text in images into copyable text. Ordinary OCR runs locally; its components may need preparation on first use. Mini does not show Text recognition in the default screenshot toolbar. You can launch its main-window action, add it to the toolbar, or assign a separate shortcut. See [OCR models and offline preparation](./models.md).
+Use **Text recognition** to turn error messages, scanned documents, or text in images into copyable text. Ordinary OCR runs locally; its components may need preparation on first use. Mini does not show Text recognition in the default screenshot toolbar. You can launch its main-window action, add it to the toolbar, or assign a separate shortcut. See [OCR models and offline preparation](./models.mdx).
 
 ![Text recognition: select clear text, compare the original, correct the result, and copy it](/images/guides/en/rec-text.svg)
 
-*Instructional illustration. The three stages show the input area, recognized text, and a cleaned-up result.*
+*Instructional illustration. The source says `012`. The left side was recognized as `O12`; the right side corrects it to `012` before cleaning up line breaks.*
 
 ## Extract a passage
 
@@ -21,6 +21,12 @@ Use **Text recognition** to turn error messages, scanned documents, or text in i
 4. To copy only a few lines, select them in the result. For the whole passage, clear the partial selection and use **Copy to clipboard** in the toolbar.
 
 You can also launch OCR without assigning a separate shortcut. In the main window, enter “Text recognition” in **Search function** and choose the matching result. This locates the **Text recognition** action under **Global shortcuts**. Click the action row's title or empty area to start a screenshot; confirming the selection starts recognition directly. The dashed button showing a shortcut or “Not set” configures keys. Selecting a search result only locates the action; it does not launch recognition.
+
+<GuideSteps title="Start OCR without assigning keys" frames={[
+  {"src": "/images/guides/en/rec-main-ocr-entry-1.svg", "alt": "Search for Text recognition in the main window and choose the result. This locates its Global shortcuts action row; selecting the search result does not immediately capture.", "label": "Search locates the action", "caption": "Search for Text recognition in the main window and choose the result. This locates its Global shortcuts action row; selecting the search result does not immediately capture."},
+  {"src": "/images/guides/en/rec-main-ocr-entry-2.svg", "alt": "Click the Text recognition row title or its blank area to capture, then confirm the selection to recognize it. Not set on the right records a shortcut; it is not needed just to try OCR.", "label": "Click the title, not Not set", "caption": "Click the Text recognition row title or its blank area to capture, then confirm the selection to recognize it. Not set on the right records a shortcut; it is not needed just to try OCR."},
+  {"src": "/images/guides/en/rec-main-ocr-entry-3.svg", "alt": "To reveal Mini's hidden Text recognition button, edit the screenshot toolbar for screenshots and the Pin to screen toolbar for the image editor. Drag it from Hidden tools to a visible position; the layouts are separate.", "label": "Mini has separate toolbar layouts", "caption": "To reveal Mini's hidden Text recognition button, edit the screenshot toolbar for screenshots and the Pin to screen toolbar for the image editor. Drag it from Hidden tools to a visible position; the layouts are separate."}
+]} />
 
 Do not repeatedly click while components are downloading. Use **Cancel screenshot** to end the session. Start again with a smaller, clearer selection if you need a different input.
 
@@ -51,14 +57,22 @@ The image editor's recognition result does not provide a **Show original image**
 
 For recognition launched from the screenshot toolbar, use the following steps to display the original and correct the result. Check digits, letter case, path separators, and similar-looking characters against the original. Verify commands, amounts, and account details before copying them.
 
-1. Click **Show original image** in the recognition property bar to display a reference alongside the result; click again to toggle it. **Show original image preview** in settings controls the initial state.
+1. Click **Show original image** in the recognition property bar to hide the text result temporarily and inspect the input image; click again to return to the result. To keep a separate original-image reference beside the result, enable **Settings → Text recognition & translation → Recognition output → Show original image preview**. This is a separate display option, not the initial state of the Show original image button. Mini calls the settings page **Text recognition**.
 2. Click **Edit**, locate a mistake in the editable result, and replace it. This changes the current recognition result, not the text in the source application.
 3. Use **Undo** to reverse an edit or **Redo** to restore it. Keep focus in the current result so another application does not receive the shortcut.
-4. Click **Reset** to discard text cleanup and return to the recognition result. Reset is different from capturing again; exit the screenshot and select a new area to change the source.
+4. Click **Reset** to restore the initially recognized text and clear the current Formatting and Punctuation choices. This does not recognize the image again. If Reset was a mistake, **Undo** restores the preceding text. Exit the screenshot and select a new area to change the source.
+
+<GuideSteps title="Original and result views" frames={[
+  {"src": "/images/guides/en/rec-original-view-1.svg", "alt": "This is a screenshot-recognition result. Show original image is off. Note the character to check before switching to the input image.", "label": "Start with recognized text", "caption": "This is a screenshot-recognition result. Show original image is off. Note the character to check before switching to the input image."},
+  {"src": "/images/guides/en/rec-original-view-2.svg", "alt": "Show original image hides the text result temporarily. Check 012 in the input, then click the same button again to return to the text result for editing.", "label": "Inspect input, then return", "caption": "Show original image hides the text result temporarily. Check 012 in the input, then click the same button again to return to the text result for editing."},
+  {"src": "/images/guides/en/rec-original-view-3.svg", "alt": "Enable Show original image preview under Recognition output. Return to the text result and compare it with the separate input reference. This does not turn on the Show original image button by default.", "label": "A side reference has its own setting", "caption": "Enable Show original image preview under Recognition output. Return to the text result and compare it with the separate input reference. This does not turn on the Show original image button by default."}
+]} />
+
+[See the formatting, Reset, and Undo examples below.](#line-breaks-and-punctuation)
 
 ## Line breaks and punctuation
 
-Use **Formatting** and **Punctuation** in the property bar to clean up recognized text. Choose an option and inspect the result. Clear it or choose “None” to stop that conversion. These tools do not proofread text or decide whether punctuation in a command should change.
+Use **Formatting** and **Punctuation** in the property bar to clean up the whole recognized passage, not just selected text. Choosing a rule enters text editing and applies the result; clear it or choose “None” to remove that conversion. Choose formatting before proofreading, and recheck manual corrections after Smart typesetting. Use **Undo** if the result is unsuitable. These tools do not decide whether punctuation in a command should change.
 
 | Option | Effect and use |
 | --- | --- |
@@ -69,13 +83,24 @@ Use **Formatting** and **Punctuation** in the property bar to clean up recognize
 | Half-width | Converts supported punctuation to half-width forms; check again before using it in code |
 | Full-width | Converts supported punctuation to full-width forms for suitable Chinese typesetting |
 
-Set default formatting and punctuation under **Settings → Text recognition & translation → Recognition results**. Mini calls the settings page **Text recognition**. Defaults apply when editing or copying recognized text; test a short passage to confirm the output suits your task.
+Set **Default formatting** and **Default punctuation** under **Settings → Text recognition & translation → Recognition output**. Mini calls the settings page **Text recognition**. Defaults apply when editing or copying recognized text; test a short passage to confirm the output suits your task.
+
+<GuideSteps title="Transform and restore text" frames={[
+  {"src": "/images/guides/en/rec-text-transforms-1.svg", "alt": "The original sample is two lines: Snow， and Shot！. The property-bar rule affects the passage even with a partial selection. Removing the line break does not insert a space.", "label": "Remove breaks across the passage", "caption": "The original sample is two lines: Snow， and Shot！. The property-bar rule affects the passage even with a partial selection. Removing the line break does not insert a space."},
+  {"src": "/images/guides/en/rec-text-transforms-2.svg", "alt": "Choose Half-width to convert the supported full-width comma and exclamation mark. Check the resulting passage before copying it.", "label": "Convert supported punctuation", "caption": "Choose Half-width to convert the supported full-width comma and exclamation mark. Check the resulting passage before copying it."},
+  {"src": "/images/guides/en/rec-text-transforms-3.svg", "alt": "Reset restores the initial two lines and full-width punctuation and clears both transform choices. It does not submit the image again.", "label": "Reset to the initial text", "caption": "Reset restores the initial two lines and full-width punctuation and clears both transform choices. It does not submit the image again."},
+  {"src": "/images/guides/en/rec-text-transforms-4.svg", "alt": "Undo restores the preceding text Snow,Shot!. It restores content without reselecting the earlier Formatting and Punctuation rules.", "label": "Undo an accidental Reset", "caption": "Undo restores the preceding text Snow,Shot!. It restores content without reselecting the earlier Formatting and Punctuation rules."}
+]} />
 
 ## Copy text and save an image
 
 **Copy to clipboard** transfers the current text result to a text editor. Check the copy range when a partial text selection exists. Paste into the destination once to check for missing characters or unwanted line breaks.
 
 For recognition launched from the screenshot toolbar, interpret **Save as file** together with the current result and output settings. **Save recognition results as an image** controls whether displayed recognition text is rendered into screenshot image exports. For editable text, copy into a text editor and save it. When recognizing an existing file in the image editor, you can save TXT directly as described above. For cell structure, use [Table recognition](./table.mdx).
+
+![Save as file glyph, active OCR text, and TXT save/cancel outcomes](/images/guides/en/rec-editor-save-control.svg)
+
+*Hover to check Save as file. With image-editor OCR active, save TXT and reopen it to check the text.*
 
 ## Text background and highlighting
 
@@ -84,7 +109,7 @@ The background and highlighting options below apply to screenshot recognition. T
 Under **Settings → Text recognition & translation → Text background**—the **Text recognition** page in Mini—you can change how recognized text appears over the original:
 
 - **Fill style** offers **Blur** and **Background fill**. Compare the same passage on a textured background and choose the more readable treatment. This is separate from annotation mosaic or blur filters.
-- **Show text highlight** adds a mask around recognition results to emphasize the text. Compare it with the original; turn it off when that emphasis is unnecessary.
+- **Show text highlighting** adds a mask around recognition results to emphasize the text. Compare it with the original; turn it off when that emphasis is unnecessary.
 
 ![Recognition text background: blur and background fill provide different display treatments](/images/guides/en/rec-background.svg)
 
@@ -94,11 +119,11 @@ Changing the display style does not correct recognition errors. Continue to comp
 
 ## Automatically act after recognition
 
-To copy automatically or enter correction immediately, open **Settings → Screenshots → Interaction → Automatically execute after text recognition**. Select a behavior and try a short sample sentence. Existing custom settings can change the manual-copy workflow above.
+To copy automatically or enter correction immediately, open **Settings → Screenshots → Interaction → Auto execute after text recognition**. Select a behavior and try a short sample sentence. Existing custom settings can change the manual-copy workflow above.
 
 | Option | After successful recognition |
 | --- | --- |
-| Do nothing | Keeps the result for manual checking, editing, or copying |
+| No action | Keeps the result for manual checking, editing, or copying |
 | Copy text | Copies recognized text and keeps the screenshot session open |
 | Copy text and end screenshot | Copies text and ends the session so you can paste elsewhere |
 | Copy text (global) | Copies automatically only when launched through the separate global Text recognition action; the ordinary screenshot-toolbar entry does not trigger this option |
@@ -109,7 +134,7 @@ To copy automatically or enter correction immediately, open **Settings → Scree
 
 ![Automatic actions after OCR: ordinary and global recognition entries can use different copy and exit behavior](/images/guides/en/rec-auto-action.svg)
 
-*Instructional illustration. Choose Do nothing or Enable edit mode when you want to check text first.*
+*Instructional illustration. Choose No action or Enable edit mode when you want to check text first.*
 
 If the screenshot disappears after recognition, check whether a copy-and-end option is selected. If the behavior occurs only through the separate recognition action, check for a “global” option. Verify the clipboard before continuing so you do not use a previous result accidentally.
 
@@ -123,4 +148,4 @@ If the screenshot disappears after recognition, check whether a copy-and-end opt
 | Slow local recognition | Compare model size, detection scaling, and resident-process settings in OCR models and performance; change one setting at a time |
 | A table becomes plain text | Use Table recognition; ordinary OCR does not replace structured cell editing |
 
-Continue with [OCR models](./models.md), [Screenshot translation](../translation/screenshot.md), or [Text and annotations in pins](../pinning/text.md).
+Continue with [OCR models](./models.mdx), [Screenshot translation](../translation/screenshot.md), or [Text and annotations in pins](../pinning/text.mdx).

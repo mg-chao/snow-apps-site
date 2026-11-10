@@ -16,29 +16,29 @@ The microphone records your voice, system audio records sound played by the comp
 ## Include both sound sources
 
 1. In recording **Export settings**, choose **MP4** under **Recording format**. GIF, APNG, and WebP contain no audio, so the sound buttons are disabled for those formats.
-2. Before recording, click **Record microphone** on the toolbar. Its icon shows the enabled state. Speak into the microphone and check the level meter that appears to confirm input.
-3. Click **Record system audio**, then play a short sound on the computer. Check this source's meter before starting the actual recording. A fresh configuration enables system audio and disables the microphone; check your own button states.
-4. Hover over either audio-source button to open its gain popover. Drag its slider to adjust microphone or system-audio gain independently, from **−24 to +24 dB**. Zero adds no gain. Raise low audio moderately, or lower it when the meter is too high or shows clipping. Changing one source does not adjust the other.
+2. Before recording, click **Record microphone** on the toolbar. Its icon shows the enabled state. Hover over the button to open its gain popover, then speak and check the meter inside it to confirm input.
+3. Click **Record system audio**, hover over its button to open its gain popover, and play a short sound on the computer. Check this source's meter before starting the actual recording. A fresh configuration enables system audio and disables the microphone; check your own button states.
+4. Hover over either audio-source button to open its gain popover. Drag its slider to adjust microphone or system-audio gain independently, from **−24 to +24 dB**. Return the slider to 0 dB to remove the added gain. Raise low audio moderately, or lower it when the meter is too high or shows clipping. Changing one source does not adjust the other.
 5. Make a short recording, stop it, and play the file. Check your voice, computer audio, and their relative volume before recording the full demonstration.
 
 Enable every required source before starting. A source that was disabled at startup cannot be added during recording; stop and start again to add it. Available controls for sources already enabled can be used during recording. A disabled control does not by itself mean that source is muted.
 
 ## Keep audio tracks separate
 
-Enable **Record separate audio tracks** under **Settings → Screen recording → Video & audio** to save system audio and microphone input as separate MP4 tracks. This lets a video editor adjust them independently. Most players play one audio track at a time; if you hear only one source, check the player's track selection. For direct sharing with both sources audible together, keep mixed audio.
+Before recording, enable **Record separate audio tracks** under **Settings → Screen recording → Video & audio** to save system audio and microphone input as separate MP4 tracks. This lets a video editor adjust them independently. Most players play one audio track at a time; if you hear only one source, check the player's track selection. For direct sharing with both sources audible together, keep mixed audio.
 
 ## Position the webcam
 
 1. Before starting, open **Export settings** and click **Record webcam**. The webcam preview appears inside the recording area after initialization. Resolve any device error first.
-2. Drag the webcam's position control area to a corner that does not hide your actions. Drag its resize handle to change the size and watch the preview update.
-3. In **Effect settings**, set **Webcam size** between **50 and 500 px**. Use **Webcam shape** to choose a square or circle. A circle suits a face; a square preserves more of the background.
-4. Right-click the webcam image and use **Rotate clockwise**, **Rotate counterclockwise**, **Flip horizontally**, or **Flip vertically** as needed. Inspect the direction in the preview, especially when the background contains text.
+2. Hold the left button and drag the webcam image away from important actions. Its **upper-right** handle resizes it: drag up/right to enlarge or down/left to shrink, watching the preview. Release to save the position or size. Press **Esc** during a drag to restore the layout from before that gesture, then release before trying again.
+3. Click **Settings** at the end of **Export settings** to open **Effect settings**, then set **Webcam size** between **50 and 500 px**. Use **Webcam shape** to choose a square or circle. A circle suits a face; a square preserves more of the background.
+4. Close Effect settings and use the orientation toolbar above the webcam preview; near the screen's top edge, it moves below the preview when there is insufficient room above. Its four buttons are **Rotate clockwise**, **Rotate counterclockwise**, **Flip horizontally**, and **Flip vertically**, in that order. Hover to confirm each name. Rotation changes by 90° per click; rotate the other way to reverse it, or click the same flip again to restore it. Inspect text and orientation before recording.
 5. Check position, shape, and orientation before starting. Afterwards, check the output file for any important controls covered by the webcam.
 
 <GuideSteps title="Move the webcam, then resize it" frames={[
   {src:'/images/guides/en/rec-webcam-drag-1.svg',alt:'Webcam at the lower-left corner before recording starts',label:'Check its starting position',caption:'Wait for the webcam preview, then identify important action areas in the frame.'},
   {src:'/images/guides/en/rec-webcam-drag-2.svg',alt:'Dragging the webcam from the lower-left corner to the right to avoid covering controls',label:'Drag its position',caption:'Move the webcam away from important controls and watch the live preview.'},
-  {src:'/images/guides/en/rec-webcam-drag-3.svg',alt:'Dragging the webcam lower-right handle to enlarge it',label:'Resize and check',caption:'Drag the handle to change the size. Check both size and position before recording.'},
+  {src:'/images/guides/en/rec-webcam-drag-3.svg',alt:'Dragging the webcam upper-right handle up and right to enlarge it',label:'Resize and check',caption:'Drag the upper-right handle up/right to enlarge, then release to save. Check size and position before recording.'},
 ]} />
 
 ## Audio or webcam is unavailable

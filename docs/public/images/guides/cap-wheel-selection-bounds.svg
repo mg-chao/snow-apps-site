@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="880" viewBox="0 0 600 880" role="img" aria-labelledby="title"><title id="title">在画布滚动，围绕中心调整四边</title>
+<g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+<rect x="1" y="1" width="598" height="878" rx="14" fill="#f6f7fc" stroke="#cbd4e4"/>
+<text x="28" y="41" font-size="27" fill="#263148">在画布滚动，围绕中心调整四边</text>
+<text x="30" y="83" font-size="20" fill="#536078">移动工具 · 已确认单个矩形 · 未拖动</text>
+<rect x="26" y="110" width="548" height="270" rx="12" fill="#ffffff" stroke="#cbd4e4" stroke-width="2"/>
+<text x="46" y="145" font-size="24" fill="#263148">滚动前</text>
+<rect x="54" y="175" width="492" height="170" rx="12" fill="#f4f6fb" stroke="#cbd4e4" stroke-width="2"/>
+<path d="M114 223h360M114 297h360" stroke="#d2d8e5" stroke-width="7"/>
+<text x="203" y="265" font-size="24" fill="#263148">A</text>
+<text x="374" y="265" font-size="24" fill="#263148">B</text>
+<rect x="200" y="215" width="200" height="100" fill="none" stroke="#9ca7be" stroke-width="2" stroke-dasharray="6 5"/>
+<rect x="200" y="215" width="200" height="100" fill="none" stroke="#7652dc" stroke-width="3"/>
+<path d="M292 265h16M300 257v16" stroke="#7652dc" stroke-width="2"/>
+<text x="46" y="370" font-size="20" fill="#536078">比例锁不会约束这一滚轮操作。</text>
+<rect x="26" y="420" width="548" height="270" rx="12" fill="#ffffff" stroke="#cbd4e4" stroke-width="2"/>
+<text x="46" y="455" font-size="24" fill="#263148">滚动后</text>
+<rect x="54" y="485" width="492" height="170" rx="12" fill="#f4f6fb" stroke="#cbd4e4" stroke-width="2"/>
+<path d="M114 533h360M114 607h360" stroke="#d2d8e5" stroke-width="7"/>
+<text x="203" y="575" font-size="24" fill="#263148">A</text>
+<text x="374" y="575" font-size="24" fill="#263148">B</text>
+<rect x="200" y="525" width="200" height="100" fill="none" stroke="#9ca7be" stroke-width="2" stroke-dasharray="6 5"/>
+<rect x="180" y="505" width="240" height="140" fill="none" stroke="#7652dc" stroke-width="3"/>
+<path d="M292 575h16M300 567v16" stroke="#7652dc" stroke-width="2"/>
+<path d="M180 575l-18 0" stroke="#c5503e" stroke-width="3"/>
+<path d="M420 575l18 0" stroke="#c5503e" stroke-width="3"/>
+<path d="M300 505l0 -8" stroke="#c5503e" stroke-width="3"/>
+<path d="M300 645l0 8" stroke="#c5503e" stroke-width="3"/>
+<text x="46" y="680" font-size="20" fill="#536078">中心和底图内容位置不变。</text>
+<path d="M300 387v20m-7-7 7 7 7-7" fill="none" stroke="#7652dc" stroke-width="3"/>
+<text x="30" y="736" font-size="22" fill="#263148">四边等量调整，宽高比可能改变。</text>
+<text x="30" y="782" font-size="21" fill="#263148">反向滚动即可调回；以宽高读数和边界为准。</text>
+<text x="28" y="857" font-size="18" fill="#536078">操作示意</text>
+</g></svg>

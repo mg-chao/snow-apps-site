@@ -28,7 +28,9 @@ When **Convert to image** is available, click it to capture the currently availa
 
 **Copy to clipboard** and **Save as file** also retrieve an available current frame to share one moment. They do not generate video. Use [Screen recording](../recording/start.mdx) for continuous changes.
 
-When a frame is temporarily unavailable, commands requiring one—copy, save, Convert to image, and image editing—may be unavailable. Restore the source window first.
+To process one frame in a separate window, right-click **Process image → Image editing** or **Process image → Image splitting**. They send a captured current frame to that window while the live pin continues following its source. Inspect the input, then follow [Image editing](../image-editing/editor.mdx) or [Image splitting](../image-editing/split.mdx) and save the result. **Convert to image** instead changes this live pin itself into a static image.
+
+When a frame is temporarily unavailable, commands requiring one—copy, save, Convert to image, image editing, and image splitting—may be unavailable. Restore the source window first.
 
 ## When updates stop
 

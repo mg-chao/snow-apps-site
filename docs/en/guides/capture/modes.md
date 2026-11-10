@@ -31,11 +31,11 @@ Direct window capture differs from using Smart Selection during an ordinary scre
 
 Global actions can enter workflows that select and then copy, save, quick-save, pin, recognize text or start scrolling capture. For **Copy to clipboard**, the defaults are **Ctrl+F1** on Windows and **Control+2** on macOS. Selecting a region performs the copy without another click on the ordinary screenshot toolbar.
 
-Use an ordinary screenshot (**F1** on Windows or **Control+1** on macOS by default) when you need to draw an arrow before export. Choose a dedicated global action when region selection should lead straight to output. Assign a key under **Global shortcuts** before using an unbound action.
+Use an ordinary screenshot (**F1** on Windows or **Control+1** on macOS by default) when you need to draw an arrow before export. Choose a dedicated global action when region selection should lead straight to output. You can also click the action row's title or empty area under **Global shortcuts** without assigning a key; the key button on the right edits the binding. Configure a global shortcut when you want to invoke the action by key while another app is in front.
 
 ## Reuse a region or retake the screen
 
-For repeated captures at the same position, use the previous selection or a preset while Move is active, or load a saved region in [Resize selection](./precise-selection.md). Default **R / Shift+R** switches previous selections in a single-region context. In multiple-region mode, R duplicates the most recent region; see [multiple regions](./multiple-regions.mdx).
+For repeated captures at the same position, use the previous selection or a preset while Move is active, or load a saved region in [Resize selection](./precise-selection.mdx). Default **R / Shift+R** switches previous selections in a single-region context. In multiple-region mode, R duplicates the most recent region; see [multiple regions](./multiple-regions.mdx).
 
 If the screenshot shows old content, use **Recapture** (**Alt+R** on Windows or **Option+R** on macOS by default) to refresh the screen and continue the task. Retaking changes the base image, so recheck annotation targets. It does not save the old image under another filename. Use [history](../output/history.md) to revisit older captures.
 

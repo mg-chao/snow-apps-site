@@ -22,7 +22,7 @@ Here Shift is a standalone key in an idle color-picking state. Holding Shift whi
 
 ## Precise pointer movement and coordinates
 
-The default arrow keys or **W/A/S/D** move the pointer one pixel at a time, making it easier to sample a narrow edge. They move the pointer, rather than resizing the selection. Default **Shift+P** switches global and relative coordinate display; relative coordinates require the relevant reference position.
+The default arrow keys or **W/A/S/D** move the pointer one pixel at a time, making it easier to sample a narrow edge. They move the pointer, rather than resizing the selection. Default **Shift+P** switches global and relative coordinates. Relative coordinates use the current selection’s upper-left corner as the origin: readings near that corner approach X: 0, Y: 0, and positions outside the selection can be negative. Without a selection, the display falls back to global coordinates; creating one restores relative readings. Switching coordinate display does not change the sampled color.
 
 For the magnified grid's visibility and center guides, look under **Settings → Screenshots**. Restore a hidden picker before concluding that no color was captured. Guide colors help locate the sample; they do not recolor the original pixels.
 

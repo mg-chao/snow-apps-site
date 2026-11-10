@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="1030" viewBox="0 0 600 1030" role="img" aria-labelledby="title"><title id="title">Choose a Smart Selection candidate</title>
+<g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+<rect x="1" y="1" width="598" height="1028" rx="14" fill="#f6f7fc" stroke="#cbd4e4"/>
+<text x="28" y="41" font-size="27" fill="#263148">Choose a Smart Selection candidate</text>
+<text x="30" y="83" font-size="22" fill="#7652dc">Tab: Window ↔ Child elements</text>
+<text x="30" y="117" font-size="20" fill="#263148">Wheel: adjacent detected bounds in child-element mode</text>
+<rect x="26" y="150" width="548" height="225" rx="12" fill="#ffffff" stroke="#cbd4e4" stroke-width="2"/>
+<text x="46" y="184" font-size="23" fill="#263148">Button candidate</text>
+<rect x="60" y="203" width="480" height="145" rx="4" fill="none" stroke="#bac4d8" stroke-width="1.5"/>
+<rect x="100" y="232" width="370" height="98" rx="4" fill="none" stroke="#bac4d8" stroke-width="1.5"/>
+<rect x="200" y="262" width="150" height="48" rx="4" fill="none" stroke="#7652dc" stroke-width="3"/>
+<path d="M270 285l0 23 6-6 6 10 5-3-6-10h10z" fill="#263148"/>
+<text x="46" y="370" font-size="18" fill="#536078">Same pointer position</text>
+<rect x="26" y="405" width="548" height="225" rx="12" fill="#ffffff" stroke="#cbd4e4" stroke-width="2"/>
+<text x="46" y="439" font-size="23" fill="#263148">Panel candidate</text>
+<rect x="60" y="458" width="480" height="145" rx="4" fill="none" stroke="#bac4d8" stroke-width="1.5"/>
+<rect x="100" y="487" width="370" height="98" rx="4" fill="none" stroke="#7652dc" stroke-width="3"/>
+<rect x="200" y="517" width="150" height="48" rx="4" fill="none" stroke="#bac4d8" stroke-width="1.5"/>
+<path d="M270 540l0 23 6-6 6 10 5-3-6-10h10z" fill="#263148"/>
+<text x="46" y="625" font-size="18" fill="#536078">Same pointer position</text>
+<rect x="26" y="660" width="548" height="225" rx="12" fill="#ffffff" stroke="#cbd4e4" stroke-width="2"/>
+<text x="46" y="694" font-size="23" fill="#263148">Window candidate</text>
+<rect x="60" y="713" width="480" height="145" rx="4" fill="none" stroke="#7652dc" stroke-width="3"/>
+<rect x="100" y="742" width="370" height="98" rx="4" fill="none" stroke="#bac4d8" stroke-width="1.5"/>
+<rect x="200" y="772" width="150" height="48" rx="4" fill="none" stroke="#bac4d8" stroke-width="1.5"/>
+<path d="M270 795l0 23 6-6 6 10 5-3-6-10h10z" fill="#263148"/>
+<text x="46" y="880" font-size="18" fill="#536078">Same pointer position</text>
+<text x="30" y="928" font-size="22" fill="#263148">Scroll to another candidate; reverse to go back.</text>
+<text x="30" y="968" font-size="20" fill="#536078">Available bounds depend on the target app.</text>
+<text x="28" y="1007" font-size="18" fill="#536078">Instructional illustration</text>
+</g></svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1330" viewBox="0 0 720 1330" role="img" aria-labelledby="title desc">
+<title id="title">Restore theme, accent, and font</title>
+<desc id="desc">Theme configuration has its own reset scope. Locate the theme reset → Check the section name → Result after confirming</desc>
+<rect width="720" height="1330" rx="24" fill="#f3f6fb"/>
+<g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+<text x="32" y="37" font-size="22" fill="#58708d" font-weight="600">Instructional illustration</text>
+<text x="32" y="84" font-size="32" fill="#172e50" font-weight="700">Restore theme, accent, and font</text>
+<text x="32" y="157" font-size="23" fill="#4c6481" font-weight="400">Theme configuration has its own reset scope.</text>
+<rect x="32" y="188" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="204" width="624" height="64" rx="12" fill="#eaf0ff"/>
+<circle cx="78" cy="236" r="21" fill="#2c57a5"/>
+<text x="71" y="245" font-size="26" fill="#fff" font-weight="700">1</text>
+<text x="112" y="246" font-size="28" fill="#2c57a5" font-weight="700">Locate the theme reset</text>
+<text x="58" y="314" font-size="28" fill="#33465e" font-weight="400">Settings → Appearance</text>
+<text x="58" y="356" font-size="28" fill="#33465e" font-weight="400">Find Theme configuration.</text>
+<text x="58" y="398" font-size="28" fill="#33465e" font-weight="400">Click the reset arrow beside the heading.</text>
+<text x="58" y="440" font-size="28" fill="#33465e" font-weight="400">Scope: theme, accent, font, and font size.</text>
+<path d="M360 515v23m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="32" y="550" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="566" width="624" height="64" rx="12" fill="#fff2da"/>
+<circle cx="78" cy="598" r="21" fill="#865414"/>
+<text x="71" y="607" font-size="26" fill="#fff" font-weight="700">2</text>
+<text x="112" y="608" font-size="28" fill="#865414" font-weight="700">Check the section name</text>
+<text x="58" y="676" font-size="28" fill="#33465e" font-weight="400">Reset &quot;Theme configuration&quot;</text>
+<text x="58" y="718" font-size="28" fill="#33465e" font-weight="400">to default settings?</text>
+<text x="58" y="760" font-size="28" fill="#33465e" font-weight="400">Confirm → restore this section&#x27;s defaults.</text>
+<text x="58" y="802" font-size="28" fill="#33465e" font-weight="400">Cancel → keep every current setting.</text>
+<path d="M360 877v23m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="32" y="912" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="928" width="624" height="64" rx="12" fill="#e6f6ee"/>
+<circle cx="78" cy="960" r="21" fill="#20614a"/>
+<text x="71" y="969" font-size="26" fill="#fff" font-weight="700">3</text>
+<text x="112" y="970" font-size="28" fill="#20614a" font-weight="700">Result after confirming</text>
+<text x="58" y="1038" font-size="28" fill="#33465e" font-weight="400">Theme: Follow system</text>
+<text x="58" y="1080" font-size="28" fill="#33465e" font-weight="400">Theme primary color: default</text>
+<text x="58" y="1122" font-size="28" fill="#33465e" font-weight="400">App font: System default</text>
+<text x="58" y="1164" font-size="28" fill="#33465e" font-weight="400">Font size: 14 px</text>
+<text x="32" y="1284" font-size="23" fill="#4c6481" font-weight="400">Toolbar size and skins use separate reset sections.</text>
+</g>
+</svg>

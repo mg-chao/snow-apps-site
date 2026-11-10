@@ -20,6 +20,12 @@ Appearance settings change the application interface. Start with theme, font, an
 
 Set app language separately under **Settings → General**. Annotation text has its own font and size in the text tool; the app font does not replace those settings.
 
+Dropdown choices commit when selected. Font-size and skin sliders commit when you finish dragging, and colors commit when you finish choosing. There is no page-wide OK or Cancel button. Select the previous value to reverse one change. To restore theme, accent, and font settings, click the circular-arrow **Reset** beside **Theme configuration** and check the section name in the confirmation. This restores Follow system, System default font, and 14 px font size. Toolbar size and skins have separate reset scopes.
+
+![Theme configuration reset, section confirmation, and restored theme and font defaults](/images/guides/en/set-theme-reset.svg)
+
+*Instructional illustration. Confirming resets the theme, accent, and font settings together. <a href="/images/guides/en/set-theme-reset.svg" target="_blank" rel="noreferrer">View full size</a>.*
+
 ## Choose an image for each surface
 
 In the appearance skin section, choose local **PNG, JPG/JPEG, or WebP** images:
@@ -30,9 +36,9 @@ In the appearance skin section, choose local **PNG, JPG/JPEG, or WebP** images:
 | Toolbar skin path | Toolbar rows for screenshots, pinned windows, fullscreen canvas, and screen recording. |
 | Tray menu skin path | Snow Shot's custom tray menu. Native system menus retain system appearance. |
 
-1. Click **Browse** for the appropriate path, select an image, and inspect that surface after returning.
+1. Click **Browse** for the appropriate path, select an image, and inspect that surface after returning. Canceling the file chooser keeps the previous path.
 2. Use its skin-position control to align top-left, top-center, top-right, center-left, center, center-right, bottom-left, bottom-center, or bottom-right.
-3. Clear a path to remove that surface's skin. The other surfaces keep their own paths.
+3. Clear a path to remove that surface's skin. After typing or deleting a path manually, press Enter or click another control to finish editing. The other surfaces keep their own paths.
 
 Skins reference image files by path. Select a valid file again if you move or delete it. For a busy background, adjust the shared controls below to keep buttons and text readable.
 
@@ -46,7 +52,11 @@ The three surfaces share these controls:
 - **Skin blur level** softens background detail so foreground text stands out.
 - **Mask opacity** adjusts the theme-colored layer over the image to preserve contrast for text and buttons.
 
-After changing a parameter, inspect the main window, screenshot toolbar, and custom tray menu separately. An image looks different on a wide toolbar and a large window. Check both themes if you use light and dark. Clear the path to restore the ordinary background, or use a section's reset control and read its scope before confirming.
+After changing a parameter, inspect the main window, screenshot toolbar, and custom tray menu separately. An image looks different on a wide toolbar and a large window. Check both themes if you use light and dark. To remove one surface's background, clear only its path. To restore every skin setting, click **Reset** beside **Skins** and check the section name before confirming. This clears all three paths and restores alignment, display mode, opacity, blur, and mask defaults. Canceling the confirmation keeps the current settings.
+
+![Resetting Skins clears all three paths and restores shared defaults; Cancel keeps them](/images/guides/en/set-skins-reset.svg)
+
+*Instructional illustration. Confirm resets the whole Skins section; Cancel keeps its current paths and values. <a href="/images/guides/en/set-skins-reset.svg" target="_blank" rel="noreferrer">View full size</a>.*
 
 ## The background has not changed
 

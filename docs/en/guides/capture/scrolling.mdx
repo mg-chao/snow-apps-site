@@ -13,8 +13,8 @@ Scrolling capture repeatedly captures the target app and stitches overlapping co
 
 1. Use the screenshot shortcut (**F1** on Windows or **Control+1** on macOS by default). Select only content that changes while scrolling. Exclude fixed headers, chat inputs, sidebars and scrollbars where possible.
 2. Click **Scrolling screenshot** in the screenshot toolbar; its default local shortcut is **L**. The region enters scrolling capture, with a stitching preview and controls beside it.
-3. Choose **Vertical scrolling** or **Horizontal scrolling**. Try a short manual scroll to confirm the correct panel. Changing direction rebuilds stitching for that direction, so choose before continuous capture.
-4. Keep the pointer in the content region and scroll smoothly, retaining overlap between frames. The preview should grow with new content. Scroll back to inspect earlier content and check that the preview does not duplicate it.
+3. Choose **Vertical scrolling** or **Horizontal scrolling**. Try a short manual scroll to confirm the correct panel. Changing direction clears the existing stitch and trim range, then starts capture along the new axis. Save the old result first if needed, and choose the direction before continuous capture.
+4. Keep the pointer in the content region and scroll smoothly, retaining overlap between frames. The preview should grow with new content. Returning to captured content should not append it again as a whole new page. Inspect earlier content in the preview as described below.
 
 <GuideSteps title="Scroll, inspect, trim and export" frames={[
  {src:'/images/guides/en/cap-scrolling-1.svg',alt:'A region limited to scrolling content beside a stitching preview',label:'Select the content',caption:'Exclude fixed headers and input fields before entering scrolling capture.'},
@@ -33,11 +33,48 @@ Automatic scrolling does not guarantee that the target app accepted the input. I
 
 ## Inspect stitching and trim the ends
 
-Hover over a section of the thumbnail preview to examine its detail. When a long preview has a scrollbar, scroll inside it to browse captured content. This differs from scrolling in the original content region to capture new content.
+Turn off **Auto-scroll** before hovering over a section of the thumbnail. The corresponding stitched detail temporarily appears inside the original capture region. Moving away from the thumbnail restores the source page. Ordinary hover detail is disabled while Auto-scroll is on. When a long preview has a scrollbar, scroll inside it to browse captured content. This differs from scrolling in the original content region to capture new content.
 
 To remove the beginning or end, stop automatic scrolling and point at a trim boundary in the preview. When the resize pointer appears, hold the left button and drag. Vertical captures use top/bottom boundaries; horizontal captures use left/right. Nearby content is shown during the drag. Release to retain the chosen interval. To restore content while the result remains available, drag a boundary outward rather than immediately restarting the capture.
 
-The **Move selection horizontally (press and hold to drag)** and **Move selection vertically (press and hold to drag)** controls adjust the capture region along a specified axis. Stop automatic scrolling before adjusting so movement does not obscure stitching changes. For major region or direction changes, prepare the content and start a new capture to make the result easier to check.
+<GuideSteps title="Inspect detail, trim both ends and restore content" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/cap-scrolling-detail-trim-1.svg",
+    "alt": "Hover to inspect stitched detail",
+    "label": "Hover to inspect stitched detail",
+    "caption": "Stop Auto-scroll first. Hover over the thumbnail: the corresponding detail temporarily appears inside the original capture region."
+  },
+  {
+    "src": "/images/guides/en/cap-scrolling-detail-trim-2.svg",
+    "alt": "Drag the start boundary inward",
+    "label": "Drag the start boundary inward",
+    "caption": "Hold the start boundary and drag inward. Here sections 1–2 are excluded; the detail follows that boundary."
+  },
+  {
+    "src": "/images/guides/en/cap-scrolling-detail-trim-3.svg",
+    "alt": "Release, then drag the end boundary",
+    "label": "Release, then drag the end boundary",
+    "caption": "Release the start handle, then drag the end inward. This example now keeps sections 3–5."
+  },
+  {
+    "src": "/images/guides/en/cap-scrolling-detail-trim-4.svg",
+    "alt": "Drag the start outward to restore content",
+    "label": "Drag the start outward to restore content",
+    "caption": "Before exporting, drag the start boundary outward. Section 2 is restored from the retained stitch; you need not capture it again."
+  },
+  {
+    "src": "/images/guides/en/cap-scrolling-detail-trim-5.svg",
+    "alt": "Release and leave the preview",
+    "label": "Release and leave the preview",
+    "caption": "Release and move away from the thumbnail. The source page is visible again; sections 2–5 remain selected for output."
+  }
+]} />
+
+The region can move only along the current scrolling axis. In horizontal mode, hold **Move selection horizontally (press and hold to drag)** and drag left or right. In vertical mode, hold **Move selection vertically (press and hold to drag)** and drag up or down. The other axis control is disabled. Release to finish; the region’s width and height stay unchanged. Stop automatic scrolling before adjusting so movement does not obscure stitching changes. For major region changes, prepare the content and start a new capture to make the result easier to check.
+
+![Only the matching movement control is enabled; region size stays fixed and trim ends follow the axis](/images/guides/en/cap-scrolling-axis-controls.svg)
+
+*Instructional illustration: A focused comparison of direction and movement controls. Hold the movement button itself to start the drag, then release to finish. <a href="/images/guides/en/cap-scrolling-axis-controls.svg" target="_blank" rel="noreferrer">View full size</a>.*
 
 ## Finish and obtain the long image
 
@@ -52,7 +89,15 @@ Stop automatic scrolling and browse the entire preview. Confirm there are no mis
 | **Image splitting** | Divides the long image into sections for sharing or layout |
 | Close / Esc | Abandons the current capture workflow |
 
-See [image editing](../image-editing/editor.mdx) and [splitting](../image-editing/split.mdx). The scrolling setting **Capture UI during scrolling screenshots** determines whether application UI can participate in the captured image. Confirm the dialog after changing it. If a toolbar appears in output, inspect this option and the region position.
+See [image editing](../image-editing/editor.mdx) and [splitting](../image-editing/split.mdx).
+
+To exclude Snow Shot’s own toolbar or thumbnail preview, hover over the scrolling toolbar controls to find **Settings**. Open **Scrolling screenshot settings** and turn off **Capture UI during scrolling screenshots**. This does not remove fixed headers in the target app or webpage; exclude those when selecting the region.
+
+**Changing the switch and clicking OK clears the existing stitch and trim range and starts capture again. The region and scrolling direction stay unchanged.** If you need the current long image, save it first, then start a new capture. **Cancel** leaves the setting unchanged. Clicking OK without changing the switch does not restart capture. If a message says the setting could not be saved, keep the current result and reopen Settings to retry.
+
+![Save the current stitch, change the scrolling setting, then begin a fresh capture with the old trim cleared](/images/guides/en/cap-scrolling-settings-reset.svg)
+
+*Instructional illustration: capture after a settings change starts fresh rather than extending the old stitch.*
 
 ## Incorrect stitching
 

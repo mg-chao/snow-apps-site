@@ -2,7 +2,7 @@
 title: "Repeated headers, shifted seams or missing lines? Troubleshoot scrolling capture"
 description: "Exclude fixed controls, retain overlap with small scrolls and inspect exported seams to diagnose repeated, shifted, missing or stalled scrolling-capture content."
 blog: true
-date: "2026-11-09"
+date: "2026-11-10"
 category: "answers"
 productVersion: "1.5.2"
 platforms: "Windows / macOS · Full / Mini"
@@ -28,9 +28,9 @@ Let images and asynchronous content settle, then return to your starting point. 
 
 For a system-wide entry, assign a combination to **Scrolling screenshot** under **Global shortcuts**. This differs from L inside a capture. A search result locates the row; clicking the action title runs it.
 
-![The main window action list containing the independent scrolling-capture shortcut entry](/images/blog/shortcuts-152.webp)
+![Screenshot window selecting the scrolling content, with scrolling capture on the toolbar](/images/blog/scroll-selection-152.webp)
 
-*App screenshot, Chinese interface. Scrolling screenshot is 滚动截图. Without a global binding, enter it from an ordinary capture's toolbar.*
+*App screenshot. Check that the region contains the intended content before entering scrolling mode.*
 
 ## 2. Test small manual scrolls before automation
 
@@ -56,6 +56,10 @@ A wide table must actually move horizontally in its host app. Check that app's h
 
 Change one condition and compare from the same starting point. Virtual lists replace visible content; videos and animation change pixels continuously. If a short test remains unstable, use ordered ordinary captures in pieces rather than treating an unchecked long image as a complete record.
 
+![Actual failed output jumps from 01 to 04 and has a mismatched step number](/images/blog/scroll-failed-seam-152.webp)
+
+*Actual failed-output detail. The jump from 01 to 04 and the mismatched step number require a retry or separate captures before sharing.*
+
 ## 4. Review the preview before trimming its ends
 
 Stop auto scrolling first. Browse the preview and inspect seams. Scrolling inside the preview reviews existing content; it does not capture more of the source. Drag the preview's beginning/end crop boundaries to remove excess content, then check what remains.
@@ -69,5 +73,9 @@ Keep window size, page zoom and display configuration stable. If toolbars appear
 ## 5. Inspect the exported top, middle and bottom
 
 Use **Save as file** or **Copy to clipboard**. Reopen the file or paste into the destination. Check the first passage, each seam and the final passage: a tall preview alone does not establish completeness. Use **Image editing** for annotations or **Image split** for smaller shareable pieces.
+
+![Actual scrolling output detail with consecutive 01, 02 and 03 blocks, complete amount and path](/images/blog/scroll-output-152.webp)
+
+*Actual output detail. Check each line after small scroll steps: the sequence is continuous, and 128.50 and /demo/output remain complete.*
 
 For a report, include OS/app version, target app and content type, direction, region, manual/auto mode, interval, page zoom and a sanitized seam example. A source/result comparison is more useful than an unsupported claim that stitching failed. [Scrolling manual](../guides/capture/scrolling.mdx) · [Export logs](../guides/settings/storage-backup.md) · [Download](../download.mdx) · [Changelog](../changelog.mdx).

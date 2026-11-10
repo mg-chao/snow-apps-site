@@ -58,7 +58,7 @@ def check():
     sitemap = (BUILD / 'sitemap.xml').read_text()
     search_files = list(BUILD.rglob('search_index.*.json'))
     assert search_files, 'Missing generated search index'
-    search_text = '\n'.join(p.read_text() for p in search_files if p.is_file())
+    search_routes = {page['routePath'] for p in search_files for page in json.loads(p.read_text())}
     rows = []
     for lang, files in sources.items():
         prefix = 'zh/' if lang == 'zh' else ''
@@ -86,7 +86,7 @@ def check():
             if source.stem == 'index':
                 continue
             assert '/' + name in listing.links, f'{name}: absent from list links'
-            assert source.stem in search_text, f'{name}: absent from search index'
+            assert '/' + name in search_routes, f'{name}: missing canonical search-index route'
             for field in ('title', 'description', 'date', 'category', 'productVersion', 'platforms', 'related'):
                 assert re.search(r'^' + field + r':\s*\S', source.read_text(), re.M), f'{source}: missing {field}'
             images = [a for a in page.images if a.get('src', '').startswith('/images/')]

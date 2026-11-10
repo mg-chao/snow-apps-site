@@ -42,7 +42,32 @@ To change an existing object’s tool-specific style, switch back to **Line**, t
 
 ## Create a path with successive clicks
 
-Click the start and move the mouse to begin continuous drawing. Each click fixes another point. Double-click the final position to finish, or right-click to complete the current path. Esc cancels the unfinished path.
+Click the start and move the mouse to begin continuous drawing. Each click fixes another point. Double-click the final position to finish, or right-click to complete the current path. Right-click keeps only points already fixed by clicks; it does not add the preview endpoint currently following the pointer.
+
+To discard the unfinished path while keeping other annotations, click **Select elements**, then return to Line and redraw. In screenshot capture, the default **Esc** cancels the whole capture, with a confirmation dialog first if enabled. In the image editor, Esc can discard the unfinished path while keeping completed annotations.
+
+<GuideSteps title="Which points does finishing keep?" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-input-path-finish-1.svg",
+    "alt": "A to B is fixed; a dashed preview runs from B to the pointer at C, which has not been clicked",
+    "label": "A/B are fixed; C is a preview",
+    "caption": "With a straight/curved arrow or Line, click A and B, then move to C without clicking. C is only the preview endpoint; dashes distinguish it in this illustration."
+  },
+  {
+    "src": "/images/guides/en/ann-input-path-finish-2.svg",
+    "alt": "After right-click completion the path ends at B; the former pointer position C is gray to show it was not added",
+    "label": "Right-click keeps A and B",
+    "caption": "Right-click from frame 1. The result contains only A and B. C was not added; its gray mark is only a comparison reference here. In screenshot capture, right-click inside the selection."
+  },
+  {
+    "src": "/images/guides/en/ann-input-path-finish-3.svg",
+    "alt": "Double-clicking C from the same unfinished draft produces a completed path through A, B and C",
+    "label": "Same draft: double-click C",
+    "caption": "Start again from the draft in frame 1 and double-click C. C is fixed before completion, so the result passes through A, B and C. Begin this comparison from frame 1 rather than the already finished path in frame 2."
+  }
+]} />
+
+See the [cancellation comparison](./basics.mdx#undo-redo-and-cancel) for switching tools versus Esc.
 
 For a two-endpoint segment, dragging is the most direct method. If a line keeps following the pointer after a click, continuous drawing has not finished; the app is still responding.
 

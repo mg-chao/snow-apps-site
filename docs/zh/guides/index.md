@@ -16,7 +16,7 @@ Windows 与 macOS 的默认按键和系统功能存在差异；如已修改配�
 
 ## 安装并完成第一张截图
 
-按顺序阅读：[安装与更新](./getting-started/install.md) → [macOS 权限](./getting-started/permissions.md)（仅 Mac）→ [完成第一张截图](./getting-started/quick-start.mdx)。
+按顺序阅读：[安装与更新](./getting-started/install.md) → [macOS 权限](./getting-started/permissions.mdx)（仅 Mac）→ [完成第一张截图](./getting-started/quick-start.mdx)。
 
 Windows 默认 **F1** 截图、**Ctrl+F1** 框选后复制；Mac 默认物理 **Control+1** 截图、**Control+2** 框选后复制。遇到冲突，先检查[快捷键注册状态](./settings/shortcuts.mdx)。
 
@@ -24,10 +24,10 @@ Windows 默认 **F1** 截图、**Ctrl+F1** 框选后复制；Mac 默认物理 **
 
 | 你想完成的事情 | 直接阅读 |
 | --- | --- |
-| 精确到尺寸，或同时截取几块内容 | [尺寸与比例](./capture/precise-selection.md) · [多区域](./capture/multiple-regions.mdx) · [不规则选区](./capture/irregular-regions.mdx) |
+| 精确到尺寸，或同时截取几块内容 | [尺寸与比例](./capture/precise-selection.mdx) · [多区域](./capture/multiple-regions.mdx) · [不规则选区](./capture/irregular-regions.mdx) |
 | 圈出重点、补充说明、遮挡敏感信息 | [形状](./annotations/shapes.mdx) · [文字](./annotations/text.mdx) · [滤镜与打码](./annotations/filters.mdx) |
 | 把几张图整理成一张或多页 | [拼图](./image-editing/collage.mdx) · [切分](./image-editing/split.mdx) · [PDF](./image-editing/pdf.mdx) |
-| 从图里提取可编辑内容 | [文字](./recognition/text.mdx) · [表格](./recognition/table.mdx) · [公式](./recognition/formula.md) |
+| 从图里提取可编辑内容 | [文字](./recognition/text.mdx) · [表格](./recognition/table.mdx) · [公式](./recognition/formula.mdx) |
 | 翻译画面或选中的文字 | [截图翻译](./translation/screenshot.md) · [划词翻译](./translation/selected-text.md) · [服务配置](./translation/services.md) |
 | 让参考内容一直可见 | [图片贴图](./pinning/image.md) · [实时窗口](./pinning/live-window.md) · [贴图管理](./pinning/management.mdx) |
 | 找回或整理结果 | [保存格式](./output/copy-save.md) · [历史](./output/history.md) · [存储备份](./settings/storage-backup.md) |
@@ -38,7 +38,7 @@ Windows 默认 **F1** 截图、**Ctrl+F1** 框选后复制；Mac 默认物理 **
 
 ## 使用离线文本识别提取文字
 
-先阅读[模型与离线资源](./recognition/models.md)，再进行[文字识别与结果校正](./recognition/text.mdx)。离线识别资源与在线翻译服务分别配置；Mini 的入口及功能差异在对应教程中说明。
+先阅读[模型与离线资源](./recognition/models.mdx)，再进行[文字识别与结果校正](./recognition/text.mdx)。离线识别资源与在线翻译服务分别配置；Mini 的入口及功能差异在对应教程中说明。
 
 ## 将资料贴到屏幕，或录制操作演示
 
@@ -52,12 +52,12 @@ Windows 默认 **F1** 截图、**Ctrl+F1** 框选后复制；Mac 默认物理 **
 
 - [安装与更新](./getting-started/install.md)
 - [完成第一张截图](./getting-started/quick-start.mdx)
-- [macOS 权限与首次使用](./getting-started/permissions.md)
+- [macOS 权限与首次使用](./getting-started/permissions.mdx)
 
 ### 截图与选区
 
 - [区域截图与智能框选](./capture/basics.mdx)
-- [精确尺寸、比例与选区外观](./capture/precise-selection.md)
+- [精确尺寸、比例与选区外观](./capture/precise-selection.mdx)
 - [多区域截图与区域组合](./capture/multiple-regions.mdx)
 - [折线、曲线与自由选区](./capture/irregular-regions.mdx)
 - [延时、直接与重复截图](./capture/modes.md)
@@ -97,16 +97,16 @@ Windows 默认 **F1** 截图、**Ctrl+F1** 框选后复制；Mac 默认物理 **
 ### 识别与转换
 
 - [文本识别与结果整理](./recognition/text.mdx)
-- [OCR 模型与离线准备](./recognition/models.md)
+- [OCR 模型与离线准备](./recognition/models.mdx)
 - [表格识别与单元格编辑](./recognition/table.mdx)
-- [条码与二维码识别](./recognition/barcode.md)
-- [LaTeX 公式识别](./recognition/formula.md)
-- [图片转换为 Markdown 与 HTML](./recognition/image-conversion.md)
+- [条码与二维码识别](./recognition/barcode.mdx)
+- [LaTeX 公式识别](./recognition/formula.mdx)
+- [图片转换为 Markdown 与 HTML](./recognition/image-conversion.mdx)
 
 ### 翻译
 
 - [截图翻译与原图翻译](./translation/screenshot.md)
-- [文本翻译](./translation/text.md)
+- [文本翻译](./translation/text.mdx)
 - [划词翻译](./translation/selected-text.md)
 - [翻译服务与自定义模型](./translation/services.md)
 

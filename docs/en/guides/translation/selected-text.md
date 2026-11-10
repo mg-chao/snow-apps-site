@@ -29,7 +29,9 @@ In the destination, change the target language or service, or edit the source to
 
 Enable **Standalone translation window** under **Text recognition & translation → Translation extensions** to send selections to a separate window. Disable it to use the main translation page. The standalone window still depends on the Translation page master switch.
 
-Its action menu includes **Copy** and **Copy and close**. Check the translation, then use Copy and close to return to reading. Copy anything you need to retain before closing.
+The bottom of the standalone window offers **Copy and close** and **Close**. Wait for the complete translation, then use Copy and close to copy the current result and end the window. Close alone does not copy it. The action menu also provides Copy, Copy and close, and their current platform shortcuts.
+
+Invoking selected-text translation for another passage updates the existing standalone window with the new source and starts translating again. Copy any previous text you need before replacing it.
 
 ## If text cannot be retrieved
 
@@ -45,4 +47,4 @@ Other platforms attempt clipboard retrieval, so the source application must resp
 | The shortcut does nothing | Check the Translation page switch and binding; choose a nonconflicting combination |
 | The screen contains only text in an image | Use Screenshot translation rather than trying to create a text selection on the image |
 
-Continue with [Text translation](./text.md), [Screenshot translation](./screenshot.md), or [Translation services and custom models](./services.md).
+Continue with [Text translation](./text.mdx), [Screenshot translation](./screenshot.md), or [Translation services and custom models](./services.md).

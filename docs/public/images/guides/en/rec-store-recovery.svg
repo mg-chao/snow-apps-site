@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="884" viewBox="0 0 440 884" role="img">
+<title>Recover an interrupted recording</title>
+<desc>Reopen after a session interruption. A prompt requires retained data. With a recoverable source, Recover opens trim preview; save and check playback. Open folder only locates data.</desc>
+<style>text{font-family:Arial,"PingFang SC",sans-serif}</style>
+<rect width="440" height="884" rx="16" fill="#f4f5fc"/>
+<text x="22" y="34" font-size="23" font-weight="600" fill="#243047">Recover an interrupted recording</text>
+<text x="22" y="62" font-size="15" font-weight="400" fill="#536174">Snow Shot from Microsoft Store · Windows</text>
+<rect x="18" y="86" width="404" height="165" rx="10" fill="#fff" stroke="#cbd2df"/>
+<circle cx="39" cy="110" r="13" fill="#7050c8"/>
+<text x="39" text-anchor="middle" y="115" font-size="16" font-weight="600" fill="#fff">1</text>
+<text x="62" y="116" font-size="18" font-weight="600" fill="#243047">Reopen after an interruption</text>
+<text x="35" y="148" font-size="16" font-weight="400" fill="#243047">Windows ended the session during recording.</text>
+<text x="35" y="173" font-size="16" font-weight="400" fill="#243047">Open Snow Shot again.</text>
+<text x="35" y="198" font-size="16" font-weight="400" fill="#243047">A recovery prompt appears only if</text>
+<text x="35" y="223" font-size="16" font-weight="400" fill="#243047">retained data is still found.</text>
+<path d="M220 257V276m-6-6 6 6 6-6" fill="none" stroke="#8b7db3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="18" y="286" width="404" height="324" rx="10" fill="#fff" stroke="#cbd2df"/>
+<circle cx="39" cy="310" r="13" fill="#7050c8"/>
+<text x="39" text-anchor="middle" y="315" font-size="16" font-weight="600" fill="#fff">2</text>
+<text x="62" y="316" font-size="18" font-weight="600" fill="#243047">Recover into the trim preview</text>
+<text x="35" y="348" font-size="16" font-weight="400" fill="#243047">With a recoverable .snowrec source file,</text>
+<text x="35" y="373" font-size="16" font-weight="400" fill="#243047">choose Recover to open the trim preview.</text>
+<text x="35" y="398" font-size="16" font-weight="400" fill="#243047">Check the video; adjust the range if needed.</text>
+<rect x="35" y="428" width="370" height="159" rx="8" fill="#f6f4fe" stroke="#c6b9e9"/>
+<path d="M47 449h10m-4-4 4 4-4 4" fill="none" stroke="#7050c8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="65" y="454" font-size="17" font-weight="600" fill="#243047">Other choice: Open folder</text>
+<text x="49" y="483" font-size="16" font-weight="400" fill="#536174">Only locates data in the file manager.</text>
+<text x="49" y="511" font-size="16" font-weight="400" fill="#536174">Does not open trim or export a video.</text>
+<text x="49" y="539" font-size="16" font-weight="400" fill="#536174">If Recover is absent, inspect the saved files.</text>
+<path d="M220 616V635m-6-6 6 6 6-6" fill="none" stroke="#8b7db3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="18" y="645" width="404" height="184" rx="10" fill="#fff" stroke="#cbd2df"/>
+<circle cx="39" cy="669" r="13" fill="#7050c8"/>
+<text x="39" text-anchor="middle" y="674" font-size="16" font-weight="600" fill="#fff">3</text>
+<text x="62" y="675" font-size="18" font-weight="600" fill="#243047">Save, then check playback</text>
+<text x="35" y="707" font-size="16" font-weight="400" fill="#243047">Choose Save to file in the trim preview.</text>
+<text x="35" y="732" font-size="16" font-weight="400" fill="#243047">Select a destination and save.</text>
+<text x="35" y="757" font-size="16" font-weight="400" fill="#243047">Wait for export to finish, then open the file.</text>
+<text x="35" y="782" font-size="16" font-weight="400" fill="#243047">Check both the picture and sound.</text>
+<text x="22" y="861" font-size="13" font-weight="400" fill="#536174">Instructional illustration</text>
+</svg>

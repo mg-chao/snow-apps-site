@@ -12,8 +12,8 @@ Image splitting cuts one long or large image into separate files. Smart splittin
 ## Import and create a split
 
 1. Search **Split selected images** in the main window's **Search function**, select the result, and click the action row to open **Image splitting**. Click **Select image** or drag in one image file. Each window handles one image.
-2. Wait for display and choose **Split direction**: vertical, horizontal, or grid.
-3. Under **Split type**, choose Smart, Equal, or Precise splitting. Smart splitting shows a search state before preview lines appear.
+2. Wait for the image, then choose **Split direction**: **Vertical** makes vertical cuts and left/right pieces; **Horizontal** makes horizontal cuts and top/bottom pieces; **Grid** cuts both axes. For a long article, start with Horizontal and divide at blank lines.
+3. With Vertical or Horizontal selected, choose **Smart split**, **Equal split**, or **Precise split** under **Split type**. Smart split shows a search state before its lines appear. Grid hides Split type and uses row and column counts directly.
 4. Check the image count and cut positions. Zoom in to ensure no line crosses essential text or objects.
 5. Adjust lines, click **Save all**, select a destination folder, and wait for every image to save.
 
@@ -23,6 +23,71 @@ Image splitting cuts one long or large image into separate files. Smart splittin
   {src: '/images/guides/en/img-split-3.svg', alt: 'Save slices or send them to PDF layout', label: 'Save or create a PDF', caption: 'Check the slices, then save them or arrange them as a PDF.'}
 ]} />
 
+
+## Paste from the clipboard or replace the image
+
+1. Open the original in an image viewer and copy its image content. Return to Image splitting, finish editing numeric or text fields, then click the preview; in an empty window, click the image-selection area first. Press **Ctrl+V (Command+V on macOS)** and wait for the image.
+2. When the clipboard provides readable local image file paths, only the first supported image is loaded. The list does not create one window per file. If that first image cannot be read, correct the input and retry.
+3. With an image already open, wait for the new image to load, then review the replacement confirmation. **Cancel** retains the original and current splits. Accepting loads the new image and resets old cut edits and undo history. Save the old result first if needed.
+4. Check the content and dimensions at the bottom, then inspect the new cut lines. If a file icon appears, use **Select image**, drag in the original file, or copy image content from a viewer before pasting again.
+
+<GuideSteps title="Paste into an empty window or replace an image" frames={[
+  {
+    "src": "/images/guides/en/img-paste-split-1.svg",
+    "alt": "Paste image pixels or readable local image paths. With a file list, only the first supported image is read.",
+    "label": "Paste into an empty split window",
+    "caption": "Paste image pixels or readable local image paths. With a file list, only the first supported image is read."
+  },
+  {
+    "src": "/images/guides/en/img-paste-split-2.svg",
+    "alt": "The current image has a manual cut at x=120. Pasting a new image asks whether to discard those edits.",
+    "label": "Review replacement before accepting",
+    "caption": "The current image has a manual cut at x=120. Pasting a new image asks whether to discard those edits."
+  },
+  {
+    "src": "/images/guides/en/img-paste-split-3.svg",
+    "alt": "Cancel replacement. The 300×200 image, manual cut at x=120, and current layout remain.",
+    "label": "Cancel keeps the old image and cuts",
+    "caption": "Cancel replacement. The 300×200 image, manual cut at x=120, and current layout remain."
+  },
+  {
+    "src": "/images/guides/en/img-paste-split-4.svg",
+    "alt": "Accept replacement to load the 200×160 input. Old split edits and history are reset; check the new cut lines.",
+    "label": "Accept loads the new image",
+    "caption": "Accept replacement to load the 200×160 input. Old split edits and history are reset; check the new cut lines."
+  }
+]} />
+
+<GuideSteps title="Check pasted content and copy image pixels if needed" sourceLabel="In-app steps" frames={[
+  {
+    "src": "/images/guides/img-paste-split-file-icon.webp",
+    "label": "Identify what was pasted",
+    "alt": "The preview contains a PNG file icon with dimensions of 1024 by 1024",
+    "caption": "This is a 1024×1024 PNG file icon, not the intended 100×100 image. Do not export it as the source image.",
+    "focus": {
+      "x": 250,
+      "y": 160,
+      "width": 1260,
+      "height": 1290,
+      "imageWidth": 2400,
+      "imageHeight": 1600
+    }
+  },
+  {
+    "src": "/images/guides/img-paste-split-bitmap.webp",
+    "label": "Copy the image content instead",
+    "alt": "After copying image content from a viewer, the split preview displays the 100 by 100 A image",
+    "caption": "Open the original in a viewer and copy its image content, then paste and accept replacement. Image A appears at 100×100.",
+    "focus": {
+      "x": 700,
+      "y": 650,
+      "width": 380,
+      "height": 340,
+      "imageWidth": 2400,
+      "imageHeight": 1600
+    }
+  }
+]} />
 
 ## Start from selected files
 
@@ -40,24 +105,118 @@ With no images selected, an empty window opens where you can add one. On macOS, 
 
 | Mode | Input or basis | Suitable use |
 | --- | --- | --- |
-| Smart | Image content and whitespace boundaries | Long articles or chats, with manual review |
-| Equal | Image count or grid rows and columns | Similarly sized slices |
-| Precise | Width or height per image, in pixels or percentages | Required dimensions or page lengths |
+| Smart split | Target image count, image content, and whitespace | Set a positive whole-number count, find likely boundaries, then inspect them |
+| Equal split | A positive whole-number image count | Similarly sized pieces along the selected direction; sizes can differ by 1 px |
+| Precise split | Width per image for Vertical; Height per image for Horizontal | Repeated lengths in pixels or percentages of that source dimension |
+| Grid | Positive whole-number row and column counts; no separate split type | Rows × columns images, output in row-major order |
 
-For vertical long-image splits, focus on slice height; for horizontal splits, width; for grids, both axes. Follow field validation such as positive integers or a minimum of 16 pixels, then check that the preview is valid again.
+Precise **Pixels** accepts whole numbers of at least **16 px**. **Percentage** accepts **5%–100%** of the source width or height, not its displayed preview size. The last piece retains the remaining pixels and may be shorter; 100% produces one piece. Equal counts and grid dimensions must leave at least 1 px per piece on each axis. Resolve field errors before checking the preview.
+
+![Vertical cuts create left and right pieces; Horizontal cuts create top and bottom pieces; Grid uses rows and columns](/images/guides/en/img-split-directions.svg)
+
+*Instructional illustration. Direction names describe cut lines. Choose Horizontal to divide a long image by height.*
+
+Compare the three directions using the same **300×200 px** image with **Overlap width 0**. Each pair first shows the controls on the right, then the preview on the left. Use the full-size image link when you need the complete window context.
+
+<GuideSteps title="Vertical, Horizontal, and Grid on the same image" sourceLabel="In-app steps" frames={[
+  {
+    "src": "/images/guides/img-split-vertical-equal.webp",
+    "alt": "The right controls show Vertical, Equal split, zero overlap, and an image count of 2",
+    "label": "Set Vertical and Equal split",
+    "caption": "On the right, choose Vertical and Equal split. Set Number of images to 2 and keep Overlap width at 0.",
+    "focus": {
+      "x": 1640,
+      "y": 100,
+      "width": 720,
+      "height": 680,
+      "imageWidth": 2400,
+      "imageHeight": 1600
+    }
+  },
+  {
+    "src": "/images/guides/img-split-vertical-equal.webp",
+    "alt": "A vertical cut at x=150 divides the 300 by 200 source into two pieces",
+    "label": "Inspect left and right pieces",
+    "caption": "The left preview has one vertical cut at the width midpoint. Saving produces two 150×200 px images, left then right.",
+    "focus": {
+      "x": 500,
+      "y": 550,
+      "width": 730,
+      "height": 520,
+      "imageWidth": 2400,
+      "imageHeight": 1600
+    }
+  },
+  {
+    "src": "/images/guides/img-split-horizontal-equal.webp",
+    "alt": "The right controls show Horizontal and Equal split with an image count of 2",
+    "label": "Set Horizontal and Equal split",
+    "caption": "Choose Horizontal. Keep Equal split, Number of images 2, and Overlap width 0.",
+    "focus": {
+      "x": 1640,
+      "y": 100,
+      "width": 720,
+      "height": 680,
+      "imageWidth": 2400,
+      "imageHeight": 1600
+    }
+  },
+  {
+    "src": "/images/guides/img-split-horizontal-equal.webp",
+    "alt": "A horizontal cut at y=100 divides the 300 by 200 source into top and bottom pieces",
+    "label": "Inspect top and bottom pieces",
+    "caption": "The left preview has one horizontal cut at the height midpoint. Saving produces two 300×100 px images, top then bottom.",
+    "focus": {
+      "x": 500,
+      "y": 550,
+      "width": 730,
+      "height": 520,
+      "imageWidth": 2400,
+      "imageHeight": 1600
+    }
+  },
+  {
+    "src": "/images/guides/img-split-grid-3x2.webp",
+    "alt": "Grid is selected on the right, Split type is hidden, Rows is 2, Columns is 3, and overlap is 0",
+    "label": "Set two rows and three columns",
+    "caption": "Choose Grid and set Rows to 2 and Columns to 3. Split type is hidden; Overlap width remains 0.",
+    "focus": {
+      "x": 1640,
+      "y": 100,
+      "width": 720,
+      "height": 680,
+      "imageWidth": 2400,
+      "imageHeight": 1600
+    }
+  },
+  {
+    "src": "/images/guides/img-split-grid-3x2.webp",
+    "alt": "The 300 by 200 image has six 100 by 100 cells in two rows and three columns, numbered across each row",
+    "label": "Inspect the six cells",
+    "caption": "The preview has six cells. Saving produces six 100×100 px images, ordered left to right across the first row, then the second.",
+    "focus": {
+      "x": 500,
+      "y": 550,
+      "width": 730,
+      "height": 520,
+      "imageWidth": 2400,
+      "imageHeight": 1600
+    }
+  }
+]} />
 
 ## Correct cut lines with rulers
 
-1. Click a target position on a preview ruler to add a cut line.
-2. Drag an existing line while watching its coordinate; avoid text and object centers.
-3. Click a line to select it and press **Delete** to remove it.
-4. Middle-drag to pan and scroll to zoom. Click **Fit canvas** to regain the full view.
+1. Click a target position on the top ruler to add a vertical cut, or on the left ruler for a horizontal cut. Only cuts allowed by the current direction can be added; Grid allows both.
+2. Hold the left button on an existing line and drag while watching its coordinate. Avoid text and object centers, then release to apply. Press **Esc before releasing** to restore its position before the drag.
+3. Click a line to select it and press **Delete / Backspace** to remove it.
+4. Middle-drag to pan and scroll to zoom. Click **Fit to canvas** to regain the full view.
 
 Retain sensible smart-generated lines and add or move others. Automatic results still require checking.
 
 ## Overlap and undo
 
-**Overlap width** retains an extra shared band of pixels around neighboring boundaries, useful for continuity in long images. Zero adds no overlap; check for excessive repeated content as you increase it.
+**Overlap width** accepts nonnegative whole pixels. Each slice extends that far past each cut, clipped to the source edges. At 10 px, the two neighboring slices each gain 10 px past the cut, normally sharing a 20 px band. Grid extends both axes. Zero adds no overlap; changing overlap does not move your manual cut lines.
 
 Use **Undo / Redo** after cut-line edits. **Reload** opens image selection to reselect or replace the source. Decide whether you need to retain manual edits first. Replacing prompts that current splitting edits will be discarded; read it before confirming.
 
@@ -67,8 +226,10 @@ Use **Undo / Redo** after cut-line edits. **Reload** opens image selection to re
 
 ## Save or create a PDF
 
-**Save all** shows “Saving images: completed / total.” Completion reports the saved count and directory. If only some slices save, check failures and existing files before retrying; partial success is not a complete result.
+Click **Save all** and choose a parent folder. Snow Shot creates a subfolder beginning with **Split Images_** and writes **1.png, 2.png**, and so on. Progress shows “Saving images: completed / total.” After saving, open the parent folder you chose in your file manager, then enter the newly created subfolder. Check the file count, order, and content near each cut.
 
-Click **Stitch as PDF** to send slices into PDF layout. Check page order and paper in the new preview before exporting; see [Images to PDF](./pdf.mdx). If image stitching is busy, wait for its current task and retry.
+For partial saving, inspect failures and existing files before retrying. A retry uses a new output subfolder; do not combine partial batches and assume they form one complete set. Closing or clicking **Cancel** asks whether to discard the current splits; cancel that prompt to continue editing.
+
+Click **Stitch to PDF** to send slices into PDF layout. Check page order and paper in the new preview before exporting; see [Images to PDF](./pdf.mdx). If image stitching is busy, wait for its current task and retry.
 
 Related: [Image editing](./editor.mdx), [Scrolling screenshots](../capture/scrolling.mdx), and [Image collage](./collage.mdx).

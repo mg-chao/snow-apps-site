@@ -16,6 +16,7 @@ export function sitemapXml(paths: string[]) {
 
 export function seoBuildPlugin(): RspressPlugin {
   let routes: RouteMeta[] = [];
+  const originalSearchRoutes = new WeakMap<object, string>();
   return {
     name: 'snow-shot-sitemap',
     routeGenerated(generated) {
@@ -23,6 +24,12 @@ export function seoBuildPlugin(): RspressPlugin {
     },
     modifySearchIndexData(pages) {
       for (const page of pages) {
+        // Initial index loading can return results before client search hooks.
+        // Store directly addressable URLs so that path is canonical too.
+        if (/^\/(?:zh\/)?(?:guides|blog)(?:\/|$)/.test(page.routePath)) {
+          originalSearchRoutes.set(page, page.routePath);
+          page.routePath = new URL(canonicalUrl(page.routePath)).pathname;
+        }
         if (!/^\/(?:zh\/)?guides(?:\/|$)/.test(page.routePath)) continue;
         // JSX demonstrations belong in the page, not in search-result excerpts.
         const removed: { start: number; length: number }[] = [];
@@ -42,6 +49,15 @@ export function seoBuildPlugin(): RspressPlugin {
             0,
           );
         }
+      }
+    },
+    extendPageData(page) {
+      // Rspress serializes the search index before this hook, then reuses the
+      // records for runtime page lookup. Rendering needs the original routes.
+      const route = originalSearchRoutes.get(page);
+      if (route) {
+        page.routePath = route;
+        originalSearchRoutes.delete(page);
       }
     },
     afterBuild(config, isProd) {

@@ -44,8 +44,29 @@ Straight and curved arrows also support point-by-point creation:
 
 1. **Click** the start without dragging. Moving the mouse previews a connection to the pointer.
 2. **Click** the next position to fix a point. Continue moving and clicking to add more points.
-3. **Double-click** the final position, or right-click once enough points exist to form the path.
-4. If you entered this mode accidentally, press **Esc** to cancel the unfinished path, then create an arrow by dragging instead.
+3. **Double-click** the final position, or right-click once enough points exist to form the path. Right-click keeps only points already fixed by clicks; it does not add the preview endpoint currently following the pointer.
+4. To discard the unfinished path while keeping other annotations, click **Select elements**, then return to Arrow and draw again. In screenshot capture, the default **Esc** cancels the whole capture. In the image editor, Esc can discard the unfinished path.
+
+<GuideSteps title="Which points does finishing keep?" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-input-path-finish-1.svg",
+    "alt": "A to B is fixed; a dashed preview runs from B to the pointer at C, which has not been clicked",
+    "label": "A/B are fixed; C is a preview",
+    "caption": "With a straight/curved arrow or Line, click A and B, then move to C without clicking. C is only the preview endpoint; dashes distinguish it in this illustration."
+  },
+  {
+    "src": "/images/guides/en/ann-input-path-finish-2.svg",
+    "alt": "After right-click completion the path ends at B; the former pointer position C is gray to show it was not added",
+    "label": "Right-click keeps A and B",
+    "caption": "Right-click from frame 1. The result contains only A and B. C was not added; its gray mark is only a comparison reference here. In screenshot capture, right-click inside the selection."
+  },
+  {
+    "src": "/images/guides/en/ann-input-path-finish-3.svg",
+    "alt": "Double-clicking C from the same unfinished draft produces a completed path through A, B and C",
+    "label": "Same draft: double-click C",
+    "caption": "Start again from the draft in frame 1 and double-click C. C is fixed before completion, so the result passes through A, B and C. Begin this comparison from frame 1 rather than the already finished path in frame 2."
+  }
+]} />
 
 <GuideSteps title="Create a curved arrow point by point" sourceLabel="In-app steps" frames={[
   {
@@ -176,13 +197,15 @@ Snap an endpoint to a shape, then move that shape with Select elements. For a la
 
 ## Cancel, undo and export
 
-**Esc** cancels an unfinished path; **Undo** reverses an incorrect finished arrow. Select one arrow with **Select elements**, then press **Delete / Backspace** or choose **Delete selected elements**. Keep other annotations rather than recapturing everything.
+Click **Select elements** to discard an unfinished path; **Undo** reverses an incorrect finished arrow. In screenshot capture, the default **Esc** cancels the whole capture, with a confirmation dialog first if enabled. In the image editor, Esc can discard the unfinished path while keeping completed annotations. Select one arrow with **Select elements**, then press **Delete / Backspace** or choose **Delete selected elements**. Keep other annotations rather than recapturing everything.
+
+See [Annotation basics: Undo, redo and cancel](./basics.mdx#undo-redo-and-cancel) for the cancellation comparison.
 
 Finish adjustments before export. Copy to clipboard and Save as file produce an image. Keep the editing window open to retain editable arrows. To duplicate an arrow’s style and position within the canvas, use **Copy selected elements**, which differs from copying the final screenshot.
 
 ## Common questions
 
-**A segment keeps following the mouse after a click.** Point-by-point drawing is still active. Add points and double-click to finish, or Esc to cancel and draw by dragging.
+**A segment keeps following the mouse after a click.** Point-by-point drawing is still active. Add points and double-click to finish. To discard it, switch to Select elements, then return to Arrow and draw by dragging.
 
 **Clicks do not add bends in Elbow mode.** Elbow arrows use two endpoints and orthogonal routing. Select the finished arrow and edit its segments rather than using multipoint creation.
 

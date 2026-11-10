@@ -14,7 +14,7 @@ def line(x,y,a,b,color='#7652dc',dash=False):
 def dot(x,y,s):
     return f'<circle cx="{x}" cy="{y}" r="19" fill="#7652dc"/>'+text(x-7,y+8,str(s),23,'white')
 def save(name,title,body):
-    svg=f'<svg xmlns="http://www.w3.org/2000/svg" width="960" height="480" viewBox="0 0 960 480" role="img" aria-labelledby="title"><title id="title">{escape(title)}（教学示意）</title><g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">'+box(1,1,958,478,'#f6f7fc')+text(30,43,title,28)+text(30,460,'教学示意 · 按已核对的操作重建，非应用截图',18,'#536078')+body+'</g></svg>'
+    svg=f'<svg xmlns="http://www.w3.org/2000/svg" width="960" height="480" viewBox="0 0 960 480" role="img" aria-labelledby="title"><title id="title">{escape(title)}（操作示意）</title><g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">'+box(1,1,958,478,'#f6f7fc')+text(30,43,title,28)+text(30,460,'操作示意',18,'#536078')+body+'</g></svg>'
     (ROOT/(name+'.svg')).write_text(svg+'\n')
 
 save('start-install','根据电脑选择安装包',box(30,80,430,145)+text(54,118,'Windows',27)+text(54,160,'Intel / AMD → x64')+text(54,196,'ARM 处理器 → ARM64')+box(490,80,440,145)+text(514,118,'macOS 15 或更新',27)+text(514,160,'Apple 芯片 → arm64')+text(514,196,'Intel → x86_64 完整版')+box(30,250,900,165,'#ebe6fb','#d5caf7')+text(54,290,'完整版：准备本地识别与更多识别功能',26)+text(54,332,'Mini：包更小；文字识别可添加工具栏入口或绑定动作',24)+text(54,379,'先确认系统和架构，再选择安装渠道。',24))
@@ -22,7 +22,7 @@ save('start-permissions','macOS 权限：按功能逐项处理',''.join(box(30,8
 for stage in range(3):
     body=box(30,80,900,330)+text(55,120,'目标窗口',25)+box(70,150,300,210,'#edf0f6')+text(95,190,'需要保留的内容',24)+box(405,150,480,210,'#edf0f6')+text(440,190,'其他内容',24)
     if stage>=1:body+=box(90,205,540,140,'#ede8fb','#7652dc',0)+dot(90,205,1)+dot(630,345,2)+line(110,220,610,330)
-    if stage==2:body+=box(330,365,555,40,'#fff')+text(348,393,'箭头 · 文字 · 复制到剪贴板 · 另存为文件',18)
+    if stage==2:body+=box(330,365,555,40,'#fff')+text(348,393,'箭头 · 文字 · 复制到剪贴板 · 保存为文件',18)
     save(f'cap-basics-{stage+1}', ['开始截图，找到目标','按住左键从 1 拖到 2','松开后检查选区与工具栏'][stage],body)
 save('cap-precise','精确选区：位置、尺寸、比例与装饰',box(30,80,900,70,'#fff')+text(50,124,'X, Y 位置   🔒   宽度 × 高度   px / dp   16:9',25)+line(145,150,145,200)+box(30,205,420,200)+text(55,246,'调整选区大小',25)+text(55,290,'X / Y：左上角位置',23)+text(55,331,'宽 / 高：需要保留的范围',23)+text(55,372,'锁定：联动修改宽高',23)+box(480,205,450,200,'#ebe6fb')+text(505,246,'在数值上单击 → 输入',24)+text(505,290,'在数值上滚动 → 微调',24)+text(505,331,'比例菜单 → 选择预设',24)+text(505,372,'确认后观察边框变化',24))
 for stage in range(4):
@@ -38,7 +38,7 @@ for stage in range(3):
     path='M'+' L'.join(f'{x} {y}' for x,y in visible)+(' Z' if stage==2 else '')
     body=box(30,80,900,330)+f'<path d="{path}" fill="'+('#ede8fb' if stage==2 else 'none')+'" stroke="#7652dc" stroke-width="4"/>'
     for i,(x,y) in enumerate(visible):body+=dot(x,y,i+1)
-    body+=text(210,390,['逐次单击固定边界点','最后一点双击，或按 Enter 完成','闭合后只保留边界内的画面'][stage],24)
+    body+=text(210,390,['逐次单击固定边界点','最后一点双击完成','闭合后只保留边界内的画面'][stage],24)
     save(f'cap-irregular-{stage+1}', ['折线选区：开始边界','折线选区：继续取点','折线选区：完成闭合'][stage],body)
 for stage in range(4):
     body=box(30,80,550,330)+text(55,116,'目标内容区',24)+box(80,145,450,200,'#fff','#7652dc',0)
@@ -48,7 +48,7 @@ for stage in range(4):
     for i in range(4+stage*2):body+=line(670,145+i*18,880,145+i*18,'#c2c8dc')
     body+=box(662,140+min(offset,110),226,95,'none','#7652dc',0)
     if stage==2:body+=line(640,160,930,160,'#de6161')+line(640,345,930,345,'#de6161')+text(60,390,'拖动预览边界，保留需要的开头和结尾',23)
-    elif stage==3:body+=box(90,365,430,40,'#ebe6fb')+text(105,392,'另存为文件 → 打开图片检查接缝',21)
+    elif stage==3:body+=box(90,365,430,40,'#ebe6fb')+text(105,392,'保存为文件 → 打开图片检查接缝',21)
     else:body+=text(60,390,'相邻画面保留重叠，预览随拼接增长',23)
     save(f'cap-scrolling-{stage+1}', ['框选会滚动的内容','缓慢滚动，检查预览增长','裁剪开头和结尾','停止滚动并导出结果'][stage],body)
 save('cap-modes','按任务选择截图入口', ''.join(box(30+300*i,90,280,290,'#fff')+dot(60+300*i,125,i+1)+text(55+300*i,182,a,25)+text(55+300*i,236,b,21)+text(55+300*i,284,c,21)+text(55+300*i,335,d,21) for i,(a,b,c,d) in enumerate([('延时截图','先触发 → 展开菜单','等待 1–10 秒','进入截图选区'),('直接截图','当前显示器 / 窗口','跳过选区编辑','结果复制到剪贴板'),('重新截图','保留当前操作上下文','刷新屏幕图像','再次检查内容')])) )

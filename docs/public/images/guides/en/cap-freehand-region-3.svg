@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" width="600" height="700" role="img" aria-labelledby="title"><title id="title">Release to commit the region</title><defs><pattern id="check" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="#fff"/><path d="M0 0h10v10H0zM10 10h10v10H10z" fill="#dce1ec"/></pattern></defs><rect x="1" y="1" width="598" height="698" rx="14" fill="#f6f7fc" stroke="#cbd4e4"/><g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+<text x="28" y="42" font-size="25" fill="#263148">Release to commit the region</text>
+<text x="28" y="108" font-size="19" fill="#536078">Freehand region · Hold → drag → release</text>
+<rect x="30" y="145" width="540" height="350" rx="10" fill="#fff" stroke="#cbd4e4" stroke-width="2"/>
+<path d="M65 220h465" stroke="#e0e5ef" stroke-width="5" fill="none" opacity="1"/>
+<path d="M65 280h465" stroke="#e0e5ef" stroke-width="5" fill="none" opacity="1"/>
+<path d="M65 340h465" stroke="#e0e5ef" stroke-width="5" fill="none" opacity="1"/>
+<path d="M65 400h465" stroke="#e0e5ef" stroke-width="5" fill="none" opacity="1"/>
+<path d="M155.000 265.000 C181.863 231.813 265.435 197.326 315.000 205.000 C365.593 212.833 454.595 277.669 455.000 315.000 C455.409 352.658 367.026 421.282 315.000 430.000 C262.189 438.849 160.817 400.275 140.000 365.000 C124.679 339.038 134.336 290.530 155.000 265.000 Z" stroke="#7652dc" stroke-width="3" fill="#eee9fb" opacity="1"/>
+<path d="M140 365v24l6-6 6 10 5-3-6-10h10z" fill="#263148" stroke="white" stroke-width="1"/>
+<text x="28" y="535" font-size="22" fill="#263148">Release after tracing a valid area. Inspect</text>
+<text x="28" y="563" font-size="22" fill="#263148">the closed boundary before copying or saving.</text>
+<text x="28" y="676" font-size="18" fill="#536078">Instructional illustration</text>
+</g></svg>

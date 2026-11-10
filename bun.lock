@@ -20,6 +20,9 @@
       },
     },
   },
+  "patchedDependencies": {
+    "@rspress/core@2.0.22": "patches/@rspress%2Fcore@2.0.22.patch",
+  },
   "packages": {
     "@biomejs/biome": ["@biomejs/biome@2.5.8", "https://registry.npmmirror.com/@biomejs/biome/-/biome-2.5.8.tgz", { "optionalDependencies": { "@biomejs/cli-darwin-arm64": "2.5.8", "@biomejs/cli-darwin-x64": "2.5.8", "@biomejs/cli-linux-arm64": "2.5.8", "@biomejs/cli-linux-arm64-musl": "2.5.8", "@biomejs/cli-linux-x64": "2.5.8", "@biomejs/cli-linux-x64-musl": "2.5.8", "@biomejs/cli-win32-arm64": "2.5.8", "@biomejs/cli-win32-x64": "2.5.8" }, "bin": { "biome": "bin/biome" } }, "sha512-aeAeeJB9fSDc7Gq+2GqpQxA0qBj6gj1k2R6L1cYqGePKP/baIq1WX8y6B+D+nRsO5ViQL22K/8IwbqERW0q1nw=="],
 

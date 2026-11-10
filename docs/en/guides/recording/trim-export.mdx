@@ -14,8 +14,10 @@ Trim a recording to remove waiting at the beginning or end. Change speed when th
 1. While recording or paused, click **Trim video** on the recording toolbar. Capture ends and the preview is prepared. Wait until the timeline is available before dragging.
 2. The left boundary is **Trim start**. Drag its handle to the right. The preview jumps to the new starting frame; stop at the first frame you want to retain.
 3. The right boundary is **Trim end**. Drag its handle to the left and inspect the final retained frame. The boundaries cannot cross and must retain at least one frame.
-4. Click **Replay** to check from the start of the retained range. **Play/Pause** controls only the current preview. Seek on the timeline to inspect individual frames.
-5. Drag either boundary again until the opening, ending, and intermediate actions flow as intended.
+4. Click **Replay** to check from the start of the retained range. **Play/Pause** controls only the current preview. Click a position on the timeline to pause and inspect that frame within the retained interval; this does not change the trim boundaries.
+5. Drag either boundary again until the opening, ending, and intermediate actions flow as intended. To restore the full range, drag the start fully left and the end fully right. **Replay** plays again; it does not reset the trim boundaries.
+
+Dragging a boundary directly updates the retained range and preview; no confirmation click is required. To leave trimming, click the active **Trim video** button again to return to setup. Capture has already ended, so Resume cannot append to this take. Save or copy the current clip before leaving if you need it.
 
 <GuideRecordingDemo mode="trim" />
 
@@ -27,9 +29,15 @@ After selecting 1.5x, replay the range and confirm that text and actions remain 
 
 ## Save or copy the result
 
-In the trimming preview, click **Save to file** and choose a destination file. Choose a different path from the original recording; the app asks for another file to preserve the original. **Copy recording** places the result on the clipboard as a file for applications that accept files.
+You can also click **Save to file** directly while recording or paused. Capture ends, and the save dialog opens automatically when the preview is ready. Canceling this dialog only abandons that save choice; it does not resume capture. You remain in the trimming preview and can adjust the range and speed.
 
-Wait for rendering to finish before playing, sending, or moving the result. The progress window distinguishes preparation, rendering, and finalization. After cancelling rendering, you can choose **Retry** or **Keep source files**. Errors show the source-file directory; preserve it before attempting recovery. Choose **Discard** only when you no longer need the source data.
+1. In the trimming preview, click **Save to file**, choose the destination and filename, and save. The file dialog filters by this take's recording format; choose another format before making a new recording if needed. Do not overwrite the original recording path; the app asks you to choose another file.
+2. Canceling the file dialog returns to the preview with your range and speed retained, without starting export. Alternatively, **Copy recording** places the result on the clipboard as a file; paste it into an application that accepts files.
+3. Wait for rendering and file writing to finish before playing, sending, or moving the result. To stop a trim export, click **Cancel** in its progress window and wait. On returning to trimming, the range and speed remain available so you can save or copy again. If export fails, close the error message, check the destination folder, and retry.
+
+**Save** in the file dialog confirms the destination; it does not mean the file has been written. Cancellation may arrive too late near the end of writing. Wait for the final state and check the destination folder; canceling does not retract an already completed file.
+
+Rendering after an ordinary **Stop recording** offers **Retry**, **Keep source files**, and **Discard** after cancellation or failure; see [recover after stopping](./start#recording-will-not-start-or-the-result-is-missing). Do not look for these recovery buttons when saving again from the trimming preview.
 
 ## Choose output parameters before recording
 

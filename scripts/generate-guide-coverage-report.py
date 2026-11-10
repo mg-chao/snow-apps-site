@@ -5,13 +5,20 @@ This script only writes artifacts/guide-coverage.md and artifacts/guide-pending.
 """
 from pathlib import Path
 from collections import Counter
+from datetime import datetime, timezone, timedelta
 import csv
 import json
 import re
 from guide_acceptance import unreleased
+from guide_code_validation import source_mode
+from guide_source_report import render as render_source_report
 
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / "artifacts"
+
+if source_mode(ROOT):
+    render_source_report(ROOT)
+    raise SystemExit(0)
 
 
 def read_csv(name):
@@ -41,6 +48,8 @@ evaluations = {
     item["Feature ID"]: item
     for item in (json.loads(evaluation_file.read_text())["items"] if evaluation_file.exists() else [])
 }
+native_preflight_file = ART / 'guide-runtime-preflight-current.json'
+native_preflight = json.loads(native_preflight_file.read_text()) if native_preflight_file.exists() else {}
 static_issues = {}
 for issue in anchors["errors"]:
     fid = issue.partition(":")[0]
@@ -54,7 +63,8 @@ accepted = [
 ]
 development_native = [key for key, value in ops.items() if "构建原生UI：" in value]
 release_native = [key for key, value in ops.items()
-                  if "正式发行原生UI：" in value or "正式发行普通UI" in value]
+                  if "正式发行原生UI：" in value or "正式发行普通UI" in value
+                  or "runtime-release-native-shortcut-cancel.json" in value]
 native = sorted(set(development_native) | set(release_native))
 backend = [key for key, value in ops.items() if "后台MCP" in value]
 abnormal = [
@@ -86,7 +96,13 @@ def doc_link(target):
 def task_context(row):
     target = row["Documentation path and section"]
     operation = row["Specific feature or operation"]
-    if any(term in operation for term in ("Windows", "UIA", "MSAA", "管理员", "右键菜单")):
+    if row["Feature ID"] == "REC-028":
+        return (
+            "仅 Microsoft Store 管理的 Windows x64 Full 副本可进入启动恢复；还须存在有效恢复记录和保留数据。该真实恢复过程尚未运行。",
+            "在隔离的对应 Store 副本准备虚构录屏的可恢复会话中断数据，重新启动；核对有可恢复源时「恢复」进入裁剪并实际导出成片，以及「打开文件夹」仅定位数据。",
+        )
+    declared = evaluations.get(row["Feature ID"], {}).get("scopes", [])
+    if declared and all(scope["Platform"] == "Windows" for scope in declared):
         return (
             "当前验证宿主为 macOS arm64；该 Windows 分支尚无对应发行包运行记录，源码条件已标注。",
             "在 Windows 匹配发行包的隔离测试环境执行；使用虚构窗口或文件，核对系统入口、权限提示及实际结果。",
@@ -164,7 +180,7 @@ def task_context(row):
             "备份隔离测试配置，在本项入口更改一个选项；执行对应用户任务核对效果，按需重启并恢复原值。",
         )
     return (
-        "本项尚无普通用户入口的逐项运行记录；macOS 开发构建已可访问，不再以早期连接超时作为阻碍。",
+        "本项尚无普通用户入口的逐项运行记录；不以早期连接超时推断当前运行状态。",
         "在匹配发行包以不含隐私的虚构素材执行本项；保留输入、操作、可观察状态和取得的结果，按版本/平台列补齐适用环境。",
     )
 
@@ -219,6 +235,12 @@ for row in rows:
         constraint = "main 的 b687a9288 已实现，但 v1.5.2_snow-shot/f02f50e 不含；开发树仍标 1.5.2 不能作为已发布证据。"
         next_step = "等待包含该提交的正式发行版，先核对发布提交和实际入口，再补独立图像编辑器粘贴步骤、入口/结果素材及各适用平台操作验证。"
         asset_text = "未制作；等待该能力正式发行，不为目标 1.5.2 虚构入口素材。"
+    if native_preflight.get('state') == 'locked' and fid in native_preflight.get('blocked_feature_ids', []):
+        constraint += ' 本批 macOS arm64 Full 普通界面预检仍由 CUA 报告锁屏，未发出本项操作输入；见' + native_preflight['evidence_ref'] + '。此条件不扩展为其他平台或功能已失败。'
+        next_step = '手动解锁后先读取当前原生窗口状态，确认目标 Snow Shot 窗口，再继续本项。' + next_step
+    if native_preflight.get('manual_entry_assistance_pending') and fid in native_preflight.get('entry_assistance_feature_ids', []):
+        constraint += ' 当前原生窗口已恢复可读并载入自有图片；独立浮动工具栏仍不在自动化可读截图/控件树中，尚缺普通裁剪或保存按钮的可观察进入。此工具访问限制不表示产品功能失败。'
+        next_step = '等待用户协助选择对应浮动工具栏按钮，重新读取当前状态后继续普通操作和实际输出核对；不以源码调用代替用户入口。' + next_step
     pending.append({
         "Feature ID": fid,
         "Category": row["Category"],
@@ -242,7 +264,7 @@ with (ART / "guide-pending.csv").open("w", encoding="utf-8", newline="") as stre
 parts = [
     "# Snow Shot 操作级覆盖与最终验收记录",
     "",
-    "研究日期：2026-11-09（Asia/Shanghai）。本报告由 scripts/generate-guide-coverage-report.py 根据最终明细生成；先运行 scripts/check-guide-coverage.py 合并分表及当前未完成素材项，再重新生成本报告。",
+    f"报告日期：{datetime.now(timezone(timedelta(hours=8))).date().isoformat()}（Asia/Shanghai）。本报告由 scripts/generate-guide-coverage-report.py 根据当前明细生成；先运行 scripts/check-guide-coverage.py 合并分表及当前未完成素材项，再重新生成本报告。",
     "",
     f"当前为**{'目标发行操作已严格验收' if len(accepted) == len(released) else '部分完成'}**：记录 {len(rows)} 个稳定 Feature ID，其中 {len(released)} 项为目标发布标签已有实现链的操作，另有 {len(candidate)} 项未发行候选。{len(released)} 项正文已编写；严格验收完成 {len(accepted)} 项、未完成 {len(released)-len(accepted)} 项。网站当前检查与缺口分别列下，候选不计入已发布功能分母。",
     "",
@@ -288,6 +310,7 @@ parts += [table(["ID 组", "全部 ID", "发布操作", "未发行候选", "严�
 
 parts += [
     "## 入口审计：产品到文档",
+    "当前逐入口状态以 [入口审计总表](guide-entrypoint-audit.md) 及其 CSV 为准，包含解锁后的快捷键取消、分割方向与导出。下表保留初始源码调查快照，不能覆盖后续实际操作记录。",
     "",
     "下列“源码已查”指入口、事件/命令、处理与可见结果的交叉检查；原生 UI/后台运行分别列出。源码位于 /Users/chao/workspaces/snow-apps；表中界面文件省略 snow_shot/src/presentation/ 前缀，applicationcontroller.cpp 位于 snow_shot/src/app/，绘图引擎位于 snow_draw_engine_qt/。不把翻译字符串或类型声明单独当作实现证据。",
     "",

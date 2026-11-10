@@ -1,0 +1,80 @@
+---
+title: Text translation
+description: Translate text, choose languages and services, swap language choices, copy results for back-translation, and handle the 5000-character input limit or errors.
+---
+
+import { GuideSteps } from '../../../../theme/components/GuideSteps';
+
+# Text translation
+
+For copyable text, type or paste directly into **Translation** in the main window. Changes to input and language settings automatically start translation. This page requires Full and the translation extension enabled.
+
+![Text translation: choose source and target languages and a service, enter text, wait, and copy the translation](/images/guides/en/tr-text.svg)
+
+*Instructional illustration. Edit the source; use the result area to read, select, and copy translations.*
+
+## Open the translation page
+
+1. Open **Settings → Text recognition & translation → Translation extensions** in the main window.
+2. Enable **Translation page**, then enter **Translation** from the sidebar. This also enables the Translate selected text action. The initial configuration has it disabled.
+3. To send recognized screenshot text here, also enable **Jump to translation page**. Click that button in the recognition property bar to send the current text, including corrections, and end the screenshot.
+
+If the page is absent, check that the switch is enabled and you are using Full. Configuring a service alone does not enable the page. Mini does not include this extension.
+
+## Enter text and change languages
+
+1. Select **Source language**, **Target language**, and **Translation service** at the top. Choose **Auto-detect language** if the source is uncertain.
+2. Type or paste complete sentences into **Source text**. Pause typing and wait for the result area's processing state and translation. There is no separate Start translation button to find.
+3. Correcting the source, changing the target, or changing the service triggers processing again. Wait for the current result to update before comparing it with the source.
+4. **Swap languages** exchanges only the source and target language choices. It leaves the source text unchanged and starts processing that text with the new pair. Swapping is unavailable with automatic source detection or identical source and target languages.
+
+Finish composing input-method text before checking the translation; continuous typing delays the current request. The translation area displays results. To revise wording, change the source and translate again, or copy into your own editor.
+
+The source area accepts up to **5000 characters** and shows a count. After pasting a long passage, check its end is complete. Split longer material at paragraph boundaries and keep the original text separately.
+
+### Translate a result back into the original language
+
+1. Specify the first source and target languages, wait for the complete translation, then use **Copy translated text**. Changing languages clears the old result, so copy before swapping.
+2. Click **Swap languages** and check that the two language choices exchanged places. The source area still contains the first input; processing that unchanged input is not a back-translation of the old result.
+3. Click **Source text**, select all of its contents, and paste the translation you copied. This starts a new request automatically. Wait for the complete result, then compare it with the first source.
+
+<GuideSteps title="Copy, swap, and replace the source for back-translation" frames={[
+  {
+    "src": "/images/guides/en/tr-language-swap-1.svg",
+    "alt": "Copy the complete French result before changing languages.",
+    "label": "Copy the complete result",
+    "caption": "Copy the complete French result before changing languages."
+  },
+  {
+    "src": "/images/guides/en/tr-language-swap-2.svg",
+    "alt": "French and English exchange places. The English source remains unchanged.",
+    "label": "Swap only the languages",
+    "caption": "French and English exchange places. The English source remains unchanged."
+  },
+  {
+    "src": "/images/guides/en/tr-language-swap-3.svg",
+    "alt": "Replace all source text with the French translation you copied.",
+    "label": "Paste into Source text",
+    "caption": "Replace all source text with the French translation you copied."
+  },
+  {
+    "src": "/images/guides/en/tr-language-swap-4.svg",
+    "alt": "Wait for the new English result, then compare with the initial English source.",
+    "label": "Wait and compare",
+    "caption": "Wait for the new English result, then compare with the initial English source."
+  }
+]} />
+
+If the result language differs from the selected target, also check the primary and secondary targets and detection threshold in **Translation settings**; see [Language settings](./screenshot.md#languages-and-translation-settings).
+
+## Copy and retry
+
+Click **Copy translated text** after a result appears, then paste into the destination. For part of the source or translation, select text and use ordinary copying. With a selection, normal copying retains that range; without one, the page's copy shortcut retrieves the full translation.
+
+The standalone translation window's action menu offers **Copy** and **Copy and close**, showing shortcuts for the current platform. Copy and close puts the translation on the clipboard and closes that window. Keep it open if you want to compare services.
+
+For an error, read the result-area message, check configuration and connectivity, then click **Retry**. Re-entering text or changing languages or services also starts another request. Do not repeatedly clear a long source passage before resolving the error.
+
+Leaving or closing the main translation page may clear the current session. Copy source text and translations into a document first if you need to keep them.
+
+Continue with [Selected-text translation](./selected-text.md), [Screenshot translation](./screenshot.md), or [Translation services and custom models](./services.md).

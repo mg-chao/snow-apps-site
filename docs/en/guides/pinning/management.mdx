@@ -15,7 +15,7 @@ Group pins by task to display related references together and recover closed con
 
 ## Groups and visibility
 
-**Move a window into a group**: right-click **Group: …** and choose an existing group to move the **current window** there. Choose **New group** to enter a name and create one. Use task-specific names such as “Error investigation” or “Design comparison.”
+**Move a window into a group**: right-click **Group: …** and choose an existing group to move the **current window** there. Choose **New group** to enter a name and create one. Use task-specific names such as “Error investigation” or “Design comparison.” Enter at most **16 characters** in **Group name** and click **Add**. Correct blank or duplicate names first. **Cancel** or closing the dialog abandons creation.
 
 **Switch the displayed group**: open **Window group: …** in the system tray and select a group. Snow Shot saves the current group's state and restores applicable windows in the new group. The pin menu moves a window; the tray menu switches the active group. Check the menu title first.
 
@@ -43,9 +43,52 @@ Use the tray menu to choose a group directly, or assign **Switch window group** 
 
 **Hide/show all windows** toggles the current group's visibility. Assign a shortcut and test hiding and showing two practice pins. Unlike closing or destroying, it does not require recreating content from files.
 
+## Work with selected pins only
+
+1. Show the non-live pins you need in the active group. Leave thumbnail, hide-at-top, and click-through modes. Hold **Ctrl (Command on macOS)** and **briefly click** each target to toggle its selection indicator. Do not drag during selection.
+2. With at least two selected, right-click one of them to open the **selected-window** menu. Its scope differs from the current-group batch menu below. Check the selected count at the bottom.
+3. To move them together, unlock first and drag a movable area of a selected pin. Drag an edge to resize together. Release to commit; press **Esc during the drag** to cancel that adjustment. Click a window's selection indicator to deselect it.
+
+![Ctrl or Command short clicks toggle selection; a selected group moves together, while a single-pin modifier drag exports content](/images/guides/en/pin-gesture-select.svg)
+
+*Instructional illustration. Select with short clicks, then choose between moving the group and exporting one pin.*
+
+The selected menu's **Image stitching**, **Copy files to clipboard**, and **Save as file** affect selected windows only. **Group** moves them to an existing group; completing **New group** puts the selection in the new group. **Close other windows** retains the selection and closes other windows in the active group. **Close** or **Destroy** affects the selection; check its count first.
+
+![Move selected A and B to a target group while unselected C stays in the original group](/images/guides/en/pin-flow-selected-group.svg)
+
+*Instructional illustration. Group acts on this selection; creating a group also needs a name and Add.*
+
+![Close other windows keeps selected A and B and closes C in the active group](/images/guides/en/pin-flow-close-others.svg)
+
+*Instructional illustration. Close other windows retains the selection; Close or Destroy acts on the selection itself.*
+
+### Align and distribute the selection
+
+Open **Align position** in the selected-window context menu. Alignment needs at least two selected windows and none locked. **Distribute horizontally** and **Distribute vertically** need at least three. Alignment moves windows without resizing them.
+
+| Command | Result to inspect |
+|---|---|
+| Align left / Center horizontally / Align right | Match the left edge, horizontal center, or right edge of the selection's overall extent |
+| Align top / Center vertically / Align bottom | Match the top edge, vertical center, or bottom edge of that extent |
+| Distribute horizontally / Distribute vertically | Rearrange along that axis; check edge spacing. Insufficient space can still leave overlap |
+
+<GuideSteps title="Compare eight alignment and distribution results" frames={[
+  {src:'/images/guides/en/pin-align-left.svg',alt:'Three selected windows align their left edges',label:'Align left',caption:'Use the overall selection left edge; every window has the same left edge.'},
+  {src:'/images/guides/en/pin-align-center-h.svg',alt:'Three selected windows share a horizontal center',label:'Center horizontally',caption:'Each horizontal center matches the overall center; widths stay unchanged.'},
+  {src:'/images/guides/en/pin-align-right.svg',alt:'Three selected windows align their right edges',label:'Align right',caption:'The right edges match; window sizes stay unchanged.'},
+  {src:'/images/guides/en/pin-distribute-h.svg',alt:'Different-width windows have equal horizontal edge gaps',label:'Distribute horizontally',caption:'Keep horizontal order. With sufficient space, gaps between edges are equal.'},
+  {src:'/images/guides/en/pin-align-top.svg',alt:'Three selected windows align their top edges',label:'Align top',caption:'Use the overall selection top edge to align every top edge.'},
+  {src:'/images/guides/en/pin-align-center-v.svg',alt:'Three selected windows share a vertical center',label:'Center vertically',caption:'Each vertical center matches the overall center; heights stay unchanged.'},
+  {src:'/images/guides/en/pin-align-bottom.svg',alt:'Three selected windows align their bottom edges',label:'Align bottom',caption:'The bottom edges match; window sizes stay unchanged.'},
+  {src:'/images/guides/en/pin-distribute-v.svg',alt:'Different-height windows have equal vertical edge gaps',label:'Distribute vertically',caption:'Keep vertical order. With sufficient space, gaps between edges are equal.'}
+]} />
+
+When you no longer need group actions, deselect the windows with their indicators before opening an ordinary single-window menu.
+
 ## Batch-process current windows
 
-Right-click **Pin to screen management → Batch operations**. The menu displays the number of eligible windows.
+Right-click **Pin to screen management → Batch actions**. The menu displays the number of eligible windows.
 
 - **Select all** selects applicable visible pins so you can move or resize them together. A window's selection indicator can deselect it.
 - **Image stitching** sends currently displayed images into the [Image collage](../image-editing/collage.mdx) workflow.

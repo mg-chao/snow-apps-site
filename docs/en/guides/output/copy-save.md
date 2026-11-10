@@ -15,16 +15,16 @@ After editing a screenshot or pinned image, copy it into another application, sa
 
 1. After selecting and annotating a screenshot, click **Copy to clipboard** on the action toolbar. The capture closes and the image enters the clipboard. Paste into a chat, document, or image editor.
 2. Use the copy action in a pinned window to copy its current content. The destination application determines whether it accepts an image or file.
-3. To paste an image file into a file manager as well, enable **Copy image file to clipboard** under **Settings → Export & storage → Image export**. Subsequent copies provide both an image and an exported file. The file uses this page's image directory and format.
+3. To paste an image file into a file manager as well, enable **Copy image file to clipboard** under **Settings → Export & storage → Image export**. Subsequent copies provide both an image and an exported file, using the selected image format. To also keep a file in the image directory, enable the corresponding **Auto-save after execution** option or use **Save as file**.
 
 **Copy recording** provides a recording file; see [recording export](../recording/trim-export). Copying recognized text and copying an image also produce different results. Choose the action for the content you need to paste.
 
 ## Save a file and adjust output dimensions
 
-1. Click **Save as file** on the screenshot or pinned-window action toolbar. Under **Settings → Export & storage → Image export → Save as file dialog**, choose either the system dialog or the Snow Shot dialog. The following controls describe the Snow Shot dialog.
+1. First choose either the system dialog or the Snow Shot dialog under **Settings → Export & storage → Image export → Save as file dialog**. Return to the screenshot or pinned-window action toolbar and click **Save as file**. The following controls describe the Snow Shot dialog.
 2. Choose a writable **Save path** and enter a **File name**. Directory shortcuts switch locations; add, edit, or remove frequently used paths. Removing a shortcut does not delete the directory.
 3. Under **Image format**, choose PNG, JPEG, BMP, WebP, JPEG XL, AVIF, TIFF, or PDF. Start with PNG to preserve screenshot text detail. Check recipient support before choosing formats such as JPEG XL or AVIF.
-4. In the dimensions area, choose **Pixels** or **Percentage** and enter width and height. Enable **Lock aspect ratio** to avoid stretching. Check text size and capture boundaries in the preview.
+4. In the dimensions area, choose **Pixels** or **Percentage** and enter width and height. Enable **Lock aspect ratio** to avoid stretching. Check the resized text and image proportions in the preview. This changes output dimensions without cropping image content.
 5. Quality, compression level, and lossless controls are shown or enabled only for supporting formats. Quality affects lossy detail; compression level mainly controls compression effort. It is not a universal image-quality switch for every format.
 6. Click **Save**. If a file already exists, read the **Replace file** confirmation. Cancel and rename to keep the old file, or replace it intentionally. Cancelling does not automatically switch to quick save.
 

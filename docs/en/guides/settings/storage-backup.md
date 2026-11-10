@@ -1,6 +1,6 @@
 ---
 title: Storage, cleanup, configuration backups, and logs
-description: Inspect Snow Shot storage usage, clean history and recording work files, change Windows data storage, and export configuration or diagnostic ZIP archives.
+description: Inspect Snow Shot storage usage, clean history and recording work files, change Windows data storage, import or export configuration ZIP backups, and copy diagnostic log archives.
 ---
 
 # Storage, cleanup, configuration backups, and logs
@@ -21,9 +21,21 @@ Modes can include application data, custom directory, portable, read-only (newer
 
 ## Change the data directory on Windows
 
-The Windows data-storage section offers directory selection. Choose a writable location and follow the dialog's migration/use options. Wait for the change to finish, then check its location and usage. Do not run cleanup or move files during migration.
+1. Under **Settings → Export & storage → Data storage**, find **Storage directory** and click **Choose directory**. Enter the target path in the dialog's **Storage directory** field or browse for a writable location. Canceling the folder chooser keeps the current input.
+2. Check **Migrate existing data**, which starts enabled. When enabled, existing data is migrated and verified files are removed from the old directory after switching. When disabled, only settings and open pinned windows are copied; screenshot history and closed-pin history stay in the old directory. Choose according to the data you need; disabling migration is not a complete data move.
+3. Click **OK**, then read the target path and data scope in **Change storage directory?**. Only **Proceed** starts the switch. **Cancel** in this confirmation leaves the active directory unchanged; you can adjust the directory or cancel the entire directory-settings window.
+4. Wait for migration, verification, and switching to finish. Cancel and Close are unavailable during processing. Do not run cleanup or move data manually at the same time. For an error, resolve the directory or access issue shown in the window, then click **OK** and **Proceed** again to retry.
+5. Return to Data storage and check the effective directory, mode, and usage. Read any warning about unfinished work before cleaning up the old directory.
 
 On macOS, this area primarily displays status and does not offer the same Windows migration button. To change only image or video output, edit the save directory under **Image export** or **Video export**, rather than migrating all application data.
+
+![With migration off, settings and open pins copy to the new directory while history stays in the old one](/images/guides/en/set-storage-switch-no-history.svg)
+
+*Instructional illustration. With migration off, check what will be copied and where existing history will remain. <a href="/images/guides/en/set-storage-switch-no-history.svg" target="_blank" rel="noreferrer">View full size</a>.*
+
+![Canceling the second storage-directory confirmation keeps the original effective directory](/images/guides/en/set-storage-switch-cancel.svg)
+
+*Instructional illustration. Cancel the second confirmation before processing to keep the current directory and return to the draft. <a href="/images/guides/en/set-storage-switch-cancel.svg" target="_blank" rel="noreferrer">View full size</a>.*
 
 ## Export and restore configuration
 
@@ -36,6 +48,13 @@ On macOS, this area primarily displays status and does not offer the same Window
 The configuration archive contains app settings; it is not a backup of every screenshot or video. Preserve important output files separately. A log archive is another ZIP type and must not be imported as configuration.
 
 ## Choose what to clean
+
+To restore ordinary pins after closing them, first check **Settings → Export & storage → Pin to screen management**:
+
+1. Enable **Retain closed windows** so subsequently closed windows can be restored from management. Disabling it does not delete existing records; it is different from **Clear closed records**.
+2. Enable **Keep records permanently** to stop automatic cleanup. To use limits, turn it off first, then set **Retention period** in days, **Maximum entries**, and **Maximum disk usage** in MiB. These three limits are disabled while permanent retention is on. Initial limits are 7 days, 100 entries, and 1024 MiB; use the values shown for your existing configuration.
+3. Choose **Low**, **Medium**, or **High** under **Compression level** to control compression processing for display images stored with closed pins. The initial choice is Medium. This control does not delete records.
+4. Changes commit individually; there is no page-wide Save. Save important material to independent files before using cleanup commands below. Permanent retention stops automatic cleanup; manual cleanup still removes records within its confirmed scope. Retained windows remain protected.
 
 | Entry | Scope and checks before use |
 | --- | --- |

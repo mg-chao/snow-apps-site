@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1280" viewBox="0 0 720 1280" role="img"><title>把贴图交给独立图像编辑器</title>
+<rect width="720" height="1280" rx="24" fill="#f3f6fb"/>
+<g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+<text x="32" y="38" font-size="22" fill="#58708d" font-weight="600">操作示意</text>
+<text x="32" y="86" font-size="31" fill="#172e50" font-weight="700">把贴图交给独立图像编辑器</text>
+<rect x="32" y="140" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="156" width="624" height="64" rx="12" fill="#eaf0ff"/>
+<text x="60" y="198" font-size="28" fill="#2c57a5" font-weight="700">1. 从贴图打开图像编辑</text>
+<text x="58" y="268" font-size="28" fill="#33465e" font-weight="400">在贴图上右键打开「处理图像」。</text>
+<text x="58" y="310" font-size="28" fill="#33465e" font-weight="400">选择「图像编辑」。</text>
+<text x="58" y="352" font-size="28" fill="#33465e" font-weight="400">实时贴图需要有可用的当前帧。</text>
+<path d="M360 466v22m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round"/>
+<rect x="32" y="500" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="516" width="624" height="64" rx="12" fill="#fff2da"/>
+<text x="60" y="558" font-size="28" fill="#865414" font-weight="700">2. 先核对新窗口的输入</text>
+<text x="58" y="628" font-size="28" fill="#33465e" font-weight="400">在打开的图像编辑窗口检查图片。</text>
+<text x="58" y="670" font-size="28" fill="#33465e" font-weight="400">实时贴图发送一张当前帧。</text>
+<text x="58" y="712" font-size="28" fill="#33465e" font-weight="400">原实时贴图继续跟随来源更新。</text>
+<path d="M360 826v22m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round"/>
+<rect x="32" y="860" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="876" width="624" height="64" rx="12" fill="#e6f6ee"/>
+<text x="60" y="918" font-size="28" fill="#20614a" font-weight="700">3. 编辑并保存结果</text>
+<text x="58" y="988" font-size="28" fill="#33465e" font-weight="400">按图像编辑教程修改和保存结果。</text>
+<text x="58" y="1030" font-size="28" fill="#33465e" font-weight="400">保存后重新打开文件检查。</text>
+<text x="58" y="1072" font-size="28" fill="#33465e" font-weight="400">这与在贴图内部进入标注模式不同。</text>
+<text x="32" y="1235" font-size="24" fill="#4c6481" font-weight="400">先核对目标，再执行菜单操作。</text>
+</g></svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1280" viewBox="0 0 720 1280" role="img"><title>按住修饰键，把一张贴图拖出去</title>
+<rect width="720" height="1280" rx="24" fill="#f3f6fb"/>
+<g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+<text x="32" y="38" font-size="22" fill="#58708d" font-weight="600">操作示意</text>
+<text x="32" y="86" font-size="31" fill="#172e50" font-weight="700">按住修饰键，把一张贴图拖出去</text>
+<rect x="32" y="140" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="156" width="624" height="64" rx="12" fill="#eaf0ff"/>
+<text x="60" y="198" font-size="28" fill="#2c57a5" font-weight="700">1. 准备要导出的当前视图</text>
+<text x="58" y="268" font-size="28" fill="#33465e" font-weight="400">回到普通图像视图，退出鼠标穿透。</text>
+<text x="58" y="310" font-size="28" fill="#33465e" font-weight="400">确认当前裁剪范围和编辑结果。</text>
+<text x="58" y="352" font-size="28" fill="#33465e" font-weight="400">取消其他贴图的选择，避免移动整组。</text>
+<path d="M360 466v22m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round"/>
+<rect x="32" y="500" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="516" width="624" height="64" rx="12" fill="#fff2da"/>
+<text x="60" y="558" font-size="28" fill="#865414" font-weight="700">2. Ctrl/Command＋左键拖动</text>
+<text x="58" y="628" font-size="28" fill="#33465e" font-weight="400">Windows：按住 Ctrl。</text>
+<text x="58" y="670" font-size="28" fill="#33465e" font-weight="400">macOS：按住 Command。</text>
+<text x="58" y="712" font-size="28" fill="#33465e" font-weight="400">从图像内容区按住左键拖出。</text>
+<text x="58" y="754" font-size="28" fill="#33465e" font-weight="400">保持左键，等待拖动预览准备好。</text>
+<path d="M360 826v22m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round"/>
+<rect x="32" y="860" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="876" width="624" height="64" rx="12" fill="#e6f6ee"/>
+<text x="60" y="918" font-size="28" fill="#20614a" font-weight="700">3. 放到目标，检查接收结果</text>
+<text x="58" y="988" font-size="28" fill="#33465e" font-weight="400">目标需要支持接收图像或文件。</text>
+<text x="58" y="1030" font-size="28" fill="#33465e" font-weight="400">在目标处松开，再检查收到的内容。</text>
+<text x="58" y="1072" font-size="28" fill="#33465e" font-weight="400">尚未放下时按 Esc 可取消。</text>
+<text x="58" y="1114" font-size="28" fill="#33465e" font-weight="400">目标不接收时，改用复制或保存。</text>
+<text x="32" y="1235" font-size="24" fill="#4c6481" font-weight="400">先分清状态，再开始手势。</text>
+</g></svg>

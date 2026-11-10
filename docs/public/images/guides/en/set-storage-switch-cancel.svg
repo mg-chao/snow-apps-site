@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1330" viewBox="0 0 720 1330" role="img" aria-labelledby="title desc">
+<title id="title">Cancel the directory switch at the second confirmation</title>
+<desc id="desc">Discard the switch before processing starts. Draft a new target → Cancel the second confirmation → Keep editing or leave the draft</desc>
+<rect width="720" height="1330" rx="24" fill="#f3f6fb"/>
+<g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+<text x="32" y="37" font-size="22" fill="#58708d" font-weight="600">Instructional illustration · Windows</text>
+<text x="32" y="84" font-size="32" fill="#172e50" font-weight="700">Cancel the directory switch</text>
+<text x="32" y="124" font-size="32" fill="#172e50" font-weight="700">at the second confirmation</text>
+<text x="32" y="157" font-size="23" fill="#4c6481" font-weight="400">Discard the switch before processing starts.</text>
+<rect x="32" y="188" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="204" width="624" height="64" rx="12" fill="#eaf0ff"/>
+<circle cx="78" cy="236" r="21" fill="#2c57a5"/>
+<text x="71" y="245" font-size="26" fill="#fff" font-weight="700">1</text>
+<text x="112" y="246" font-size="28" fill="#2c57a5" font-weight="700">Draft a new target</text>
+<text x="58" y="314" font-size="28" fill="#33465e" font-weight="400">The current effective directory is A.</text>
+<text x="58" y="356" font-size="28" fill="#33465e" font-weight="400">Storage directory → Choose directory</text>
+<text x="58" y="398" font-size="28" fill="#33465e" font-weight="400">Enter directory B in the dialog.</text>
+<text x="58" y="440" font-size="28" fill="#33465e" font-weight="400">Click the outer OK to reach confirmation.</text>
+<path d="M360 515v23m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="32" y="550" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="566" width="624" height="64" rx="12" fill="#fff2da"/>
+<circle cx="78" cy="598" r="21" fill="#865414"/>
+<text x="71" y="607" font-size="26" fill="#fff" font-weight="700">2</text>
+<text x="112" y="608" font-size="28" fill="#865414" font-weight="700">Cancel the second confirmation</text>
+<text x="58" y="676" font-size="28" fill="#33465e" font-weight="400">Read Change storage directory?</text>
+<text x="58" y="718" font-size="28" fill="#33465e" font-weight="400">Check target B and the data scope.</text>
+<text x="58" y="760" font-size="28" fill="#33465e" font-weight="400">Click Cancel in this confirmation.</text>
+<text x="58" y="802" font-size="28" fill="#33465e" font-weight="400">The directory switch has not started.</text>
+<path d="M360 877v23m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="32" y="912" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="928" width="624" height="64" rx="12" fill="#e6f6ee"/>
+<circle cx="78" cy="960" r="21" fill="#20614a"/>
+<text x="71" y="969" font-size="26" fill="#fff" font-weight="700">3</text>
+<text x="112" y="970" font-size="28" fill="#20614a" font-weight="700">Keep editing or leave the draft</text>
+<text x="58" y="1038" font-size="28" fill="#33465e" font-weight="400">The current effective directory is still A.</text>
+<text x="58" y="1080" font-size="28" fill="#33465e" font-weight="400">You can adjust the directory-settings draft.</text>
+<text x="58" y="1122" font-size="28" fill="#33465e" font-weight="400">To leave it, cancel that settings dialog too.</text>
+<text x="58" y="1164" font-size="28" fill="#33465e" font-weight="400">A continues to provide the existing data.</text>
+<text x="32" y="1284" font-size="23" fill="#4c6481" font-weight="400">Cancel and Close are unavailable during processing.</text>
+</g>
+</svg>

@@ -100,3 +100,31 @@
     padding: 1.1rem;
   }
 }
+
+/* Retain a labelled search control beside the blog's mobile language switch. */
+@media (max-width: 767px) {
+  body:has(.snow-blog-meta, .snow-blog-index)
+    .snow-guide-nav
+    .rp-search-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    min-width: 28px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+  body:has(.snow-blog-meta, .snow-blog-index) .rp-search-button__hotkey {
+    display: none;
+  }
+  body:has(.snow-blog-meta, .snow-blog-index) .rp-search-button__word {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}

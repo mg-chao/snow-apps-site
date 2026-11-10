@@ -15,17 +15,23 @@ Zoom, rotate, or make a pin translucent to compare it with a design or another w
 
 ## Zoom and anchoring
 
-Right-click and open **Process image → Zoom**. Choose **25%, 50%, 75%, or 100%**, or use **Increase 10%** / **Decrease 10%**. The “Current” item shows the existing scale.
+Right-click and open **Process image → Scale**. Choose **25%, 50%, 75%, or 100%**, or use **Increase 10%** / **Decrease 10%**. The “Current” item shows the existing scale.
 
 In ordinary image mode, scrolling over the pin also changes display scale. In recognition or annotation mode, the wheel may control that mode's content. Return to ordinary image mode or explicitly use the context menu to adjust the entire pin.
 
-Under **Settings → Pin to screen**, configure wheel zoom step and anchor: pointer position, any corner, or center. Use pointer position to keep a detail aligned, or a corner to keep that edge steady. Test with a distinct corner after changing the setting.
+Under **Settings → Pin to screen**, use **Mouse wheel zoom step** to adjust each increment and **Mouse wheel zoom mode** to choose the anchor: pointer position, any corner, or center. Use pointer position to keep a detail aligned, or a corner to keep that edge steady. Test with a distinct corner after changing the setting. Display scale ranges from **10% to 500%**; further scrolling stops at those limits.
 
 ## Opacity, rotation, and flipping
 
 **Process image → Opacity** offers **25%, 50%, 75%, 100%** and 10% increases or decreases. Try 50% for comparison and restore 100% for normal reading. A translucent window does not mean the saved image has a transparent background.
 
-Under **Process image**, **Rotate clockwise** and **Rotate counterclockwise** change orientation by 90° each time. **Flip horizontally** and **Flip vertically** mirror the image. **Reset transforms** restores rotation and flipping; zoom and opacity have their own menu values and are not reset by that command.
+In ordinary image view, hold **Ctrl (Command on macOS)** while scrolling to adjust window opacity. Scrolling without that modifier changes scale. Configure each increment under **Settings → Pin to screen → Mouse wheel opacity step**; opacity stays within **25%–100%**. Finish annotation editing before adjusting window opacity.
+
+![Ctrl or Command plus the wheel changes opacity; releasing the modifier returns the wheel to scaling](/images/guides/en/pin-gesture-opacity.svg)
+
+*Instructional illustration. This changes the whole window display without overwriting the source file.*
+
+Under **Process image**, **Rotate clockwise** and **Rotate counterclockwise** change orientation by 90° each time. **Flip horizontally** and **Flip vertically** mirror the image. **Reset transform** restores rotation and flipping; zoom and opacity have their own menu values and are not reset by that command.
 
 <GuideSteps title="Right-drag a view, then apply a crop" frames={[
   {src: '/images/guides/en/pin-crop-1.svg', alt: 'Return to an ordinary pin with the complete image', label: 'Return to image mode', caption: 'Exit recognition, annotation, locking, and other special modes; retain the full original view.'},
@@ -68,10 +74,15 @@ Set new-window defaults under **Settings → Pin to screen → Window interface*
 
 | Mode | Enter and exit | Effect |
 | --- | --- | --- |
-| Mouse click-through | Enable **Mouse click-through** in the context menu; use the separate **Exit mouse click-through mode** button to leave | Most image-area input goes to the application behind it; auxiliary controls remain usable |
+| Click-through | Enable **Click-through** in the context menu; use the separate **Exit click-through mode** button to leave | Most image-area input goes to the application behind it; auxiliary controls remain usable |
 | Lock mode | Toggle **Lock mode** in the context menu | Prevents accidental moving, zooming, or cropping; unlock before adjusting |
 | Thumbnail mode | Toggle **Thumbnail mode** | Temporarily reduces an ordinary pin to free workspace |
-| Hide at top | Enable **Hide at top**, point at its top handle to reveal it, then disable the mode in the menu to exit | Stores an ordinary pin at the screen's top edge |
+| Hide at top | Enable **Hide at top**, then point at the top handle to reveal the pin. To exit, open its context menu after revealing it | Stores an ordinary pin at the screen's top edge; opening its context menu ends top hiding |
+| Always on top | Check or uncheck **Pin to screen management → Always on top** | Keeps this pin above ordinary windows; locking and click-through are separate controls |
+
+![Check or uncheck Always on top for the current pin and compare window stacking](/images/guides/en/pin-flow-topmost.svg)
+
+*Instructional illustration. Always on top changes this pin’s stacking; lock and click-through are separate.*
 
 With click-through active, right-clicking the image no longer opens its ordinary menu; use the auxiliary exit button first. To hide many windows, use [Groups and batch operations](./management.mdx). Live windows offer only their supported modes.
 

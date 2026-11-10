@@ -14,14 +14,50 @@ Collage arranges separate images into one result for tutorial steps, comparisons
 1. Search **Stitch selected images** in the main window's **Search function**, select the result to locate its row, then click the action row to open **Image stitching**.
 2. Click **Add images** to choose multiple files, or drag images into the window. Wait for loading.
 3. Under **Image type**, choose **Static image** to preview the composition.
-4. Select vertical or horizontal **Layout direction**. Check output width, height, and image count to confirm every source was added.
-5. Adjust order and spacing, then click **Copy** or **Save as file**. Choose a path and wait for saving.
+4. Under **Layout direction**, choose **Vertical** or **Horizontal**. Check output width, height, and image count to confirm every source was added.
+5. Adjust order and spacing, then click **Copy** or **Save** at the bottom of the window. Successful copying closes the window; paste in the destination app to check the result. Save opens save options: choose a format and path, then inspect the file. Canceling the save options returns to the current collage with its images intact.
 
 <GuideSteps title="Arrange an image collage" frames={[
   {src: '/images/guides/en/img-collage-1.svg', alt: 'Add three source images', label: 'Add three images', caption: 'Add the source images to the composition.'},
   {src: '/images/guides/en/img-collage-2.svg', alt: 'Drag thumbnails to exchange image order', label: 'Reorder thumbnails', caption: 'Drag one thumbnail onto another to exchange positions.'},
   {src: '/images/guides/en/img-collage-3.svg', alt: 'Set spacing and background, then export', label: 'Set layout and output', caption: 'Check spacing and background before copying or saving.'}
 ]} />
+
+### Append images from the clipboard
+
+To append from the clipboard, copy the image content in an image viewer, then return to the stitching window. Finish editing numeric or text fields, click the preview to focus it, and press **Ctrl+V (Command+V on macOS)**. Wait for the new image in the thumbnail strip; let any current import or export finish first. Paste appends: existing images keep their rotation, flipping, and placement rather than being replaced.
+
+When the clipboard provides readable local image file paths, they are appended in list order, including duplicates. If some files cannot be read, check the error list and the images that were added. Paste also appends in **PDF document** mode while retaining existing transforms; recheck page order and cells afterwards.
+
+Check the appended content and its dimensions before exporting. If it is a file icon, use **Add images** or drag in the file, or open the original in an image viewer and copy its image content before pasting.
+
+<GuideSteps title="Paste images and file lists, including PDF append" frames={[
+  {
+    "src": "/images/guides/en/img-paste-collage-1.svg",
+    "alt": "Keep the existing A. Copy image B, focus the stitching preview, then press Ctrl+V (Mac: Command+V).",
+    "label": "Copy an image, then Paste",
+    "caption": "Keep the existing A. Copy image B, focus the stitching preview, then press Ctrl+V (Mac: Command+V)."
+  },
+  {
+    "src": "/images/guides/en/img-paste-collage-2.svg",
+    "alt": "B is appended. The existing A and its rotation remain. Paste does not replace the selected image.",
+    "label": "The image is appended",
+    "caption": "B is appended. The existing A and its rotation remain. Paste does not replace the selected image."
+  },
+  {
+    "src": "/images/guides/en/img-paste-collage-3.svg",
+    "alt": "When the clipboard provides local image paths B, C, B, Paste appends them in order and keeps duplicates.",
+    "label": "Readable file lists keep order",
+    "caption": "When the clipboard provides local image paths B, C, B, Paste appends them in order and keeps duplicates."
+  },
+  {
+    "src": "/images/guides/en/img-paste-collage-4.svg",
+    "alt": "In a two-image PDF template, Paste fills the next cell. The existing A keeps its rotation and placement.",
+    "label": "PDF appends keep prior transforms",
+    "caption": "In a two-image PDF template, Paste fills the next cell. The existing A keeps its rotation and placement."
+  }
+]} />
+
 
 
 ## Start from selected files
@@ -38,7 +74,7 @@ With no images selected, an empty window opens for adding files. On macOS, grant
 
 ## Vertical, horizontal, and custom grids
 
-**Vertical** arranges images top to bottom for step-by-step long images. **Horizontal** suits before/after comparisons. **Custom** exposes row and column counts for grids.
+**Vertical** arranges images top to bottom for step-by-step long images. **Horizontal** suits before/after comparisons. **Custom** exposes positive whole-number row and column counts. If the grid cannot hold every image, its column count grows. Removing images does not automatically remove empty cells; recheck the resulting counts and whitespace.
 
 After changing rows or columns, check every image occupies the intended cell. **Uniform size** makes a regular arrangement; **Original size** organizes original dimensions. With differing aspect ratios, choose a suitable direction before deciding on cropping within cells.
 
@@ -48,21 +84,23 @@ After changing rows or columns, check every image occupies the intended cell. **
 
 In automatic vertical layouts, **Uniform size** scales each image proportionally to the first transformed image's width. Horizontal layouts use the first image's height. **Original size** retains dimensions and centers narrower or shorter images on the cross axis. Keep order and direction fixed when comparing size policies.
 
+For Custom grids, **Uniform size** uses the first transformed image’s width and height as the cell dimensions; other images fit proportionally and are centered. **Original size** takes the maximum width and height across all images for the cell dimensions, retaining and centering each image’s own size. Empty space can come from aspect-ratio differences rather than a missing image.
+
 ![Unequal source sizes in the same vertical layout: uniform width versus original dimensions](/images/guides/en/img-audit-size.svg)
 
 *Instructional illustration. B and C scale relative to the first image while preserving aspect ratio.*
 
 ## Border, spacing, and background
 
-**Outer border** is whitespace around the whole result; **Image spacing** separates neighboring images. Both offer pixels or percentages. Check preview and output size after switching units; the same number does not mean the same width.
+**Outer border** is whitespace around the whole result; **Image spacing** separates neighboring images. Both accept nonnegative values in pixels or percentages. A percentage refers to the widest sized image in Vertical layout, the tallest in Horizontal layout, or the cell width in Custom layout. For a 1000 px reference width, 10% means 100 px. Switching units converts the displayed value; inspect the preview and output dimensions after editing it.
 
 **Background color** fills whitespace and uncovered areas and can be transparent. Save in a transparency-capable format and inspect the export; an opaque format cannot retain transparent background.
 
 ## Reorder and transform individual images
 
-Click a bottom thumbnail to locate its image. Drag a thumbnail onto another to swap order; **Reverse order** reverses the complete sequence.
+Click a bottom thumbnail to locate its image. Drag a thumbnail onto another and release to swap their positions; **Reverse image order** reverses the complete sequence. Swapping resets both images’ within-cell position and scale; reversing resets these for images that change places. Rotation and flipping remain, so recheck clipping after reordering.
 
-Select an image in the preview, then:
+Click an image in the preview to show its action bar. Hover to identify each icon. Available actions include:
 
 - **Move or swap**: drag within its cell to position it, or toward another image to swap.
 - **Scale**: drag a selection handle to scale around the center. Enlarged content outside the cell is clipped, letting you emphasize a detail.
@@ -70,7 +108,9 @@ Select an image in the preview, then:
 - **Flip horizontally / vertically**: mirror orientation; text is mirrored too.
 - **Reset transforms**: restore that image's transforms before arranging it again.
 
-The preview wheel changes viewing zoom; middle-button dragging pans. Neither is the same as layout scaling of an individual image.
+Release the left button to apply a body or handle drag. Press **Esc before releasing** to cancel that gesture and retain the previous layout. After applying a transform, select the image and use **Reset transform** to restore it.
+
+The preview wheel changes viewing zoom; middle-button dragging pans. Neither is the same as layout scaling of an individual image. Click **Fit to canvas**, or press **F / Home** while the preview has focus, to see the whole composition again.
 
 <GuideSteps title="Scale, position, and orient one image" frames={[
   {src: '/images/guides/en/img-audit-collage-transform-1.svg', alt: 'Select one image and identify its handles', label: 'Select one image', caption: 'Click the target and confirm the handles belong to that image.'},
@@ -79,10 +119,35 @@ The preview wheel changes viewing zoom; middle-button dragging pans. Neither is 
   {src: '/images/guides/en/img-audit-collage-transform-4.svg', alt: 'Compare rotation and horizontal mirroring with an F and an arrow', label: 'Rotation versus mirroring', caption: 'Use directional marks to distinguish rotation from horizontal flipping and avoid mirrored text.'}
 ]} />
 
+### Preview the original and return
+
+Select the image, then use the eye icon for **Preview original image** in its action bar. Check the source, then close the viewer to return without changing the layout.
+
+<GuideSteps title="Preview the original, then return to the layout" frames={[
+  {
+    "src": "/images/guides/en/img-original-preview-1.svg",
+    "alt": "The selected layout image has a rotated crop. Use Preview original image in its action bar.",
+    "label": "Select the image and use the eye icon",
+    "caption": "The selected layout image has a rotated crop. Use Preview original image in its action bar."
+  },
+  {
+    "src": "/images/guides/en/img-original-preview-2.svg",
+    "alt": "Compare the complete source with the layout. Rotation and cropping from the layout are not applied here.",
+    "label": "Inspect the unmodified original",
+    "caption": "Compare the complete source with the layout. Rotation and cropping from the layout are not applied here."
+  },
+  {
+    "src": "/images/guides/en/img-original-preview-3.svg",
+    "alt": "Close the original-image viewer. The earlier crop and rotation remain; continue editing or export from the layout.",
+    "label": "Close the viewer and return",
+    "caption": "Close the original-image viewer. The earlier crop and rotation remain; continue editing or export from the layout."
+  }
+]} />
+
 ## Replace, remove, and clear
 
-Thumbnails offer **Replace image** and **Delete image**. Confirm the target before replacing; check order and grid after deletion.
+Hover over a thumbnail to reveal the **Replace image** and **Delete image** icons; check their tooltips before acting. Click **Replace image** to choose a new file. Canceling the file chooser or failing to read the new file keeps the original. A successful replacement resets that image’s rotation, flipping, position, and scale; adjust and inspect it again. **Delete image** immediately removes the item and resets the position and scale of subsequent items. Recheck order, grid, and clipping.
 
-**Clear all** asks for confirmation and removes the current composition. Save it first if needed; also read discard prompts when closing unsaved sessions.
+**Clear all** asks for confirmation and removes the current composition. Save it first if needed. Closing the window or clicking the bottom **Cancel** asks whether to discard a session containing images; cancel that prompt to continue arranging them.
 
 For unreadable files, inspect the error's file list and add usable files again. For oversized compositions or export failures, keep the window, reduce the number of sources or output scale, and retry. For paper documents, use [Images to PDF](./pdf.mdx).

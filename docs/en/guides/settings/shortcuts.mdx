@@ -15,10 +15,75 @@ Global shortcuts work while another application is in front. Application shortcu
 
 ## Change a global shortcut
 
-1. Open **Global shortcuts** in the main window and find the task, such as capture, pinning, text recognition, recording, or opening history. Click the key-configuration button on the right of that row to open its configuration window.
-2. Click the binding to change, then press the actual key combination. The captured keys appear in the window. For another binding, click **Add key configuration**, within the number allowed by the interface.
-3. Choose another combination if it conflicts or is unsupported. Repeatedly confirming cannot resolve a duplicate binding. Release the binding from another action or application if necessary.
-4. Click **OK** to apply, or **Cancel** to discard this draft. Back in the list, check the registration state on the configuration button, then switch to another application and test.
+1. Open **Global shortcuts** in the main window and find the task, such as capture, pinning, text recognition, recording, or opening history. Click the **key-configuration button on the right** of that row to open its configuration window.
+2. To replace a binding, click the **key block** displaying its current combination. To keep it and add an alternative, click **Add key configuration** to open a new row. Each global action supports up to **2 bindings**; the Add button disappears at that limit.
+3. When **Please press a key** appears, press the combination you want. During recording, **Tab, Esc, and Enter are captured as candidate keys** rather than moving focus, canceling the window, or saving. To abandon your changes, click **Cancel** with the mouse.
+4. Check the candidate shown in the key block. A valid candidate enables the row's green check and the window's **OK** button. If a conflict or unsupported-key message appears, press another combination. Repeatedly confirming cannot resolve a duplicate binding; release the binding from another action or application if necessary.
+5. To keep editing the list, click the **green check icon** at the end of the row to finish recording. You can then add an alternative; Add remains disabled while recording. After recording ends, the row-end control becomes a **red delete icon**, which removes that row from this draft.
+6. Check the complete list, then click **OK at the bottom of the window** to save. For one valid change, you can skip the row check and click the outer OK button directly; it also confirms the pending candidate. **Only the outer OK saves bindings**. The row check and delete icon change only the current draft.
+7. To discard your changes, click **Cancel** or close the configuration window. This discards the entire draft, including rows you have checked, added, or deleted, and keeps the previous configuration.
+8. After saving, check the registration state in the main list, then test from another application. After canceling, check that the original binding remains.
+
+To learn the recording process while keeping your current shortcut, follow this sequence and choose **Cancel** at the end. The example briefly records Tab as a candidate, then discards the draft.
+
+<GuideSteps title="Record a candidate, then cancel to keep the original" sourceLabel="In-app steps" frames={[
+  {
+    "src": "/images/guides/set-shortcut-bindings.webp",
+    "alt": "The shortcut configuration window shows the existing Control+1 key block, Add key configuration, Cancel, and OK",
+    "label": "Identify the existing binding",
+    "caption": "The existing combination is ⌃1 (Control+1). Click its key block to replace it, or use Add key configuration to keep it and add an alternative.",
+    "focus": {
+      "x": 370,
+      "y": 405,
+      "width": 1060,
+      "height": 470,
+      "imageWidth": 1800,
+      "imageHeight": 1280
+    }
+  },
+  {
+    "src": "/images/guides/set-shortcut-recording.webp",
+    "alt": "The key block shows Please press a key while Add and the outer OK are unavailable",
+    "label": "Start recording this row",
+    "caption": "Enter a combination after Please press a key appears. Recording is active; Add and OK are temporarily unavailable.",
+    "focus": {
+      "x": 410,
+      "y": 520,
+      "width": 320,
+      "height": 95,
+      "imageWidth": 1800,
+      "imageHeight": 1280
+    }
+  },
+  {
+    "src": "/images/guides/set-shortcut-confirm-candidate.webp",
+    "alt": "The green check icon at the end of the row becomes available for a valid candidate",
+    "label": "Finish recording with the check",
+    "caption": "A valid candidate enables the green check. Click it to finish recording this row; the binding is still only a draft. For this exercise, click Cancel at the bottom of the dialog next (shown in the first frame).",
+    "focus": {
+      "x": 1240,
+      "y": 510,
+      "width": 150,
+      "height": 110,
+      "imageWidth": 1800,
+      "imageHeight": 1280
+    }
+  },
+  {
+    "src": "/images/guides/set-shortcut-cancel-reopened.webp",
+    "alt": "Reopening configuration after canceling shows the original Control+1 binding",
+    "label": "Check the original after canceling",
+    "caption": "Cancel discards the whole draft. Reopen configuration to see that the original ⌃1 is retained.",
+    "focus": {
+      "x": 410,
+      "y": 520,
+      "width": 320,
+      "height": 95,
+      "imageWidth": 1800,
+      "imageHeight": 1280
+    }
+  }
+]} />
 
 The configuration window temporarily releases relevant global keys so entering a new combination does not trigger the old action. Test invocation after saving and closing the window.
 

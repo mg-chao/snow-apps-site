@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="1000" viewBox="0 0 600 1000" role="img" aria-labelledby="title"><title id="title">Changing scrolling capture settings</title>
+<g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+<rect x="1" y="1" width="598" height="998" rx="14" fill="#f6f7fc" stroke="#cbd4e4"/>
+<text x="28" y="41" font-size="27" fill="#263148">Changing scrolling capture settings</text>
+<rect x="26" y="90" width="548" height="245" rx="12" fill="#ffffff" stroke="#cbd4e4" stroke-width="2"/>
+<rect x="26" y="370" width="548" height="250" rx="12" fill="#ffffff" stroke="#cbd4e4" stroke-width="2"/>
+<rect x="26" y="655" width="548" height="270" rx="12" fill="#ffffff" stroke="#cbd4e4" stroke-width="2"/>
+<path d="M300 339v20m-7-7 7 7 7-7" fill="none" stroke="#7652dc" stroke-width="3"/>
+<path d="M300 624v20m-7-7 7 7 7-7" fill="none" stroke="#7652dc" stroke-width="3"/>
+<text x="46" y="125" font-size="24" fill="#263148">1. Decide whether to keep the result</text>
+<text x="46" y="164" font-size="21" fill="#263148">A stitched image already has a trim.</text>
+<rect x="48" y="185" width="166" height="125" rx="12" fill="#ffffff" stroke="#7652dc" stroke-width="2"/>
+<path d="M65 204h132" stroke="#cbd4e4" stroke-width="4"/>
+<path d="M65 221h132" stroke="#cbd4e4" stroke-width="4"/>
+<path d="M65 238h132" stroke="#cbd4e4" stroke-width="4"/>
+<path d="M65 255h132" stroke="#cbd4e4" stroke-width="4"/>
+<path d="M65 272h132" stroke="#cbd4e4" stroke-width="4"/>
+<path d="M65 289h132" stroke="#cbd4e4" stroke-width="4"/>
+<path d="M48 219h166M48 285h166" stroke="#d15a45" stroke-width="3" stroke-dasharray="6 4"/>
+<text x="238" y="223" font-size="22" fill="#263148">Need it? Save as file</text>
+<text x="238" y="267" font-size="21" fill="#536078">Then start a new capture</text>
+<text x="46" y="405" font-size="23" fill="#263148">2. Open Settings on the scroll toolbar</text>
+<text x="46" y="449" font-size="22" fill="#263148">Capture UI during scrolling screenshots</text>
+<text x="46" y="490" font-size="21" fill="#263148">Includes Snow Shot’s own toolbar and preview.</text>
+<text x="46" y="554" font-size="22" fill="#7652dc">Change the switch → OK</text>
+<text x="46" y="590" font-size="20" fill="#536078">Cancel leaves the setting unchanged.</text>
+<text x="46" y="690" font-size="24" fill="#263148">3. Capture starts again</text>
+<text x="46" y="734" font-size="22" fill="#263148">Old stitching and trim are cleared.</text>
+<text x="46" y="775" font-size="22" fill="#263148">Region and direction stay the same.</text>
+<text x="46" y="817" font-size="22" fill="#263148">Wait for a new preview, then scroll again.</text>
+<text x="46" y="879" font-size="20" fill="#536078">OK without a change does not restart.</text>
+<text x="28" y="977" font-size="18" fill="#536078">Instructional illustration</text>
+</g></svg>

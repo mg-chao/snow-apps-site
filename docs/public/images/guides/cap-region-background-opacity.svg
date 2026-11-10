@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" width="600" height="900" role="img" aria-labelledby="title"><title id="title">对比选区背景 0% 与 100%</title><defs><pattern id="check" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="#fff"/><path d="M0 0h10v10H0zM10 10h10v10H10z" fill="#dce1ec"/></pattern></defs><rect x="1" y="1" width="598" height="898" rx="14" fill="#f6f7fc" stroke="#cbd4e4"/><g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+<text x="28" y="42" font-size="25" fill="#263148">对比选区背景 0% 与 100%</text>
+<text x="28" y="108" font-size="19" fill="#536078">同一组区域 · 关闭紧凑布局</text>
+<rect x="26" y="145" width="548" height="260" rx="10" fill="#fff" stroke="#cbd4e4" stroke-width="2"/>
+<text x="46" y="183" font-size="24" fill="#263148">选区背景不透明度：0%</text>
+<rect x="60" y="210" width="480" height="140" rx="0" fill="url(#check)" stroke="#cbd4e4" stroke-width="2"/>
+<rect x="60" y="210" width="160" height="140" rx="0" fill="#e7effb" stroke="#cbd4e4" stroke-width="2"/>
+<text x="121" y="290" font-size="34" fill="#263148">A</text>
+<rect x="380" y="210" width="160" height="140" rx="0" fill="#e7effb" stroke="#cbd4e4" stroke-width="2"/>
+<text x="441" y="290" font-size="34" fill="#263148">B</text>
+<text x="46" y="383" font-size="21" fill="#263148">间隙透明，原图中间内容不参与。</text>
+<rect x="26" y="445" width="548" height="260" rx="10" fill="#fff" stroke="#cbd4e4" stroke-width="2"/>
+<text x="46" y="483" font-size="24" fill="#263148">选区背景不透明度：100%</text>
+<rect x="60" y="510" width="480" height="140" rx="0" fill="url(#check)" stroke="#cbd4e4" stroke-width="2"/>
+<rect x="220" y="510" width="160" height="140" rx="0" fill="#fff0dc" stroke="#fff0dc" stroke-width="2"/>
+<text x="235" y="568" font-size="22" fill="#263148">中间内容</text>
+<path d="M238 590h125" stroke="#d6b987" stroke-width="4" fill="none" opacity="1"/>
+<path d="M238 615h125" stroke="#d6b987" stroke-width="4" fill="none" opacity="1"/>
+<rect x="60" y="510" width="160" height="140" rx="0" fill="#e7effb" stroke="#cbd4e4" stroke-width="2"/>
+<text x="121" y="590" font-size="34" fill="#263148">A</text>
+<rect x="380" y="510" width="160" height="140" rx="0" fill="#e7effb" stroke="#cbd4e4" stroke-width="2"/>
+<text x="441" y="590" font-size="34" fill="#263148">B</text>
+<text x="46" y="683" font-size="21" fill="#263148">原图中间内容参与背景显示。</text>
+<text x="28" y="735" font-size="22" fill="#263148">A、B 保留区域本身仍不透明。单击不透明度控件恢复</text>
+<text x="28" y="763" font-size="22" fill="#263148">0%；保存为支持透明度的格式，才能保留透明间隙。</text>
+<text x="28" y="876" font-size="18" fill="#536078">操作示意</text>
+</g></svg>

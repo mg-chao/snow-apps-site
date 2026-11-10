@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="884" viewBox="0 0 440 884" role="img">
+<title>中断录屏的恢复路径</title>
+<desc>会话中断后重新打开应用，有保留数据才可能出现恢复提示。有可恢复源时恢复到裁剪预览，再保存并回放；打开文件夹仅查看数据。</desc>
+<style>text{font-family:Arial,"PingFang SC",sans-serif}</style>
+<rect width="440" height="884" rx="16" fill="#f4f5fc"/>
+<text x="22" y="34" font-size="23" font-weight="600" fill="#243047">中断录屏的恢复路径</text>
+<text x="22" y="62" font-size="15" font-weight="400" fill="#536174">Microsoft Store 安装的 Snow Shot · Windows</text>
+<rect x="18" y="86" width="404" height="165" rx="10" fill="#fff" stroke="#cbd2df"/>
+<circle cx="39" cy="110" r="13" fill="#7050c8"/>
+<text x="39" text-anchor="middle" y="115" font-size="16" font-weight="600" fill="#fff">1</text>
+<text x="62" y="116" font-size="18" font-weight="600" fill="#243047">会话结束后重新打开</text>
+<text x="35" y="148" font-size="16" font-weight="400" fill="#243047">Windows 结束会话时录制被打断，</text>
+<text x="35" y="173" font-size="16" font-weight="400" fill="#243047">重新打开 Snow Shot。</text>
+<text x="35" y="198" font-size="16" font-weight="400" fill="#243047">若找到保留数据，才可能出现</text>
+<text x="35" y="223" font-size="16" font-weight="400" fill="#243047">“屏幕录制恢复”提示。</text>
+<path d="M220 257V276m-6-6 6 6 6-6" fill="none" stroke="#8b7db3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="18" y="286" width="404" height="324" rx="10" fill="#fff" stroke="#cbd2df"/>
+<circle cx="39" cy="310" r="13" fill="#7050c8"/>
+<text x="39" text-anchor="middle" y="315" font-size="16" font-weight="600" fill="#fff">2</text>
+<text x="62" y="316" font-size="18" font-weight="600" fill="#243047">有可恢复源时选择“恢复”</text>
+<text x="35" y="348" font-size="16" font-weight="400" fill="#243047">仍有可恢复的 .snowrec 源文件时，</text>
+<text x="35" y="373" font-size="16" font-weight="400" fill="#243047">点击“恢复”，进入裁剪预览。</text>
+<text x="35" y="398" font-size="16" font-weight="400" fill="#243047">先检查画面，再按需要调整范围。</text>
+<rect x="35" y="428" width="370" height="159" rx="8" fill="#f6f4fe" stroke="#c6b9e9"/>
+<path d="M47 449h10m-4-4 4 4-4 4" fill="none" stroke="#7050c8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="65" y="454" font-size="17" font-weight="600" fill="#243047">另一选择：打开文件夹</text>
+<text x="49" y="483" font-size="16" font-weight="400" fill="#536174">只在文件管理器中定位保留数据。</text>
+<text x="49" y="511" font-size="16" font-weight="400" fill="#536174">不会进入裁剪，也不会导出成片。</text>
+<text x="49" y="539" font-size="16" font-weight="400" fill="#536174">没有“恢复”按钮时，先检查保留文件。</text>
+<path d="M220 616V635m-6-6 6 6 6-6" fill="none" stroke="#8b7db3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="18" y="645" width="404" height="184" rx="10" fill="#fff" stroke="#cbd2df"/>
+<circle cx="39" cy="669" r="13" fill="#7050c8"/>
+<text x="39" text-anchor="middle" y="674" font-size="16" font-weight="600" fill="#fff">3</text>
+<text x="62" y="675" font-size="18" font-weight="600" fill="#243047">另存文件，等待完成再回放</text>
+<text x="35" y="707" font-size="16" font-weight="400" fill="#243047">在裁剪预览点击“保存到文件”。</text>
+<text x="35" y="732" font-size="16" font-weight="400" fill="#243047">选择输出位置并保存。</text>
+<text x="35" y="757" font-size="16" font-weight="400" fill="#243047">等待导出完成，再打开输出文件。</text>
+<text x="35" y="782" font-size="16" font-weight="400" fill="#243047">回放检查画面与声音。</text>
+<text x="22" y="861" font-size="13" font-weight="400" fill="#536174">操作示意</text>
+</svg>

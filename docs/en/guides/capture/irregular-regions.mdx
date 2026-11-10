@@ -1,6 +1,6 @@
 ---
 title: Polyline, curve and freehand selections
-description: Switch between rectangle, polyline, curve and freehand capture regions in Snow Shot; complete a closed boundary with clicks, drags or confirmation, remove vertices, and combine added or subtracted areas before export.
+description: Switch between rectangle, polyline, curve and freehand capture regions in Snow Shot; complete closed boundaries with successive clicks and a final double-click, or a freehand drag and release, remove vertices, and combine added or subtracted areas before export.
 ---
 
 import { GuideSteps } from '../../../../theme/components/GuideSteps';
@@ -19,20 +19,62 @@ Switching the type while drawing cancels the unfinished draft. Choose a type bef
 
 1. Select **Polyline region** and click the first boundary point. Moving the pointer previews the next connecting segment.
 2. Continue clicking along the boundary. Each click fixes a corner. Three points on one straight line are insufficient; the region needs area.
-3. Double-click the final point, or press **Enter** once the boundary is valid. The path closes, its interior is retained and the toolbar becomes available for working with the result.
+3. Double-click the final point to finish. The path closes, its interior is retained and the toolbar becomes available for working with the result.
 4. If a point is wrong, press **Backspace** while still constructing the boundary to remove the last vertex. Press **Esc** to cancel the unfinished draft.
 
 <GuideSteps title="Build an irregular boundary point by point" frames={[
  {src:'/images/guides/en/cap-irregular-1.svg',alt:'The first and second fixed points of a polyline selection',label:'Start placing points',caption:'Each click fixes a point. Move the pointer to preview the next segment.'},
- {src:'/images/guides/en/cap-irregular-2.svg',alt:'An open five-vertex path following the target outline',label:'Finish the boundary',caption:'Continue around the outline, then double-click or press Enter to confirm.'},
+ {src:'/images/guides/en/cap-irregular-2.svg',alt:'An open five-vertex path following the target outline',label:'Finish the boundary',caption:'Continue around the outline, then double-click the final point to finish.'},
  {src:'/images/guides/en/cap-irregular-3.svg',alt:'The closed path retains its interior and excludes the outside',label:'Check the closed region',caption:'Confirm it encloses a valid area, then copy or save the retained content.'},
 ]} />
 
 ## Curve and freehand regions
 
-**Curve region** also uses successive points, but connects them with curves. It suits softer outlines. Place points around the contour, then double-click or confirm to finish. You do not need closely packed points to imitate every pixel.
+**Curve region** also uses successive points, but connects them with curves. It suits softer outlines. Place points around the contour, then double-click the final point to finish. You do not need closely packed points to imitate every pixel.
+
+<GuideSteps title="Curve region: points, preview and completion" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/cap-curve-region-1.svg",
+    "alt": "Click to place curve points",
+    "label": "Click to place curve points",
+    "caption": "Choose Curve region. Click the first points; moving the pointer previews the next part."
+  },
+  {
+    "src": "/images/guides/en/cap-curve-region-2.svg",
+    "alt": "Preview the closing curve",
+    "label": "Preview the closing curve",
+    "caption": "Continue clicking around the outline. The hollow endpoint is a preview, not a committed point."
+  },
+  {
+    "src": "/images/guides/en/cap-curve-region-3.svg",
+    "alt": "Double-click the endpoint to finish",
+    "label": "Double-click the endpoint to finish",
+    "caption": "Double-click the preview endpoint to complete the closed capture region."
+  }
+]} />
 
 For **Freehand region**, hold the left mouse button and drag along the outline. The path appears as you drag; releasing forms the region. If the path does not enclose valid area, no exportable selection results. Trace a complete outline and release again.
+
+<GuideSteps title="Freehand region: press, drag and release" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/cap-freehand-region-1.svg",
+    "alt": "Press to start a freehand region",
+    "label": "Press to start a freehand region",
+    "caption": "Choose Freehand region, then press the left mouse button at the outline."
+  },
+  {
+    "src": "/images/guides/en/cap-freehand-region-2.svg",
+    "alt": "Keep holding and trace the outline",
+    "label": "Keep holding and trace the outline",
+    "caption": "Keep the button held and trace around the content. A visible draft is still unfinished."
+  },
+  {
+    "src": "/images/guides/en/cap-freehand-region-3.svg",
+    "alt": "Release to commit the region",
+    "label": "Release to commit the region",
+    "caption": "Release after tracing a valid area. Inspect the closed boundary before copying or saving."
+  }
+]} />
 
 For either type, inspect the final closed boundary. Do not assume every indentation is preserved exactly because the pointer passed through it, especially in a fast freehand gesture.
 
@@ -48,4 +90,4 @@ Check that the toolbar has returned and no boundary segment awaits completion, t
 
 For an empty selection, check whether the path is just a line, all content has been subtracted or the draft is still unconfirmed. To start again, cancel the draft with Esc, choose the region type and redraw.
 
-Related: [Basic capture](./basics.mdx) · [Exact selections](./precise-selection.md) · [Saving formats](../output/copy-save.md).
+Related: [Basic capture](./basics.mdx) · [Exact selections](./precise-selection.mdx) · [Saving formats](../output/copy-save.md).

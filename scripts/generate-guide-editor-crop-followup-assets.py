@@ -157,7 +157,7 @@ for lang in ["zh", "en"]:
         "Hold the left button to preview the full-width 40 px strip. The image is still 300×200.",
         "Press Esc, then release the left button. The red range disappears without cropping; Vertical crop stays active.",
         "Press the left button again and drag out a new 40 px preview. Canceling did not submit the earlier drag.",
-        "Release to apply the new drag. Height becomes 160 px; B shifts up 40 px. The remaining blue line is only a guide.",
+        "Release to apply the new drag. Height becomes 160; B shifts up 40 px. The remaining blue line is only a guide.",
     ] if en else [
         "按住左键预览贯穿整宽的40 px横带；底图仍为300×200，尚未提交。",
         "按Esc后再松开左键，红色范围消失，原图未改；仍留在垂直裁剪工具。",
@@ -168,12 +168,12 @@ for lang in ["zh", "en"]:
         ["Left button held.", "N = 40 px, full width.", "Pixels are unchanged."],
         ["Press Esc, then release.", "No red range; no crop.", "Vertical crop stays active."],
         ["Press and drag again.", "Preview a new 40 px strip.", "Pixels are still unchanged."],
-        ["Release applies the crop.", "Height:200 →160 px.", "Blue line: guide only."],
+        ["Release applies the crop.", "Height: 200 → 160 px.", "Blue line: guide only."],
     ] if en else [
         ["左键仍然按住。", "N = 40 px，贯穿整宽。", "底图像素还没有改变。"],
         ["按Esc，再松开左键。", "没有红带，也没有裁剪。", "仍是垂直裁剪工具。"],
         ["重新按住左键拖动。", "新预览仍为40 px。", "像素还没有改变。"],
-        ["松开即提交这次裁剪。", "高度：200 →160 px。", "蓝色定位线不是红带。"],
+        ["松开即提交这次裁剪。", "高度：200 → 160 px。", "蓝色定位线不是红带。"],
     ]
     for step in range(1, 5):
         cropped = step == 4
@@ -200,18 +200,18 @@ for lang in ["zh", "en"]:
             body += text(image_x-8, image_y+145*scale+5, "145", 16, MUTED, anchor="end")
             if cropped and index == 1:
                 body += text(image_x-8, image_y+105*scale+5, "105", 16, GREEN, anchor="end")
-            lines = (["B and arrow at y =145.", "Arrow can be selected."] if index == 0 else ["Same starting appearance.", "Arrow is part of the pixels."]) if en else (["B与箭头都在y =145。", "箭头仍可单独选择。"] if index == 0 else ["起始外观相同。", "箭头已是图像像素。"])
+            lines = (["B and arrow at y = 145.", "Arrow can be selected."] if index == 0 else ["Same starting appearance.", "Arrow is part of the pixels."]) if en else (["B与箭头都在y = 145。", "箭头仍可单独选择。"] if index == 0 else ["起始外观相同。", "箭头已是图像像素。"])
             if cropped:
-                lines = (["B shifts to y =105.", "Arrow stays at y =145."] if index == 0 else ["B and the saved arrow", "both shift to y =105."]) if en else (["B移到y =105。", "箭头仍在y =145。"] if index == 0 else ["B与已合成箭头一起", "移到y =105。"])
+                lines = (["B shifts to y = 105.", "Arrow stays at y = 145."] if index == 0 else ["B and the saved arrow", "both shift to y = 105."]) if en else (["B移到y = 105。", "箭头仍在y = 145。"] if index == 0 else ["B与已合成箭头一起", "移到y = 105。"])
             for i, value in enumerate(lines):
                 body += text(panel_x+20, 451+27*i, value, 19, MUTED)
         labels = ["Same appearance, different content", "Remove the same 40 rows"] if en else ["外观相同，内容状态不同", "删除相同的40行"]
-        captions = ["The left arrow is editable. The right arrow was saved into image pixels; both start at y = 145.", "After removing 40 rows, both base images move B to y = 105. Only the editable arrow stays at y = 145."] if en else ["左侧箭头仍可编辑，右侧箭头已保存成图像像素；起始均在y=145。", "删除40行后，两边底图B均移到y=105；只有可编辑箭头仍保留y=145。"]
+        captions = ["The left arrow is editable. The right arrow was saved into image pixels; both start at y=145.", "After removing 40 rows, both base images move B to y=105. Only the editable arrow stays at y=145."] if en else ["左侧箭头仍可编辑，右侧箭头已保存成图像像素；起始均在y=145。", "删除40行后，两边底图B均移到y=105；只有可编辑箭头仍保留y=145。"]
         save(lang, f"img-crop-flattened-{step}.svg", "Crop editable and saved annotations" if en else "裁剪：可编辑标注与已合成图片", labels[step-1], captions[step-1], body,
              "Same crop and scale; compare the arrow positions." if en else "相同裁剪范围与显示比例；比较箭头的位置。", "IMG-004;IMG-006", section)
 
     states = [(True, True), (True, False), (False, False), (True, False), (True, True)]
-    labels = ["Crop, then add a circle", "Undo 1: remove the circle", "Undo 2: restore the strip", "Redo 1: apply the crop", "Redo 2: restore the circle"] if en else ["裁剪后新画橙圈", "撤销一次：先去橙圈", "再撤销：恢复条带", "重做一次：恢复裁剪", "再重做：橙圈恢复"]
+    labels = ["Crop, then add a circle", "First Undo: remove the circle", "Second Undo: restore the strip", "First Redo: apply the crop", "Second Redo: restore the circle"] if en else ["裁剪后新画橙圈", "撤销一次：先去橙圈", "再撤销：恢复条带", "重做一次：恢复裁剪", "再重做：橙圈恢复"]
     captions = [
         "After the 40-row crop, add an orange circle. This circle is now the most recent edit.",
         "Undo removes the orange circle first. The base remains 300×160; the crop has not been undone.",

@@ -2,7 +2,7 @@
 title: "1.5.0 explained: keep screenshot annotations editable after pinning"
 description: "Enable editable annotation handoff to pins, verify object selection and undo, and understand the difference between retained objects and a flattened PNG."
 blog: true
-date: "2026-11-09"
+date: "2026-11-10"
 category: "releases"
 productVersion: "1.5.0–1.5.2"
 platforms: "Windows / macOS · Full / Mini"
@@ -31,6 +31,10 @@ Open **Settings → Screenshot → Operation** and enable **Keep annotations edi
 
 *Teaching diagram. This setting controls screenshot-to-pin handoff; it does not reverse flattening in arbitrary images.*
 
+![The keep-annotations-editable setting is enabled](/images/blog/pin-editable-setting-152.webp)
+
+*App screenshot. Test with a new capture after enabling the setting.*
+
 ## Run a test with an observable result
 
 1. Capture a small non-sensitive region. New configurations use **F1** on Windows and **Control+1** on macOS; check your actual global binding.
@@ -38,7 +42,7 @@ Open **Settings → Screenshot → Operation** and enable **Keep annotations edi
 3. Enter annotation mode on the pin, activate the relevant tool and select the original arrow. Look for endpoints or an object boundary, then change it. Check the original text object too.
 4. Use the undo and redo buttons to confirm the change. Merely seeing an image window does not verify object handoff.
 
-![A selected editable text object with its boundary](/images/guides/ann-text-move-app-before.webp)
+![A selected editable text object with its boundary](/images/blog/pin-object-selected-152.webp)
 
 *App screenshot. Look for the selected object’s boundary or control points.*
 
@@ -46,7 +50,7 @@ Open **Settings → Screenshot → Operation** and enable **Keep annotations edi
 
 While the caret is inside text, keys edit text. Finish input before selecting an object. Dragging an object differs from dragging the pin window: the object must change position relative to the underlying image.
 
-![Step 1 text moved to a new position after text input has ended](/images/guides/ann-text-move-app-after.webp)
+![Original Check ticket text moved inside the pin](/images/blog/pin-object-moved-152.webp)
 
 *App screenshot. Compare the label’s position relative to the background.*
 

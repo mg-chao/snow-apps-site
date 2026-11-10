@@ -30,6 +30,8 @@ Tools can be moved, stacked, or hidden. When a feature is missing, check tool gr
 3. Drag an infrequently used action into the hidden-tools area. Its preview position changes. Drag it back into the preview to restore it.
 4. Reopen the actual screenshot, pinned-window, or recording toolbar. Hover over groups to inspect expanded actions and confirm frequent tools remain accessible.
 
+Each drop commits that layout; there is no additional Save button. Drag a tool back to reverse a mistake, or use **Reset** for the current section. The confirmation names the section being reset; Cancel keeps the current layout. Each toolbar has its own saved layout and reset scope. Available tools still depend on the platform and features included in Full or Mini.
+
 Separators have their own positions in annotation, pinned, and recording layouts; recording duration also occupies a separate position. These cannot be stacked like ordinary actions. To restore the full layout, use that toolbar section's reset and read the confirmation first.
 
 <GuideSteps title="Stack tool C above tool A" frames={[
@@ -47,7 +49,7 @@ Open **Settings → Screenshots → Annotation tools**, change the settings for 
 | Automatically select newly created elements | Draw an object after enabling it. Completion selects the object while keeping the drawing tool active, useful for refining each new object. |
 | Tools excluded from automatic selection | Choose exceptions in the multi-select list. Objects created with these tools are not automatically selected by the setting above. |
 | Tools that forbid quick selection of same-type elements | Select tools you want to draw with continuously, preventing a left click on an existing object of that type from selecting it. Clear the exception to restore quick selection. |
-| Delete text after the cursor | While editing text, Delete removes selected text or the character after the cursor. Confirm you are in text-editing mode first. |
+| Delete text after the cursor | On by default: during input, Delete removes selected text or the next character. When off, Delete removes the entire text object and ends input. Use Backspace when you only want to change characters; see [text editing](../annotations/text.mdx). |
 | Remember last used tool | New screenshots and pinned-image annotation sessions begin with the previous annotation tool. When off, they begin with Move. |
 | Keep group main buttons visible | Always show the group's first button rather than its most recently used tool. Expand the group again to check access. |
 
@@ -58,11 +60,13 @@ Open **Settings → Screenshots → Annotation tools**, change the settings for 
 Open **Settings → Tray & floating toolbar → Tray**:
 
 1. Enable tray display and find the icon in the system tray or macOS menu bar. When hidden, the main window and configured shortcuts remain usable.
-2. Choose a bundled icon or a custom **PNG/ICO** file. A separate dark-theme icon is supported. Check its outline on both light and dark backgrounds.
-3. Windows allows separate left- and middle-click actions, including capture, copy, pinning, main window, history, pinned-window management, settings, or no action. Defaults are capture for left click and pinning for middle click. macOS does not show the same middle-click configuration.
+2. Choose a bundled style under **Icon**. To use a **PNG/ICO** file, click **Browse** under **Custom icon**. A valid custom image takes precedence; an invalid file falls back to the selected bundled icon. Canceling the chooser keeps the previous path. Clear the custom path to return to the bundled icon.
+3. Choose a left-click action in the tray settings, including capture, copy, pinning, main window, history, pinned-window management, settings, or no action. Both Windows and macOS support this setting. Windows also has a separate middle-click action. New configurations default to capture for left click and pinning for Windows middle click; macOS does not show the same middle-click configuration.
 4. Select actions to include in the tray menu, then inspect the real menu's order and groups. Global-shortcut toggles, history, and window groups depend on your configuration.
 
-On macOS, **Let macOS control tray icon color** uses system-style menu-bar coloring. It differs from a custom tray-menu background skin; see [appearance](./appearance) for background images.
+Configure **Dark theme icon** and **Dark theme custom icon** separately for dark appearance. A valid dark custom image takes precedence. To return to the regular settings, clear the dark custom path and choose **Use regular icon settings**. Selecting a dedicated dark bundled icon stops using the regular custom image. Switch to dark appearance to check it, then back to light to check the regular settings.
+
+On macOS, **Let macOS control tray icon color** uses the image's transparency as its shape and ignores its original colors. Turn this off to preserve a custom image's colors. This is separate from a custom tray-menu background skin; see [appearance](./appearance) for background images.
 
 ## Desktop floating toolbar
 

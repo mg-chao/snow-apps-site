@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" width="600" height="700" role="img" aria-labelledby="title"><title id="title">首边界向外拖回，恢复更多内容</title><defs><pattern id="check" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="#fff"/><path d="M0 0h10v10H0zM10 10h10v10H10z" fill="#dce1ec"/></pattern></defs><rect x="1" y="1" width="598" height="698" rx="14" fill="#f6f7fc" stroke="#cbd4e4"/><g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+<text x="28" y="42" font-size="25" fill="#263148">首边界向外拖回，恢复更多内容</text>
+<text x="28" y="108" font-size="19" fill="#536078">自动滚动已关闭 · 六段编号内容</text>
+<text x="42" y="155" font-size="19" fill="#263148">捕获选区：显示细节</text>
+<defs><clipPath id="detail"><rect x="42" y="175" width="300" height="300"/></clipPath></defs><g clip-path="url(#detail)">
+<rect x="42" y="175.0" width="300" height="150.0" rx="0" fill="#e7effb" stroke="#fff" stroke-width="2"/>
+<text x="57" y="257.5" font-size="32" fill="#263148">1</text>
+<rect x="42" y="325.0" width="300" height="150.0" rx="0" fill="#eaf4e8" stroke="#fff" stroke-width="2"/>
+<text x="57" y="407.5" font-size="32" fill="#263148">2</text>
+<rect x="42" y="475.0" width="300" height="150.0" rx="0" fill="#fff1d8" stroke="#fff" stroke-width="2"/>
+<text x="57" y="557.5" font-size="32" fill="#263148">3</text>
+<rect x="42" y="625.0" width="300" height="150.0" rx="0" fill="#f1e8fb" stroke="#fff" stroke-width="2"/>
+<text x="57" y="707.5" font-size="32" fill="#263148">4</text>
+<rect x="42" y="775.0" width="300" height="150.0" rx="0" fill="#e4f3f1" stroke="#fff" stroke-width="2"/>
+<text x="57" y="857.5" font-size="32" fill="#263148">5</text>
+<rect x="42" y="925.0" width="300" height="150.0" rx="0" fill="#f8e6ed" stroke="#fff" stroke-width="2"/>
+<text x="57" y="1007.5" font-size="32" fill="#263148">6</text>
+</g>
+<rect x="42" y="175" width="300" height="300" rx="0" fill="none" stroke="#7652dc" stroke-width="2"/>
+<text x="420" y="155" font-size="19" fill="#263148">缩略预览</text>
+<defs><clipPath id="thumb"><rect x="440" y="175" width="100" height="300"/></clipPath></defs><g clip-path="url(#thumb)">
+<rect x="440" y="175.0" width="100" height="50.0" rx="0" fill="#e7effb" stroke="#fff" stroke-width="2"/>
+<text x="455" y="202.5" font-size="25.0" fill="#263148">1</text>
+<rect x="440" y="225.0" width="100" height="50.0" rx="0" fill="#eaf4e8" stroke="#fff" stroke-width="2"/>
+<text x="455" y="252.5" font-size="25.0" fill="#263148">2</text>
+<rect x="440" y="275.0" width="100" height="50.0" rx="0" fill="#fff1d8" stroke="#fff" stroke-width="2"/>
+<text x="455" y="302.5" font-size="25.0" fill="#263148">3</text>
+<rect x="440" y="325.0" width="100" height="50.0" rx="0" fill="#f1e8fb" stroke="#fff" stroke-width="2"/>
+<text x="455" y="352.5" font-size="25.0" fill="#263148">4</text>
+<rect x="440" y="375.0" width="100" height="50.0" rx="0" fill="#e4f3f1" stroke="#fff" stroke-width="2"/>
+<text x="455" y="402.5" font-size="25.0" fill="#263148">5</text>
+<rect x="440" y="425.0" width="100" height="50.0" rx="0" fill="#f8e6ed" stroke="#fff" stroke-width="2"/>
+<text x="455" y="452.5" font-size="25.0" fill="#263148">6</text>
+</g>
+<rect x="440" y="175" width="100" height="50.0" rx="0" fill="#e0e4ec" stroke="#e0e4ec" stroke-width="2"/>
+<rect x="440" y="425.0" width="100" height="50.0" rx="0" fill="#e0e4ec" stroke="#e0e4ec" stroke-width="2"/>
+<path d="M433 225.0h114M433 425.0h114" stroke="#c5503e" stroke-width="3" fill="none" opacity="1"/>
+<path d="M42 325h300" stroke="#c5503e" stroke-width="3" fill="none" stroke-dasharray="7 5" opacity="1"/>
+<path d="M535 225.0v24l6-6 6 10 5-3-6-10h10z" fill="#263148" stroke="white" stroke-width="1"/>
+<circle cx="543" cy="233.0" r="16" fill="none" stroke="#c5503e" stroke-width="2"/>
+<path d="M560 270L560 230" stroke="#c5503e" stroke-width="3" fill="none" opacity="1"/>
+<path d="M564.79 238.78L560 230L555.21 238.78" stroke="#c5503e" stroke-width="3" fill="none" opacity="1"/>
+<text x="42" y="505" font-size="22" fill="#7652dc">保留段落：2–5</text>
+<text x="28" y="535" font-size="22" fill="#263148">导出前把首边界向外拖回。第2段从保留的拼接结果中恢</text>
+<text x="28" y="563" font-size="22" fill="#263148">复，无需重新捕获。</text>
+<text x="28" y="676" font-size="18" fill="#536078">操作示意</text>
+</g></svg>

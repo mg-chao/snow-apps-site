@@ -1,0 +1,17 @@
+diff --git a/dist/theme/components/Search/SearchPanel.js b/dist/theme/components/Search/SearchPanel.js
+index f57c8ff75e973991d95dfd34c5784dd12b776c02..def26c0df47565a5c6b00da57a90db48419e0870 100644
+--- a/dist/theme/components/Search/SearchPanel.js
++++ b/dist/theme/components/Search/SearchPanel.js
+@@ -88,10 +88,11 @@ function SearchPanel({ focused, setFocused }) {
+                     }
+                     break;
+                 case KEY_CODE.ENTER:
+-                    if (e.isComposing) return;
++                    if (!focused || e.isComposing) return;
+                     if (currentSuggestionIndex >= 0 && currentRenderType === RenderType.Default) {
+                         const flatSuggestions = Array.from(normalizeSuggestions(currentSuggestions).values()).flat();
+                         const suggestion = flatSuggestions[currentSuggestionIndex];
++                        if (!suggestion) break;
+                         navigate(suggestion.link);
+                         clearSearchState();
+                     }

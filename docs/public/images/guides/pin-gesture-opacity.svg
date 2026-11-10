@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1280" viewBox="0 0 720 1280" role="img"><title>同一个滚轮，两种操作</title>
+<rect width="720" height="1280" rx="24" fill="#f3f6fb"/>
+<g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+<text x="32" y="38" font-size="22" fill="#58708d" font-weight="600">操作示意</text>
+<text x="32" y="86" font-size="31" fill="#172e50" font-weight="700">同一个滚轮，两种操作</text>
+<rect x="32" y="140" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="156" width="624" height="64" rx="12" fill="#eaf0ff"/>
+<text x="60" y="198" font-size="28" fill="#2c57a5" font-weight="700">1. 不按修饰键：缩放</text>
+<text x="58" y="268" font-size="28" fill="#33465e" font-weight="400">回到普通图像视图。</text>
+<text x="58" y="310" font-size="28" fill="#33465e" font-weight="400">把指针放在贴图上滚动。</text>
+<text x="58" y="352" font-size="28" fill="#33465e" font-weight="400">显示比例改变，内容细节变大或变小。</text>
+<path d="M360 466v22m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round"/>
+<rect x="32" y="500" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="516" width="624" height="64" rx="12" fill="#fff2da"/>
+<text x="60" y="558" font-size="28" fill="#865414" font-weight="700">2. 按住 Ctrl/Command：不透明度</text>
+<text x="58" y="628" font-size="28" fill="#33465e" font-weight="400">Windows 按 Ctrl；macOS 按 Command。</text>
+<text x="58" y="670" font-size="28" fill="#33465e" font-weight="400">保持按住，再滚动鼠标滚轮。</text>
+<text x="58" y="712" font-size="28" fill="#33465e" font-weight="400">窗口显示更透明或更不透明。</text>
+<text x="58" y="754" font-size="28" fill="#33465e" font-weight="400">可调范围：25%–100%。</text>
+<path d="M360 826v22m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round"/>
+<rect x="32" y="860" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="876" width="624" height="64" rx="12" fill="#e6f6ee"/>
+<text x="60" y="918" font-size="28" fill="#20614a" font-weight="700">3. 松开修饰键，再检查</text>
+<text x="58" y="988" font-size="28" fill="#33465e" font-weight="400">松开后，滚轮恢复缩放用途。</text>
+<text x="58" y="1030" font-size="28" fill="#33465e" font-weight="400">滚轮不透明度步长可在贴图设置调整。</text>
+<text x="58" y="1072" font-size="28" fill="#33465e" font-weight="400">需要清楚阅读时，恢复到 100%。</text>
+<text x="58" y="1114" font-size="28" fill="#33465e" font-weight="400">源文件不会因此被覆写。</text>
+<text x="32" y="1235" font-size="24" fill="#4c6481" font-weight="400">先分清状态，再开始手势。</text>
+</g></svg>

@@ -12,7 +12,7 @@ Combine regions in one capture when you need only several pieces of a window, or
 ## Add a second region
 
 1. Use the screenshot shortcut (**F1** on Windows or **Control+1** on macOS by default) and select the first piece. Switch to **Move**. Its style bar shows add, subtract and region-shape controls.
-2. Click **Add screenshot region** and choose a rectangle or another region type. Hold the left button to select the second piece, then release to add it to the current selection.
+2. Click **Add screenshot region** and choose **Rectangle region**. Hold the left button to select the second piece, then release to add it. For a polyline or curve, click successive points and double-click the endpoint to finish; for freehand, hold and drag, then release. See [irregular regions](./irregular-regions.mdx).
 3. Check that both pieces remain. Drag inside a retained region to move that piece. To move the whole group, hold the default **Space** key during the drag, then release it.
 4. Continue adding regions, or return to Move to arrange them. If you change your mind during an add operation, press **Esc** to cancel that operation; the existing regions remain available.
 
@@ -33,13 +33,50 @@ Subtracting an area that does not intersect a retained region will not produce t
 
 In multiple-region mode, Move targets individual retained regions. A gap between pieces is not automatically a draggable region. Put the pointer inside a piece to move it. Hold the **Move entire selection** key (Space by default) while dragging to move the group; release it to return to individual movement. Hold **Ctrl on Windows or Command on macOS** while moving one region to enable snapping, and watch for edge alignment before releasing.
 
-Put the pointer where you want a copy, then press the default **R** key. This duplicates the **most recently created region bounds**, centers the new region near the pointer and keeps it within screen bounds. It works only with multiple regions, Move active, and no drawing or drag in progress. In an ordinary single selection, R has a previous-selection reuse context; its behavior depends on the current state.
+Put the pointer where you want a copy, then press the default **R** key. This duplicates the **shape and bounds of the most recently created region**, centers it near the pointer and keeps it within screen bounds. Moving or duplicating changes the capture bounds: the region shows screen content at its new position, rather than carrying the old region’s image pixels with it. It works only with multiple regions, Move active, and no drawing or drag in progress. In an ordinary single selection, R has a previous-selection reuse context; its behavior depends on the current state.
+
+<GuideSteps title="Move, snap and duplicate capture bounds" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/cap-region-move-1.svg",
+    "alt": "Start with two regions",
+    "label": "Start with two regions",
+    "caption": "The letters belong to the screen. Region 1 covers A and region 2 covers B."
+  },
+  {
+    "src": "/images/guides/en/cap-region-move-2.svg",
+    "alt": "Drag one region to a new position",
+    "label": "Drag one region to a new position",
+    "caption": "Drag region 1 over C and release. Region 2 stays put; region 1 now captures C, without carrying A along."
+  },
+  {
+    "src": "/images/guides/en/cap-region-move-3.svg",
+    "alt": "Hold Space to move both regions",
+    "label": "Hold Space to move both regions",
+    "caption": "Hold Space while dragging a retained region. Both regions move by the same offset; their shapes stay unchanged."
+  },
+  {
+    "src": "/images/guides/en/cap-region-move-4.svg",
+    "alt": "Snap one region to another",
+    "label": "Snap one region to another",
+    "caption": "Release Space. Hold Ctrl on Windows or Command on macOS while dragging region 1 near region 2’s left edge; release at the guide."
+  },
+  {
+    "src": "/images/guides/en/cap-region-move-5.svg",
+    "alt": "Press R to duplicate the latest region",
+    "label": "Press R to duplicate the latest region",
+    "caption": "With Move idle, point at D and press R. The new bounds copy region 2, the most recently created region, and capture D at the new position."
+  }
+]} />
 
 ## Compact layout, spacing and background
 
-**Compact layout** brings retained content together to reduce the gaps from its original positions. With it enabled, scroll over **Layout spacing** to adjust the gap; click the value to reset it to 0. This control is adjustable only with multiple regions.
+**Compact layout** brings retained content together to reduce the gaps from its original positions. With it enabled, scroll over **Layout spacing** to adjust the gap from **0–100**, using the px or dp unit shown on the control. Click the value to reset it to 0. This control is adjustable only with multiple regions. Compact layout changes the output arrangement without moving the sampled areas on the screen.
 
-**Selection background opacity** controls the background outside the regions but inside the combined bounding area. Scroll over the value to adjust it; click to reset to **0%**. For transparency, save in a format that supports it and inspect the image in a viewer. A chat or document app may display transparent areas using its own background color.
+**Selection background opacity** controls the background outside the regions but inside the combined bounding area. Scroll over the value to adjust it from **0–100%**; click to reset to **0%**. For transparency, save in a format that supports it and inspect the image in a viewer. A chat or document app may display transparent areas using its own background color.
+
+![Transparent gap at 0% versus original screen content at 100% for the same two regions](/images/guides/en/cap-region-background-opacity.svg)
+
+*Instructional illustration: Compact layout is off for this comparison; the checkerboard represents transparency. <a href="/images/guides/en/cap-region-background-opacity.svg" target="_blank" rel="noreferrer">View full size</a>.*
 
 ![Two separate rectangles without the original content between them](/images/guides/cap-regions-engine-result.webp)
 

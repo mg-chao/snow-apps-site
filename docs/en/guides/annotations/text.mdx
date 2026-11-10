@@ -13,7 +13,7 @@ Text annotations add explanations, name objects and describe steps. Prepare a sc
 
 1. Click **Text** in the main toolbar and choose text color and font size.
 2. Click where the explanation should appear to open a text-input area.
-3. Type your text and insert line breaks inside the input area for multiple lines. During input, arrow keys, deletion and selection operate on text content.
+3. Type your text and press **Enter** for a line break. During input, arrow keys and selection operate on text content. Use **Backspace** to delete preceding characters; Delete depends on the setting described below.
 4. Press **Esc** to commit the text and finish input. You can also use **Ctrl + Enter** on Windows or **Command + Return** on macOS. Confirm that the caret has disappeared before switching tools.
 5. Press **V** for **Select elements**, click truly empty canvas to clear the selection, then press and drag the unselected text in one gesture. Selecting the text with a separate click before dragging its letters re-enters text editing.
 
@@ -44,7 +44,28 @@ With **Select elements** or Text active, first click the existing text to select
 
 Press **Esc** to commit changes and finish input. Clicking outside the input area can also finish it; another click on empty canvas while Text remains active prepares new text. If an unwanted empty input area appears, press Esc to finish it, then V to select elements.
 
-Backspace deletes characters during input. With **Delete text after the cursor** enabled, Delete removes the selected text or the character after the caret. After leaving input and selecting the whole object, the delete key removes the text object. Do not delete the whole object when you only want to change a character.
+During input, **Backspace** removes selected text or the character before the caret. **Delete text after the cursor** is enabled by default: **Delete** then removes selected text or the character after the caret. If you disable this setting, Delete removes the entire text object and ends input even while you are typing. Check the setting or use Backspace when you only want to change characters. After leaving input and selecting the whole object, Delete / Backspace removes the text object.
+
+<GuideSteps title="Delete depends on a setting" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-input-text-delete-1.svg",
+    "alt": "Text input contains Step12 with the caret between 1 and 2; the purple box is already complete",
+    "label": "Locate the caret first",
+    "caption": "The existing text Step12 is being edited, with the caret between 1 and 2. Both following frames compare Delete from this state. The purple box helps check that other annotations remain."
+  },
+  {
+    "src": "/images/guides/en/ann-input-text-delete-2.svg",
+    "alt": "Delete text after the cursor is on; Delete removes only 2 while Step1 and the active caret remain",
+    "label": "Setting on: delete the next character",
+    "caption": "Keep Delete text after the cursor enabled, as in the default configuration. From frame 1, Delete removes the 2 after the caret and input continues. If text is selected, it removes that selection."
+  },
+  {
+    "src": "/images/guides/en/ann-input-text-delete-3.svg",
+    "alt": "With the same input but the setting off, Delete removes the entire text object and ends input; the purple box stays",
+    "label": "Setting off: remove the text object",
+    "caption": "Start again from frame 1 with Delete text after the cursor disabled, then press Delete. The whole text object is removed and input ends; other annotations remain. Use Backspace when you only want to delete characters."
+  }
+]} />
 
 ## Font, size and alignment
 
@@ -79,7 +100,40 @@ The canvas supports text associated with shapes or arrows. When the description 
 
 ## Correct and export
 
-Re-enter editing to fix content; select and delete the object to remove the entire explanation. Undo accidental size changes, movement or deletion; Redo restores them. Copy to clipboard exports the whole composite image, unlike copying selected characters inside the input area.
+Re-enter editing to fix content; select and delete the object to remove the entire explanation. While the caret is active, **Ctrl+Z** on Windows or **Command+Z** on macOS only undoes text edits in the current input session; it does not fall back to completed canvas objects. To undo object movement, creation or deletion, press **Esc** to finish input, then click **Undo** in the toolbar; **Redo** restores it. Copy to clipboard exports the whole composite image, unlike copying selected characters inside the input area.
+
+<GuideSteps title="Text Undo and canvas Undo" sourceLabel="Instructional illustration" frames={[
+  {
+    "src": "/images/guides/en/ann-input-text-undo-1.svg",
+    "alt": "The purple box has moved right from its gray reference position; Step1 is being edited to Step12 with a caret",
+    "label": "Move the box, then edit text",
+    "caption": "Create Step1 and a box, then move only the box to the right. Edit Step1 and append 2. Step12 is still in the current input session; the gray box only marks its position before the move."
+  },
+  {
+    "src": "/images/guides/en/ann-input-text-undo-2.svg",
+    "alt": "Undo in input removes the appended 2, leaving Step1 and the caret; the purple box remains on the right",
+    "label": "Undo during input changes text",
+    "caption": "With the caret active, press Ctrl+Z on Windows or Command+Z on macOS. The appended 2 is undone, returning to Step1 without moving the box. Exhausting text Undo does not switch to undoing the box move."
+  },
+  {
+    "src": "/images/guides/en/ann-input-text-undo-3.svg",
+    "alt": "After retyping 2 and finishing with Esc, Step12 remains without a caret; the box is still on the right",
+    "label": "Type 2 again, then commit with Esc",
+    "caption": "To compare canvas history, type 2 again, then press Esc to commit and finish input. Confirm the caret disappears. This text change is now the most recently completed edit."
+  },
+  {
+    "src": "/images/guides/en/ann-input-text-undo-4.svg",
+    "alt": "The first toolbar Undo restores committed Step12 to Step1 without a caret; the box stays on the right",
+    "label": "Canvas Undo first reverts the text edit",
+    "caption": "Click Undo in the toolbar. It first reverts the latest committed text change, from Step12 to Step1. The box remains on the right because its move happened earlier."
+  },
+  {
+    "src": "/images/guides/en/ann-input-text-undo-5.svg",
+    "alt": "The second toolbar Undo returns the purple box to its original left position while Step1 remains",
+    "label": "Undo again to revert the box move",
+    "caption": "Click toolbar Undo again to revert the earlier box move. The box returns left while Step1 remains. Redo restores these edits in the opposite order."
+  }
+]} />
 
 **Clicking opens another empty input area:** the existing text was missed. Leave input, choose Select elements and follow “select → click content.”
 

@@ -62,6 +62,10 @@ import { GuideSteps } from '../../../../theme/components/GuideSteps';
 
 垂直裁剪沿图像高度方向删除整行像素。它位于图像编辑器的**浮动主工具条**，与画布底部的适应窗口 / 100% 控件不同；悬停图标确认名称为 **垂直裁剪**。行、列裁剪都没有默认专用快捷键。
 
+![浮动主工具条的裁剪图标辨认：横虚线图标是垂直裁剪，删除整行；竖虚线图标是水平裁剪，删除整列](/images/guides/img-crop-tool-icons.svg)
+
+*操作示意。在浮动主工具条找到这两个相邻图标，再悬停核对“垂直裁剪”或“水平裁剪”。*
+
 1. 等待图片加载完成，结束文字输入，再点击 **垂直裁剪**。按钮显示激活状态；指针进入图片时出现定位线。
 2. 在图片内、要删除条带的上边缘按住左键，向下拖到下边缘；也可从下向上拖。红色预览横跨整张图片宽度，两条边界线之间显示要删除的源图像像素数 **N px**。
 3. 检查整条带没有包含要保留的内容，**松开左键即提交**，不需要再点确定。处理后上下内容接合，图片高度减少 N 像素，宽度不变。
@@ -73,6 +77,15 @@ import { GuideSteps } from '../../../../theme/components/GuideSteps';
   {src: '/images/guides/img-editor-1.svg', alt: '打开图片并查看需要保留的整图内容', label: '查看整图', caption: '先查看整图，确定要删除的横向条带。'},
   {src: '/images/guides/img-editor-2.svg', alt: '垂直裁剪的红色横带贯穿图片宽度', label: '拖出整行范围', caption: '沿高度方向拖动，检查整条带内有没有要保留的内容。'},
   {src: '/images/guides/img-editor-3.svg', alt: '删除横向条带后，上下内容接合', label: '松开并检查接缝', caption: '松开后删除对应整行，检查上下接合处，再保存结果。'}
+]} />
+
+取消后，先松开鼠标，再重新按下并拖动，才能产生新的待提交范围。下面区分“Esc 取消”和“松开提交”。
+
+<GuideSteps title="垂直裁剪：取消这一笔，再重新提交" sourceLabel="操作示意" frames={[
+  {"src": "/images/guides/img-crop-rows-cancel-1.svg", "alt": "按住左键预览贯穿整宽的40 px横带；底图仍为300×200，尚未提交。", "label": "按住预览 40 行", "caption": "按住左键预览贯穿整宽的40 px横带；底图仍为300×200，尚未提交。", "focus": {"x": 20, "y": 90, "width": 610, "height": 410, "imageWidth": 960, "imageHeight": 560}},
+  {"src": "/images/guides/img-crop-rows-cancel-2.svg", "alt": "按Esc后再松开左键，红色范围消失，原图未改；仍留在垂直裁剪工具。", "label": "按 Esc 后松开鼠标", "caption": "按Esc后再松开左键，红色范围消失，原图未改；仍留在垂直裁剪工具。", "focus": {"x": 20, "y": 90, "width": 610, "height": 410, "imageWidth": 960, "imageHeight": 560}},
+  {"src": "/images/guides/img-crop-rows-cancel-3.svg", "alt": "重新按下左键，再拖出40 px预览；前一次取消的拖动不会被提交。", "label": "重新按下并拖动", "caption": "重新按下左键，再拖出40 px预览；前一次取消的拖动不会被提交。", "focus": {"x": 20, "y": 90, "width": 610, "height": 410, "imageWidth": 960, "imageHeight": 560}},
+  {"src": "/images/guides/img-crop-rows-cancel-4.svg", "alt": "松开左键提交新拖动，图像高变为160，B上移40 px；剩余蓝线只是定位线。", "label": "松开提交", "caption": "松开左键提交新拖动，图像高变为160，B上移40 px；剩余蓝线只是定位线。", "focus": {"x": 20, "y": 90, "width": 610, "height": 410, "imageWidth": 960, "imageHeight": 560}}
 ]} />
 
 ## 水平裁剪：去掉一段纵向条带
@@ -95,6 +108,16 @@ import { GuideSteps } from '../../../../theme/components/GuideSteps';
 
 裁剪与标注按操作顺序进入同一编辑历史。在图片画布上点击 **撤销**，或使用默认的 Windows **Ctrl+Z** / macOS **Command+Z**，退回最近一步；**重做**默认 Windows **Ctrl+Y** / macOS **Command+Y**。刚完成裁剪后直接撤销会恢复条带和原图尺寸，重做会再次删除；如果裁剪后又画了一笔，第一次撤销先退掉这笔，下一次才恢复裁剪。
 
+下面先裁剪，再画一个新橙圈。连续撤销、重做时，观察最近的编辑先怎样变化。
+
+<GuideSteps title="裁剪后又画一笔：撤销与重做的顺序" sourceLabel="操作示意" frames={[
+  {"src": "/images/guides/img-crop-undo-order-1.svg", "alt": "裁去40行后再新画橙圈；橙圈成为最近一次编辑。", "label": "裁剪后新画橙圈", "caption": "裁去40行后再新画橙圈；橙圈成为最近一次编辑。", "focus": {"x": 20, "y": 90, "width": 610, "height": 410, "imageWidth": 960, "imageHeight": 560}},
+  {"src": "/images/guides/img-crop-undo-order-2.svg", "alt": "第一次撤销先移除橙圈；底图仍为300×160，裁剪尚未撤销。", "label": "撤销一次：先去橙圈", "caption": "第一次撤销先移除橙圈；底图仍为300×160，裁剪尚未撤销。", "focus": {"x": 20, "y": 90, "width": 610, "height": 410, "imageWidth": 960, "imageHeight": 560}},
+  {"src": "/images/guides/img-crop-undo-order-3.svg", "alt": "再撤销一次才恢复40行与300×200底图；此前的紫色箭头仍保留。", "label": "再撤销：恢复条带", "caption": "再撤销一次才恢复40行与300×200底图；此前的紫色箭头仍保留。", "focus": {"x": 20, "y": 90, "width": 610, "height": 410, "imageWidth": 960, "imageHeight": 560}},
+  {"src": "/images/guides/img-crop-undo-order-4.svg", "alt": "第一次重做先恢复40行裁剪，橙圈还没有恢复。", "label": "重做一次：恢复裁剪", "caption": "第一次重做先恢复40行裁剪，橙圈还没有恢复。", "focus": {"x": 20, "y": 90, "width": 610, "height": 410, "imageWidth": 960, "imageHeight": 560}},
+  {"src": "/images/guides/img-crop-undo-order-5.svg", "alt": "再重做一次，橙圈恢复；图像仍为300×160。", "label": "再重做：橙圈恢复", "caption": "再重做一次，橙圈恢复；图像仍为300×160。", "focus": {"x": 20, "y": 90, "width": 610, "height": 410, "imageWidth": 960, "imageHeight": 560}}
+]} />
+
 正在输入标注文字时，撤销处理的是文字编辑，先按 Esc 结束输入再操作画布。识别文字的编辑状态也有自己的文字历史；要撤销图片裁剪，先点击裁剪工具回到图片画布。裁剪或恢复条带时等待画布和工具条恢复可用，再继续编辑、撤销或导出。
 
 尽量先裁剪，再添加标注。裁剪底图时，本次添加的可编辑标注会保留原位置；裁剪后检查箭头指向和文字位置，必要时重新移动。重新打开已保存的图片时，原有标注已是图片内容，会和底图一起裁剪。
@@ -108,9 +131,16 @@ import { GuideSteps } from '../../../../theme/components/GuideSteps';
   {src: '/images/guides/img-crop-history-4.svg', alt: '重做后恢复300×160图像，B回到y105，箭头始终保留y145', label: '重做恢复裁剪', caption: '重做恢复300×160裁剪结果；B回到y=105，箭头仍在y=145。', focus: {x: 20, y: 90, width: 610, height: 410, imageWidth: 960, imageHeight: 560}}
 ]} />
 
+下面两侧的起始外观相同，右侧箭头已经保存成普通图片并重新打开。删除相同的40行后，比较可编辑箭头与已合成箭头的位置。
+
+<GuideSteps title="同样的裁剪，可编辑与已合成标注怎样变化" sourceLabel="操作示意" frames={[
+  {"src": "/images/guides/img-crop-flattened-1.svg", "alt": "左侧箭头仍可编辑，右侧箭头已保存成图像像素；起始均在y=145。", "label": "外观相同，内容状态不同", "caption": "左侧箭头仍可编辑，右侧箭头已保存成图像像素；起始均在y=145。", "focus": {"x": 20, "y": 90, "width": 920, "height": 410, "imageWidth": 960, "imageHeight": 560}},
+  {"src": "/images/guides/img-crop-flattened-2.svg", "alt": "删除40行后，两边底图B均移到y=105；只有可编辑箭头仍保留y=145。", "label": "删除相同的40行", "caption": "删除40行后，两边底图B均移到y=105；只有可编辑箭头仍保留y=145。", "focus": {"x": 20, "y": 90, "width": 920, "height": 410, "imageWidth": 960, "imageHeight": 560}}
+]} />
+
 工具条可把当前结果复制到剪贴板、保存为文件或快速保存，也可进入文本、表格和条码识别。识别处理的是当前编辑结果，先检查裁剪与标注是否合适。
 
-关闭有未保存编辑的窗口时，应用提示 **放弃更改** 或 **继续编辑**。需要成品图时先保存，避免把关闭窗口当作保存动作。
+复制、保存、快速保存或固定成功后，编辑窗口保持打开，便于继续修改；后续修改需要再次输出。关闭时如果出现提示，选择 **继续编辑** 返回，或选择 **放弃更改** 关闭。需要本地文件时先执行 **保存为文件** 并检查文件，不能仅靠是否出现关闭提示判断文件已保存。
 
 ## Windows 文件的“使用 Snow Shot 编辑”
 

@@ -3,7 +3,7 @@ import { useLang } from '@rspress/core/runtime';
 import './GuideRecordingDemo.css';
 
 const captureStepsZh = [
-  ['调整录制区域', '开始前拖动边框，确认内容落在录制区域内。'],
+  ['调整录制区域', '开始前拖边框改大小，拖右下角移动控件改位置。'],
   ['开始录制', '点击开始后，按钮变为录制中的控制项。'],
   ['暂停录制', '点击暂停，整理桌面后再继续。'],
   ['继续录制', '点击继续，接着录制后续操作。'],
@@ -28,7 +28,7 @@ export default function GuideRecordingDemo({
     ? [
         [
           'Adjust the recording region',
-          'Before starting, drag its border and check that the content fits.',
+          'Before starting, resize by the border or move with the lower-right control.',
         ],
         [
           'Start recording',

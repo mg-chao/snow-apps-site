@@ -27,5 +27,8 @@
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "typescript": "^6.0.3"
+  },
+  "patchedDependencies": {
+    "@rspress/core@2.0.22": "patches/@rspress%2Fcore@2.0.22.patch"
   }
 }

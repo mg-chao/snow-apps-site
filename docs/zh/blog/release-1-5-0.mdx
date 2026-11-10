@@ -2,7 +2,7 @@
 title: "1.5.0 解读：截图固定后，怎样继续修改原来的标注"
 description: "开启截图到贴图的可编辑标注交接，检查对象选择、撤销与导出结果，理解 Snow Shot 1.5.0 引入的行为及合成图片的限制。"
 blog: true
-date: "2026-11-09"
+date: "2026-11-10"
 category: "releases"
 productVersion: "1.5.0–1.5.2"
 platforms: "Windows / macOS · Full / Mini"
@@ -31,6 +31,10 @@ releaseDate: "2026-11-07T17:02:45Z"
 
 *教学示意。此设置控制截图到贴图的交接，不是给任何图片增加“反合成”能力。*
 
+![固定到屏幕后保持标注可编辑设置行，右侧开关已开启](/images/blog/pin-editable-setting-152.webp)
+
+*操作截图。开启后，用新截图测试对象交接。*
+
 ## 做一次能判断成功的测试
 
 1. 用截图动作框选一小段非敏感内容。新配置默认 Windows **F1**、macOS **Control+1**；已有绑定以全局快捷键页为准。
@@ -38,7 +42,7 @@ releaseDate: "2026-11-07T17:02:45Z"
 3. 在得到的贴图进入标注模式，激活相应工具，点选原来的箭头。出现端点或对象边界后，移动或修改它；文字也应作为原对象检查。
 4. 用撤销/重做按钮检查刚才的变化。只有图像窗口出现而没有选择原对象，还不能证明交接成功。
 
-![可编辑文字对象及选择边界](/images/guides/ann-text-move-app-before.webp)
+![可编辑文字对象及选择边界](/images/blog/pin-object-selected-152.webp)
 
 *操作截图。对象被选中后会出现边界或控制点。*
 
@@ -46,7 +50,7 @@ releaseDate: "2026-11-07T17:02:45Z"
 
 光标还在文字内部时，按键优先用于编辑文字。先结束输入，再选择对象。拖动对象与拖动整个贴图是不同动作；移动后观察箭头和底图之间的位置关系：只有对象相对底图变化才是对象编辑。
 
-![结束输入后将 Step 1 文字拖动到新位置的真实结果](/images/guides/ann-text-move-app-after.webp)
+![在贴图中把 Check ticket 原文字对象移到新位置的真实结果](/images/blog/pin-object-moved-152.webp)
 
 *操作截图。观察文字相对底图的位置变化。*
 

@@ -15,9 +15,11 @@ When viewers need to see where the pointer is, what you clicked, or which keys y
 
 1. Open **Export settings** on the recording toolbar. Click **Show cursor in recording** to control whether the pointer appears in the result. Operation tutorials usually need it visible.
 2. Hover over the cursor button to expand mouse options. Enable **Mouse highlight** for a highlighted area around the pointer, **Record mouse clicks** for effects at click positions, and **Record mouse scrolling** to indicate scrolling.
-3. Click the settings button to open **Effect settings**, then find **Mouse highlight color** and **Mouse highlight radius**. Choose a color contrasting with the captured page and a radius of **8–128 px**. Check that it locates the pointer without covering the target control.
-4. Adjust **Mouse trail color** and **Mouse click color** in export settings. Set **Mouse trail duration** in effect settings, in milliseconds. Color opacity also affects visibility; a fully transparent effect will be difficult to see.
+3. Click **Settings** at the end of **Export settings** to open **Effect settings**, then find **Mouse highlight color** and **Mouse highlight radius**. Choose a color contrasting with the captured page and a radius of **8–128 px**. Check that it locates the pointer without covering the target control.
+4. Adjust **Mouse trail color** and **Mouse click color** in export settings. Set **Mouse trail duration** in effect settings from **100 to 2000 ms**; its step controls change the value by 100 ms. Color opacity also affects visibility; a fully transparent effect will be difficult to see.
 5. Move, click, and scroll in the preview area to check colors and sizes before recording. If the result looks crowded, shorten the trail duration or disable unnecessary indicators.
+
+Changes in Effect settings update the preview directly; closing the window does not revert them. Click **OK** when finished. To undo a setting change, reopen it and restore the previous value. Configure cursor, keyboard, webcam, and post-processing options before starting capture.
 
 ## Display only the keys you need
 
@@ -34,7 +36,7 @@ For a shortcut tutorial, reduce ordinary input categories while retaining contro
 
 In **Effect settings**, set **Keyboard size** (**32–128 px**), **Keyboard background color**, and **Keyboard foreground color**. For light recorded content, try a dark background and light text. If keys cover the content, reduce their size and inspect the final recording.
 
-On macOS, displaying global keystrokes needs the relevant Input Monitoring/Accessibility permissions. If keyboard recording fails, check permissions and retry. An enabled button alone does not prove that input was captured.
+On macOS, displaying global keystrokes requires **Input Monitoring** permission. If keyboard recording fails, check Input Monitoring under **Settings → App permissions**, then retry. An enabled button alone does not prove that input was captured.
 
 ## Add playback progress
 

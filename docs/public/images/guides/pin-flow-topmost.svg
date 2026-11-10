@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1280" viewBox="0 0 720 1280" role="img"><title>决定当前贴图是否始终置顶</title>
+<rect width="720" height="1280" rx="24" fill="#f3f6fb"/>
+<g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+<text x="32" y="38" font-size="22" fill="#58708d" font-weight="600">操作示意</text>
+<text x="32" y="86" font-size="31" fill="#172e50" font-weight="700">决定当前贴图是否始终置顶</text>
+<rect x="32" y="140" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="156" width="624" height="64" rx="12" fill="#eaf0ff"/>
+<text x="60" y="198" font-size="28" fill="#2c57a5" font-weight="700">1. 找到当前窗口的开关</text>
+<text x="58" y="268" font-size="28" fill="#33465e" font-weight="400">在要设置的贴图上打开右键菜单。</text>
+<text x="58" y="310" font-size="28" fill="#33465e" font-weight="400">进入「固定到屏幕管理」。</text>
+<text x="58" y="352" font-size="28" fill="#33465e" font-weight="400">找到「始终置顶」。</text>
+<path d="M360 466v22m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round"/>
+<rect x="32" y="500" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="516" width="624" height="64" rx="12" fill="#fff2da"/>
+<text x="60" y="558" font-size="28" fill="#865414" font-weight="700">2. 勾选：保持在普通窗口上方</text>
+<text x="58" y="628" font-size="28" fill="#33465e" font-weight="400">勾选「始终置顶」。</text>
+<text x="58" y="670" font-size="28" fill="#33465e" font-weight="400">切到另一个普通窗口，检查叠放关系。</text>
+<text x="58" y="712" font-size="28" fill="#33465e" font-weight="400">这不会同时开启锁定或鼠标穿透。</text>
+<path d="M360 826v22m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round"/>
+<rect x="32" y="860" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="876" width="624" height="64" rx="12" fill="#e6f6ee"/>
+<text x="60" y="918" font-size="28" fill="#20614a" font-weight="700">3. 取消：恢复普通叠放</text>
+<text x="58" y="988" font-size="28" fill="#33465e" font-weight="400">再次打开同一菜单，取消勾选。</text>
+<text x="58" y="1030" font-size="28" fill="#33465e" font-weight="400">检查贴图与其他普通窗口的前后关系。</text>
+<text x="58" y="1072" font-size="28" fill="#33465e" font-weight="400">只改变当前贴图的置顶状态。</text>
+<text x="32" y="1235" font-size="24" fill="#4c6481" font-weight="400">先核对目标，再执行菜单操作。</text>
+</g></svg>

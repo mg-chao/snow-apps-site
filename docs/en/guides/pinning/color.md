@@ -16,7 +16,7 @@ A color card displays a desktop swatch with HEX, RGB, and HSL values for visual 
 1. Enter a complete value such as `#FF0000` in a plain-text editor and copy only that text. Use plain text first to avoid rich text or images selecting a different pin flow.
 2. Invoke **Pin clipboard content to screen**—**F3** on Windows or **Control+3** on macOS in a new configuration. Use the configured binding if changed.
 3. A valid value produces a desktop card with a swatch and HEX, RGB, and HSL values. Check the swatch before using conversions.
-4. Move it beside your work like an ordinary pin. You can close it, or use pin saving to retain a reference image.
+4. Move the window beside your work like an ordinary pin. For a card image, right-click **Save as file**, choose its name, folder, and image format, then open the result to check the swatch and values. To copy color text, use the format-row controls below.
 
 ## Accepted input formats
 

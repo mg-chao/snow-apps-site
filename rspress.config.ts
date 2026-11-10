@@ -15,8 +15,8 @@ export default defineConfig({
   search: { searchHooks: path.join(__dirname, 'theme/guide-search.ts') },
   icon: '/app-icon.ico',
   mediumZoom: {
-    // Linked images are controls; clicking them should follow the link.
-    selector: '.rspress-doc img:not(a img)',
+    // Focused steps use their full-size link; inline offsets cannot be zoomed.
+    selector: '.rspress-doc img:not(a img):not(.snow-guide-steps__focus img)',
   },
   route: {
     // Language preferences only suggest a switch; each URL keeps its language.

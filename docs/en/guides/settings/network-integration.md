@@ -13,8 +13,8 @@ Network proxy settings control online connections. System integration provides e
 
 ## Set the network proxy
 
-1. Open **Settings → Network & connections → Network proxy**. Under **Proxy**, choose **No proxy**, **Use system proxy**, or **Manual configuration**.
-2. Choose **No proxy** for direct connections, **Use system proxy** to follow the operating system, or **Manual configuration** to specify your own valid server in **HTTP/HTTPS proxy**.
+1. Open **Settings → Network & connections → Network proxy**. Under **Proxy**, choose **No proxy**, **Use system proxy**, or **Manual configuration**. The initial choice is No proxy; check the current choice in an existing configuration.
+2. Choose **No proxy** for direct connections or **Use system proxy** to follow the operating system. **HTTP/HTTPS proxy** becomes editable only with **Manual configuration**. Enter your actual proxy address, for example `http://127.0.0.1:7890`, using the port your service provides. This field uses an **HTTP proxy** for both HTTP and HTTPS requests; it does not accept `https://` or SOCKS proxy addresses, other paths, queries, or fragments. Press Enter or click another control to finish editing. Correct any field error before treating the address as saved.
 3. Return to the online operation that failed and submit it again. Judge recovery by the actual result; successfully saving a proxy address does not prove the connection works.
 4. For a timeout or connection failure, check that the proxy service is running and the destination is reachable. When returning to a network that needs no proxy, select an appropriate mode.
 
@@ -24,7 +24,7 @@ The full edition also offers a server address for Snow Shot's built-in online se
 
 Under **Settings → General**, choose the **Windows context menu** mode in system integration: image files only, image and document files, or disabled. Once enabled, right-click a supported file in the system file manager and select **Edit with Snow Shot** to enter its pinning/editing workflow. For keyboard access, configure a single-letter or digit access key under **Settings → Application shortcuts → Windows context menu**.
 
-Windows also offers an administrator-startup setting and a restart-as-administrator action. Use them when the task needs those privileges and follow the system prompt. Finish current editing or recording first because restarting changes the running application process. Administrator mode is not a general fix for network, encoding, or image-format errors.
+On Windows, the standalone installer and portable package also offer an administrator-startup setting and a restart-as-administrator action; Microsoft Store installations hide both options. Use them when the task needs those privileges and follow the system prompt. Finish current editing or recording first because restarting changes the running application process. Administrator mode is not a general fix for network, encoding, or image-format errors.
 
 On macOS, startup is managed through system login-item settings, separately from Windows context-menu and administrator options. See [installation and startup](../getting-started/install) for startup and update settings.
 
@@ -42,10 +42,10 @@ These options are under **Settings → General**. Change one at a time when inve
 
 ## Connect an MCP client
 
-1. Open **Settings → Network & connections → MCP** and enable **Enable MCP integration**. Check that the connection status shows a running service. Snow Shot must remain open.
+1. Open **Settings → Network & connections → MCP** and find **Enable MCP integration**. It is initially off; turn it on when you need to connect a client and wait for **Running**, meaning the local service has started. Snow Shot must remain open.
 2. Inspect the generated configuration under **MCP connection and client setup**, then click **Copy configuration**.
 3. Add it to your MCP client's configuration. If other services already exist, merge server entries instead of replacing the whole configuration. Use the locally generated program path.
-4. Restart or reconnect as required by the client. Return to Snow Shot and check the connection count to confirm a client connection.
+4. Restart or reconnect as required by the client. Return to Snow Shot and inspect **Connected clients**. **Running** with a count of 0 means the service has started but no client is connected. The count increases when a client connects successfully.
 5. Disable integration when no longer needed. For a failed connection, check that Snow Shot is running, integration is enabled, and configured paths still exist, then restart the client.
 
 Full and Mini configurations contain their respective command names. Copy the configuration again after changing installation location. The page also shows the local endpoint descriptor location, used for discovery rather than a public browser API.

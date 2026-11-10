@@ -3,6 +3,7 @@ from html.parser import HTMLParser
 from urllib.parse import unquote
 import csv,json,re,unicodedata
 from guide_acceptance import load_inputs,evaluate,status_text
+from guide_code_validation import source_mode, evaluate_all
 root=Path(__file__).resolve().parents[1]
 class Page(HTMLParser):
  def __init__(self,s):
@@ -65,6 +66,9 @@ for x in rows:
  if result['required_scopes']:
   progress='；作用域证据：'+('已验收 '+','.join(result['accepted_scopes']) if result['accepted_scopes'] else '尚无完整发行作用域通过')
   x['Operational verification status']+=progress
+if source_mode(root):
+ code_evaluation=evaluate_all(root,rows,issues,asset_gaps)
+ print('source analysis:',code_evaluation['complete_operations'],'complete,',code_evaluation['pending_operations'],'pending')
 cols=list(rows[0])
 with (root/'artifacts/guide-coverage.csv').open('w',newline='') as f:
  w=csv.DictWriter(f,fieldnames=cols);w.writeheader();w.writerows(rows)

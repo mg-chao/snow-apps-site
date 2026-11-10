@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1280" viewBox="0 0 720 1280" role="img"><title>短单击选择，再移动整组</title>
+<rect width="720" height="1280" rx="24" fill="#f3f6fb"/>
+<g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+<text x="32" y="38" font-size="22" fill="#58708d" font-weight="600">操作示意</text>
+<text x="32" y="86" font-size="31" fill="#172e50" font-weight="700">短单击选择，再移动整组</text>
+<rect x="32" y="140" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="156" width="624" height="64" rx="12" fill="#eaf0ff"/>
+<text x="60" y="198" font-size="28" fill="#2c57a5" font-weight="700">1. 短单击切换选择</text>
+<text x="58" y="268" font-size="28" fill="#33465e" font-weight="400">非实时贴图，退出缩略图和鼠标穿透。</text>
+<text x="58" y="310" font-size="28" fill="#33465e" font-weight="400">按住 Ctrl；macOS 使用 Command。</text>
+<text x="58" y="352" font-size="28" fill="#33465e" font-weight="400">短单击 A、B，出现各自的选择标记。</text>
+<text x="58" y="394" font-size="28" fill="#33465e" font-weight="400">再次短单击同一张，可取消它的选择。</text>
+<path d="M360 466v22m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round"/>
+<rect x="32" y="500" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="516" width="624" height="64" rx="12" fill="#fff2da"/>
+<text x="60" y="558" font-size="28" fill="#865414" font-weight="700">2. 两张以上：拖动整组</text>
+<text x="58" y="628" font-size="28" fill="#33465e" font-weight="400">解除锁定，再拖选中贴图的可移动区域。</text>
+<text x="58" y="670" font-size="28" fill="#33465e" font-weight="400">选中的窗口一起移动。</text>
+<text x="58" y="712" font-size="28" fill="#33465e" font-weight="400">拖边缘可一起调整大小。</text>
+<text x="58" y="754" font-size="28" fill="#33465e" font-weight="400">松开提交；拖动中 Esc 取消。</text>
+<path d="M360 826v22m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round"/>
+<rect x="32" y="860" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="876" width="624" height="64" rx="12" fill="#e6f6ee"/>
+<text x="60" y="918" font-size="28" fill="#20614a" font-weight="700">3. 先区分短点和拖动</text>
+<text x="58" y="988" font-size="28" fill="#33465e" font-weight="400">Ctrl/Command＋短单击：切换选择。</text>
+<text x="58" y="1030" font-size="28" fill="#33465e" font-weight="400">只选一张时，修饰键拖动可导出内容。</text>
+<text x="58" y="1072" font-size="28" fill="#33465e" font-weight="400">两张以上选中时，可能改为移动整组。</text>
+<text x="58" y="1114" font-size="28" fill="#33465e" font-weight="400">用各窗口的选择标记取消选择。</text>
+<text x="32" y="1235" font-size="24" fill="#4c6481" font-weight="400">先分清状态，再开始手势。</text>
+</g></svg>

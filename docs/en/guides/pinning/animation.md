@@ -24,7 +24,7 @@ Copying only the frame currently displayed by a browser may place a static image
 
 Choose **Pause** to hold the current frame; the command becomes **Play**. Click Play to resume.
 
-Use **Next frame** and **Previous frame** to inspect adjacent moments, such as before and after a click. Pause first so continuous playback does not interfere.
+Choosing **Next frame** or **Previous frame** stops continuous playback and shows the adjacent frame. Stepping beyond the last or first frame wraps to the other end. Click **Play** to resume continuous playback.
 
 Under **Playback speed: …**, choose **Increase speed** or **Decrease speed**. The submenu title shows the current percentage. The supported range is **10%–400%**; **Reset speed** restores normal speed. This changes desktop playback, not the encoding of the original file.
 
@@ -40,7 +40,7 @@ Animated-window menus differ from static-image pins. To annotate a frame, obtain
 
 ## If playback fails
 
-For “Cannot play this animation,” open the original in another image application to check integrity, then reload. If only the first frame appears, confirm the file contains multiple frames and you copied the file rather than its static preview. Check paused and thumbnail states too.
+For “The animation could not be played,” open the original in another image application to check integrity, then reload. If only the first frame appears, confirm the file contains multiple frames and you copied the file rather than its static preview. Check paused and thumbnail states too.
 
 Rotation, flipping, or cropping may require preparing new display frames. Wait before continuing. Retain the original file for long-term use rather than relying solely on pin records.
 

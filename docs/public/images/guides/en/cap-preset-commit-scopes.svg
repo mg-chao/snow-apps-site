@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="1160" viewBox="0 0 600 1160" role="img" aria-labelledby="title"><title id="title">Presets and Cancel have separate scopes</title>
+<g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+<rect x="1" y="1" width="598" height="1158" rx="14" fill="#f6f7fc" stroke="#cbd4e4"/>
+<text x="28" y="41" font-size="27" fill="#263148">Presets and Cancel have separate scopes</text>
+<rect x="26" y="90" width="548" height="220" rx="12" fill="#ffffff" stroke="#cbd4e4" stroke-width="2"/>
+<rect x="26" y="340" width="548" height="220" rx="12" fill="#ffffff" stroke="#cbd4e4" stroke-width="2"/>
+<rect x="26" y="590" width="548" height="220" rx="12" fill="#ffffff" stroke="#cbd4e4" stroke-width="2"/>
+<rect x="26" y="840" width="548" height="220" rx="12" fill="#ffffff" stroke="#cbd4e4" stroke-width="2"/>
+<path d="M300 314v20m-7-7 7 7 7-7" fill="none" stroke="#7652dc" stroke-width="3"/>
+<path d="M300 564v20m-7-7 7 7 7-7" fill="none" stroke="#7652dc" stroke-width="3"/>
+<path d="M300 814v20m-7-7 7 7 7-7" fill="none" stroke="#7652dc" stroke-width="3"/>
+<text x="46" y="125" font-size="24" fill="#263148">1. Confirm Add preset separately</text>
+<text x="46" y="375" font-size="24" fill="#263148">2. Hover a saved preset to delete</text>
+<text x="46" y="625" font-size="24" fill="#263148">3. Read the delete confirmation</text>
+<text x="46" y="875" font-size="24" fill="#263148">4. Cancel the size adjustment</text>
+<text x="46" y="166" font-size="22" fill="#263148">Selection: 640 × 360</text>
+<text x="46" y="201" font-size="22" fill="#263148">Fields: 800 × 450 (not applied)</text>
+<rect x="44" y="224" width="512" height="65" rx="12" fill="#e9f5ef" stroke="#9ccbb1" stroke-width="2"/>
+<text x="58" y="251" font-size="21" fill="#263148">Add preset → Name: Cover → Add</text>
+<text x="58" y="278" font-size="20" fill="#256145">Cover is now saved.</text>
+<text x="46" y="410" font-size="20" fill="#536078">Quick set</text>
+<rect x="44" y="425" width="512" height="48" rx="12" fill="#ebe6fb" stroke="#7652dc" stroke-width="2"/>
+<text x="58" y="456" font-size="22" fill="#263148">Old cover</text>
+<g transform="translate(509 433) scale(.03125)" fill="#c53b4c"><path d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"/></g>
+<rect x="44" y="481" width="512" height="42" rx="12" fill="#ffffff" stroke="#cbd4e4" stroke-width="2"/>
+<text x="58" y="509" font-size="22" fill="#263148">Cover</text>
+<text x="46" y="550" font-size="20" fill="#263148">The delete icon appears on hover.</text>
+<text x="46" y="670" font-size="22" fill="#263148">Delete preset &quot;Old cover&quot;?</text>
+<text x="46" y="702" font-size="21" fill="#b53849">This action cannot be undone.</text>
+<text x="46" y="744" font-size="21" fill="#263148">Delete → Remove; Cancel → Keep</text>
+<text x="46" y="776" font-size="19" fill="#536078">Confirm Delete to continue below.</text>
+<text x="46" y="922" font-size="22" fill="#263148">Selection remains 640 × 360.</text>
+<text x="46" y="959" font-size="22" fill="#263148">Cover (800 × 450) remains saved.</text>
+<text x="46" y="996" font-size="22" fill="#263148">Old cover does not return.</text>
+<text x="46" y="1033" font-size="20" fill="#7652dc">Cancel does not undo preset changes.</text>
+<text x="28" y="1137" font-size="18" fill="#536078">Instructional illustration</text>
+</g></svg>

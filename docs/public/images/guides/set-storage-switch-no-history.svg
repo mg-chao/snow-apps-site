@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1330" viewBox="0 0 720 1330" role="img" aria-labelledby="title desc">
+<title id="title">更换数据目录，保留原处历史</title>
+<desc id="desc">目录 A 为当前目录，目录 B 为新目标。 关闭迁移现有数据 → 核对范围，再开始切换 → 检查当前目录和历史位置</desc>
+<rect width="720" height="1330" rx="24" fill="#f3f6fb"/>
+<g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+<text x="32" y="37" font-size="22" fill="#58708d" font-weight="600">操作示意 · Windows</text>
+<text x="32" y="84" font-size="32" fill="#172e50" font-weight="700">更换数据目录，保留原处历史</text>
+<text x="32" y="157" font-size="23" fill="#4c6481" font-weight="400">目录 A 为当前目录，目录 B 为新目标。</text>
+<rect x="32" y="188" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="204" width="624" height="64" rx="12" fill="#eaf0ff"/>
+<circle cx="78" cy="236" r="21" fill="#2c57a5"/>
+<text x="71" y="245" font-size="26" fill="#fff" font-weight="700">1</text>
+<text x="112" y="246" font-size="28" fill="#2c57a5" font-weight="700">关闭迁移现有数据</text>
+<text x="58" y="314" font-size="28" fill="#33465e" font-weight="400">设置 → 导出与存储 → 数据存储</text>
+<text x="58" y="356" font-size="28" fill="#33465e" font-weight="400">存储目录 → 选择目录</text>
+<text x="58" y="398" font-size="28" fill="#33465e" font-weight="400">将目标路径设为目录 B。</text>
+<text x="58" y="440" font-size="28" fill="#33465e" font-weight="400">迁移现有数据：关闭</text>
+<path d="M360 515v23m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="32" y="550" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="566" width="624" height="64" rx="12" fill="#fff2da"/>
+<circle cx="78" cy="598" r="21" fill="#865414"/>
+<text x="71" y="607" font-size="26" fill="#fff" font-weight="700">2</text>
+<text x="112" y="608" font-size="28" fill="#865414" font-weight="700">核对范围，再开始切换</text>
+<text x="58" y="676" font-size="28" fill="#33465e" font-weight="400">点击确定，阅读“更改存储目录？”。</text>
+<text x="58" y="718" font-size="28" fill="#33465e" font-weight="400">复制到 B：设置、打开的贴图</text>
+<text x="58" y="760" font-size="28" fill="#33465e" font-weight="400">留在 A：截图与已关闭贴图历史</text>
+<text x="58" y="802" font-size="28" fill="#33465e" font-weight="400">点击继续，等待处理结束。</text>
+<path d="M360 877v23m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="32" y="912" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="928" width="624" height="64" rx="12" fill="#e6f6ee"/>
+<circle cx="78" cy="960" r="21" fill="#20614a"/>
+<text x="71" y="969" font-size="26" fill="#fff" font-weight="700">3</text>
+<text x="112" y="970" font-size="28" fill="#20614a" font-weight="700">检查当前目录和历史位置</text>
+<text x="58" y="1038" font-size="28" fill="#33465e" font-weight="400">当前有效目录：B</text>
+<text x="58" y="1080" font-size="28" fill="#33465e" font-weight="400">B 中有复制的设置和打开的贴图。</text>
+<text x="58" y="1122" font-size="28" fill="#33465e" font-weight="400">原有截图与已关闭贴图历史仍在 A。</text>
+<text x="58" y="1164" font-size="28" fill="#33465e" font-weight="400">回到数据存储区域核对目录和占用。</text>
+<text x="32" y="1284" font-size="23" fill="#4c6481" font-weight="400">切换前，先决定是否需要一并迁移历史。</text>
+</g>
+</svg>

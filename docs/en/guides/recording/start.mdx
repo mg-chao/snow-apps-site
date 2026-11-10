@@ -12,11 +12,11 @@ Use screen recording to demonstrate a sequence of actions. Choose the area and o
 ## Enter recording and choose the area
 
 1. On the main window's **Global shortcuts** page, find **Screen recording** and click the action row's title or empty area. The key button on the right configures a shortcut. In the selection interface, drag the area to record and release the mouse. Alternatively, start an ordinary screenshot, select an area, and click **Screen recording** on its action toolbar. The recording border and toolbar indicate that recording is ready to set up.
-2. Before starting, drag the recording border or its move area to adjust the position and size. Check that the window and any menus you will demonstrate fit inside the border. The toolbar moves with the area.
-3. Open **Export settings** on the recording toolbar. Under **Recording format**, choose MP4, GIF, APNG, or WebP. Choose MP4 for sound; the other three produce silent animations.
-4. For preparation time, scroll over **Delay recording (scroll to adjust)** to change the number of seconds. Click that control to reset it to zero. Click **Start recording**; if a delay is set, wait for the countdown to finish before demonstrating your actions.
+2. Before starting, expand **Export settings** to enable area adjustment. Drag an edge or corner to resize, or drag the move control at the area's lower-right corner to reposition it. Release to finish. Check that the window and any menus you will demonstrate fit inside the border; the toolbar moves with the area. Press **Esc** during a drag to restore the previous area, then release before trying again.
+3. In the same **Export settings**, choose MP4, GIF, APNG, or WebP under **Recording format**. Choose MP4 for sound; the other three produce silent animations.
+4. For preparation time, scroll over **Delay recording (scroll to adjust)** to select **0–10 seconds** in one-second steps. Click that control to reset it to zero. Click **Start recording**; if a delay is set, wait for the countdown to finish before demonstrating your actions.
 
-Before starting, click **Close recording** to leave setup without starting capture. Once recording has started, paused, or entered processing, you cannot resize the capture area as you can during preparation. Stop this recording and select a new area when you need a different scope.
+Before starting, click **Close recording** to leave setup without starting capture. While the countdown is still running, **Close recording** cancels it and exits. Once recording has started, paused, or entered processing, you cannot resize the capture area as you can during preparation. Stop this recording and select a new area when you need a different scope.
 
 <GuideRecordingDemo mode="capture" />
 
@@ -32,7 +32,9 @@ Before starting, click **Close recording** to leave setup without starting captu
 
 Start, pause, and resume share a configurable recording shortcut action that responds to the current state. Check your binding under **Settings → Application shortcuts → Screen recording** or in the button tooltip. Avoid repeatedly clicking during startup or stopping.
 
-**Close recording** leaves the recording window; it differs from stopping to save. If **Settings → Screen recording → Interaction → Delete files on recording close** is enabled, closing an active recording deletes this session's file. Use stop or copy when you need the result.
+**Close recording** leaves the recording window. If **Settings → Screen recording → Interaction → Delete files on recording close** is enabled, closing an active or paused take discards its unfinished data. If it is off, closing stops capture and continues processing the output. This option does not delete previously exported files. Use stop or copy when you need the result, and wait for processing to finish.
+
+Do not use **Close recording** to cancel an export. If stopping or a trim export is already being processed, that work continues after the recording interface closes. To interrupt rendering, use **Cancel** in its progress window and wait for the final state. A disappearing window alone does not show whether the file was saved or canceled.
 
 ## Control the toolbar and status prompts
 
@@ -44,12 +46,18 @@ Under **Settings → Screen recording**, you can change:
 - **Auto exit after recording ends**: leave the recording interface automatically after saving.
 - **Notify after export completes**: show a system notification; click it to locate the output file.
 
-The directory and filename are configured under **Settings → Export & storage → Video export**. The initial location is the system video directory; if you have changed it, use the field shown in your settings. To remove the beginning or end, enter the [trimming preview](./trim-export) before exporting.
+The directory and filename are configured under **Settings → Export & storage → Video export**. The usual location is the system video directory. If the configured directory is unavailable, the app also tries the system video and Documents directories. Enable **Notify after export completes** and click the completion notification to locate the actual file. To remove the beginning or end, enter the [trimming preview](./trim-export) before exporting.
 
 ## Recording will not start, or the result is missing
 
 On macOS, first check Screen & System Audio Recording permission under **Settings → App permissions**. Sound, webcam, and keystroke display also require their corresponding devices and permissions. Windows offers recording API choices under **Settings → Screen recording → Recording content**. For a black or incompatible capture, switch the API and make a short test recording. Different APIs do not guarantee access to protected content.
 
-If the recording directory cannot be created, select a writable directory under **Video export**. For a rendering error, preserve the source folder named in the message and choose **Retry** in the failure dialog. Choose **Keep source files** if you will recover it later. Do not clean temporary recordings first. On Windows, an interrupted system session may produce a recovery prompt with **Recover** and **Open folder**.
+If the recording directory cannot be created, select a writable directory under **Video export**. During rendering after an ordinary stop, click **Cancel** if needed and wait for cancellation to finish. After cancellation or failure, the window shows the preserved source folder and offers **Retry**, **Keep source files**, and **Discard**. Retry renders again; keep the source files to handle them later; discard only when you no longer need this source data. Do not clean temporary recordings first. Saving from the trimming preview has a different [cancellation flow](./trim-export#save-or-copy-the-result).
+
+For Snow Shot installed through Microsoft Store, reopening the app after Windows ends a session and interrupts a recording may show a recovery prompt. If a recoverable recording source exists, choose **Recover** to enter the trimming preview, then [export the recording](./trim-export#save-or-copy-the-result) to a file. Use **Open folder** to inspect the retained data. Check that the completed file plays before cleaning up source files you no longer need.
+
+![For Microsoft Store users, recover an interrupted recording into trimming and export it, or open the folder to inspect retained data](/images/guides/en/rec-store-recovery.svg)
+
+*Instructional illustration. Recover opens the trimming preview first; Open folder only locates retained data and does not export a recording.*
 
 Continue with [audio and webcam](./audio-camera), [mouse and keystroke effects](./effects), or [trimming, speed, and export](./trim-export).

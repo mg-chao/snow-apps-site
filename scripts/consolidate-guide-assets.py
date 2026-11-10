@@ -12,8 +12,29 @@ COLS = ['Asset', 'Feature IDs', 'Teaching purpose', 'Documentation path', 'Assoc
 MIG = json.loads((ART / 'mdx-route-migration.json').read_text())
 SOURCE_NAMES = ['assets-annotations.csv', 'assets-capture-start.csv',
                 'assets-recognition-pinning.csv', 'assets-recording-settings.csv',
-                'assets-image-audit.csv', 'assets-editor-crop-diagrams.csv']
+                'assets-image-audit.csv', 'assets-editor-crop-diagrams.csv',
+                'assets-editor-crop-followup.csv', 'assets-editor-crop-entry.csv',
+                'assets-shortcut-capture.csv', 'assets-formula-edit.csv',
+                'assets-image-processing-depth-review-20261110.csv',
+                'assets-native-split-20261110.csv',
+                'assets-original-preview-20261110.csv',
+                'assets-paste-teaching-20261110.csv',
+                'assets-settings-operations-20261110.csv',
+                'assets-canvas-navigation-20261110.csv',
+                'assets-capture-depth-20261110b.csv',
+                'assets-capture-followup-20261110b.csv',
+                'assets-capture-enter-correction-20261110b.csv',
+                'assets-translation-swap-20261110b.csv',
+                'assets-recognition-corrections-20261110b.csv',
+                'assets-recognition-followup-20261110b.csv',
+                'assets-pinning-depth-20261110b.csv',
+                'assets-update-entry-20261110c.csv',
+                'assets-permission-state-20261110c.csv',
+                'assets-annotation-input-followup-20261110c.csv',
+                'assets-store-recovery-20261110d.csv']
 LOCALIZATION = ART / 'assets-english-localization.csv'
+# Keep the prior registries as historical inputs, while displaying corrected teaching copy.
+CORRECTIVE_REGISTRIES = {'assets-capture-enter-correction-20261110b.csv'}
 
 
 def read_csv(path):
@@ -122,6 +143,9 @@ for source_name in SOURCE_NAMES:
                 source += '；产品 snow_shot/src/presentation/components/icons/resources/arrowhead-*.svg'
         source = source or '分组研究登记：artifacts/' + source_name
         mode = re.search(r'mode=(\w+)', original)
+        if path.endswith('GuideRecordingDemo.tsx') and mode and mode[1] == 'capture':
+            # Ordinary start/pause/stop frames do not depict Store startup recovery.
+            feature_ids = [fid for fid in feature_ids if fid != 'REC-028']
         if mode:
             step = '组件模式 mode=' + mode[1] + '；' + step
         doc_paths = norm_doc(raw.get('Documentation path', raw.get('Page', '')))
@@ -130,6 +154,8 @@ for source_name in SOURCE_NAMES:
             actual_refs = [x for x in actual_refs if ('trim-export' in x) == (mode[1] == 'trim')]
         doc_paths = sorted(set(doc_paths + actual_refs)) or doc_from_ids(feature_ids)
         status = raw.get('Status', raw.get('Asset status', '已制作；逐项验收另记'))
+        if source_name.endswith(('20261110b.csv', '20261110c.csv', '20261110d.csv')):
+            status = '已整合当前站点；原分组登记：' + status
         row = dict(zip(COLS, [path, ';'.join(feature_ids), purpose, '; '.join(doc_paths), step,
                               source, method, '已制作（仅本资产范围）；' + status,
                               raw.get('Capture prerequisites and next action', '')]))
@@ -138,7 +164,13 @@ for source_name in SOURCE_NAMES:
             previous = merged[key]
             for column in COLS:
                 if column != 'Asset':
-                    previous[column] = uniqjoin(previous[column], row[column])
+                    if source_name in CORRECTIVE_REGISTRIES and column in {
+                        'Teaching purpose', 'Associated step', 'Status',
+                        'Capture prerequisites and next action',
+                    }:
+                        previous[column] = row[column]
+                    else:
+                        previous[column] = uniqjoin(previous[column], row[column])
             previous['Feature IDs'] = ';'.join(ids(previous['Feature IDs']))
         else:
             merged[key] = row
@@ -199,11 +231,14 @@ missing = []
 for gap in gaps:
     fid = gap['Feature ID']
     doc = norm_doc(coverage.get(fid, {}).get('Documentation path and section', ''))
+    gap_coverage = 'coverage-recording-settings.csv' if fid.startswith('SET-') else 'coverage-annotations.csv'
+    gap_research = ('operation-candidates-settings-review-20261110.json' if fid.startswith('SET-')
+                    else 'operation-candidates-image-review-20261110.json' if fid.startswith('IMG-') and int(fid.split('-')[1]) >= 44
+                    else 'research-release-editor-crop.md' if fid.startswith('IMG-')
+                    else 'research-annotations.md')
     missing.append(dict(zip(COLS, ['MISSING:' + fid, fid, gap['Specific asset gap'], '; '.join(doc),
         coverage.get(fid, {}).get('Specific feature or operation', gap['Specific asset gap']),
-        'artifacts/annotation-asset-gaps.csv；对应 coverage-annotations.csv；'
-        + ('artifacts/research-release-editor-crop.md' if fid.startswith('IMG-')
-           else 'artifacts/research-annotations.md'),
+        'artifacts/annotation-asset-gaps.csv；对应 artifacts/' + gap_coverage + '；artifacts/' + gap_research,
         '尚未制作；按具体捕获或教学重建计划实施', gap['Status'],
         '当前缺口/条件：' + gap['Current blocker or limitation'] + '；下一步：' + gap['Actionable next capture']])))
 missing_ids = {row['Feature ID'] for row in gaps}

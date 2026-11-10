@@ -15,7 +15,7 @@ Windows and macOS have different default keys and system features. If you have c
 
 ## Install and take your first screenshot
 
-Read in order: [Installation and editions](./getting-started/install.md) → [macOS permissions](./getting-started/permissions.md) (Mac only) → [Your first screenshot](./getting-started/quick-start.mdx).
+Read in order: [Installation and editions](./getting-started/install.md) → [macOS permissions](./getting-started/permissions.mdx) (Mac only) → [Your first screenshot](./getting-started/quick-start.mdx).
 
 On Windows, the defaults are **F1** for a screenshot and **Ctrl+F1** to select and copy. On Mac, use the physical **Control+1** and **Control+2** keys respectively. If a key conflicts, check its [registration status](./settings/shortcuts.mdx).
 
@@ -23,10 +23,10 @@ On Windows, the defaults are **F1** for a screenshot and **Ctrl+F1** to select a
 
 | What you want to do | Read |
 | --- | --- |
-| Capture an exact size or several separate areas | [Dimensions and ratios](./capture/precise-selection.md) · [Multiple regions](./capture/multiple-regions.mdx) · [Irregular selections](./capture/irregular-regions.mdx) |
+| Capture an exact size or several separate areas | [Dimensions and ratios](./capture/precise-selection.mdx) · [Multiple regions](./capture/multiple-regions.mdx) · [Irregular selections](./capture/irregular-regions.mdx) |
 | Mark a detail, add a note or obscure sensitive information | [Shapes](./annotations/shapes.mdx) · [Text](./annotations/text.mdx) · [Filters and redaction](./annotations/filters.mdx) |
 | Arrange several images into one image or multiple pages | [Collage](./image-editing/collage.mdx) · [Splitting](./image-editing/split.mdx) · [PDF](./image-editing/pdf.mdx) |
-| Extract editable content from an image | [Text](./recognition/text.mdx) · [Tables](./recognition/table.mdx) · [Formulas](./recognition/formula.md) |
+| Extract editable content from an image | [Text](./recognition/text.mdx) · [Tables](./recognition/table.mdx) · [Formulas](./recognition/formula.mdx) |
 | Translate a screen region or selected text | [Screenshot translation](./translation/screenshot.md) · [Selected text](./translation/selected-text.md) · [Services](./translation/services.md) |
 | Keep reference material visible | [Image pinning](./pinning/image.md) · [Live windows](./pinning/live-window.md) · [Pin management](./pinning/management.mdx) |
 | Recover or organize results | [Saving formats](./output/copy-save.md) · [History](./output/history.md) · [Storage and backups](./settings/storage-backup.md) |
@@ -39,7 +39,7 @@ On Windows, the defaults are **F1** for a screenshot and **Ctrl+F1** to select a
 
 ## Extract text with offline recognition
 
-Prepare [models and offline resources](./recognition/models.md), then follow [text recognition and correction](./recognition/text.mdx). Offline recognition resources and online translation services have separate settings. Each tutorial explains relevant Mini differences and entry points.
+Prepare [models and offline resources](./recognition/models.mdx), then follow [text recognition and correction](./recognition/text.mdx). Offline recognition resources and online translation services have separate settings. Each tutorial explains relevant Mini differences and entry points.
 
 <span id="pin-a-reference-or-record-a-demonstration"></span>
 
@@ -55,12 +55,12 @@ Expand the sidebar to find each individual tool. On mobile, open the page menu t
 
 - [Installation, editions and updates](./getting-started/install.md)
 - [Your first screenshot](./getting-started/quick-start.mdx)
-- [macOS permissions and first use](./getting-started/permissions.md)
+- [macOS permissions and first use](./getting-started/permissions.mdx)
 
 ### Screenshots and selections
 
 - [Region capture and Smart Selection](./capture/basics.mdx)
-- [Exact dimensions, ratios and selection appearance](./capture/precise-selection.md)
+- [Exact dimensions, ratios and selection appearance](./capture/precise-selection.mdx)
 - [Multiple regions and region combinations](./capture/multiple-regions.mdx)
 - [Polyline, curve and freehand selections](./capture/irregular-regions.mdx)
 - [Delayed, direct and repeat captures](./capture/modes.md)
@@ -100,16 +100,16 @@ Expand the sidebar to find each individual tool. On mobile, open the page menu t
 ### Recognition and conversion
 
 - [Text recognition and result cleanup](./recognition/text.mdx)
-- [OCR models and offline preparation](./recognition/models.md)
+- [OCR models and offline preparation](./recognition/models.mdx)
 - [Table recognition and cell editing](./recognition/table.mdx)
-- [Barcode and QR code recognition](./recognition/barcode.md)
-- [LaTeX formula recognition](./recognition/formula.md)
-- [Images to Markdown and HTML](./recognition/image-conversion.md)
+- [Barcode and QR code recognition](./recognition/barcode.mdx)
+- [LaTeX formula recognition](./recognition/formula.mdx)
+- [Images to Markdown and HTML](./recognition/image-conversion.mdx)
 
 ### Translation
 
 - [Screenshot and in-image translation](./translation/screenshot.md)
-- [Text translation](./translation/text.md)
+- [Text translation](./translation/text.mdx)
 - [Selected-text translation](./translation/selected-text.md)
 - [Translation services and custom models](./translation/services.md)
 

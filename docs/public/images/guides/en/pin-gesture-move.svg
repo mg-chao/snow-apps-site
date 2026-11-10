@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1280" viewBox="0 0 720 1280" role="img"><title>Move a pin over selectable text</title>
+<rect width="720" height="1280" rx="24" fill="#f3f6fb"/>
+<g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+<text x="32" y="38" font-size="22" fill="#58708d" font-weight="600">Instructional illustration</text>
+<text x="32" y="86" font-size="31" fill="#172e50" font-weight="700">Move a pin over selectable text</text>
+<rect x="32" y="140" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="156" width="624" height="64" rx="12" fill="#eaf0ff"/>
+<text x="60" y="198" font-size="28" fill="#2c57a5" font-weight="700">1. Ordinary left-drag: select words</text>
+<text x="58" y="268" font-size="28" fill="#33465e" font-weight="400">Wait for recognition to finish.</text>
+<text x="58" y="310" font-size="28" fill="#33465e" font-weight="400">Left-drag over selectable text.</text>
+<text x="58" y="352" font-size="28" fill="#33465e" font-weight="400">Words become selected; the pin stays put.</text>
+<path d="M360 466v22m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round"/>
+<rect x="32" y="500" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="516" width="624" height="64" rx="12" fill="#fff2da"/>
+<text x="60" y="558" font-size="28" fill="#865414" font-weight="700">2. Alt/Option + left-drag: move</text>
+<text x="58" y="628" font-size="28" fill="#33465e" font-weight="400">Finish text editing and unlock first.</text>
+<text x="58" y="670" font-size="28" fill="#33465e" font-weight="400">Windows: hold Alt. macOS: hold Option.</text>
+<text x="58" y="712" font-size="28" fill="#33465e" font-weight="400">Left-drag from the content area.</text>
+<text x="58" y="754" font-size="28" fill="#33465e" font-weight="400">The pin follows the pointer.</text>
+<path d="M360 826v22m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round"/>
+<rect x="32" y="860" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="876" width="624" height="64" rx="12" fill="#e6f6ee"/>
+<text x="60" y="918" font-size="28" fill="#20614a" font-weight="700">3. Release and continue</text>
+<text x="58" y="988" font-size="28" fill="#33465e" font-weight="400">Release the left button at the new position.</text>
+<text x="58" y="1030" font-size="28" fill="#33465e" font-weight="400">Release Alt/Option to select words again.</text>
+<text x="58" y="1072" font-size="28" fill="#33465e" font-weight="400">The original image and text stay intact.</text>
+<text x="32" y="1235" font-size="24" fill="#4c6481" font-weight="400">Check the current state before starting a gesture.</text>
+</g></svg>

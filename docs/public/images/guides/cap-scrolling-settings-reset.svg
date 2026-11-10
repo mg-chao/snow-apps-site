@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="1000" viewBox="0 0 600 1000" role="img" aria-labelledby="title"><title id="title">更改滚动截图设置后会重新采集</title>
+<g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+<rect x="1" y="1" width="598" height="998" rx="14" fill="#f6f7fc" stroke="#cbd4e4"/>
+<text x="28" y="41" font-size="27" fill="#263148">更改滚动截图设置后会重新采集</text>
+<rect x="26" y="90" width="548" height="245" rx="12" fill="#ffffff" stroke="#cbd4e4" stroke-width="2"/>
+<rect x="26" y="370" width="548" height="250" rx="12" fill="#ffffff" stroke="#cbd4e4" stroke-width="2"/>
+<rect x="26" y="655" width="548" height="270" rx="12" fill="#ffffff" stroke="#cbd4e4" stroke-width="2"/>
+<path d="M300 339v20m-7-7 7 7 7-7" fill="none" stroke="#7652dc" stroke-width="3"/>
+<path d="M300 624v20m-7-7 7 7 7-7" fill="none" stroke="#7652dc" stroke-width="3"/>
+<text x="46" y="125" font-size="24" fill="#263148">1. 先决定是否需要保留当前结果</text>
+<text x="46" y="164" font-size="21" fill="#263148">已有拼接长图，并设置了首尾裁剪。</text>
+<rect x="48" y="185" width="166" height="125" rx="12" fill="#ffffff" stroke="#7652dc" stroke-width="2"/>
+<path d="M65 204h132" stroke="#cbd4e4" stroke-width="4"/>
+<path d="M65 221h132" stroke="#cbd4e4" stroke-width="4"/>
+<path d="M65 238h132" stroke="#cbd4e4" stroke-width="4"/>
+<path d="M65 255h132" stroke="#cbd4e4" stroke-width="4"/>
+<path d="M65 272h132" stroke="#cbd4e4" stroke-width="4"/>
+<path d="M65 289h132" stroke="#cbd4e4" stroke-width="4"/>
+<path d="M48 219h166M48 285h166" stroke="#d15a45" stroke-width="3" stroke-dasharray="6 4"/>
+<text x="238" y="223" font-size="22" fill="#263148">需要保留？保存为文件</text>
+<text x="238" y="267" font-size="21" fill="#536078">保存后重新开始截图</text>
+<text x="46" y="405" font-size="23" fill="#263148">2. 打开滚动工具条上的“设置”</text>
+<text x="46" y="449" font-size="22" fill="#263148">滚动截图时捕获界面</text>
+<text x="46" y="490" font-size="21" fill="#263148">控制是否捕获 Snow Shot 工具条和缩略预览。</text>
+<text x="46" y="554" font-size="22" fill="#7652dc">更改开关 → 确定</text>
+<text x="46" y="590" font-size="20" fill="#536078">取消则不更改此设置。</text>
+<text x="46" y="690" font-size="24" fill="#263148">3. 从新的采集结果重新开始</text>
+<text x="46" y="734" font-size="22" fill="#263148">原拼接结果和首尾裁剪范围清空。</text>
+<text x="46" y="775" font-size="22" fill="#263148">捕获选区和滚动方向保持不变。</text>
+<text x="46" y="817" font-size="22" fill="#263148">等待新预览出现，再重新滚动采集。</text>
+<text x="46" y="879" font-size="20" fill="#536078">未更改开关直接确定，不会重新采集。</text>
+<text x="28" y="977" font-size="18" fill="#536078">操作示意</text>
+</g></svg>

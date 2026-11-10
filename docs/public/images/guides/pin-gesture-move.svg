@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1280" viewBox="0 0 720 1280" role="img"><title>在可选文字上移动贴图</title>
+<rect width="720" height="1280" rx="24" fill="#f3f6fb"/>
+<g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+<text x="32" y="38" font-size="22" fill="#58708d" font-weight="600">操作示意</text>
+<text x="32" y="86" font-size="31" fill="#172e50" font-weight="700">在可选文字上移动贴图</text>
+<rect x="32" y="140" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="156" width="624" height="64" rx="12" fill="#eaf0ff"/>
+<text x="60" y="198" font-size="28" fill="#2c57a5" font-weight="700">1. 普通左键拖动：选择文字</text>
+<text x="58" y="268" font-size="28" fill="#33465e" font-weight="400">先等待文字识别完成。</text>
+<text x="58" y="310" font-size="28" fill="#33465e" font-weight="400">文字可选时，在内容上左键拖动。</text>
+<text x="58" y="352" font-size="28" fill="#33465e" font-weight="400">选中文字范围，窗口保持原位。</text>
+<path d="M360 466v22m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round"/>
+<rect x="32" y="500" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="516" width="624" height="64" rx="12" fill="#fff2da"/>
+<text x="60" y="558" font-size="28" fill="#865414" font-weight="700">2. Alt/Option＋左键拖动：移动</text>
+<text x="58" y="628" font-size="28" fill="#33465e" font-weight="400">先结束文字编辑，并解除锁定。</text>
+<text x="58" y="670" font-size="28" fill="#33465e" font-weight="400">Windows 按住 Alt；macOS 按住 Option。</text>
+<text x="58" y="712" font-size="28" fill="#33465e" font-weight="400">从内容区按住左键拖动。</text>
+<text x="58" y="754" font-size="28" fill="#33465e" font-weight="400">贴图跟随指针移动。</text>
+<path d="M360 826v22m-10-10 10 10 10-10" fill="none" stroke="#7890ad" stroke-width="4" stroke-linecap="round"/>
+<rect x="32" y="860" width="656" height="316" rx="18" fill="#fff" stroke="#c8d4e4" stroke-width="2"/>
+<rect x="48" y="876" width="624" height="64" rx="12" fill="#e6f6ee"/>
+<text x="60" y="918" font-size="28" fill="#20614a" font-weight="700">3. 松开，回到需要的操作</text>
+<text x="58" y="988" font-size="28" fill="#33465e" font-weight="400">松开左键，贴图停在新位置。</text>
+<text x="58" y="1030" font-size="28" fill="#33465e" font-weight="400">松开 Alt/Option 后可继续选择文字。</text>
+<text x="58" y="1072" font-size="28" fill="#33465e" font-weight="400">原图和文字内容保持。</text>
+<text x="32" y="1235" font-size="24" fill="#4c6481" font-weight="400">先分清状态，再开始手势。</text>
+</g></svg>

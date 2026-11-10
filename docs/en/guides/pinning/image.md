@@ -15,8 +15,8 @@ description: Create desktop pins from screenshots or clipboard content, move and
 
 1. Capture with your screenshot shortcut—**F1** on Windows or **Control+1** on macOS by default—and select the reference. Finish any needed redaction or annotations first.
 2. Click **Pin to screen** in the screenshot toolbar. The screenshot session ends and the selection becomes an independent desktop pin.
-3. Drag a movable part of the pin with the left button to position it. Avoid text-selection areas, edge resize handles, and upper-right buttons.
-4. To resize the window, point at an edge or corner and drag when the resize cursor appears. For proportional viewing, use [Zoom](./transform.mdx) in the context menu.
+3. Hold the left button on a draggable area, move the pin beside your work, and release. Avoid edge resize handles and upper-right controls. Over selectable text, finish text editing and unlock first, then hold **Alt (Option on macOS)** and left-drag the content to move the window without selecting words.
+4. To resize the window, point at an edge or corner and drag when the resize cursor appears. For proportional viewing, use [Scale](./transform.mdx) in the context menu.
 
 An ordinary pin does not update with its source application. Capture again or replace its content when the source changes.
 
@@ -80,6 +80,32 @@ This replaces the current window's material. Save the previous content or create
 | Destroy | Permanently removes the corresponding pin record; read the confirmation and save a file first if needed |
 
 Paste into the intended destination once to check whether it receives text, an image, or files. Applications accept different clipboard formats.
+
+## Drag into another application
+
+1. Return to the ordinary image view; leave click-through and text-result display. If several windows are selected, deselect the other windows first. With two or more selected, the same drag can move the group.
+2. Hold **Ctrl (Command on macOS)** and left-drag from the image content to an application that accepts images or files. Avoid edge handles and window buttons. Keep the left button held while the drag preview is prepared.
+3. Release over the destination, then inspect the received image or file. Press **Esc before dropping** to cancel. If the destination cannot accept the drop, copy or save instead.
+
+This exports the current visible content; a cropped view and current edits can affect its extent. **Ctrl/Command plus a short click** toggles window selection; **Ctrl/Command plus a drag** exports content. Check whether multiple windows are selected before starting.
+
+![Ctrl or Command dragging exports the current pin, unlike a short selection click or a selected-group move](/images/guides/en/pin-gesture-export.svg)
+
+*Instructional illustration. Hold the left button until the destination, then release and check the result. Esc abandons the drag.*
+
+On macOS, non-live pins also have **AirDrop** in their context menu, including animated pins. See [saving and sharing](../output/copy-save.md) for choosing a recipient or canceling.
+
+## Continue in an editor or splitting window
+
+Right-click **Process image → Image editing**, inspect the image in the opened editor, then follow [Image editing](../image-editing/editor.mdx) to change and export it. To make slices, choose **Process image → Image splitting**, check its input preview, then follow [Image splitting](../image-editing/split.mdx) to set directions and Save all. These open separate workflows from **Annotation mode** inside the pin.
+
+![Open an independent editor from a pin, inspect its input, edit and save](/images/guides/en/pin-flow-editor.svg)
+
+*Instructional illustration. A live pin sends one frame while the original pin keeps updating.*
+
+![Open image splitting from a pin, check its input, configure and save the slices](/images/guides/en/pin-flow-split.svg)
+
+*Instructional illustration. Inspect the splitting input before choosing a splitting method.*
 
 ## Duplicate content and entry settings
 

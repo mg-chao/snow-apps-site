@@ -26,7 +26,7 @@ History offers source and date filters, rather than full-text search through arb
 
 ## Pin, stitch, or delete several records
 
-1. Select records on the current page or click **Select all**. Select all applies to the current page. Check the selected count after selecting across pages.
+1. Select records on the current page or click **Select all**. Select all applies to the current page, and existing selections remain when you change pages. Check the total selected count across pages. Changing the source or date filter clears the selection, so select the records again.
 2. Open **Batch actions**. **Pin to screen** opens the selected images as pinned windows. **Image stitching** opens the stitching workflow, where you can adjust layout and save.
 3. Use **Deselect all** and select again if needed. Check the count before deletion.
 4. Click **Delete**, read the count and irreversible-action warning, and confirm. The records disappear from history. Cancel the dialog to stop.
