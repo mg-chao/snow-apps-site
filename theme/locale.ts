@@ -1,4 +1,4 @@
-import { defaultLanguageUrl, siteOrigin } from './seo';
+import { defaultLanguageUrl, siteOrigin } from './seo.ts';
 import type { SiteLocale } from './site-structure';
 
 export const languagePreferenceKey = 'snow-shot-language';

@@ -296,7 +296,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
   const links = siteLinks(locale);
 
   return (
-    <main className="snow-about" id="top" lang={locale}>
+    <main className="snow-about" lang={locale}>
       <div className="snow-about__hero-surface">
         <section
           className="snow-about__hero snow-about__shell"

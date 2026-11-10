@@ -5,7 +5,6 @@ import './components/GuideHome/style.css';
 import { useLang } from '@rspress/core/runtime';
 import { Layout as OriginalLayout } from '@rspress/core/theme-original';
 import { SeoMetadata } from './components/SeoMetadata';
-import { GuideLanguages } from './components/GuideLanguages';
 import { PageBreadcrumbs } from './components/PageBreadcrumbs';
 import { LanguageSuggestion } from './components/LanguageSuggestion';
 import { BlogArticleMeta, BlogRelated } from './components/Blog';
@@ -16,7 +15,7 @@ export { AboutPage } from './components/AboutPage';
 export { DownloadPage } from './components/DownloadPage';
 export { HomeLayout } from './components/HomeLayout';
 export { SwitchAppearance } from './components/SwitchAppearance';
-export { Nav } from './components/GuideNav';
+export { SiteHeader as Nav } from './components/SiteHeader';
 
 function SnowNavTitle() {
   const lang = useLang();
@@ -45,7 +44,6 @@ export function Layout() {
       <SeoMetadata />
       <OriginalLayout
         navTitle={<SnowNavTitle />}
-        afterNavMenu={<GuideLanguages />}
         afterNav={
           <>
             <LanguageSuggestion />

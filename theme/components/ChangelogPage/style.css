@@ -1,7 +1,3 @@
-body:has(.snow-changelog) {
-  min-width: 0;
-}
-
 .snow-changelog {
   --changelog-tint: color-mix(
     in srgb,

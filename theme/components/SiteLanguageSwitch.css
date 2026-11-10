@@ -1,12 +1,12 @@
-.snow-guide-language {
+.snow-site-language {
   padding: 0.4rem 0.6rem;
   border-radius: 6px;
   color: var(--rp-c-text-1);
   font-size: 0.9rem;
   white-space: nowrap;
 }
-.snow-guide-language:hover,
-.snow-guide-language:focus-visible {
+.snow-site-language:hover,
+.snow-site-language:focus-visible {
   color: var(--rp-c-brand);
   outline: 1px solid var(--rp-c-brand);
 }

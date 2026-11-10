@@ -1,4 +1,4 @@
-import { canonicalUrl, siteOrigin } from './seo';
+import { canonicalUrl, siteOrigin } from './seo.ts';
 
 export function guideSearchHref(href: string) {
   const url = new URL(href, siteOrigin);

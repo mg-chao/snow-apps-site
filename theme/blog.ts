@@ -1,4 +1,4 @@
-import { canonicalUrl } from './seo';
+import { canonicalUrl } from './seo.ts';
 
 export type BlogCategory = 'releases' | 'answers';
 export type BlogPost = {

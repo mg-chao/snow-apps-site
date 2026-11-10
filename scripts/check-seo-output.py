@@ -27,10 +27,33 @@ class Page(HTMLParser):
         self.crumb_tag = None
         self.in_h1 = False
         self.in_json = False
+        self.top_count = 0
+        self.site_headers = 0
+        self.site_footers = 0
+        self.header_links = []
+        self.footer_links = []
+        self.language_switches = []
+        self.in_site_header = False
+        self.in_site_footer = False
         self.feed(html)
 
     def handle_starttag(self, tag, attrs):
         values = dict(attrs)
+        classes = values.get('class', '').split()
+        if values.get('id') == 'top':
+            self.top_count += 1
+        if tag == 'header' and 'snow-site-header' in classes:
+            self.site_headers += 1
+            self.in_site_header = True
+        if tag == 'footer' and 'snow-global-footer' in classes:
+            self.site_footers += 1
+            self.in_site_footer = True
+        if tag == 'a' and self.in_site_header:
+            self.header_links.append(values.get('href'))
+            if 'snow-site-language' in classes:
+                self.language_switches.append(values)
+        if tag == 'a' and self.in_site_footer:
+            self.footer_links.append(values.get('href'))
         if tag == 'link':
             self.links.append(values)
         if tag == 'meta':
@@ -62,6 +85,10 @@ class Page(HTMLParser):
             self.breadcrumbs[-1]['label'] += data
 
     def handle_endtag(self, tag):
+        if tag == 'header':
+            self.in_site_header = False
+        if tag == 'footer':
+            self.in_site_footer = False
         if tag == 'h1':
             self.in_h1 = False
         if tag == 'script':
@@ -104,6 +131,17 @@ def check(directory):
         assert page.meta.get('og:url') == url, f'{name}: incorrect social URL'
         english = name.removeprefix('zh/')
         assert english in pages and f'zh/{english}' in pages, f'{name}: missing language counterpart'
+        prefix = '/zh' if name.startswith('zh/') else ''
+        assert page.site_headers == page.site_footers == page.top_count == 1, f'{name}: expected one shared header, footer and top anchor'
+        target_language = 'en' if prefix else 'zh'
+        target_href = f'/{english}' if prefix else f'/zh/{english}'
+        assert len(page.language_switches) == 1, f'{name}: expected one visible language switch'
+        switch = page.language_switches[0]
+        assert switch.get('href') == target_href and switch.get('hreflang') == target_language, f'{name}: language switch must keep the current page'
+        for target in ('guides/index.html', 'download.html', 'blog/index.html', 'changelog.html', 'about.html'):
+            assert page.header_links.count(f'{prefix}/{target}') == 2, f'{name}: desktop and mobile navigation differ for {target}'
+        locale_home = f'{prefix}/index.html'.lstrip('/')
+        assert page.footer_links == pages[locale_home].footer_links, f'{name}: footer differs from the locale homepage'
         alternates = {link.get('hreflang'): link.get('href') for link in page.links
                       if link.get('rel') == 'alternate'}
         assert alternates == {'en': f'{ORIGIN}/{english}',
@@ -170,7 +208,7 @@ def check(directory):
     assert set(urls) == expected and len(urls) == len(expected), 'Sitemap must contain exactly the canonical pages'
     robots = (directory / 'robots.txt').read_text(encoding='utf-8')
     assert f'Sitemap: {ORIGIN}/sitemap.xml' in robots and 'Disallow: /' not in robots
-    print(f'Verified {len(expected)} canonical pages, bilingual metadata, visible breadcrumbs, homepage schemas, internal link reachability and discovery files.')
+    print(f'Verified {len(expected)} canonical pages, shared headers and footers, bilingual metadata, visible breadcrumbs, homepage schemas, internal link reachability and discovery files.')
 
 
 if __name__ == '__main__':

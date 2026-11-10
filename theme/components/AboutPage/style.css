@@ -1,8 +1,3 @@
-/* Leave room for a desktop scrollbar when previewing a 320px mobile viewport. */
-body:has(.snow-about) {
-  min-width: 0;
-}
-
 .snow-about {
   --about-wash: #f0f7ff;
   --about-sky: #dfedfc;

@@ -122,7 +122,7 @@ export function HomeLayout() {
       };
   return (
     <main className="snow-home">
-      <section className="snow-hero" id="top">
+      <section className="snow-hero">
         <SnowCanvas />
         <div className="snow-hero__inner">
           <div className="snow-hero__copy">
