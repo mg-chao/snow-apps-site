@@ -6,6 +6,7 @@ from urllib.parse import urljoin, urlsplit
 import json
 import sys
 import xml.etree.ElementTree as ET
+from datetime import datetime, timezone
 
 ORIGIN = 'https://snowshot.top'
 REPOSITORY = 'https://github.com/mg-chao/snow-shot'
@@ -33,6 +34,8 @@ class Page(HTMLParser):
         self.header_links = []
         self.footer_links = []
         self.language_switches = []
+        self.images = []
+        self.times = []
         self.in_site_header = False
         self.in_site_footer = False
         self.feed(html)
@@ -40,6 +43,10 @@ class Page(HTMLParser):
     def handle_starttag(self, tag, attrs):
         values = dict(attrs)
         classes = values.get('class', '').split()
+        if tag == 'img':
+            self.images.append(values)
+        if tag == 'time':
+            self.times.append(values.get('datetime'))
         if values.get('id') == 'top':
             self.top_count += 1
         if tag == 'header' and 'snow-site-header' in classes:
@@ -165,7 +172,8 @@ def check(directory):
                 'open-source' in page.h1 and 'screenshot' in page.h1)
             assert not page.breadcrumbs, f'{name}: homepage should not have breadcrumbs'
         else:
-            assert len(page.scripts) == 1, f'{name}: expected breadcrumb schema'
+            is_article = english.startswith('blog/') and english != 'blog/index.html'
+            assert len(page.scripts) == (2 if is_article else 1), f'{name}: incorrect schema count'
             data = json.loads(page.scripts[0])
             assert data['@type'] == 'BreadcrumbList', f'{name}: missing breadcrumb schema'
             items = data['itemListElement']
@@ -177,6 +185,20 @@ def check(directory):
             guide_home = 'zh/guides/index.html' if name.startswith('zh/') else 'guides/index.html'
             if '/guides/' in f'/{name}' and name != guide_home:
                 assert len(items) == 3 and items[1]['item'] == f'{ORIGIN}/{guide_home}', f'{name}: guide must have its manual as a parent'
+            if is_article:
+                article = json.loads(page.scripts[1])
+                assert article['@type'] == 'BlogPosting' and article['mainEntityOfPage'] == url
+                assert article['headline'] == page.h1.lstrip('#').strip(), f'{name}: article title differs from H1'
+                assert article['author']['name'] == 'Snow Apps' and article['author']['url'] in page.anchors
+                assert article['datePublished'] in page.times, f'{name}: publication date must be visible'
+                assert article.get('dateModified'), f'{name}: missing modification date'
+                assert datetime.fromisoformat(article['dateModified'].replace('Z', '+00:00')).date() >= datetime.fromisoformat(article['datePublished']).date()
+                assert article['image'] == page.meta['og:image']
+                images = [img for img in page.images if img.get('src', '').startswith('/images/')]
+                assert article['image'] == ORIGIN + images[0]['src'], f'{name}: use an article illustration'
+                for index, img in enumerate(images):
+                    assert int(img.get('width', '0')) > 0 and int(img.get('height', '0')) > 0, f'{name}: missing image dimensions'
+                    assert img.get('loading') == ('eager' if index == 0 else 'lazy'), f'{name}: incorrect image loading'
     # Audit rendered links, so client-only navigation cannot hide orphaned pages.
     graph = {}
     for name, page in pages.items():
@@ -206,6 +228,15 @@ def check(directory):
     root = ET.fromstring((directory / 'sitemap.xml').read_text(encoding='utf-8'))
     urls = [element.text for element in root.findall('{*}url/{*}loc')]
     assert set(urls) == expected and len(urls) == len(expected), 'Sitemap must contain exactly the canonical pages'
+    for element in root.findall('{*}url'):
+        value = element.findtext('{*}lastmod')
+        assert value, f'{element.findtext("{*}loc")}: missing lastmod'
+        assert datetime.fromisoformat(value.replace('Z', '+00:00')) <= datetime.now(timezone.utc), 'Future lastmod'
+    manifest = json.loads((directory / 'seo-manifest.json').read_text(encoding='utf-8'))
+    assert manifest['schema'] == 1 and set(manifest['pages']) == expected, 'SEO manifest must match sitemap'
+    for element in root.findall('{*}url'):
+        url = element.findtext('{*}loc')
+        assert manifest['pages'][url]['lastmod'] == element.findtext('{*}lastmod'), f'{url}: lastmod differs from manifest'
     robots = (directory / 'robots.txt').read_text(encoding='utf-8')
     assert f'Sitemap: {ORIGIN}/sitemap.xml' in robots and 'Disallow: /' not in robots
     print(f'Verified {len(expected)} canonical pages, shared headers and footers, bilingual metadata, visible breadcrumbs, homepage schemas, internal link reachability and discovery files.')

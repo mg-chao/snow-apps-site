@@ -2,8 +2,13 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import type { RouteMeta, RspressPlugin } from '@rspress/core';
 import { canonicalUrl } from '../theme/seo.ts';
+import { contentMetadata } from './content-metadata.ts';
+import { buildManifest } from './seo-manifest.ts';
 
-export function sitemapXml(paths: string[]) {
+export function sitemapXml(
+  paths: string[],
+  modified = new Map<string, string>(),
+) {
   const urls = [
     ...new Set(
       paths
@@ -11,16 +16,26 @@ export function sitemapXml(paths: string[]) {
         .map(canonicalUrl),
     ),
   ].sort();
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((url) => `  <url><loc>${url.replaceAll('&', '&amp;')}</loc></url>`).join('\n')}\n</urlset>\n`;
+  const entries = urls.map((url) => {
+    const value = modified.get(url);
+    const lastmod = value
+      ? `<lastmod>${new Date(value).toISOString()}</lastmod>`
+      : '';
+    return `  <url><loc>${url.replaceAll('&', '&amp;')}</loc>${lastmod}</url>`;
+  });
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries.join('\n')}\n</urlset>\n`;
 }
 
 export function seoBuildPlugin(): RspressPlugin {
   let routes: RouteMeta[] = [];
   const originalSearchRoutes = new WeakMap<object, string>();
+  const modified = new Map<string, string>();
+  let metadata: ReturnType<typeof contentMetadata> | undefined;
   return {
     name: 'snow-shot-sitemap',
     routeGenerated(generated) {
       routes = generated;
+      metadata = contentMetadata();
     },
     modifySearchIndexData(pages) {
       for (const page of pages) {
@@ -59,6 +74,18 @@ export function seoBuildPlugin(): RspressPlugin {
         page.routePath = route;
         originalSearchRoutes.delete(page);
       }
+      if (metadata && page._filepath && page.frontmatter.pageType !== '404') {
+        const details = metadata(
+          page._filepath,
+          page.frontmatter.pageType === 'home',
+        );
+        page.frontmatter.lastModified = details.lastModified;
+        if (details.lastModified)
+          modified.set(canonicalUrl(page.routePath), details.lastModified);
+        if (page.frontmatter.blog === true) {
+          page.frontmatter.image = details.image;
+        }
+      }
     },
     afterBuild(config, isProd) {
       if (!isProd) return;
@@ -66,7 +93,20 @@ export function seoBuildPlugin(): RspressPlugin {
       mkdirSync(output, { recursive: true });
       writeFileSync(
         resolve(output, 'sitemap.xml'),
-        sitemapXml(routes.map((route) => route.routePath)),
+        sitemapXml(
+          routes.map((route) => route.routePath),
+          modified,
+        ),
+      );
+      const pages = routes
+        .filter((route) => !/^\/(?:zh\/)?404(?:\.html)?$/.test(route.routePath))
+        .map((route) => ({
+          path: route.routePath,
+          lastmod: modified.get(canonicalUrl(route.routePath)),
+        }));
+      writeFileSync(
+        resolve(output, 'seo-manifest.json'),
+        `${JSON.stringify(buildManifest(output, pages), null, 2)}\n`,
       );
     },
   };

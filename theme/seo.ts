@@ -3,6 +3,43 @@ import { type SiteLink, type SiteLocale, siteLinks } from './site-structure.ts';
 export const siteOrigin = 'https://snowshot.top';
 export const repositoryUrl = 'https://github.com/mg-chao/snow-shot';
 
+export function articleAuthor(locale: 'en' | 'zh') {
+  return {
+    '@type': 'Organization',
+    name: 'Snow Apps',
+    url: canonicalUrl(locale === 'zh' ? '/zh/about.html' : '/about.html'),
+  };
+}
+
+export function articleSchema(article: {
+  title: string;
+  description?: string;
+  path: string;
+  locale: 'en' | 'zh';
+  date: string;
+  modified?: string;
+  image?: string;
+}) {
+  const url = canonicalUrl(article.path);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    '@id': `${url}#article`,
+    mainEntityOfPage: url,
+    url,
+    headline: article.title,
+    description: article.description,
+    inLanguage: article.locale === 'zh' ? 'zh-CN' : 'en',
+    author: articleAuthor(article.locale),
+    publisher: articleAuthor(article.locale),
+    datePublished: article.date,
+    ...(article.modified ? { dateModified: article.modified } : {}),
+    ...(article.image
+      ? { image: new URL(article.image, siteOrigin).href }
+      : {}),
+  };
+}
+
 // Match Rspress's existing .html routes, including directory index pages.
 // Query parameters select a download variant, not a different document.
 export function canonicalUrl(path: string) {

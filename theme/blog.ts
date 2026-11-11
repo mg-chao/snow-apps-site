@@ -12,6 +12,7 @@ export type BlogPost = {
   platforms: string;
   related: string[];
   releaseDate?: string;
+  modified?: string;
 };
 
 type Page = {
@@ -37,6 +38,7 @@ export function blogPosts(pages: Page[], lang: string): BlogPost[] {
       platforms: String(page.frontmatter.platforms),
       related: (page.frontmatter.related as string[]) ?? [],
       releaseDate: page.frontmatter.releaseDate as string | undefined,
+      modified: page.frontmatter.lastModified as string | undefined,
     }))
     .sort(
       (a, b) =>

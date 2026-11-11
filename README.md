@@ -177,7 +177,7 @@ configuration and trusted host keys. `IdentityFile`, `KnownHostsFile`, `ServerPo
 `RemoteWebRoot`, and `PublicBaseUrl` can be overridden. `-WhatIf` previews the operation.
 
 Only the generated pages, icons, `static/`, `images/`, `guides/`, `zh/`,
-`robots.txt`, `sitemap.xml`, and `indexnow.txt` are replaced.
+`robots.txt`, `sitemap.xml`, `seo-manifest.json`, and `indexnow.txt` are replaced.
 Downloads in `setup/`, `npm/`, `plugins/`, legacy update feeds, and all other paths
 are preserved. Previous website files remain in `/var/www/snow-shot-website-backups/`.
 The deployment verifies SHA-256 for the archive and every file, rolls back file
@@ -247,7 +247,10 @@ unsupported comparisons, fabricated ratings, or promises about search position.
 
 `theme/components/SeoMetadata.tsx` supplies self-canonical URLs, the default
 language alternate, social metadata, homepage SoftwareApplication/WebSite data,
-and BreadcrumbList data for inner pages. `theme/site-structure.ts` defines the
+and BreadcrumbList data for inner pages. Blog articles also have BlogPosting
+metadata with their real publication date, modification time, Snow Apps author
+link and first instructional image. These match the visible article information;
+no review scores are generated. `theme/site-structure.ts` defines the
 shared bilingual links used by homepage shortcuts, the grouped footer, and
 visible breadcrumbs and feature tutorial links. Navigation and sidebar labels
 are checked against the same definitions to prevent inconsistent link names.
@@ -255,7 +258,14 @@ Guide breadcrumbs link to the actual manual hub rather
 than directory URLs without a page. Feature links use specific tutorial names.
 Rspress supplies the English/Chinese alternate links; the component updates
 them on client-side navigation. The existing `.html` routes remain canonical.
-`scripts/seo-build.ts` generates the sitemap from actual routes. The deployment
+`scripts/seo-build.ts` generates the sitemap from actual routes. `lastmod` comes
+from Git history for each page, its local component/illustration dependencies,
+and shared navigation/schema sources. Local edits use the edited file's mtime;
+unchanged files never use checkout or build time. Use a full Git checkout
+(`git fetch --unshallow` if necessary). Builds do not rewrite source dates.
+`seo-manifest.json` fingerprints rendered content and referenced images, ignoring
+executable bundle/style hashes so rebuilding a shared bundle alone does not
+notify search engines about every page. The deployment
 workflow validates all generated pages with `scripts/check-seo-output.py` before
 uploading, including canonical/alternate links, descriptions, visible breadcrumbs,
 site naming, internal link reachability from both homepages and discovery files.
@@ -269,6 +279,8 @@ See [Google's sitelink guidance](https://developers.google.com/search/docs/appea
 
 `deploy/nginx-seo-redirects.conf` consolidates extensionless and directory aliases
 with HTTP 301 and preserves query parameters used by download selection.
+Nested guide/blog aliases redirect only when their canonical `.html` file exists.
+Missing documents stay 404 and routes outside these directories are untouched.
 Install it as `/etc/nginx/snowshot-seo-redirects.conf` and include it only inside
 the HTTPS `snowshot.top` server block. Back up both files before changes, run
 `nginx -t` before reload, and restore the backups if validation or reload fails.
@@ -287,20 +299,47 @@ backup if validation or reload fails. Verify a URL such as
 `Location: https://snowshot.top/download.html?os=windows`. Normal website releases
 preserve this configuration as well.
 
-After publishing changed content to `https://snowshot.top`, notify participating
-search engines with `bun run indexnow` (Node.js 24+). The command first verifies
-the public ownership key and sitemap, then submits only canonical URLs belonging
-to this domain. `docs/public/indexnow.txt` is a public verification key, not an
-account secret; keep it stable. Never submit GitHub URLs using this site's key.
-HTTP 200/202 acknowledges receipt, not indexing or improved ranking. If a request
-fails or is rate limited, investigate before retrying; do not run tight retry loops.
+The production release workflow snapshots the live SEO manifest before uploading,
+then submits added, changed and deleted canonical URLs to IndexNow only after
+the release receipt and public page checks pass. On the first upgrade it obtains
+the baseline from the live sitemap, HTML and referenced images. The key and newly deployed manifest
+must match; removed URLs must return 301/308/404/410. No-change releases skip the
+notification. Network failures, 429 and transient 5xx responses get at most three
+attempts with bounded backoff and Retry-After handling. A failed notification
+warns without rolling back the successful deployment. Snapshots and receipts
+remain under ignored `artifacts/indexnow/<transaction>/` for diagnosis and retry.
+
+For a manual deployment (Node.js 24+), capture the baseline **before** replacing
+the website, then submit **after** verifying it:
+
+```sh
+bun run indexnow snapshot --output artifacts/indexnow/previous.json
+# Deploy and verify the production build, then:
+bun run indexnow submit --previous artifacts/indexnow/previous.json --current doc_build/seo-manifest.json --receipt artifacts/indexnow/receipt.json
+```
+
+For a failed release notification, rerun `submit` using that transaction's saved
+`previous.json`, `current.json` and `receipt.json`; the live-manifest check refuses
+a stale build. `docs/public/indexnow.txt` is a public verification key, not an
+account secret. HTTP 200/202 acknowledges receipt, not indexing or ranking.
+Keep Google Search Console and Bing Webmaster Tools sitemap submissions current.
+
+Markdown images get intrinsic width/height during compilation. The first content
+image stays eager; later images are lazy and decoded asynchronously. Home, About
+and Download components are imported by their MDX routes, preserving full static
+HTML while keeping their code out of the common theme bundle. Decorative snow
+pauses outside the viewport/in background tabs and respects reduced motion.
+The primary Latin font is preloaded with anonymous CORS to reduce font-swap layout shifts.
 
 Focused checks:
 
 ```sh
-node --test tests/seo.test.mjs
+node --test tests/seo.test.mjs tests/seo-pipeline.test.mjs tests/blog.test.mjs
 bun run build
 python scripts/check-seo-output.py
+python scripts/check-blog-site.py
+# Uses an isolated official Nginx container when Docker is available:
+python -m unittest discover -s tests -p test_seo_redirects.py
 ```
 
 After deployment, check representative aliases, canonical pages, sitemap and

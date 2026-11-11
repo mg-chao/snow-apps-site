@@ -27,6 +27,8 @@ export function SnowCanvas() {
   useEffect(() => {
     const canvas = ref.current;
     if (!canvas) return;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reducedMotion.matches) return;
     const gl = canvas.getContext('webgl', { alpha: true, antialias: true });
     if (!gl) return;
     const dark = document.documentElement.classList.contains('dark');
@@ -54,6 +56,8 @@ export function SnowCanvas() {
     let dpr = 1;
     let barrier = { x: 0, y: 0, r: 0, active: false };
     let frame = 0;
+    let visible = false;
+    let disposed = false;
     let last = performance.now();
     let points = new Float32Array(0);
     let sizesData = new Float32Array(0);
@@ -98,6 +102,14 @@ export function SnowCanvas() {
       barrier.active = false;
     };
     const render = (now: number) => {
+      frame = 0;
+      if (disposed || !visible || document.hidden || reducedMotion.matches)
+        return;
+      // Decorative snow does not need to run at the display's 60–144 Hz rate.
+      if (now - last < 1000 / 30) {
+        frame = requestAnimationFrame(render);
+        return;
+      }
       const dt = Math.min((now - last) / 16.67, 2);
       last = now;
       // Snapshot collision geometry once, before updating any particles.
@@ -208,11 +220,33 @@ export function SnowCanvas() {
     canvas.addEventListener('mousemove', move);
     canvas.addEventListener('mouseleave', leave);
     resize(canvas.getBoundingClientRect());
-    frame = requestAnimationFrame(render);
-    return () => {
+    const updatePlayback = () => {
       cancelAnimationFrame(frame);
+      frame = 0;
+      if (visible && !document.hidden && !reducedMotion.matches) {
+        last = performance.now();
+        frame = requestAnimationFrame(render);
+      }
+    };
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      updatePlayback();
+    });
+    observer.observe(canvas);
+    document.addEventListener('visibilitychange', updatePlayback);
+    reducedMotion.addEventListener('change', updatePlayback);
+    return () => {
+      disposed = true;
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+      document.removeEventListener('visibilitychange', updatePlayback);
+      reducedMotion.removeEventListener('change', updatePlayback);
       canvas.removeEventListener('mousemove', move);
       canvas.removeEventListener('mouseleave', leave);
+      gl.deleteBuffer(pos);
+      gl.deleteBuffer(sizes);
+      gl.deleteProgram(snow);
+      gl.deleteProgram(bg);
     };
   }, []);
   return <canvas ref={ref} className="snow-canvas" />;

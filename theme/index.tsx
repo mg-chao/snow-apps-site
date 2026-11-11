@@ -2,7 +2,7 @@
 import './index.css';
 import './components/GuideHome/style.css';
 
-import { useLang } from '@rspress/core/runtime';
+import { Content, useLang } from '@rspress/core/runtime';
 import { Layout as OriginalLayout } from '@rspress/core/theme-original';
 import { SeoMetadata } from './components/SeoMetadata';
 import { PageBreadcrumbs } from './components/PageBreadcrumbs';
@@ -11,11 +11,14 @@ import { BlogArticleMeta, BlogRelated } from './components/Blog';
 import { footerSections } from './site-structure';
 
 export * from '@rspress/core/theme-original';
-export { AboutPage } from './components/AboutPage';
-export { DownloadPage } from './components/DownloadPage';
-export { HomeLayout } from './components/HomeLayout';
 export { SwitchAppearance } from './components/SwitchAppearance';
 export { SiteHeader as Nav } from './components/SiteHeader';
+
+// Home content lives in its route chunk, keeping demonstrations out of docs.
+// Rspress preloads the matched route for SSG, so the complete HTML remains crawlable.
+export function HomeLayout() {
+  return <Content />;
+}
 
 function SnowNavTitle() {
   const lang = useLang();

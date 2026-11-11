@@ -7,7 +7,7 @@ import {
   releaseCalendarDate,
   relatedPosts,
 } from '../../blog';
-import { canonicalUrl } from '../../seo';
+import { articleAuthor, canonicalUrl } from '../../seo';
 import './style.css';
 
 function categoryLabel(category: BlogCategory, zh: boolean) {
@@ -22,13 +22,24 @@ function categoryLabel(category: BlogCategory, zh: boolean) {
 
 function PostMeta({ post }: { post: BlogPost }) {
   const zh = post.lang === 'zh';
+  const author = articleAuthor(zh ? 'zh' : 'en');
+  const modified = post.modified
+    ? releaseCalendarDate(post.modified, post.lang)
+    : undefined;
   return (
     <div className="snow-blog-meta">
       <span className="snow-blog-tag">{categoryLabel(post.category, zh)}</span>
+      <a href={author.url}>{author.name}</a>
       <span>
         {zh ? '撰写于 ' : 'Written '}
         <time dateTime={post.date}>{post.date}</time>
       </span>
+      {modified && modified > post.date && (
+        <span>
+          {zh ? '更新于 ' : 'Updated '}
+          <time dateTime={post.modified}>{modified}</time>
+        </span>
+      )}
       {post.releaseDate && (
         <span>
           {zh ? '产品发布：' : 'Released: '}

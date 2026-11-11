@@ -240,6 +240,18 @@ it('uses the same link labels in navigation, sidebars and shared page entries', 
 
 const key = 'test-indexnow-123456';
 const sitemap = sitemapXml(['/', '/zh/']);
+const submission = {
+  previous: { schema: 1, pages: {} },
+  current: {
+    schema: 1,
+    pages: Object.fromEntries(
+      [
+        'https://snowshot.top/index.html',
+        'https://snowshot.top/zh/index.html',
+      ].map((url) => [url, { hash: 'a'.repeat(64) }]),
+    ),
+  },
+};
 
 it('refuses empty, invalid-key or unowned-host IndexNow submissions', () => {
   assert.throws(() => indexNowPayload('<urlset/>', key), /Expected/);
@@ -264,12 +276,18 @@ it('verifies the live key before sending URLs, and distinguishes 202 from indexi
   const request = async (url, options) => {
     calls.push({ url, options });
     if (url.endsWith('/indexnow.txt')) return new Response(key);
-    if (url.endsWith('/sitemap.xml')) return new Response(sitemap);
+    if (url.endsWith('/seo-manifest.json'))
+      return Response.json(submission.current);
     return new Response('', { status: 202 });
   };
-  assert.deepEqual(await submitIndexNow(key, request), {
+  assert.deepEqual(await submitIndexNow(key, request, submission), {
     status: 202,
     submitted: 2,
+    attempts: 1,
+    urls: [
+      'https://snowshot.top/index.html',
+      'https://snowshot.top/zh/index.html',
+    ],
   });
   assert.equal(calls.length, 3);
   assert.equal(calls[2].options.method, 'POST');
@@ -279,10 +297,14 @@ it('verifies the live key before sending URLs, and distinguishes 202 from indexi
   ]);
   let requests = 0;
   await assert.rejects(
-    submitIndexNow(key, async () => {
-      requests++;
-      return new Response('different-key');
-    }),
+    submitIndexNow(
+      key,
+      async () => {
+        requests++;
+        return new Response('different-key');
+      },
+      submission,
+    ),
     /Deploy first/,
   );
   assert.equal(requests, 1);
@@ -290,11 +312,16 @@ it('verifies the live key before sending URLs, and distinguishes 202 from indexi
 
 it('reports failed submissions rather than treating any 2xx/4xx response as success', async () => {
   await assert.rejects(
-    submitIndexNow(key, async (url) => {
-      if (url.endsWith('/indexnow.txt')) return new Response(key);
-      if (url.endsWith('/sitemap.xml')) return new Response(sitemap);
-      return new Response('', { status: 429 });
-    }),
+    submitIndexNow(
+      key,
+      async (url) => {
+        if (url.endsWith('/indexnow.txt')) return new Response(key);
+        if (url.endsWith('/seo-manifest.json'))
+          return Response.json(submission.current);
+        return new Response('', { status: 429 });
+      },
+      { ...submission, maxAttempts: 1 },
+    ),
     /HTTP 429/,
   );
 });

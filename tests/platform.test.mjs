@@ -250,7 +250,7 @@ describe('download navigation and explicit choices', () => {
           );
           assert.equal(
             url.pathname,
-            locale === 'zh' ? '/zh/download' : '/download',
+            locale === 'zh' ? '/zh/download.html' : '/download.html',
           );
           assert.equal(url.searchParams.get('os'), platform);
           assert.equal(url.searchParams.get('arch'), architecture);

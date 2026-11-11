@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import * as path from 'node:path';
 import { defineConfig } from '@rspress/core';
 import { seoBuildPlugin } from './scripts/seo-build';
+import { rehypeImages } from './scripts/rehype-images';
 import { siteOrigin } from './theme/seo';
 
 export default defineConfig({
@@ -9,6 +10,7 @@ export default defineConfig({
   title: 'Snow Shot',
   siteOrigin,
   plugins: [seoBuildPlugin()],
+  markdown: { rehypePlugins: [rehypeImages] },
   description:
     'Snow Shot is a free, open-source screenshot tool for Windows and macOS with annotation, scrolling capture, local text recognition, pinning and screen recording.',
   lang: 'en',

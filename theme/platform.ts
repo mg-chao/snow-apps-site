@@ -205,5 +205,5 @@ export function downloadPageUrl(locale: 'en' | 'zh', target: DownloadTarget) {
   if (target.architecture) {
     params.set('arch', target.architecture);
   }
-  return `${locale === 'zh' ? '/zh/download' : '/download'}?${params}`;
+  return `${locale === 'zh' ? '/zh/download.html' : '/download.html'}?${params}`;
 }

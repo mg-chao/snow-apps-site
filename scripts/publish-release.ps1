@@ -64,6 +64,15 @@ try {
         throw 'The build modified source files; commit and rerun before deploying.'
     }
     $transaction = [guid]::NewGuid().ToString('N')
+    $indexNowDirectory = Join-Path $site "artifacts/indexnow/$transaction"
+    $indexNowPrevious = Join-Path $indexNowDirectory 'previous.json'
+    $indexNowCurrent = Join-Path $indexNowDirectory 'current.json'
+    $indexNowReceipt = Join-Path $indexNowDirectory 'receipt.json'
+    if ($PublicBaseUrl.TrimEnd('/') -eq 'https://snowshot.top') {
+        # Keep this snapshot after deployment so a failed notification can be retried.
+        Invoke-SiteTool bun @('run', 'indexnow', 'snapshot', '--output', $indexNowPrevious)
+        Copy-Item -LiteralPath (Join-Path $site 'doc_build/seo-manifest.json') -Destination $indexNowCurrent
+    }
     $archive = Join-Path ([IO.Path]::GetTempPath()) "snow-shot-website-$transaction.tar.gz"
     $remoteArchive = "$($RemoteWebRoot.TrimEnd('/'))/../.snow-shot-website-$transaction.tar.gz"
     $sshOptions = @('-o', 'BatchMode=yes', '-o', 'StrictHostKeyChecking=yes', '-o', 'UpdateHostKeys=no', '-o', 'ConnectTimeout=15')
@@ -91,7 +100,7 @@ try {
         if ($receipt.version -cne $Version -or $receipt.commit -cne $commit) {
             throw 'Public website receipt does not match this deployment.'
         }
-        foreach ($page in @('/', '/changelog.html', '/download.html', '/privacy.html', '/terms.html', '/guides/index.html', '/blog/index.html', '/zh/', '/zh/changelog.html', '/zh/download.html', '/zh/privacy.html', '/zh/terms.html', '/zh/guides/index.html', '/zh/blog/index.html', '/robots.txt', '/sitemap.xml', '/indexnow.txt')) {
+        foreach ($page in @('/', '/changelog.html', '/download.html', '/privacy.html', '/terms.html', '/guides/index.html', '/blog/index.html', '/zh/', '/zh/changelog.html', '/zh/download.html', '/zh/privacy.html', '/zh/terms.html', '/zh/guides/index.html', '/zh/blog/index.html', '/robots.txt', '/sitemap.xml', '/indexnow.txt', '/seo-manifest.json')) {
             $response = Invoke-WebRequest -Uri "$($PublicBaseUrl.TrimEnd('/'))$page" -TimeoutSec 30
             if ($response.StatusCode -ne 200) { throw "Website health check failed: $page" }
             if ($page.EndsWith('/download.html')) {
@@ -103,6 +112,15 @@ try {
         # Delete only this workflow's exact uploaded archive. Keep the previous site backup.
         Invoke-SiteTool ssh ($sshOptions + @('-p', "$ServerPort", $destination, "rm -- $remoteArchive"))
         Write-Output "Published Snow Shot and Mini website $Version ($commit) to $PublicBaseUrl."
+        if ($PublicBaseUrl.TrimEnd('/') -eq 'https://snowshot.top') {
+            try {
+                Invoke-SiteTool bun @('run', 'indexnow', 'submit', '--previous', $indexNowPrevious,
+                    '--current', $indexNowCurrent, '--receipt', $indexNowReceipt)
+            } catch {
+                # Search-engine downtime must not misreport or roll back a successful deployment.
+                Write-Warning "Website is deployed; IndexNow notification failed. Retry with snapshot $indexNowPrevious. Details: $indexNowReceipt. $($_.Exception.Message)"
+            }
+        }
     } finally {
         if (Test-Path -LiteralPath $archive -PathType Leaf) { Remove-Item -LiteralPath $archive }
     }

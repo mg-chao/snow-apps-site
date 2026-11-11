@@ -30,7 +30,7 @@ class Page(HTMLParser):
             self.images.append(a)
         if tag == 'a' and a.get('href'):
             self.links.append(a['href'])
-            if 'snow-guide-language' in a.get('class', '').split():
+            if 'snow-site-language' in a.get('class', '').split():
                 self.language_links.append(a['href'])
         if tag == 'article' and 'snow-blog-card' in a.get('class', '').split():
             self.cards += 1
@@ -55,15 +55,15 @@ def check():
     assert [p.name for p in sources['en']] == [p.name for p in sources['zh']], 'Blog locale counterparts differ'
     slugs = {p.stem for p in sources['en'] if p.stem != 'index'}
     assert len(slugs) >= 10, 'The first ten independent topics are incomplete'
-    sitemap = (BUILD / 'sitemap.xml').read_text()
+    sitemap = (BUILD / 'sitemap.xml').read_text(encoding='utf-8')
     search_files = list(BUILD.rglob('search_index.*.json'))
     assert search_files, 'Missing generated search index'
-    search_routes = {page['routePath'] for p in search_files for page in json.loads(p.read_text())}
+    search_routes = {page['routePath'] for p in search_files for page in json.loads(p.read_text(encoding='utf-8'))}
     rows = []
     for lang, files in sources.items():
         prefix = 'zh/' if lang == 'zh' else ''
         home = prefix + 'blog/index.html'
-        listing_text = (BUILD / home).read_text()
+        listing_text = (BUILD / home).read_text(encoding='utf-8')
         listing = Page(listing_text)
         assert listing.cards == len(slugs), f'{home}: articles absent from static HTML'
         assert listing.categories == 3, f'{home}: category controls missing'
@@ -71,7 +71,7 @@ def check():
             name = prefix + 'blog/' + source.with_suffix('.html').name
             target = BUILD / name
             assert target.is_file(), f'Missing {name}'
-            text = target.read_text()
+            text = target.read_text(encoding='utf-8')
             page = Page(text)
             assert ORIGIN + '/' + name in sitemap, f'{name}: absent from sitemap'
             alternate = '/' + (name.removeprefix('zh/') if lang == 'zh' else 'zh/' + name)
@@ -82,13 +82,13 @@ def check():
                     continue
                 assert dest.is_file(), f'{name}: broken link {href}'
                 if anchor and dest.suffix == '.html':
-                    assert anchor in Page(dest.read_text()).ids, f'{name}: broken anchor {href}'
+                    assert anchor in Page(dest.read_text(encoding='utf-8')).ids, f'{name}: broken anchor {href}'
             if source.stem == 'index':
                 continue
             assert '/' + name in listing.links, f'{name}: absent from list links'
             assert '/' + name in search_routes, f'{name}: missing canonical search-index route'
             for field in ('title', 'description', 'date', 'category', 'productVersion', 'platforms', 'related'):
-                assert re.search(r'^' + field + r':\s*\S', source.read_text(), re.M), f'{source}: missing {field}'
+                assert re.search(r'^' + field + r':\s*\S', source.read_text(encoding='utf-8'), re.M), f'{source}: missing {field}'
             images = [a for a in page.images if a.get('src', '').startswith('/images/')]
             assert len(images) >= 3, f'{name}: fewer than three instructional images'
             assert any(a['src'].endswith('.webp') for a in images), f'{name}: missing app capture or output'
