@@ -1,7 +1,23 @@
 {
   "source": "https://github.com/mg-chao/snow-shot/releases",
-  "syncedAt": "2026-11-10T17:38:37.350Z",
+  "syncedAt": "2026-11-12T17:44:53.875Z",
   "releases": [
+    {
+      "tag": "v1.5.6_snow-shot",
+      "version": "1.5.6",
+      "name": "Snow Shot 1.5.6",
+      "publishedAt": "2026-11-12T17:37:39Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.5.6_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 智能选区支持用鼠标中键直接执行已设置的操作，例如复制或保存截图。\n- 完整版可在表格识别、LaTeX 识别及 Markdown、HTML 转换时选择识别模型，并新增「快速翻译」。\n- 图片编辑器可在画布上直接查看文字识别结果。贴图在编辑或分割时会保留原始分辨率。\n- 跟随鼠标录屏时，取景移动更平滑，并可在录制中看到取景范围。拼图导出 PDF 时可调整图片质量。",
+        "en": "- Middle-click a smart selection to run your configured action, such as copying or saving the screenshot.\n- Snow Shot lets you choose a model for table and LaTeX recognition and for Markdown and HTML conversion. It also adds Fast Translation.\n- View recognized text directly on the image editor canvas. Pinned images keep their original resolution when you edit or split them.\n- Mouse-follow recording moves more smoothly and keeps the capture outline visible. You can also adjust image quality when exporting a collage to PDF."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
     {
       "tag": "v1.5.4_snow-shot",
       "version": "1.5.4",
