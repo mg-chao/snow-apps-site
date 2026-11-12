@@ -75,10 +75,7 @@ export function seoBuildPlugin(): RspressPlugin {
         originalSearchRoutes.delete(page);
       }
       if (metadata && page._filepath && page.frontmatter.pageType !== '404') {
-        const details = metadata(
-          page._filepath,
-          page.frontmatter.pageType === 'home',
-        );
+        const details = metadata(page._filepath, page.frontmatter.updated);
         page.frontmatter.lastModified = details.lastModified;
         if (details.lastModified)
           modified.set(canonicalUrl(page.routePath), details.lastModified);

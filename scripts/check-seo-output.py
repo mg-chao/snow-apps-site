@@ -236,7 +236,17 @@ def check(directory):
     assert manifest['schema'] == 1 and set(manifest['pages']) == expected, 'SEO manifest must match sitemap'
     for element in root.findall('{*}url'):
         url = element.findtext('{*}loc')
-        assert manifest['pages'][url]['lastmod'] == element.findtext('{*}lastmod'), f'{url}: lastmod differs from manifest'
+        entry = manifest['pages'][url]
+        lastmod = element.findtext('{*}lastmod')
+        assert entry['lastmod'] == lastmod, f'{url}: lastmod differs from manifest'
+        path = urlsplit(url).path.lstrip('/')
+        if path.removeprefix('zh/').startswith('blog/'):
+            assert len(entry.get('contentHash', '')) == 64, f'{url}: missing blog content fingerprint'
+        page = pages[path]
+        for schema in map(json.loads, page.scripts):
+            if schema['@type'] == 'BlogPosting':
+                assert schema.get('dateModified') == lastmod, f'{url}: article date differs from sitemap'
+                assert page.meta.get('article:modified_time') == lastmod, f'{url}: social date differs from sitemap'
     robots = (directory / 'robots.txt').read_text(encoding='utf-8')
     assert f'Sitemap: {ORIGIN}/sitemap.xml' in robots and 'Disallow: /' not in robots
     print(f'Verified {len(expected)} canonical pages, shared headers and footers, bilingual metadata, visible breadcrumbs, homepage schemas, internal link reachability and discovery files.')

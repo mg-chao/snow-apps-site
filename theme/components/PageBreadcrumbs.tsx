@@ -5,7 +5,7 @@ import './SiteNavigation.css';
 export function PageBreadcrumbs({
   placement,
 }: {
-  placement: 'doc' | 'custom';
+  placement: 'doc' | 'custom' | 'content';
 }) {
   const { pathname } = useLocation();
   const { page } = usePage();
@@ -13,10 +13,18 @@ export function PageBreadcrumbs({
   if (
     page.pageType === 'home' ||
     page.pageType === '404' ||
-    page.pageType === 'blank' ||
-    (page.pageType === 'custom') !== (placement === 'custom')
+    page.pageType === 'blank'
   )
     return null;
+
+  const pagePlacement =
+    page.pageType === 'custom'
+      ? page.frontmatter.breadcrumbPlacement === 'content'
+        ? 'content'
+        : 'custom'
+      : 'doc';
+  if (placement !== pagePlacement) return null;
+
   const items = pageBreadcrumbs(pathname, locale, page.title);
   if (items.length < 2) return null;
   return (

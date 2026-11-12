@@ -47,7 +47,7 @@ type PlatformCopy = {
 
 const copy = {
   en: {
-    tagline: 'Make your screen worth sharing.',
+    tagline: 'Free downloads for Windows and macOS',
     selectLabel: 'System',
     downloadButton: 'Download from GitHub',
     windowsStore: {
@@ -69,7 +69,7 @@ const copy = {
       kicker: 'SNOW SHOT / WINDOWS',
       title: ['Download Snow Shot', 'and Snow Shot Mini'],
       intro:
-        'A fast, focused toolkit for screenshots, recordings, annotations, and text recognition.',
+        'Choose the full edition for all features, or Mini for a smaller download with screenshots, annotation, pinning, and screen recording.',
       meta: ['Free to download', 'Ready in minutes'],
       sectionKicker: 'CHOOSE YOUR SETUP',
       sectionTitle: ['Choose your edition.', 'Download your way.'],
@@ -144,7 +144,7 @@ const copy = {
       kicker: 'SNOW SHOT / MACOS',
       title: ['Download Snow Shot', 'and Snow Shot Mini'],
       intro:
-        'A fast, focused toolkit for screenshots, recordings, annotations, and text recognition.',
+        'On macOS 15 or later, the full edition supports Apple silicon and Intel. Mini is available for Apple silicon.',
       meta: ['Free to download', 'Ready in minutes'],
       sectionKicker: 'CHOOSE YOUR SETUP',
       sectionTitle: ['Choose your edition.', 'Install on your Mac.'],
@@ -185,7 +185,7 @@ const copy = {
     },
   },
   zh: {
-    tagline: '让每一处画面都值得分享。',
+    tagline: '适用于 Windows 和 macOS，免费下载',
     selectLabel: '系统',
     downloadButton: '从 Gitee 下载',
     windowsStore: {
@@ -206,7 +206,8 @@ const copy = {
     windows: {
       kicker: 'SNOW SHOT / WINDOWS',
       title: ['下载 Snow Shot', '和 Snow Shot Mini'],
-      intro: '截图、录屏、标注和文本识别，一套专注而快速的工具。',
+      intro:
+        '完整版包含全部功能。Mini 安装包更小，提供截图、标注、贴图和录屏。',
       meta: ['免费下载', '几分钟即可开始'],
       sectionKicker: '选择安装方式',
       sectionTitle: ['选择适合你的版本。', '按你的方式下载。'],
@@ -276,7 +277,8 @@ const copy = {
     macos: {
       kicker: 'SNOW SHOT / MACOS',
       title: ['下载 Snow Shot', '和 Snow Shot Mini'],
-      intro: '截图、录屏、标注和文本识别，一套专注而快速的工具。',
+      intro:
+        '需要 macOS 15 或更新版本。完整版支持 Apple 芯片和 Intel Mac，Mini 适用于 Apple 芯片 Mac。',
       meta: ['免费下载', '几分钟即可开始'],
       sectionKicker: '选择安装方式',
       sectionTitle: ['选择适合你的版本。', '安装到你的 Mac。'],

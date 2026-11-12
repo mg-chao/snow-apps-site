@@ -258,14 +258,17 @@ Guide breadcrumbs link to the actual manual hub rather
 than directory URLs without a page. Feature links use specific tutorial names.
 Rspress supplies the English/Chinese alternate links; the component updates
 them on client-side navigation. The existing `.html` routes remain canonical.
-`scripts/seo-build.ts` generates the sitemap from actual routes. `lastmod` comes
-from Git history for each page, its local component/illustration dependencies,
-and shared navigation/schema sources. Local edits use the edited file's mtime;
-unchanged files never use checkout or build time. Use a full Git checkout
-(`git fetch --unshallow` if necessary). Builds do not rewrite source dates.
-`seo-manifest.json` fingerprints rendered content and referenced images, ignoring
-executable bundle/style hashes so rebuilding a shared bundle alone does not
-notify search engines about every page. The deployment
+`scripts/seo-build.ts` generates the sitemap from actual routes. `lastmod` and
+blog `dateModified` use the latest Git date for the page source, its imported
+content components and referenced illustrations. Shared navigation and SEO
+implementation files do not supply a date. For a significant change to a page's
+generated content or structured data from shared code, add
+`updated: 'YYYY-MM-DD'` to the affected page. Local edits use the edited file's
+mtime. Use a full Git checkout (`git fetch --unshallow` if necessary).
+
+`seo-manifest.json` fingerprints rendered content and referenced images. IndexNow
+comparison ignores executable bundle/style hashes and blog update dates. It
+still detects article text, illustrations and other schema changes. The deployment
 workflow validates all generated pages with `scripts/check-seo-output.py` before
 uploading, including canonical/alternate links, descriptions, visible breadcrumbs,
 site naming, internal link reachability from both homepages and discovery files.
@@ -302,8 +305,9 @@ preserve this configuration as well.
 The production release workflow snapshots the live SEO manifest before uploading,
 then submits added, changed and deleted canonical URLs to IndexNow only after
 the release receipt and public page checks pass. On the first upgrade it obtains
-the baseline from the live sitemap, HTML and referenced images. The key and newly deployed manifest
-must match; removed URLs must return 301/308/404/410. No-change releases skip the
+the baseline from the live sitemap, HTML and referenced images. Older manifests
+are supplemented from the live blog pages. The key and newly deployed manifest
+must match. Removed URLs must return 301/308/404/410. No-change releases skip the
 notification. Network failures, 429 and transient 5xx responses get at most three
 attempts with bounded backoff and Retry-After handling. A failed notification
 warns without rolling back the successful deployment. Snapshots and receipts

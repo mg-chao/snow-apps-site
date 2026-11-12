@@ -16,6 +16,7 @@ import {
   buildManifest,
   contentFingerprint,
   pageFingerprint,
+  pageFingerprints,
 } from '../scripts/seo-manifest.ts';
 import { rehypeImages } from '../scripts/rehype-images.ts';
 import { sitemapXml } from '../scripts/seo-build.ts';
@@ -38,7 +39,7 @@ const manifest = (...pages) => ({
   pages: Object.fromEntries(pages),
 });
 
-it('dates survive a fresh checkout and include actual imported component/image changes', () => {
+it('dates follow page content and its own dependencies across clean and dirty builds', () => {
   const root = mkdtempSync(join(tmpdir(), 'snow-seo-history-'));
   const git = (...args) =>
     execFileSync('git', args, {
@@ -52,14 +53,27 @@ it('dates survive a fresh checkout and include actual imported component/image c
     });
   try {
     mkdirSync(join(root, 'docs/en'), { recursive: true });
-    mkdirSync(join(root, 'theme'), { recursive: true });
+    mkdirSync(join(root, 'docs/zh'), { recursive: true });
+    mkdirSync(join(root, 'docs/public/images'), { recursive: true });
+    mkdirSync(join(root, 'theme/components'), { recursive: true });
     const doc = join(root, 'docs/en/task.mdx');
+    const other = join(root, 'docs/zh/task.mdx');
     const component = join(root, 'theme/Example.tsx');
+    const image = join(root, 'docs/public/images/task.svg');
+    const seo = join(root, 'theme/seo.ts');
+    const siteLinks = join(root, 'theme/site-structure.ts');
+    const head = join(root, 'theme/components/SeoMetadata.tsx');
     writeFileSync(
       doc,
-      "import { Example } from '../../theme/Example';\n# Task\n<Example />",
+      "import { Example } from '../../theme/Example';\n# Task\n<Example />\n![Task](/images/task.svg)",
     );
-    writeFileSync(component, 'export const Example = () => null;');
+    writeFileSync(other, '# 任务');
+    writeFileSync(image, '<svg/>');
+    writeFileSync(seo, 'export const schema = {};');
+    writeFileSync(siteLinks, 'export const label = "Guides";');
+    writeFileSync(head, 'export const SeoMetadata = () => null;');
+    const example = "import { label } from './site-structure';";
+    writeFileSync(component, `${example}\nexport const Example = () => label;`);
     git('init', '-q');
     git('add', '.');
     git(
@@ -79,13 +93,31 @@ it('dates survive a fresh checkout and include actual imported component/image c
     );
     writeFileSync(
       component,
-      'export const Example = () => "Updated instructions";',
+      `${example}\nexport const Example = () => 'Instructions: ' + label;`,
     );
     utimesSync(component, new Date('2026-02-01'), new Date('2026-02-01'));
     assert.equal(
       contentMetadata(root)(doc).lastModified,
       '2026-02-01T00:00:00.000Z',
     );
+    for (const file of [seo, siteLinks, head]) {
+      writeFileSync(file, '// Internal refactor');
+      utimesSync(file, new Date('2026-04-01'), new Date('2026-04-01'));
+    }
+    writeFileSync(image, '<svg>Updated illustration</svg>');
+    utimesSync(image, new Date('2026-03-01'), new Date('2026-03-01'));
+    const metadata = contentMetadata(root);
+    assert.equal(metadata(doc).lastModified, '2026-03-01T00:00:00.000Z');
+    assert.equal(metadata(other).lastModified, '2026-01-01T10:00:00.000Z');
+    assert.equal(
+      metadata(other, '2026-03-02').lastModified,
+      '2026-03-02T00:00:00.000Z',
+    );
+    assert.equal(
+      metadata(doc, '2026-01-03').lastModified,
+      '2026-03-01T00:00:00.000Z',
+    );
+    assert.throws(() => metadata(doc, 'invalid'), /expected a valid past date/);
     const xml = sitemapXml(
       ['/task'],
       new Map([[`${origin}/task.html`, '2026-02-01T08:00:00+08:00']]),
@@ -96,6 +128,84 @@ it('dates survive a fresh checkout and include actual imported component/image c
     assert.ok(root.startsWith(join(tmpdir(), 'snow-seo-history-')));
     rmSync(root, { recursive: true, force: true });
   }
+});
+
+it('IndexNow skips an article date correction but detects body and schema edits', async () => {
+  const url = `${origin}/blog/task.html`;
+  const html =
+    '<meta property="article:modified_time" content="2026-02-01">' +
+    '<script type="application/ld+json">{"@type":"BlogPosting","headline":"Task","dateModified":"2026-02-01","datePublished":"2026-01-01"}</script>' +
+    '<span>Updated <time dateTime="2026-02-01T00:00:00.000Z">2026-02-01</time></span>' +
+    '<h1>Task</h1>';
+  const legacy = manifest([url, { hash: contentFingerprint(html, []) }]);
+  const requests = [];
+  const previous = await snapshotWebsite(async (address) => {
+    requests.push(address);
+    return address === url ? new Response(html) : Response.json(legacy);
+  });
+  assert.deepEqual(requests, [`${origin}/seo-manifest.json`, url]);
+  const current = (article) =>
+    manifest([url, pageFingerprints(url, article, [])]);
+  const corrected = html.replaceAll('2026-02-01', '2026-01-15');
+  assert.notEqual(previous.pages[url].hash, current(corrected).pages[url].hash);
+  assert.deepEqual(changedUrls(previous, current(corrected)), []);
+  assert.deepEqual(
+    changedUrls(
+      previous,
+      current(corrected.replace('<h1>Task', '<h1>New task')),
+    ),
+    [url],
+  );
+  assert.deepEqual(
+    changedUrls(
+      previous,
+      current(corrected.replace('"headline":"Task"', '"headline":"New task"')),
+    ),
+    [url],
+  );
+  assert.deepEqual(
+    changedUrls(
+      previous,
+      current(
+        corrected.replace(
+          '"datePublished":"2026-01-01"',
+          '"datePublished":"2026-01-02"',
+        ),
+      ),
+    ),
+    [url],
+  );
+  assert.deepEqual(
+    await snapshotWebsite(async (address) => {
+      assert.equal(address, `${origin}/seo-manifest.json`);
+      return Response.json(current(corrected));
+    }),
+    current(corrected),
+  );
+  await assert.rejects(
+    submitIndexNow(
+      key,
+      async (address) => {
+        if (address.endsWith('/indexnow.txt')) return new Response(key);
+        return Response.json(previous);
+      },
+      { previous, current: current(corrected) },
+    ),
+    /Live content does not match/,
+  );
+});
+
+it('IndexNow skips a date-only change to a blog index card', () => {
+  const url = `${origin}/zh/blog/index.html`;
+  const body = '<article><a href="/zh/blog/task.html">任务</a></article>';
+  const date =
+    '<span>更新于 <time dateTime="2026-02-01T00:00:00.000Z">2026-02-01</time></span>';
+  const index = (html) => manifest([url, pageFingerprints(url, html, [])]);
+  const before = index(body.replace('</article>', `${date}</article>`));
+  assert.deepEqual(changedUrls(before, index(body)), []);
+  assert.deepEqual(changedUrls(before, index(body.replace('任务', '新任务'))), [
+    url,
+  ]);
 });
 
 it('fingerprints ignore script/stylesheet rebuilds but retain text, schema and image changes', () => {

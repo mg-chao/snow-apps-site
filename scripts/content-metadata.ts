@@ -12,6 +12,10 @@ const sourceExtensions = [
   '/index.ts',
 ];
 
+// These modules supply common navigation and SEO plumbing. A change to their
+// source does not identify which pages' content was updated.
+const sharedSiteSources = new Set(['theme/seo.ts', 'theme/site-structure.ts']);
+
 /** Use repository history, never checkout/build time, for unchanged sources. */
 export function contentMetadata(root = process.cwd()) {
   const dates = new Map<string, string>();
@@ -62,7 +66,8 @@ export function contentMetadata(root = process.cwd()) {
     file: string,
     seen = new Set<string>(),
   ): Set<string> => {
-    if (seen.has(file) || !existsSync(file)) return seen;
+    if (seen.has(file) || sharedSiteSources.has(key(file)) || !existsSync(file))
+      return seen;
     seen.add(file);
     if (!/\.(?:mdx?|[jt]sx?)$/.test(file)) return seen;
     const source = readFileSync(file, 'utf8');
@@ -93,30 +98,18 @@ export function contentMetadata(root = process.cwd()) {
     }
     return seen;
   };
-  return (file: string, isHome = false) => {
-    const files = dependencies(file);
-    // Shared visible navigation and structured metadata affect every page.
-    for (const name of [
-      'theme/index.tsx',
-      'theme/site-structure.ts',
-      'theme/seo.ts',
-      'theme/components/SeoMetadata.tsx',
-      'theme/components/SiteHeader.tsx',
-    ]) {
-      const target = resolve(root, name);
-      if (existsSync(target)) files.add(target);
-    }
-    if (isHome)
-      dependencies(
-        resolve(root, 'theme/components/HomeLayout/index.tsx'),
-        files,
-      );
-    if (key(file).includes('/blog/'))
-      dependencies(resolve(root, 'theme/components/Blog/index.tsx'), files);
-    const known = [...files]
+  return (file: string, updated?: unknown) => {
+    const known = [...dependencies(file)]
       .map(fileDate)
       .filter((value): value is string => Boolean(value));
-    const lastModified = known.sort((a, b) => Date.parse(b) - Date.parse(a))[0];
+    if (updated !== undefined) {
+      const time = typeof updated === 'string' ? Date.parse(updated) : NaN;
+      if (!Number.isFinite(time) || time > Date.now()) {
+        throw new Error(`${key(file)}: expected a valid past date for updated`);
+      }
+      known.push(new Date(time).toISOString());
+    }
+    const lastModified = known.sort().at(-1);
     const source = readFileSync(file, 'utf8');
     const image = source.match(/!\[[^\]]*\]\((\/images\/[^\s)]+)\)/)?.[1];
     return { lastModified, image };

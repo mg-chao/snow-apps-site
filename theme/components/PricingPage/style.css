@@ -1,0 +1,693 @@
+.snow-pricing {
+  --pricing-ink: #171925;
+  --pricing-muted: #656978;
+  --pricing-line: #e5e6ee;
+  --pricing-paper: #f7f7fb;
+  --pricing-brand: #7052d8;
+  --pricing-brand-soft: #efedfb;
+  --pricing-free: #e9f5ef;
+  color: var(--pricing-ink);
+  background: #fff;
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+.snow-pricing *,
+.snow-pricing *::before,
+.snow-pricing *::after {
+  box-sizing: border-box;
+}
+
+.snow-pricing__shell {
+  width: min(1120px, calc(100% - 56px));
+  margin-inline: auto;
+}
+
+.snow-pricing__hero-surface {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse 38% 90% at 86% 4%,
+      rgba(211, 202, 250, 0.55),
+      transparent 78%
+    ),
+    linear-gradient(180deg, #f3f1fd 0%, #fff 100%);
+}
+
+.snow-pricing__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  align-items: center;
+  gap: 64px;
+  padding-block: 54px 72px;
+}
+
+.snow-pricing .snow-breadcrumbs {
+  margin-bottom: 16px;
+  color: var(--pricing-muted);
+  font-weight: 600;
+}
+
+.snow-pricing .snow-breadcrumbs li + li::before {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  color: var(--pricing-muted);
+  content: "";
+  vertical-align: 0.15em;
+  transform: rotate(45deg);
+}
+
+.snow-pricing .snow-breadcrumbs a {
+  color: var(--pricing-brand);
+  text-underline-offset: 3px;
+}
+
+.snow-pricing .snow-breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+.snow-pricing .snow-breadcrumbs a:focus-visible {
+  outline-color: var(--pricing-brand);
+}
+
+.snow-pricing__eyebrow {
+  margin: 0 0 16px;
+  color: var(--pricing-brand);
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+}
+
+.snow-pricing h1,
+.snow-pricing h2,
+.snow-pricing h3,
+.snow-pricing p {
+  overflow-wrap: anywhere;
+}
+
+.snow-pricing h1 {
+  max-width: 700px;
+  margin: 0;
+  color: var(--pricing-ink);
+  font-size: clamp(38px, 5.8vw, 64px);
+  font-weight: 760;
+  letter-spacing: -0.055em;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+.snow-pricing__intro {
+  max-width: 620px;
+  margin: 22px 0 0;
+  color: var(--pricing-muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.snow-pricing__exchange {
+  position: relative;
+  min-height: 188px;
+  padding: 24px 26px;
+  overflow: hidden;
+  border: 1px solid rgba(112, 82, 216, 0.16);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: 0 20px 56px rgba(43, 37, 75, 0.08);
+}
+
+.snow-pricing__exchange::after {
+  position: absolute;
+  right: -27px;
+  bottom: -56px;
+  width: 130px;
+  height: 130px;
+  border: 1px solid rgba(112, 82, 216, 0.14);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 15px rgba(112, 82, 216, 0.035),
+    0 0 0 31px rgba(112, 82, 216, 0.025);
+  content: "";
+}
+
+.snow-pricing__exchange-label,
+.snow-pricing__exchange-note {
+  display: block;
+  color: var(--pricing-muted);
+  font-size: 12px;
+}
+
+.snow-pricing__exchange-label {
+  font-family: "DM Mono", ui-monospace, monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.snow-pricing__exchange-value {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-block: 20px 12px;
+  color: var(--pricing-brand);
+  font-family: "DM Mono", ui-monospace, monospace;
+}
+
+.snow-pricing__exchange-value > span:first-child {
+  color: var(--pricing-ink);
+  font-size: 22px;
+}
+
+.snow-pricing__exchange-value > span:nth-child(2) {
+  color: #a8a5b4;
+  font-size: 18px;
+}
+
+.snow-pricing__exchange-value strong {
+  font-size: 48px;
+  font-weight: 500;
+  letter-spacing: -0.07em;
+  line-height: 1;
+}
+
+.snow-pricing__exchange-unit {
+  color: var(--pricing-brand);
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.snow-pricing__content {
+  padding-block: 16px 72px;
+}
+
+.snow-pricing__section {
+  padding-block: 52px;
+  border-bottom: 1px solid var(--pricing-line);
+}
+
+.snow-pricing__section-heading {
+  max-width: 720px;
+  margin-bottom: 26px;
+}
+
+.snow-pricing__section-heading .snow-pricing__eyebrow {
+  margin-bottom: 10px;
+}
+
+.snow-pricing__section-heading h2 {
+  margin: 0;
+  color: var(--pricing-ink);
+  font-size: clamp(27px, 3vw, 36px);
+  font-weight: 720;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+
+.snow-pricing__section-heading > p:last-child {
+  margin: 12px 0 0;
+  color: var(--pricing-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.snow-pricing__monthly-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.snow-pricing__monthly-card {
+  min-height: 184px;
+  padding: 22px 23px;
+  border: 1px solid var(--pricing-line);
+  border-radius: 14px;
+  background: linear-gradient(135deg, #fff, var(--pricing-paper));
+}
+
+.snow-pricing__monthly-count {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  color: var(--pricing-brand);
+  font-family: "DM Mono", ui-monospace, monospace;
+}
+
+.snow-pricing__monthly-count strong {
+  font-size: 35px;
+  font-weight: 500;
+  letter-spacing: -0.06em;
+}
+
+.snow-pricing__monthly-count span {
+  color: var(--pricing-muted);
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+}
+
+.snow-pricing__monthly-card h3 {
+  margin: 12px 0 5px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.snow-pricing__monthly-card p,
+.snow-pricing__fineprint {
+  margin: 0;
+  color: var(--pricing-muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.snow-pricing__fineprint {
+  margin-top: 15px;
+}
+
+.snow-pricing__subsection + .snow-pricing__subsection {
+  margin-top: 42px;
+}
+
+.snow-pricing__subheading {
+  margin: 0 0 16px;
+  color: var(--pricing-ink);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.snow-pricing__translation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.snow-pricing__rate-card {
+  display: flex;
+  min-height: 178px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 21px 22px;
+  border: 1px solid var(--pricing-line);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.snow-pricing__rate-card--free {
+  border-color: #d7e9de;
+  background: var(--pricing-free);
+}
+
+.snow-pricing__service-name {
+  color: var(--pricing-muted);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.snow-pricing__rate-card strong {
+  margin-top: 16px;
+  color: var(--pricing-ink);
+  font-size: 18px;
+  font-weight: 720;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+
+.snow-pricing__rate-card p {
+  margin: 9px 0 0;
+  color: var(--pricing-muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.snow-pricing__model-intro {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.snow-pricing__model-intro > div {
+  padding: 16px 18px;
+  border-left: 2px solid var(--pricing-brand);
+  background: var(--pricing-paper);
+}
+
+.snow-pricing__model-intro strong {
+  font-size: 14px;
+}
+
+.snow-pricing__model-intro p {
+  margin: 6px 0 0;
+  color: var(--pricing-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.snow-pricing__model-table {
+  overflow: hidden;
+  border: 1px solid var(--pricing-line);
+  border-radius: 12px;
+}
+
+.snow-pricing__model-table table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+}
+
+.snow-pricing__model-table caption {
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--pricing-line);
+  color: var(--pricing-muted);
+  background: var(--pricing-paper);
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-align: left;
+}
+
+.snow-pricing__model-table tr {
+  border-top: 1px solid var(--pricing-line);
+}
+
+.snow-pricing__model-table th,
+.snow-pricing__model-table td {
+  padding: 12px 16px;
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 12px;
+  text-align: left;
+}
+
+.snow-pricing__model-table th:first-child,
+.snow-pricing__model-table td:first-child {
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+.snow-pricing__model-table th {
+  color: var(--pricing-muted);
+  background: var(--pricing-paper);
+  font-weight: 500;
+}
+
+.snow-pricing__model-table td:first-child {
+  font-weight: 650;
+}
+
+.snow-pricing__model-table th {
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+}
+
+.snow-pricing__recognition-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.snow-pricing__recognition-rate {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 7px 16px;
+  padding: 19px 21px;
+  border: 1px solid var(--pricing-line);
+  border-radius: 12px;
+}
+
+.snow-pricing__recognition-rate span {
+  font-size: 14px;
+  font-weight: 680;
+}
+
+.snow-pricing__recognition-rate strong {
+  color: var(--pricing-brand);
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.snow-pricing__recognition-rate small {
+  grid-column: 1 / -1;
+  color: var(--pricing-muted);
+  font-size: 11px;
+}
+
+.snow-pricing__benefit-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding: 15px 17px;
+  border-radius: 10px;
+  color: #473b88;
+  background: var(--pricing-brand-soft);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.snow-pricing__benefit-note > span {
+  color: var(--pricing-brand);
+  font-size: 17px;
+  line-height: 1.1;
+}
+
+.snow-pricing__topup-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.snow-pricing__topup-card {
+  min-height: 157px;
+  padding: 17px 17px 15px;
+  border: 1px solid var(--pricing-line);
+  border-radius: 13px;
+  background: #fff;
+}
+
+.snow-pricing__topup-card--highlight {
+  border-color: rgba(112, 82, 216, 0.45);
+  background: linear-gradient(150deg, #f3f0ff, #fff 78%);
+  box-shadow: inset 0 3px 0 var(--pricing-brand);
+}
+
+.snow-pricing__topup-card > span {
+  color: var(--pricing-muted);
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+}
+
+.snow-pricing__topup-card > strong {
+  display: block;
+  margin-top: 16px;
+  font-size: 25px;
+  font-weight: 720;
+  letter-spacing: -0.05em;
+}
+
+.snow-pricing__topup-card p {
+  margin: 5px 0 0;
+  color: var(--pricing-muted);
+  font-size: 12px;
+}
+
+.snow-pricing__topup-card p b {
+  color: var(--pricing-ink);
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.snow-pricing__topup-card small {
+  display: block;
+  margin-top: 8px;
+  color: var(--pricing-brand);
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.snow-pricing__cumulative-note {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 18px;
+  padding: 21px 23px;
+  border-radius: 13px;
+  color: #fff;
+  background: #191a28;
+}
+
+.snow-pricing__cumulative-note > div {
+  max-width: 760px;
+}
+
+.snow-pricing__cumulative-note strong {
+  font-size: 15px;
+}
+
+.snow-pricing__cumulative-note p {
+  margin: 8px 0 0;
+  color: #d3d4dc;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.snow-pricing__cumulative-note .snow-pricing__refund-note {
+  margin-top: 4px;
+  color: #aeb0bb;
+  font-size: 11px;
+}
+
+.snow-pricing__cumulative-mark {
+  flex: 0 0 auto;
+  color: #bdb0ff;
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 38px;
+  letter-spacing: -0.08em;
+}
+
+.snow-pricing__footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding-top: 26px;
+}
+
+.snow-pricing__footer strong {
+  font-size: 13px;
+}
+
+.snow-pricing__footer p {
+  margin: 7px 0 0;
+  color: var(--pricing-muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.snow-pricing__other-services {
+  align-self: end;
+}
+
+@media (max-width: 900px) {
+  .snow-pricing__hero {
+    grid-template-columns: minmax(0, 1fr) 270px;
+    gap: 34px;
+  }
+
+  .snow-pricing__topup-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .snow-pricing__shell {
+    width: min(100% - 36px, 520px);
+  }
+
+  .snow-pricing__hero {
+    grid-template-columns: 1fr;
+    gap: 27px;
+    padding-block: 34px 42px;
+  }
+
+  .snow-pricing__hero-copy h1 {
+    font-size: clamp(36px, 10vw, 50px);
+  }
+
+  .snow-pricing__intro {
+    margin-top: 15px;
+    font-size: 15px;
+  }
+
+  .snow-pricing__exchange {
+    min-height: 0;
+    padding: 18px 20px;
+  }
+
+  .snow-pricing__exchange-value {
+    margin-block: 13px 9px;
+  }
+
+  .snow-pricing__exchange-value strong {
+    font-size: 40px;
+  }
+
+  .snow-pricing__content {
+    padding-bottom: 46px;
+  }
+
+  .snow-pricing__section {
+    padding-block: 38px;
+  }
+
+  .snow-pricing__monthly-grid,
+  .snow-pricing__translation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .snow-pricing__monthly-card {
+    min-height: 0;
+  }
+
+  .snow-pricing__rate-card {
+    min-height: 0;
+  }
+
+  .snow-pricing__model-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .snow-pricing__model-table {
+    overflow-x: auto;
+  }
+
+  .snow-pricing__model-table th,
+  .snow-pricing__model-table td {
+    padding: 10px 8px;
+    font-size: 10px;
+  }
+
+  .snow-pricing__model-table th {
+    font-size: 8px;
+  }
+
+  .snow-pricing__recognition-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .snow-pricing__topup-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .snow-pricing__topup-card {
+    min-height: 145px;
+    padding-inline: 14px;
+  }
+
+  .snow-pricing__cumulative-note {
+    align-items: flex-start;
+    padding: 18px;
+  }
+
+  .snow-pricing__cumulative-mark {
+    font-size: 26px;
+  }
+
+  .snow-pricing__footer {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .snow-pricing *,
+  .snow-pricing *::before,
+  .snow-pricing *::after {
+    scroll-behavior: auto;
+  }
+}

@@ -2,7 +2,11 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { canonicalUrl, siteOrigin } from '../theme/seo.ts';
-import { contentFingerprint, referencedImages } from './seo-manifest.ts';
+import {
+  isBlogPage,
+  pageFingerprints,
+  referencedImages,
+} from './seo-manifest.ts';
 
 export function indexNowPayload(sitemap, key) {
   return urlPayload(
@@ -51,7 +55,11 @@ export function validateManifest(manifest) {
   }
   for (const [url, page] of Object.entries(manifest.pages)) {
     urlPayload([url], 'manifest-validation');
-    if (!/^[a-f0-9]{64}$/.test(page?.hash))
+    if (
+      !/^[a-f0-9]{64}$/.test(page?.hash) ||
+      (page.contentHash !== undefined &&
+        !/^[a-f0-9]{64}$/.test(page.contentHash))
+    )
       throw new Error(`Invalid page fingerprint: ${url}`);
   }
   return manifest;
@@ -63,7 +71,13 @@ export function changedUrls(previous, current) {
   return [
     ...new Set([...Object.keys(previous.pages), ...Object.keys(current.pages)]),
   ]
-    .filter((url) => previous.pages[url]?.hash !== current.pages[url]?.hash)
+    .filter((url) => {
+      const before = previous.pages[url];
+      const after = current.pages[url];
+      if (before?.contentHash && after?.contentHash)
+        return before.contentHash !== after.contentHash;
+      return before?.hash !== after?.hash;
+    })
     .sort();
 }
 
@@ -75,16 +89,25 @@ export async function snapshotWebsite(request = fetch) {
     cache: 'no-store',
   };
   const response = await request(`${siteOrigin}/seo-manifest.json`, options);
-  if (response.ok) return validateManifest(await response.json());
-  if (response.status !== 404)
+  let pages = {};
+  let urls;
+  if (response.ok) {
+    ({ pages } = validateManifest(await response.json()));
+    // Older manifests store the full hash only. Reuse it for other pages and
+    // fetch the live blog pages once to get comparable date-independent hashes.
+    urls = Object.keys(pages).filter(
+      (url) => !pages[url].contentHash && isBlogPage(url),
+    );
+  } else if (response.status === 404) {
+    const sitemap = await request(`${siteOrigin}/sitemap.xml`, options);
+    if (!sitemap.ok) throw new Error('Cannot snapshot live sitemap.');
+    ({ urlList: urls } = indexNowPayload(
+      await sitemap.text(),
+      'snapshot-validation',
+    ));
+  } else {
     throw new Error(`Cannot snapshot live manifest: HTTP ${response.status}`);
-  const sitemap = await request(`${siteOrigin}/sitemap.xml`, options);
-  if (!sitemap.ok) throw new Error('Cannot snapshot live sitemap.');
-  const { urlList } = indexNowPayload(
-    await sitemap.text(),
-    'snapshot-validation',
-  );
-  const pages = {};
+  }
   const images = new Map();
   const imageBytes = (path) => {
     if (!images.has(path)) {
@@ -106,9 +129,9 @@ export async function snapshotWebsite(request = fetch) {
     return images.get(path);
   };
   // Bound concurrency so the first upgrade does not burst against production.
-  for (let start = 0; start < urlList.length; start += 4) {
+  for (let start = 0; start < urls.length; start += 4) {
     await Promise.all(
-      urlList.slice(start, start + 4).map(async (url) => {
+      urls.slice(start, start + 4).map(async (url) => {
         const page = await request(url, {
           ...options,
           signal: AbortSignal.timeout(30000),
@@ -119,7 +142,10 @@ export async function snapshotWebsite(request = fetch) {
         const bytes = [];
         for (const path of referencedImages(html))
           bytes.push(await imageBytes(path));
-        pages[url] = { hash: contentFingerprint(html, bytes) };
+        const fingerprints = pageFingerprints(url, html, bytes);
+        if (pages[url] && pages[url].hash !== fingerprints.hash)
+          throw new Error(`Live page does not match its manifest: ${url}`);
+        pages[url] = { ...pages[url], ...fingerprints };
       }),
     );
   }
@@ -148,7 +174,18 @@ export async function submitIndexNow(key, request = fetch, settings = {}) {
   const live = await request(`${siteOrigin}/seo-manifest.json`, options);
   if (!live.ok) throw new Error('Deploy the SEO manifest before submitting.');
   const actual = validateManifest(await live.json());
-  if (changedUrls(actual, settings.current).length)
+  const expected = Object.entries(settings.current.pages);
+  if (
+    Object.keys(actual.pages).length !== expected.length ||
+    expected.some(([url, page]) => {
+      const deployed = actual.pages[url];
+      return (
+        deployed?.hash !== page.hash ||
+        deployed?.contentHash !== page.contentHash ||
+        deployed?.lastmod !== page.lastmod
+      );
+    })
+  )
     throw new Error('Live content does not match this build. Deploy first.');
   const urls = changedUrls(settings.previous, settings.current);
   if (!urls.length)
