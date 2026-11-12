@@ -133,6 +133,24 @@ class DeploymentTests(unittest.TestCase):
             self.package()
         self.assertFalse(self.archive.exists())
 
+    def test_packages_and_deploys_both_pricing_pages(self):
+        for name in ("pricing.html", "zh/pricing.html"):
+            with self.subTest(missing=name):
+                target = self.build / name
+                content = target.read_bytes()
+                target.unlink()
+                with self.assertRaisesRegex(ValueError, "Incomplete"):
+                    self.package()
+                target.write_bytes(content)
+
+        self.package()
+        self.publish()
+        receipt = json.loads((self.root / website.RECEIPT).read_text())
+        for name in ("pricing.html", "zh/pricing.html"):
+            with self.subTest(deployed=name):
+                self.assertEqual((self.root / name).read_bytes(), (self.build / name).read_bytes())
+                self.assertEqual(receipt["files"][name]["sha256"], website.digest(self.root / name))
+
     def test_repeated_deployment_retains_previous_website(self):
         self.package()
         first = self.publish()

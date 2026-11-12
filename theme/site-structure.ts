@@ -11,6 +11,7 @@ export function siteLinks(locale: SiteLocale) {
   return {
     home: link('/index.html', '首页', 'Home'),
     download: link('/download.html', '下载', 'Download'),
+    pricing: link('/pricing.html', '权益与收费', 'Credits and pricing'),
     guides: link('/guides/index.html', '使用手册', 'User manual'),
     install: link(
       '/guides/getting-started/install.html',
@@ -88,6 +89,7 @@ export function footerSections(locale: SiteLocale) {
         shortLink(links.install, '安装与更新', 'Installation'),
         shortLink(links.quickStart, '快速上手', 'Quick start'),
         shortLink(links.shortcuts, '快捷键', 'Shortcuts'),
+        links.pricing,
       ],
     },
     {
