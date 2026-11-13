@@ -1,7 +1,23 @@
 {
   "source": "https://github.com/mg-chao/snow-shot/releases",
-  "syncedAt": "2026-11-12T17:44:53.875Z",
+  "syncedAt": "2026-11-13T17:02:50.096Z",
   "releases": [
+    {
+      "tag": "v1.5.7_snow-shot",
+      "version": "1.5.7",
+      "name": "Snow Shot 1.5.7",
+      "publishedAt": "2026-11-13T16:55:16Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.5.7_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 绘制或编辑直线时，端点会自动吸附到附近直线的端点，方便把线段接在一起。\n- 跟随鼠标录屏时，取景框跟随得更及时。鼠标快速移动时，录制区域会尽快把光标纳入画面。\n- 截图失败后，应用能重新建立屏幕捕获会话，下次截图无需重启应用。",
+        "en": "- Line endpoints snap to nearby line endpoints as you draw or edit, making it easier to join segments.\n- The recording outline responds faster in mouse-follow mode. The capture area catches up when the cursor moves quickly.\n- After a screen capture failure, the app can reconnect to the display so you can try again without restarting."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
     {
       "tag": "v1.5.6_snow-shot",
       "version": "1.5.6",
