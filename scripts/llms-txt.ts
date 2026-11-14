@@ -44,7 +44,7 @@ const guideSections = [
 const copy = {
   en: {
     summary:
-      'Snow Shot (SnowShot) is a free, open-source screenshot tool for Windows and macOS. It supports scrolling capture, annotation, local OCR, desktop pinning, and screen recording.',
+      'Snow Shot is a free, open-source screenshot tool for Windows and macOS. It supports scrolling capture, annotation, local OCR, desktop pinning, and screen recording.',
     details:
       'The installation guide covers Full and Mini edition differences and platform requirements. Local OCR can run offline after setup. Some translation and recognition workflows use online services.',
     otherLanguage: '简体中文索引',
@@ -57,7 +57,7 @@ const copy = {
   },
   zh: {
     summary:
-      'Snow Shot（SnowShot）是一款支持 Windows 和 macOS 的免费开源截图工具，提供滚动长截图、截图标注、本地 OCR 文字识别、桌面贴图与录屏。',
+      'Snow Shot 是一款支持 Windows 和 macOS 的免费开源截图工具，提供滚动长截图、截图标注、本地 OCR 文字识别、桌面贴图与录屏。',
     details:
       '安装指南说明完整版与 Mini 的功能差异及系统要求。本地 OCR 完成配置后可离线使用，部分翻译与识别功能需要联网。',
     otherLanguage: 'English index',

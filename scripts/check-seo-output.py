@@ -127,6 +127,7 @@ def check_llms(directory, canonical_urls):
         name = f'{prefix}llms.txt'
         lines = (directory / name).read_text(encoding='utf-8').splitlines()
         assert lines[0] == '# Snow Shot' and lines[2].startswith('> '), f'{name}: missing title or summary'
+        assert 'SnowShot' not in lines[2], f'{name}: unexpected brand alias in summary'
         assert '## Optional' in lines, f'{name}: missing Optional section'
         links = set()
         for line in lines:
@@ -205,7 +206,9 @@ def check(directory):
             assert data['url'] == url and data['offers']['price'] == '0'
             website = schemas['WebSite']
             assert website['url'] == f'{ORIGIN}/' and website['name'] == 'Snow Shot'
+            assert data['name'] == 'Snow Shot' and data['alternateName'] == 'SnowShot'
             assert website['alternateName'] == 'SnowShot'
+            assert 'SnowShot' not in page.meta['description'], f'{name}: unexpected brand alias in description'
             assert ('开源' in page.h1 and '截图' in page.h1) if name.startswith('zh/') else (
                 'open-source' in page.h1 and 'screenshot' in page.h1)
             assert not page.breadcrumbs, f'{name}: homepage should not have breadcrumbs'

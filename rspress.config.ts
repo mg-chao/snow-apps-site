@@ -61,7 +61,7 @@ export default defineConfig({
       label: '简体中文',
       title: 'Snow Shot',
       description:
-        'Snow Shot（SnowShot）是免费开源截图工具，支持 Windows 和 macOS，提供截图标注、滚动长截图、本地文本识别、贴图与录屏。本站提供下载入口和按任务组织的中文使用手册。',
+        'Snow Shot 是免费开源截图工具，支持 Windows 和 macOS，提供截图标注、滚动长截图、本地文本识别、贴图与录屏。本站提供下载入口和按任务组织的中文使用手册。',
     },
   ],
   themeConfig: {

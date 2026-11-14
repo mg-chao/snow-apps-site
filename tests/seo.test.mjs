@@ -131,6 +131,8 @@ it('emits a unique sitemap of canonical pages excluding errors', () => {
 it('identifies the official application and repository without invented ratings', () => {
   for (const locale of ['en', 'zh']) {
     const data = applicationSchema(locale);
+    assert.equal(data.name, 'Snow Shot');
+    assert.equal(data.alternateName, 'SnowShot');
     assert.equal(data.sameAs, 'https://github.com/mg-chao/snow-shot');
     assert.equal(data.offers.price, '0');
     assert.ok(!('aggregateRating' in data));

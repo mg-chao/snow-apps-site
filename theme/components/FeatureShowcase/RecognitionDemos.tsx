@@ -252,8 +252,8 @@ function tableRows(isZh: boolean) {
 
 function markdownContent(isZh: boolean) {
   return isZh
-    ? '# SnowShot 工作流\n\n把想法清楚地分享出去。\n\n- 截取关键区域\n- 标注需要关注的细节\n- 复制并分享'
-    : '# SnowShot workflow\n\nShare your ideas clearly.\n\n- Capture a focused region\n- Annotate the important details\n- Copy and share';
+    ? '# Snow Shot 工作流\n\n把想法清楚地分享出去。\n\n- 截取关键区域\n- 标注需要关注的细节\n- 复制并分享'
+    : '# Snow Shot workflow\n\nShare your ideas clearly.\n\n- Capture a focused region\n- Annotate the important details\n- Copy and share';
 }
 
 function Formula({ isZh }: { isZh: boolean }) {
@@ -399,8 +399,8 @@ function DocumentOutput({
               <p>{repository}</p>
               <span className="snow-recognition__result-note">
                 {isZh
-                  ? 'SnowShot 官方开源仓库'
-                  : 'The official SnowShot source repository'}
+                  ? 'Snow Shot 官方开源仓库'
+                  : 'The official Snow Shot source repository'}
               </span>
             </div>
           )}
@@ -413,7 +413,7 @@ function DocumentOutput({
                 <span className="snow-recognition__preview-label">
                   {isZh ? '渲染预览' : 'RENDERED PREVIEW'}
                 </span>
-                <h4>{isZh ? 'SnowShot 工作流' : 'SnowShot workflow'}</h4>
+                <h4>{isZh ? 'Snow Shot 工作流' : 'Snow Shot workflow'}</h4>
                 <p>
                   {isZh
                     ? '把想法清楚地分享出去。'
