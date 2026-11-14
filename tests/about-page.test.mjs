@@ -42,29 +42,23 @@ for (const locale of ['en', 'zh']) {
     );
   });
 
-  it(`offers both QQ groups with their join links and numbers in ${locale}`, () => {
+  it(`offers only QQ Group 4 with its join link and number in ${locale}`, () => {
     const html = renderToStaticMarkup(
       createElement(exports.AboutPage, { locale }),
     );
     const links = [...html.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)].filter(
       (match) => match[1].includes('class="snow-about__group"'),
     );
-    assert.equal(links.length, 2);
-    for (const [name, number, href] of [
-      ['3', '1037819112', 'https://qm.qq.com/q/Ts3cwNdykW'],
-      ['4', '1131891935', 'https://qm.qq.com/q/GfZvSHi6E'],
-    ]) {
-      const link = links.find((match) => match[1].includes(`href="${href}"`));
-      assert.ok(link, `QQ group ${name} has its exact join link`);
-      assert.ok(
-        link[2].includes(
-          `${locale === 'zh' ? 'QQ 交流群' : 'QQ Group'} ${name}`,
-        ),
-      );
-      assert.ok(link[2].includes(`<span>${number}</span>`));
-      assert.ok(link[1].includes('target="_blank"'));
-      assert.ok(link[1].includes('rel="noopener noreferrer"'));
-    }
+    assert.equal(links.length, 1);
+    const [link] = links;
+    assert.ok(link[1].includes('href="https://qm.qq.com/q/GfZvSHi6E"'));
+    assert.ok(
+      link[2].includes(`${locale === 'zh' ? 'QQ 交流群' : 'QQ Group'} 4`),
+    );
+    assert.ok(link[2].includes('<span>1131891935</span>'));
+    assert.ok(link[1].includes('target="_blank"'));
+    assert.ok(link[1].includes('rel="noopener noreferrer"'));
+    assert.ok(!html.includes('https://qm.qq.com/q/Ts3cwNdykW'));
   });
 
   it(`opens the local changelog in the current language while keeping contribution links external in ${locale}`, () => {
