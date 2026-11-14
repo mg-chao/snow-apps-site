@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import * as path from 'node:path';
 import { defineConfig } from '@rspress/core';
+import { renderLlmsTxt } from './scripts/llms-txt';
 import { seoBuildPlugin } from './scripts/seo-build';
 import { rehypeImages } from './scripts/rehype-images';
 import { siteOrigin } from './theme/seo';
@@ -9,6 +10,7 @@ export default defineConfig({
   root: path.join(__dirname, 'docs'),
   title: 'Snow Shot',
   siteOrigin,
+  llms: { llmsTxt: renderLlmsTxt },
   plugins: [seoBuildPlugin()],
   markdown: { rehypePlugins: [rehypeImages] },
   description:
@@ -63,6 +65,7 @@ export default defineConfig({
     },
   ],
   themeConfig: {
+    llmsUI: false,
     fallbackHeadingTitle: false,
     darkMode: true,
     socialLinks: [

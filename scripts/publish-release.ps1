@@ -100,7 +100,11 @@ try {
         if ($receipt.version -cne $Version -or $receipt.commit -cne $commit) {
             throw 'Public website receipt does not match this deployment.'
         }
-        foreach ($page in @('/', '/changelog.html', '/download.html', '/pricing.html', '/privacy.html', '/terms.html', '/guides/index.html', '/blog/index.html', '/zh/', '/zh/changelog.html', '/zh/download.html', '/zh/pricing.html', '/zh/privacy.html', '/zh/terms.html', '/zh/guides/index.html', '/zh/blog/index.html', '/robots.txt', '/sitemap.xml', '/indexnow.txt', '/seo-manifest.json')) {
+        foreach ($page in @(
+            '/', '/changelog.html', '/download.html', '/pricing.html', '/privacy.html', '/terms.html', '/guides/index.html', '/blog/index.html',
+            '/zh/', '/zh/changelog.html', '/zh/download.html', '/zh/pricing.html', '/zh/privacy.html', '/zh/terms.html', '/zh/guides/index.html', '/zh/blog/index.html',
+            '/robots.txt', '/sitemap.xml', '/indexnow.txt', '/seo-manifest.json', '/llms.txt', '/zh/llms.txt'
+        )) {
             $response = Invoke-WebRequest -Uri "$($PublicBaseUrl.TrimEnd('/'))$page" -TimeoutSec 30
             if ($response.StatusCode -ne 200) { throw "Website health check failed: $page" }
             if ($page.EndsWith('/download.html')) {

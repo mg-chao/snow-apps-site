@@ -268,6 +268,7 @@ export function SampleNote({
   return (
     <div
       className={`snow-demo-note${compact ? ' snow-demo-note--compact' : ''}`}
+      data-nosnippet=""
     >
       <div className="snow-demo-note__label">
         SNOW SHOT / {isZh ? '发布检查清单' : 'RELEASE CHECKLIST'}

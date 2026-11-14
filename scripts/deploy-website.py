@@ -19,13 +19,16 @@ import uuid
 
 OWNED = frozenset({
     "index.html", "404.html", "about.html", "changelog.html", "download.html", "pricing.html", "privacy.html", "terms.html",
+    "index.md", "about.md", "changelog.md", "download.md", "pricing.md", "privacy.md", "terms.md",
     "app-icon.ico", "app-icon.svg", "static", "images", "zh",
     "website-release.json", "guides", "blog", "robots.txt", "sitemap.xml", "indexnow.txt", "seo-manifest.json",
+    "llms.txt", "llms-full.txt",
 })
 REQUIRED = {
     "index.html", "changelog.html", "download.html", "pricing.html", "privacy.html", "terms.html",
     "zh/index.html", "zh/changelog.html", "zh/download.html", "zh/pricing.html", "zh/privacy.html", "zh/terms.html",
     "guides/index.html", "zh/guides/index.html", "blog/index.html", "zh/blog/index.html", "robots.txt", "sitemap.xml", "indexnow.txt", "seo-manifest.json",
+    "llms.txt", "llms-full.txt", "zh/llms.txt", "zh/llms-full.txt",
 }
 RECEIPT = "website-release.json"
 INSTALLER_SIZE_LIMIT = 1048576

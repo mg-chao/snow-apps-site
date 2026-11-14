@@ -4,6 +4,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urljoin, urlsplit
 import json
+import re
 import sys
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
@@ -118,6 +119,43 @@ def linked_page(href, source):
     elif not Path(name).suffix:
         name += '.html'
     return name if name.endswith('.html') else None
+
+
+def check_llms(directory, canonical_urls):
+    locale_links = []
+    for prefix, alternate in (('', '/zh/llms.txt'), ('zh/', '/llms.txt')):
+        name = f'{prefix}llms.txt'
+        lines = (directory / name).read_text(encoding='utf-8').splitlines()
+        assert lines[0] == '# Snow Shot' and lines[2].startswith('> '), f'{name}: missing title or summary'
+        assert '## Optional' in lines, f'{name}: missing Optional section'
+        links = set()
+        for line in lines:
+            if not line.startswith('- '):
+                continue
+            match = re.fullmatch(r'- \[[^\]]+\]\((https://[^\s)]+)\): \S.*', line)
+            assert match, f'{name}: invalid link entry {line}'
+            url = match[1]
+            assert url not in links, f'{name}: duplicate link {url}'
+            links.add(url)
+            if not url.startswith(f'{ORIGIN}/'):
+                continue
+            path = urlsplit(url).path
+            assert not re.fullmatch(r'/(?:zh/)?pricing(?:\.html|\.md|/)?', path), f'{name}: unexpected link {url}'
+            target = directory / path.lstrip('/')
+            assert target.is_file() and target.stat().st_size, f'{name}: missing target {url}'
+            if path == alternate:
+                continue
+            assert path.startswith('/zh/') == bool(prefix), f'{name}: wrong language for {url}'
+            if path.endswith('.md'):
+                assert url.removesuffix('.md') + '.html' in canonical_urls, f'{name}: no canonical page for {url}'
+            elif path.endswith('.html'):
+                assert url in canonical_urls, f'{name}: noncanonical page {url}'
+        required = {f'{ORIGIN}/{prefix}{target}' for target in (
+            'download.html', 'guides/index.md', 'guides/getting-started/install.md', 'llms-full.txt')}
+        assert required | {ORIGIN + alternate} <= links, f'{name}: missing a key resource or alternate language'
+        locale_links.append({url.removeprefix(f'{ORIGIN}/{prefix}')
+                             for url in links - {ORIGIN + alternate}})
+    assert locale_links[0] == locale_links[1], 'llms.txt indexes must link to equivalent resources'
 
 
 def check(directory):
@@ -249,7 +287,8 @@ def check(directory):
                 assert page.meta.get('article:modified_time') == lastmod, f'{url}: social date differs from sitemap'
     robots = (directory / 'robots.txt').read_text(encoding='utf-8')
     assert f'Sitemap: {ORIGIN}/sitemap.xml' in robots and 'Disallow: /' not in robots
-    print(f'Verified {len(expected)} canonical pages, shared headers and footers, bilingual metadata, visible breadcrumbs, homepage schemas, internal link reachability and discovery files.')
+    check_llms(directory, expected)
+    print(f'Verified {len(expected)} canonical pages, shared headers and footers, bilingual metadata, visible breadcrumbs, homepage schemas, internal link reachability and discovery files, including both llms.txt indexes.')
 
 
 if __name__ == '__main__':

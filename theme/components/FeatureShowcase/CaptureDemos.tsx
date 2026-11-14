@@ -54,7 +54,7 @@ function ToolIcon({ tool }: { tool: Tool }) {
 
 function Scene({ isZh }: { isZh: boolean }) {
   return (
-    <div className="snow-capture-desktop" aria-hidden="true">
+    <div className="snow-capture-desktop" aria-hidden="true" data-nosnippet="">
       <div className="snow-capture-desktop__menu">
         <img src="/images/app-icon.webp" alt="" width="15" height="15" />
         <span>Snow Shot</span>

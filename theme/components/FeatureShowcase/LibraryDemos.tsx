@@ -139,7 +139,7 @@ export function PinDemo({ isZh }: { isZh: boolean }) {
         </span>
       </div>
       <div className="snow-pin-stage" ref={stage}>
-        <div className="snow-pin-editor">
+        <div className="snow-pin-editor" data-nosnippet="">
           <div>review.md</div>
           <p># {isZh ? '设计评审' : 'Design review'}</p>
           <p>
@@ -462,7 +462,7 @@ export function HistoryDemo({ isZh }: { isZh: boolean }) {
             ))}
           </select>
         </label>
-        <span>
+        <span data-nosnippet="">
           {isZh
             ? `今天 · ${filtered.length} 张截图`
             : `Today · ${filtered.length} captures`}
@@ -490,11 +490,13 @@ export function HistoryDemo({ isZh }: { isZh: boolean }) {
                   previousFocus.current = document.activeElement as HTMLElement;
                 }}
               >
-                <div className="snow-history-thumb">
+                <div className="snow-history-thumb" data-nosnippet="">
                   <HistoryImage entry={item} isZh={isZh} />
                 </div>
-                <strong>{isZh ? item.zh : item.en}</strong>
-                <span>
+                <strong>
+                  <span data-nosnippet="">{isZh ? item.zh : item.en}</span>
+                </strong>
+                <span data-nosnippet="">
                   {item.time} / {sources[item.source as keyof typeof sources]}
                 </span>
               </button>
@@ -533,7 +535,9 @@ export function HistoryDemo({ isZh }: { isZh: boolean }) {
             }}
           >
             <div>
-              <strong>{isZh ? entry.zh : entry.en}</strong>
+              <strong>
+                <span data-nosnippet="">{isZh ? entry.zh : entry.en}</span>
+              </strong>
               <button
                 ref={close}
                 type="button"
@@ -543,7 +547,7 @@ export function HistoryDemo({ isZh }: { isZh: boolean }) {
                 {isZh ? '返回列表' : 'Back to library'}
               </button>
             </div>
-            <div className="snow-history-preview__image">
+            <div className="snow-history-preview__image" data-nosnippet="">
               <HistoryImage entry={entry} isZh={isZh} />
             </div>
           </section>

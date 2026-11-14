@@ -162,7 +162,12 @@ class DeploymentTests(unittest.TestCase):
     def test_deployment_includes_seo_files_and_preserves_existing_services(self):
         names = ('robots.txt', 'sitemap.xml', 'indexnow.txt',
                  'guides/index.html', 'zh/guides/index.html',
-                 'changelog.html', 'zh/changelog.html')
+                 'changelog.html', 'zh/changelog.html',
+                 'llms.txt', 'llms-full.txt', 'zh/llms.txt', 'zh/llms-full.txt')
+        markdown = ('index.md', 'changelog.md', 'guides/index.md', 'zh/guides/index.md')
+        for name in markdown:
+            (self.build / name).write_text(f'Current: {name}', encoding='utf-8')
+        names += markdown
         for name in names:
             target = self.root / name
             target.parent.mkdir(parents=True, exist_ok=True)
@@ -176,7 +181,8 @@ class DeploymentTests(unittest.TestCase):
 
     def test_missing_seo_artifact_stops_packaging(self):
         for name in ('robots.txt', 'sitemap.xml', 'indexnow.txt', 'guides/index.html',
-                     'changelog.html', 'zh/changelog.html'):
+                     'changelog.html', 'zh/changelog.html',
+                     'llms.txt', 'llms-full.txt', 'zh/llms.txt', 'zh/llms-full.txt'):
             target = self.build / name
             original = target.read_bytes()
             target.unlink()

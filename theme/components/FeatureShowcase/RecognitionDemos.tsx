@@ -97,7 +97,7 @@ function SourceImage({
       <span className="snow-recognition__panel-label">
         {isZh ? '原始图片' : 'SOURCE IMAGE'}
       </span>
-      <div className="snow-recognition__image">
+      <div className="snow-recognition__image" data-nosnippet="">
         <img src={src} alt={alt} width={560} height={370} draggable={false} />
         <div className="snow-recognition__regions" aria-hidden="true">
           <i />
@@ -206,7 +206,7 @@ export function TextRecognitionDemo({ isZh }: { isZh: boolean }) {
                   key={line}
                   style={{ '--result-order': index } as CSSProperties}
                 >
-                  {line}
+                  <span data-nosnippet="">{line}</span>
                 </p>
               ))}
               <span className="snow-recognition__select-hint">
@@ -349,7 +349,11 @@ function DocumentOutput({
             </span>
           </div>
         )}
-        <div className="snow-recognition__document-result" aria-hidden={!ready}>
+        <div
+          className="snow-recognition__document-result"
+          aria-hidden={!ready}
+          data-nosnippet=""
+        >
           {mode === 'table' && (
             <div className="snow-recognition__table-scroll">
               <table>

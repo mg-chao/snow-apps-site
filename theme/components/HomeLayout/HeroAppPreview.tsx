@@ -508,6 +508,7 @@ export function HeroAppPreview({
       <div
         aria-hidden="true"
         className="snow-app-window"
+        data-nosnippet=""
         onPointerCancel={hideCapture}
         onPointerEnter={showCapture}
         onPointerLeave={hideCapture}

@@ -205,6 +205,23 @@ function hook(runtime) {
   return () => demo;
 }
 
+it('the sample note renders in both languages and is excluded from search snippets', () => {
+  const env = runtime();
+  try {
+    env.render(React.createElement(env.api.SampleNote, { isZh: true }));
+    assert.equal(find(env.container, 'div').props['data-nosnippet'], '');
+    assert.match(text(env.container), /发布检查清单/);
+
+    env.render(
+      React.createElement(env.api.SampleNote, { isZh: false, compact: true }),
+    );
+    assert.equal(find(env.container, 'div').props['data-nosnippet'], '');
+    assert.match(text(env.container), /RELEASE CHECKLIST/);
+  } finally {
+    env.close();
+  }
+});
+
 it('reduced motion suppresses autoplay but explicit replay presents the complete result', () => {
   const env = runtime({ reduced: true });
   try {

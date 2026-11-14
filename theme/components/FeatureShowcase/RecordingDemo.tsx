@@ -20,7 +20,7 @@ function RecordingScene({ seconds, isZh }: { seconds: number; isZh: boolean }) {
   const eased = progress * progress * (3 - 2 * progress);
   const finished = progress >= 1;
   return (
-    <div className="snow-rec__scene">
+    <div className="snow-rec__scene" data-nosnippet="">
       <div className="snow-rec__window-bar">
         <span className="snow-rec__window-dots" aria-hidden="true">
           <i />
