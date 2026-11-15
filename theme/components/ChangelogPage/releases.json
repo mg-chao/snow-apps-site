@@ -1,7 +1,23 @@
 {
   "source": "https://github.com/mg-chao/snow-shot/releases",
-  "syncedAt": "2026-11-13T17:02:50.096Z",
+  "syncedAt": "2026-11-15T17:27:38.689Z",
   "releases": [
+    {
+      "tag": "v1.5.8_snow-shot",
+      "version": "1.5.8",
+      "name": "Snow Shot 1.5.8",
+      "publishedAt": "2026-11-15T17:20:07Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.5.8_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 完整版新增文档提取。可从截图中识别文字、表格和公式，并导出为 Word、PDF 或 Markdown。\n- 拼图完成后可直接在图像编辑器中打开结果。使用序号工具时，按住 Shift 拖动可添加与序号绑定的箭头。\n- 可在全屏时自动停用选定的全局鼠标操作和快捷键，也可在「关于」页面手动检查更新。\n- 表格、公式和图片转换现在会显示模型处理进度。截图翻译显示更流畅，并修复了自动复制识别文字并结束截图时偶尔未能复制的问题。",
+        "en": "- Snow Shot can extract text, tables, and equations from screenshots and export them as Word, PDF, or Markdown.\n- Open a finished collage directly in the image editor. With the numbered marker tool, Shift-drag to add an arrow attached to the marker.\n- Choose which global mouse actions and shortcuts pause in fullscreen. You can also check for updates from the About page.\n- Table, equation, and image conversion now show when the model is working. Screenshot translations appear more smoothly, and automatic copy-and-close reliably copies recognized text."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
     {
       "tag": "v1.5.7_snow-shot",
       "version": "1.5.7",
