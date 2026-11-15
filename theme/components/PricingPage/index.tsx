@@ -11,6 +11,18 @@ const copy = {
     exchangeLabel: '充值换算',
     exchangeUnit: '积分',
     exchangeNote: '按服务用量扣除',
+    benefitsTitle: '累计净充值满 188 元的权益',
+    benefitsIntro: '达到 18,800 充值积分后，付费请求享以下折扣。',
+    discounts: [
+      { name: '快速模型（纯文本）', rate: '3 折', detail: '如快速翻译' },
+      { name: '快速模型（含图片）', rate: '8 折', detail: '如表格识别' },
+      { name: '专家模型', rate: '8 折' },
+    ],
+    recognitionBenefit:
+      '达标后也可免费使用表格专用模型和 LaTeX 专用模型，无到期日，不占每月免费次数。',
+    eligibilityNote:
+      '多次充值可累计。日常消费不影响累计净充值，已完成的退款会从累计充值金额中扣除。',
+    benefitsLink: '查看累计充值权益',
     monthlyLabel: '每月包含',
     monthlyTitle: '先使用免费次数',
     monthlyIntro:
@@ -38,6 +50,7 @@ const copy = {
     includedNote: '免费次数每月自动刷新。用完后，继续使用会扣除账户积分。',
     ratesLabel: '统一使用积分计费',
     ratesTitle: '服务费率',
+    ratesIntro: '以下为折扣前费率和用量估算。',
     translationHeading: '翻译',
     freeTranslation: '免费翻译',
     freeTranslationRate: '不扣账户积分',
@@ -63,9 +76,6 @@ const copy = {
       { amount: '¥188', credits: '18,800', highlight: true },
       { amount: '¥999', credits: '99,900' },
     ],
-    benefit:
-      '累计净充值达到 18,800 积分后，可免费使用表格专用模型和 LaTeX 专用模型，不占每月免费次数。该权益没有期限，消费积分不会减少累计充值积分。',
-    refund: '成功退款会减少累计充值积分，可能改变当前权益档位。',
     accountNoteTitle: '查看账户记录',
     accountNote:
       '客户端「账户」页会显示可用积分、累计充值积分，以及充值、使用和退款记录。',
@@ -79,6 +89,27 @@ const copy = {
     exchangeLabel: 'TOP-UP VALUE',
     exchangeUnit: 'credits',
     exchangeNote: 'Deducted by actual usage',
+    benefitsTitle: 'Benefits at ¥188 in net top-ups',
+    benefitsIntro:
+      'At 18,800 cumulative top-up credits after refunds, these discounts apply to paid requests.',
+    discounts: [
+      {
+        name: 'Text-only Fast Model',
+        rate: '70% off',
+        detail: 'Includes Fast Translation',
+      },
+      {
+        name: 'Fast Model with images',
+        rate: '20% off',
+        detail: 'For example, table recognition',
+      },
+      { name: 'Expert Model', rate: '20% off' },
+    ],
+    recognitionBenefit:
+      'You can also use the Table-specific and LaTeX-specific models for free. This benefit has no expiry and does not use your monthly allowance.',
+    eligibilityNote:
+      'Top-ups add up over time. Completed refunds reduce your total; spending credits does not.',
+    benefitsLink: 'See cumulative top-up benefits',
     monthlyLabel: 'INCLUDED EACH MONTH',
     monthlyTitle: 'Start with free requests',
     monthlyIntro:
@@ -107,6 +138,7 @@ const copy = {
       'Allowances refresh monthly. Further requests use account credits once the allowance is used up.',
     ratesLabel: 'ALL SERVICE RATES IN CREDITS',
     ratesTitle: 'Service rates',
+    ratesIntro: 'Rates and usage estimates below are before discounts.',
     translationHeading: 'Translation',
     freeTranslation: 'Free translation',
     freeTranslationRate: 'No account credits',
@@ -133,10 +165,6 @@ const copy = {
       { amount: '¥188', credits: '18,800', highlight: true },
       { amount: '¥999', credits: '99,900' },
     ],
-    benefit:
-      'At 18,800 cumulative net top-up credits, the Table-specific model and LaTeX-specific model are free and do not use the monthly allowance. This benefit does not expire. Spending credits does not reduce your cumulative top-up credits.',
-    refund:
-      'A completed refund reduces your cumulative top-up credits and may change your current benefit tier.',
     accountNoteTitle: 'Your account record',
     accountNote:
       'The Account page in the client shows available credits, cumulative top-up credits, and top-up, usage, and refund transactions.',
@@ -232,6 +260,7 @@ export function PricingPage({ locale }: { locale: Locale }) {
           <div className="snow-pricing__section-heading">
             <p className="snow-pricing__eyebrow">{t.ratesLabel}</p>
             <h2 id="rates-title">{t.ratesTitle}</h2>
+            <p>{t.ratesIntro}</p>
           </div>
 
           <div className="snow-pricing__subsection">
@@ -307,27 +336,40 @@ export function PricingPage({ locale }: { locale: Locale }) {
                   <b>{item.credits}</b> {t.exchangeUnit}
                 </p>
                 {'highlight' in item && item.highlight ? (
-                  <small>
-                    {isZh ? '解锁免费识别权益' : 'Free recognition benefit'}
-                  </small>
+                  <a
+                    className="snow-pricing__benefits-link"
+                    href="#top-up-benefits"
+                  >
+                    {t.benefitsLink}
+                  </a>
                 ) : null}
               </article>
             ))}
           </div>
-          <div className="snow-pricing__cumulative-note">
-            <div>
-              <strong>
-                {isZh
-                  ? '18,800 积分累计充值权益'
-                  : 'Benefit at 18,800 cumulative top-up credits'}
-              </strong>
-              <p>{t.benefit}</p>
-              <p className="snow-pricing__refund-note">{t.refund}</p>
+          <section
+            className="snow-pricing__benefits"
+            aria-labelledby="top-up-benefits"
+          >
+            <div className="snow-pricing__benefits-heading">
+              <h3 id="top-up-benefits">{t.benefitsTitle}</h3>
+              <p>{t.benefitsIntro}</p>
             </div>
-            <span className="snow-pricing__cumulative-mark" aria-hidden="true">
-              18.8K
-            </span>
-          </div>
+            <dl className="snow-pricing__discounts">
+              {t.discounts.map((discount) => (
+                <div className="snow-pricing__discount" key={discount.name}>
+                  <dt>
+                    {discount.name}
+                    {'detail' in discount && <small>{discount.detail}</small>}
+                  </dt>
+                  <dd>{discount.rate}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="snow-pricing__recognition-benefit">
+              {t.recognitionBenefit}
+            </p>
+          </section>
+          <p className="snow-pricing__fineprint">{t.eligibilityNote}</p>
         </section>
 
         <footer className="snow-pricing__footer">

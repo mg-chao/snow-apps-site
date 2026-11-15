@@ -12,6 +12,9 @@
   --pricing-exchange-line: rgba(112, 82, 216, 0.16);
   --pricing-exchange-shadow: rgba(43, 37, 75, 0.08);
   --pricing-exchange-symbol: #a8a5b4;
+  --pricing-benefits-surface: #211a34;
+  --pricing-benefits-line: #4d416a;
+  --pricing-benefits-value: #ded2ff;
   --pricing-free: #e9f5ef;
   --pricing-free-line: #d7e9de;
   --pricing-topup-wash: #f3f0ff;
@@ -32,6 +35,7 @@ html.dark .snow-pricing {
   --pricing-exchange-line: #4d416a;
   --pricing-exchange-shadow: rgba(0, 0, 0, 0.24);
   --pricing-exchange-symbol: var(--pricing-muted);
+  --pricing-benefits-surface: #2d2340;
   --pricing-free: #172822;
   --pricing-free-line: #30473e;
   --pricing-topup-wash: #29213d;
@@ -203,6 +207,87 @@ html.dark .snow-pricing {
   font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
   font-size: 14px;
   font-weight: 650;
+}
+
+.snow-pricing__benefits {
+  margin-top: 18px;
+  border: 1px solid var(--pricing-benefits-line);
+  border-radius: 16px;
+  color: #fff;
+  background: var(--pricing-benefits-surface);
+}
+
+.snow-pricing__benefits-heading {
+  padding: 18px clamp(16px, 3vw, 32px);
+  border-bottom: 1px solid var(--pricing-benefits-line);
+}
+
+.snow-pricing__benefits-heading h3 {
+  margin: 0;
+  color: inherit;
+  font-size: clamp(20px, 2.8vw, 26px);
+  font-weight: 730;
+  line-height: 1.3;
+  scroll-margin-top: 80px;
+}
+
+.snow-pricing__benefits-heading p {
+  margin: 4px 0 0;
+  color: var(--pricing-benefits-value);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.snow-pricing__discounts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+}
+
+.snow-pricing__discount {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  padding: 20px clamp(16px, 3vw, 32px);
+}
+
+.snow-pricing__discount + .snow-pricing__discount {
+  border-inline-start: 1px solid var(--pricing-benefits-line);
+}
+
+.snow-pricing__discount dt {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.snow-pricing__discount small {
+  display: block;
+  margin-top: 3px;
+  color: var(--pricing-benefits-value);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.snow-pricing__discount dd {
+  order: -1;
+  margin: 0;
+  color: var(--pricing-benefits-value);
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: clamp(28px, 4.2vw, 48px);
+  font-weight: 500;
+  letter-spacing: -0.07em;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.snow-pricing__recognition-benefit {
+  margin: 0;
+  padding: 12px clamp(16px, 3vw, 32px);
+  border-top: 1px solid var(--pricing-benefits-line);
+  color: var(--pricing-benefits-value);
+  font-size: 14px;
+  line-height: 1.65;
 }
 
 .snow-pricing__content {
@@ -504,58 +589,19 @@ html.dark .snow-pricing__model-card--expert {
   font-weight: 500;
 }
 
-.snow-pricing__topup-card small {
-  display: block;
+.snow-pricing__benefits-link {
+  display: inline-block;
   margin-top: 8px;
   color: var(--pricing-brand);
-  font-size: 10px;
-  font-weight: 650;
-}
-
-.snow-pricing__cumulative-note {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  margin-top: 18px;
-  padding: 21px 23px;
-  border-radius: 13px;
-  color: #fff;
-  background: #191a28;
-}
-
-html.dark .snow-pricing__cumulative-note {
-  background: #222135;
-  box-shadow: inset 0 0 0 1px #3b3653;
-}
-
-.snow-pricing__cumulative-note > div {
-  max-width: 760px;
-}
-
-.snow-pricing__cumulative-note strong {
-  font-size: 15px;
-}
-
-.snow-pricing__cumulative-note p {
-  margin: 8px 0 0;
-  color: #d3d4dc;
   font-size: 12px;
-  line-height: 1.7;
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-.snow-pricing__cumulative-note .snow-pricing__refund-note {
-  margin-top: 4px;
-  color: #aeb0bb;
-  font-size: 11px;
-}
-
-.snow-pricing__cumulative-mark {
-  flex: 0 0 auto;
-  color: #bdb0ff;
-  font-family: "DM Mono", ui-monospace, monospace;
-  font-size: 38px;
-  letter-spacing: -0.08em;
+.snow-pricing__benefits-link:focus-visible {
+  outline: 2px solid var(--pricing-brand);
+  outline-offset: 3px;
 }
 
 .snow-pricing__footer {
@@ -624,6 +670,25 @@ html.dark .snow-pricing__cumulative-note {
     font-size: 40px;
   }
 
+  .snow-pricing__discounts {
+    grid-template-columns: 1fr;
+  }
+
+  .snow-pricing__discount {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    padding-block: 12px;
+  }
+
+  .snow-pricing__discount + .snow-pricing__discount {
+    border-inline-start: 0;
+    border-top: 1px solid var(--pricing-benefits-line);
+  }
+
+  .snow-pricing__discount dd {
+    order: 0;
+  }
+
   .snow-pricing__content {
     padding-bottom: 46px;
   }
@@ -653,15 +718,6 @@ html.dark .snow-pricing__cumulative-note {
   .snow-pricing__topup-card {
     min-height: 145px;
     padding-inline: 14px;
-  }
-
-  .snow-pricing__cumulative-note {
-    align-items: flex-start;
-    padding: 18px;
-  }
-
-  .snow-pricing__cumulative-mark {
-    font-size: 26px;
   }
 
   .snow-pricing__footer {
