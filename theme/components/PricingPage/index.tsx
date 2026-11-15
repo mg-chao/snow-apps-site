@@ -14,7 +14,7 @@ const copy = {
     monthlyLabel: '每月包含',
     monthlyTitle: '先使用免费次数',
     monthlyIntro:
-      '快速模型每个 IP 地址每月可用 5 次，文字与图片请求共用；表格和公式识别次数分别计算。',
+      '快速模型每个 IP 地址每月可用 5 次，文字与图片请求共用。表格专用模型和 LaTeX 专用模型分别计算免费次数。',
     monthly: [
       {
         count: '5',
@@ -25,18 +25,17 @@ const copy = {
       {
         count: '10',
         unit: '次 / 月',
-        name: '表格识别',
+        name: '表格专用模型',
         detail: '每次识别计 1 次',
       },
       {
         count: '10',
         unit: '次 / 月',
-        name: 'LaTeX 公式识别',
+        name: 'LaTeX 专用模型',
         detail: '每次识别计 1 次',
       },
     ],
-    includedNote:
-      '免费次数用完后，继续使用会按下方费率扣除账户积分。每月自动刷新。',
+    includedNote: '免费次数每月自动刷新。用完后，继续使用会扣除账户积分。',
     ratesLabel: '统一使用积分计费',
     ratesTitle: '服务费率',
     translationHeading: '翻译',
@@ -48,21 +47,12 @@ const copy = {
     fastTranslationDetail:
       '常见中文互译语言方向；其他语言组合为 10 积分 / 千字符。按原文字符数计费。',
     modelHeading: '模型',
-    tokenUnit: '单位：积分 / 每 100 万 tokens',
-    modelName: '模型',
-    modelInput: '输入',
-    modelOutput: '输出',
-    cachedInput: '缓存输入',
+    modelEstimate: '每 1,000 积分预计可用',
     fastModel: '快速模型',
-    fastModelDetail:
-      '用于翻译等功能时也按模型费率结算。文本使用 Qwen3.7 Flash，图片使用 Qwen3.8 Flash；Qwen3.7 Flash 按输入长度选择费率档位。',
     expertModel: '专家模型',
-    expertModelDetail: '使用 Qwen3.8 Max，不包含每月免费次数。',
-    tableRate: '3 积分 / 次',
-    latexRate: '1.5 积分 / 次',
-    recognitionHeading: '识别',
-    recognitionNote:
-      '累计净充值达到 18,800 积分后，表格识别与 LaTeX 公式识别免费，不占每月免费次数。',
+    screenshotTranslation: '截图翻译',
+    tableRecognition: '表格识别',
+    formulaRecognition: '公式识别',
     topupsLabel: '一次充值，累计计入',
     topupsTitle: '充值档位',
     topupsIntro: '每 ¥1 充值到账 100 积分。多次充值会累计计算。',
@@ -74,7 +64,7 @@ const copy = {
       { amount: '¥999', credits: '99,900' },
     ],
     benefit:
-      '累计净充值达到 18,800 积分后，表格识别和 LaTeX 公式识别免费使用。该权益没有期限；消费积分不会减少累计充值积分。',
+      '累计净充值达到 18,800 积分后，可免费使用表格专用模型和 LaTeX 专用模型，不占每月免费次数。该权益没有期限，消费积分不会减少累计充值积分。',
     refund: '成功退款会减少累计充值积分，可能改变当前权益档位。',
     accountNoteTitle: '查看账户记录',
     accountNote:
@@ -92,7 +82,7 @@ const copy = {
     monthlyLabel: 'INCLUDED EACH MONTH',
     monthlyTitle: 'Start with free requests',
     monthlyIntro:
-      'Each IP gets 5 Fast Model requests per month, shared by text and image. Table and formula recognition have separate allowances.',
+      'Each IP gets 5 Fast Model requests per month, shared by text and image. The Table-specific model and LaTeX-specific model each have their own allowance.',
     monthly: [
       {
         count: '5',
@@ -103,18 +93,18 @@ const copy = {
       {
         count: '10',
         unit: 'requests / month',
-        name: 'Table recognition',
+        name: 'Table-specific model',
         detail: 'One request per recognition',
       },
       {
         count: '10',
         unit: 'requests / month',
-        name: 'LaTeX formula recognition',
+        name: 'LaTeX-specific model',
         detail: 'One request per recognition',
       },
     ],
     includedNote:
-      'After an allowance is used, further requests are charged at the rates below. Allowances refresh monthly.',
+      'Allowances refresh monthly. Further requests use account credits once the allowance is used up.',
     ratesLabel: 'ALL SERVICE RATES IN CREDITS',
     ratesTitle: 'Service rates',
     translationHeading: 'Translation',
@@ -126,21 +116,12 @@ const copy = {
     fastTranslationDetail:
       'For common language pairs involving Chinese; other pairs are 10 credits / 1,000 characters. Charged by source text length.',
     modelHeading: 'Models',
-    tokenUnit: 'UNIT: CREDITS PER 1M TOKENS',
-    modelName: 'MODEL',
-    modelInput: 'INPUT',
-    modelOutput: 'OUTPUT',
-    cachedInput: 'CACHED INPUT',
+    modelEstimate: 'Estimated requests per 1,000 credits',
     fastModel: 'Fast Model',
-    fastModelDetail:
-      'The same model rates apply when translating. Qwen3.7 Flash is used for text and Qwen3.8 Flash for images; Qwen3.7 Flash rates depend on input length.',
     expertModel: 'Expert Model',
-    expertModelDetail: 'Powered by Qwen3.8 Max; each request uses credits.',
-    tableRate: '3 credits / request',
-    latexRate: '1.5 credits / request',
-    recognitionHeading: 'Recognition',
-    recognitionNote:
-      'At 18,800 cumulative net top-up credits, table and LaTeX formula recognition become free and no longer use the monthly allowance.',
+    screenshotTranslation: 'Screenshot translation',
+    tableRecognition: 'Table recognition',
+    formulaRecognition: 'Formula recognition',
     topupsLabel: 'ONE-TIME TOP-UPS, COUNTED TOGETHER',
     topupsTitle: 'Top-up packages',
     topupsIntro:
@@ -153,7 +134,7 @@ const copy = {
       { amount: '¥999', credits: '99,900' },
     ],
     benefit:
-      'At 18,800 cumulative net top-up credits, table and LaTeX formula recognition are free. This benefit does not expire; spending credits does not reduce your cumulative top-up credits.',
+      'At 18,800 cumulative net top-up credits, the Table-specific model and LaTeX-specific model are free and do not use the monthly allowance. This benefit does not expire. Spending credits does not reduce your cumulative top-up credits.',
     refund:
       'A completed refund reduces your cumulative top-up credits and may change your current benefit tier.',
     accountNoteTitle: 'Your account record',
@@ -164,56 +145,28 @@ const copy = {
   },
 } as const;
 
-const modelRates = {
-  zh: [
-    {
-      name: 'Qwen3.7 Flash · ≤32K 输入',
-      input: '20',
-      output: '80',
-      cached: '4',
-    },
-    {
-      name: 'Qwen3.7 Flash · ≤256K 输入',
-      input: '60',
-      output: '240',
-      cached: '12',
-    },
-    {
-      name: 'Qwen3.7 Flash · >256K 输入',
-      input: '120',
-      output: '480',
-      cached: '24',
-    },
-    { name: 'Qwen3.8 Flash', input: '80', output: '270', cached: '10' },
-    { name: 'Qwen3.8 Max', input: '1,200', output: '3,600', cached: '150' },
-  ],
-  en: [
-    {
-      name: 'Qwen3.7 Flash · ≤32K input',
-      input: '20',
-      output: '80',
-      cached: '4',
-    },
-    {
-      name: 'Qwen3.7 Flash · ≤256K input',
-      input: '60',
-      output: '240',
-      cached: '12',
-    },
-    {
-      name: 'Qwen3.7 Flash · >256K input',
-      input: '120',
-      output: '480',
-      cached: '24',
-    },
-    { name: 'Qwen3.8 Flash', input: '80', output: '270', cached: '10' },
-    { name: 'Qwen3.8 Max', input: '1,200', output: '3,600', cached: '150' },
-  ],
-} as const;
+const models = ['fastModel', 'expertModel'] as const;
+
+const estimates = [
+  {
+    task: 'screenshotTranslation',
+    fastModel: '3,000–5,000',
+    expertModel: '600–1,000',
+  },
+  {
+    task: 'tableRecognition',
+    fastModel: '4,000–6,000',
+    expertModel: '800–1,200',
+  },
+  {
+    task: 'formulaRecognition',
+    fastModel: '6,000–8,000',
+    expertModel: '1,200–1,600',
+  },
+] as const;
 
 export function PricingPage({ locale }: { locale: Locale }) {
   const t = copy[locale];
-  const rates = modelRates[locale];
   const isZh = locale === 'zh';
 
   return (
@@ -282,6 +235,37 @@ export function PricingPage({ locale }: { locale: Locale }) {
           </div>
 
           <div className="snow-pricing__subsection">
+            <div className="snow-pricing__model-heading">
+              <h3 className="snow-pricing__subheading">{t.modelHeading}</h3>
+              <p>{t.modelEstimate}</p>
+            </div>
+            <div className="snow-pricing__model-grid">
+              {models.map((model) => (
+                <article
+                  className={`snow-pricing__model-card${model === 'expertModel' ? ' snow-pricing__model-card--expert' : ''}`}
+                  key={model}
+                >
+                  <h4>{t[model]}</h4>
+                  <dl>
+                    {estimates.map((estimate) => (
+                      <div
+                        className="snow-pricing__estimate"
+                        key={estimate.task}
+                      >
+                        <dt>{t[estimate.task]}</dt>
+                        <dd>
+                          {estimate[model]}
+                          {isZh && <small>次</small>}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="snow-pricing__subsection">
             <h3 className="snow-pricing__subheading">{t.translationHeading}</h3>
             <div className="snow-pricing__translation-grid">
               <article className="snow-pricing__rate-card snow-pricing__rate-card--free">
@@ -299,73 +283,6 @@ export function PricingPage({ locale }: { locale: Locale }) {
                 <p>{t.fastTranslationDetail}</p>
               </article>
             </div>
-          </div>
-
-          <div className="snow-pricing__subsection">
-            <h3 className="snow-pricing__subheading">{t.modelHeading}</h3>
-            <div className="snow-pricing__model-intro">
-              <div>
-                <strong>{t.fastModel}</strong>
-                <p>{t.fastModelDetail}</p>
-              </div>
-              <div>
-                <strong>{t.expertModel}</strong>
-                <p>{t.expertModelDetail}</p>
-              </div>
-            </div>
-            <div className="snow-pricing__model-table">
-              <table aria-label={t.modelHeading}>
-                <caption>{t.tokenUnit}</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">{t.modelName}</th>
-                    <th scope="col">{t.modelInput}</th>
-                    <th scope="col">{t.modelOutput}</th>
-                    <th scope="col">{t.cachedInput}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {rates.map((rate) => (
-                    <tr key={rate.name}>
-                      <td>{rate.name}</td>
-                      <td>{rate.input}</td>
-                      <td>{rate.output}</td>
-                      <td>{rate.cached}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div className="snow-pricing__subsection">
-            <h3 className="snow-pricing__subheading">{t.recognitionHeading}</h3>
-            <div className="snow-pricing__recognition-grid">
-              <article className="snow-pricing__recognition-rate">
-                <span>{isZh ? '表格识别' : 'Table recognition'}</span>
-                <strong>{t.tableRate}</strong>
-                <small>
-                  {isZh
-                    ? '每月前 10 次免费'
-                    : 'First 10 requests each month are free'}
-                </small>
-              </article>
-              <article className="snow-pricing__recognition-rate">
-                <span>
-                  {isZh ? 'LaTeX 公式识别' : 'LaTeX formula recognition'}
-                </span>
-                <strong>{t.latexRate}</strong>
-                <small>
-                  {isZh
-                    ? '每月前 10 次免费'
-                    : 'First 10 requests each month are free'}
-                </small>
-              </article>
-            </div>
-            <p className="snow-pricing__benefit-note">
-              <span aria-hidden="true">✳</span>
-              {t.recognitionNote}
-            </p>
           </div>
         </section>
 
