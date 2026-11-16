@@ -318,6 +318,30 @@ it('IndexNow refuses stale deployments and pages incorrectly claimed as deleted'
   }
 });
 
+it('IndexNow notifies crawlers when a page leaves the sitemap with noindex', async () => {
+  const before = manifest(page('index', 'a'), page('pricing', 'b'));
+  const after = manifest(page('index', 'a'));
+  const pricing = `${origin}/pricing.html`;
+  const request = async (url, options) => {
+    if (url.endsWith('/indexnow.txt')) return new Response(key);
+    if (url.endsWith('/seo-manifest.json')) return Response.json(after);
+    if (url === pricing) {
+      return new Response(
+        options.method === 'HEAD'
+          ? null
+          : '<head><meta name="robots" content="noindex"></head>',
+      );
+    }
+    assert.deepEqual(JSON.parse(options.body).urlList, [pricing]);
+    return new Response('', { status: 200 });
+  };
+  const result = await submitIndexNow(key, request, {
+    previous: before,
+    current: after,
+  });
+  assert.deepEqual(result.urls, [pricing]);
+});
+
 it('IndexNow requires valid deployment snapshots before making any request', async () => {
   const current = manifest(page('index', 'a'));
   const request = async () => assert.fail('Must validate snapshots first');

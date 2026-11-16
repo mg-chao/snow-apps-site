@@ -307,7 +307,8 @@ then submits added, changed and deleted canonical URLs to IndexNow only after
 the release receipt and public page checks pass. On the first upgrade it obtains
 the baseline from the live sitemap, HTML and referenced images. Older manifests
 are supplemented from the live blog pages. The key and newly deployed manifest
-must match. Removed URLs must return 301/308/404/410. No-change releases skip the
+must match. Removed URLs must return 301/308/404/410 or serve a `noindex` robots
+meta tag in their HTML head. No-change releases skip the
 notification. Network failures, 429 and transient 5xx responses get at most three
 attempts with bounded backoff and Retry-After handling. A failed notification
 warns without rolling back the successful deployment. Snapshots and receipts

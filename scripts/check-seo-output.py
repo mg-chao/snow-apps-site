@@ -11,6 +11,7 @@ from datetime import datetime, timezone
 
 ORIGIN = 'https://snowshot.top'
 REPOSITORY = 'https://github.com/mg-chao/snow-shot'
+NOINDEX_PAGES = {'pricing.html', 'zh/pricing.html'}
 
 
 class Page(HTMLParser):
@@ -162,6 +163,8 @@ def check_llms(directory, canonical_urls):
 def check(directory):
     pages = {path.relative_to(directory).as_posix(): Page(path.read_text(encoding='utf-8'))
              for path in directory.rglob('*.html')}
+    assert NOINDEX_PAGES <= pages.keys(), 'Missing pricing pages'
+    rendered_pages = set()
     expected = set()
     for name, page in pages.items():
         canonical = [link['href'] for link in page.links if link.get('rel') == 'canonical']
@@ -169,7 +172,12 @@ def check(directory):
             assert page.meta.get('robots') == 'noindex' and not canonical, '404 must not be indexed'
             continue
         url = f'{ORIGIN}/{name}'
-        expected.add(url)
+        rendered_pages.add(name)
+        if name in NOINDEX_PAGES:
+            assert page.meta.get('robots') == 'noindex', f'{name}: expected noindex'
+        else:
+            assert 'noindex' not in page.meta.get('robots', ''), f'{name}: unexpected noindex'
+            expected.add(url)
         assert canonical == [url], f'{name}: expected exactly one self-canonical'
         assert page.meta.get('description'), f'{name}: missing description'
         assert page.title.strip(), f'{name}: missing page title'
@@ -243,7 +251,7 @@ def check(directory):
     # Audit rendered links, so client-only navigation cannot hide orphaned pages.
     graph = {}
     for name, page in pages.items():
-        if f'{ORIGIN}/{name}' not in expected:
+        if name not in rendered_pages:
             continue
         graph[name] = set()
         for href in page.anchors:
@@ -268,7 +276,7 @@ def check(directory):
         assert locale_pages <= visited, f'{home}: orphaned pages {sorted(locale_pages - visited)}'
     root = ET.fromstring((directory / 'sitemap.xml').read_text(encoding='utf-8'))
     urls = [element.text for element in root.findall('{*}url/{*}loc')]
-    assert set(urls) == expected and len(urls) == len(expected), 'Sitemap must contain exactly the canonical pages'
+    assert set(urls) == expected and len(urls) == len(expected), 'Sitemap must contain exactly the indexable canonical pages'
     for element in root.findall('{*}url'):
         value = element.findtext('{*}lastmod')
         assert value, f'{element.findtext("{*}loc")}: missing lastmod'
@@ -291,7 +299,7 @@ def check(directory):
     robots = (directory / 'robots.txt').read_text(encoding='utf-8')
     assert f'Sitemap: {ORIGIN}/sitemap.xml' in robots and 'Disallow: /' not in robots
     check_llms(directory, expected)
-    print(f'Verified {len(expected)} canonical pages, shared headers and footers, bilingual metadata, visible breadcrumbs, homepage schemas, internal link reachability and discovery files, including both llms.txt indexes.')
+    print(f'Verified {len(expected)} indexable canonical pages, pricing noindex, shared headers and footers, bilingual metadata, visible breadcrumbs, homepage schemas, internal link reachability and discovery files, including both llms.txt indexes.')
 
 
 if __name__ == '__main__':

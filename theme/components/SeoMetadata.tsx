@@ -83,6 +83,9 @@ export function SeoMetadata() {
     meta: isMissing
       ? [{ name: 'robots', content: 'noindex' }]
       : [
+          ...(page.frontmatter.noindex === true
+            ? [{ name: 'robots', content: 'noindex' }]
+            : []),
           { property: 'og:url', content: canonicalUrl(pathname) },
           { property: 'og:site_name', content: 'Snow Shot' },
           {

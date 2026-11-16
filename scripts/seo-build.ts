@@ -30,11 +30,13 @@ export function seoBuildPlugin(): RspressPlugin {
   let routes: RouteMeta[] = [];
   const originalSearchRoutes = new WeakMap<object, string>();
   const modified = new Map<string, string>();
+  const noindexUrls = new Set<string>();
   let metadata: ReturnType<typeof contentMetadata> | undefined;
   return {
     name: 'snow-shot-sitemap',
     routeGenerated(generated) {
       routes = generated;
+      noindexUrls.clear();
       metadata = contentMetadata();
     },
     modifySearchIndexData(pages) {
@@ -74,6 +76,9 @@ export function seoBuildPlugin(): RspressPlugin {
         page.routePath = route;
         originalSearchRoutes.delete(page);
       }
+      if (page.frontmatter?.noindex === true) {
+        noindexUrls.add(canonicalUrl(page.routePath));
+      }
       if (metadata && page._filepath && page.frontmatter.pageType !== '404') {
         const details = metadata(page._filepath, page.frontmatter.updated);
         page.frontmatter.lastModified = details.lastModified;
@@ -88,18 +93,18 @@ export function seoBuildPlugin(): RspressPlugin {
       if (!isProd) return;
       const output = resolve(config.outDir ?? 'doc_build');
       mkdirSync(output, { recursive: true });
+      const indexablePaths = routes
+        .map((route) => route.routePath)
+        .filter((path) => !noindexUrls.has(canonicalUrl(path)));
       writeFileSync(
         resolve(output, 'sitemap.xml'),
-        sitemapXml(
-          routes.map((route) => route.routePath),
-          modified,
-        ),
+        sitemapXml(indexablePaths, modified),
       );
-      const pages = routes
-        .filter((route) => !/^\/(?:zh\/)?404(?:\.html)?$/.test(route.routePath))
-        .map((route) => ({
-          path: route.routePath,
-          lastmod: modified.get(canonicalUrl(route.routePath)),
+      const pages = indexablePaths
+        .filter((path) => !/^\/(?:zh\/)?404(?:\.html)?$/.test(path))
+        .map((path) => ({
+          path,
+          lastmod: modified.get(canonicalUrl(path)),
         }));
       writeFileSync(
         resolve(output, 'seo-manifest.json'),

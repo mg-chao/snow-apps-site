@@ -196,8 +196,19 @@ export async function submitIndexNow(key, request = fetch, settings = {}) {
       method: 'HEAD',
       redirect: 'manual',
     });
-    if (![301, 308, 404, 410].includes(removed.status))
-      throw new Error(`Removed URL still serves content: ${url}`);
+    if ([301, 308, 404, 410].includes(removed.status)) continue;
+    if (removed.status === 200) {
+      const page = await request(url, options);
+      if (page.ok) {
+        const head = (await page.text()).match(
+          /<head\b[^>]*>([\s\S]*?)<\/head>/i,
+        )?.[1];
+        // The site keeps some removed URLs accessible with a server-rendered noindex.
+        if (/<meta name="robots" content="noindex"\s*\/?>/i.test(head ?? ''))
+          continue;
+      }
+    }
+    throw new Error(`Removed URL still serves content: ${url}`);
   }
   const payload = urlPayload(urls, key);
   const attempts = settings.maxAttempts ?? 3;
