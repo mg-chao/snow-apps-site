@@ -1,7 +1,23 @@
 {
   "source": "https://github.com/mg-chao/snow-shot/releases",
-  "syncedAt": "2026-11-15T17:27:38.689Z",
+  "syncedAt": "2026-11-16T18:45:28.494Z",
   "releases": [
+    {
+      "tag": "v1.5.9_snow-shot",
+      "version": "1.5.9",
+      "name": "Snow Shot 1.5.9",
+      "publishedAt": "2026-11-16T18:36:50Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.5.9_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 拖放图片到悬浮工具栏时，可选择贴图、拼图、切图或打开图像编辑器。\n- 截图参考线可随背景改变颜色，在相近颜色上也能看清。拖动录屏选区时，录屏工具栏更容易找回。\n- 识别出的文字更贴合原图。缩放截图或打开以前的贴图时，译文能更好地保持原有排版。\n- macOS 现在可在应用内下载并安装更新。从旧版升级到 1.5.9 需手动安装一次，macOS 可能会再次请求权限。登录时启动改为在设置中手动开启。\n- 修复了系统拒收通知时应用意外跳到前台的问题。",
+        "en": "- Choose what happens when you drop an image on the floating toolbar. Pin it, open it in the editor, or send it to image stitching or splitting.\n- Screenshot guides can adjust their color to stay visible against the background. The recording toolbar is easier to reach when you move the capture area.\n- Recognized text fits the original image more closely. Translations hold their layout when you zoom in or reopen older pinned screenshots.\n- On macOS, updates can now download and install inside the app. Install 1.5.9 manually once to get started. macOS may ask you to grant permissions again. You can opt in to launching Snow Shot at login in Settings.\n- Fixed an issue where a blocked system notification could bring the app to the foreground."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
     {
       "tag": "v1.5.8_snow-shot",
       "version": "1.5.8",
