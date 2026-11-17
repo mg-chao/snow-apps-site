@@ -1,7 +1,23 @@
 {
   "source": "https://github.com/mg-chao/snow-shot/releases",
-  "syncedAt": "2026-11-16T18:45:28.494Z",
+  "syncedAt": "2026-11-17T18:35:10.740Z",
   "releases": [
+    {
+      "tag": "v1.6.0_snow-shot",
+      "version": "1.6.0",
+      "name": "Snow Shot 1.6.0",
+      "publishedAt": "2026-11-17T18:27:07Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.6.0_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 识别文字时，智能排版会把跨行文字合并成自然段落。复制选中的文字时会保留选区内的换行。\n- 翻译图片时，智能合并能更好地保留原图的段落、列表和多列排版。\n- Windows 用户可在设置中切换性能、正常和节能模式，按需调整应用的耗电和运行速度。\n- 修复录屏选区的边框偏移，以及调整阴影宽度时光标方向不正确的问题。",
+        "en": "- Smart typesetting joins wrapped lines of recognized text into paragraphs. Copying selected text preserves the line breaks in your selection.\n- Smart Merge better preserves paragraphs, lists, and columns when translating images.\n- On Windows, choose Performance, Normal, or Power saving in Settings to balance speed and battery use.\n- Fixed misaligned recording borders and the resize cursor pointing the wrong way when adjusting shadow width."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
     {
       "tag": "v1.5.9_snow-shot",
       "version": "1.5.9",
