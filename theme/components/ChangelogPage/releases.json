@@ -1,7 +1,23 @@
 {
   "source": "https://github.com/mg-chao/snow-shot/releases",
-  "syncedAt": "2026-11-17T18:35:10.740Z",
+  "syncedAt": "2026-11-20T14:34:35.075Z",
   "releases": [
+    {
+      "tag": "v1.6.1_snow-shot",
+      "version": "1.6.1",
+      "name": "Snow Shot 1.6.1",
+      "publishedAt": "2026-11-20T14:26:27Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.6.1_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 在设置的「导出任务」中，可分别指定复制、保存或固定截图后要执行的操作，例如自动保存。\n- 新增图片压缩工具。可以直接粘贴图片，在导出前调整格式、尺寸、画质和压缩级别。\n- 截图标注时，按 `Tab` 可切换当前工具的选项。贴图的透明区域可保持透明，也可显示为棋盘格。\n- 图片翻译的「智能合并」更贴近原图的字号和排版。\n- 修复拼图交换图片时画面跳动、图片移出画布后难以选回的问题，并改善录屏选区的拖动和缩放。",
+        "en": "- In Settings → Export tasks, choose what happens after you copy, save, or pin a screenshot. Each action can have its own tasks, such as auto-saving.\n- The new image compression tool accepts pasted images and lets you adjust format, dimensions, quality, and compression before exporting.\n- Press `Tab` while annotating to cycle the current tool’s options. Transparent areas in pinned images can stay transparent or show a checkerboard.\n- Smart Merge image translation better preserves the original text size and layout.\n- Fixed collage jumps when swapping images and made off-canvas images easier to select again. Recording regions are easier to move and resize."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
     {
       "tag": "v1.6.0_snow-shot",
       "version": "1.6.0",
