@@ -1,7 +1,23 @@
 {
   "source": "https://github.com/mg-chao/snow-shot/releases",
-  "syncedAt": "2026-11-20T14:34:35.075Z",
+  "syncedAt": "2026-11-21T17:12:03.453Z",
   "releases": [
+    {
+      "tag": "v1.6.2_snow-shot",
+      "version": "1.6.2",
+      "name": "Snow Shot 1.6.2",
+      "publishedAt": "2026-11-21T16:52:28Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.6.2_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 可以把截图历史和贴图管理中的图片直接拖到支持拖放的应用里。\n- 多选贴图后，可以一次复制识别出的文字或已完成的译文。也改进了贴图缩略图的选择操作。\n- 修复了截图、录屏和设置中部分对话框关闭后仍可能触发旧操作的问题。",
+        "en": "- Drag images from Screenshot History or Pinned Windows directly into apps that accept drops.\n- Select several pinned images and copy their recognized text or completed translations in one action. Thumbnail selection is also easier.\n- Fixed cases where closing a dialog in capture, recording, or settings could still trigger an earlier action."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
     {
       "tag": "v1.6.1_snow-shot",
       "version": "1.6.1",
