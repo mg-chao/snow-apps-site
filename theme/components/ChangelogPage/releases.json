@@ -1,7 +1,23 @@
 {
   "source": "https://github.com/mg-chao/snow-shot/releases",
-  "syncedAt": "2026-11-21T17:12:03.453Z",
+  "syncedAt": "2026-11-22T16:44:59.727Z",
   "releases": [
+    {
+      "tag": "v1.6.3_snow-shot",
+      "version": "1.6.3",
+      "name": "Snow Shot 1.6.3",
+      "publishedAt": "2026-11-22T16:37:02Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.6.3_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 可以为普通截图和快捷截取焦点窗口或当前显示器分别设置快门声。\n- 截图和录屏的保存规则支持桌面、下载等系统文件夹，也可以用来源显示器命名文件。直接截取窗口时，导出的文件名会正确使用该窗口的标题。\n- 修复截图历史和贴图管理页面中未选中项目时，操作栏仍会悬浮的问题。\n- 新版 Homebrew 安装配置支持在以后升级时自动退出正在运行的应用，并在升级成功后重新打开。",
+        "en": "- Choose whether to play the shutter sound for regular screenshots and for direct captures of the focused window or current display.\n- Save screenshots and recordings to system folders such as Desktop or Downloads, and include the source display in filenames. Direct window captures now use the captured window’s title in filenames.\n- Fixed the action bar sticking while scrolling through Screenshot History or Pinned Windows with no items selected.\n- The updated Homebrew cask can quit the running app before future upgrades and reopen it after a successful upgrade."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
     {
       "tag": "v1.6.2_snow-shot",
       "version": "1.6.2",
