@@ -8,7 +8,7 @@ footer: true
 
 # Snow Shot privacy policy
 
-Last updated: October 19, 2026
+Last updated: November 24, 2026
 
 Snow Shot is operated by **Chao Huang**, publishing as **Snow Apps**. This policy
 explains how the app, its official online services, and this website handle your
@@ -79,6 +79,31 @@ practices. Different providers and service plans can have different rules.
 
 Downloading recognition models contacts the model host, currently ModelScope, to
 retrieve files. It does not require sending your screenshots to that host.
+
+## Cloud settings sync
+
+Snow Shot Full on Windows and macOS can sync supported preferences between devices
+signed in to the same account. If your account service supports sync, it is on by
+default, including after an upgrade if you are already signed in.
+
+The app sends eligible preferences, such as theme, capture delay, and shortcut
+bindings, to the account service you signed in to. The official service stores
+the current set of synced settings for each account so your other devices can
+retrieve it. Keyboard and mouse bindings are kept separately for Windows and
+macOS. If you use a custom account service that supports sync, your settings go
+to that service instead of the official service. Its privacy terms apply.
+
+Settings sync does not send screenshots, recordings, annotations, clipboard
+contents, saved history, local save paths, service keys, or cloud-storage
+credentials as part of your settings. It does not enable automatic image uploads.
+Cloud Upload is a separate feature described above.
+
+To stop syncing on a device, turn off **Sync on this device** under
+**Settings → Export & storage → Data storage → Cloud settings sync**. This stops
+sync on that device only. It does not delete the stored cloud settings or affect
+sync on your other devices. When deletion of your official Snow Shot account is
+completed, the service removes its synced settings from the active database.
+This does not remove local settings from your devices.
 
 ## Information used to run the official service
 
