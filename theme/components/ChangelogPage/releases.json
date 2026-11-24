@@ -1,7 +1,23 @@
 {
   "source": "https://github.com/mg-chao/snow-shot/releases",
-  "syncedAt": "2026-11-22T16:44:59.727Z",
+  "syncedAt": "2026-11-24T21:38:48.227Z",
   "releases": [
+    {
+      "tag": "v1.6.4_snow-shot",
+      "version": "1.6.4",
+      "name": "Snow Shot 1.6.4",
+      "publishedAt": "2026-11-24T21:30:39Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.6.4_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 可以自定义截图和贴图的鼠标操作。裁剪贴图时可以取消，贴图不透明度最低可调到 10%。\n- 拼图新增自由布局，可以拖动图片调整位置。编辑时，对齐参考线在高分屏上显示得更清晰。\n- 新增复制识别文字的快捷键。缩放或更改应用字体后，识别和翻译文字会继续贴合原来的区域。\n- Snow Shot 完整版登录后可在设备间同步设置。截图历史可以保留全部记录、仅保留截图结果，或关闭记录。\n- 新增俄语界面。快捷截取焦点窗口更快，并修复了菜单重复弹出的问题。",
+        "en": "- Customize mouse gestures for screenshots and pinned images. You can cancel a pin crop and lower pin opacity to 10%.\n- Arrange collage images freely by dragging them. Alignment guides look sharper on high-DPI screens.\n- Use the new shortcut to copy recognized text. Recognized and translated text stays aligned when you zoom or change the app font.\n- Sign in to sync settings across devices in the full edition. Screenshot History can keep everything, keep only the finished screenshots, or stop saving history.\n- Russian is now available as an interface language. Direct capture of the focused window is faster, and duplicate pop-up menus have been fixed."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
     {
       "tag": "v1.6.3_snow-shot",
       "version": "1.6.3",
