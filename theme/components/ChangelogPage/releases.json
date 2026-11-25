@@ -1,7 +1,23 @@
 {
   "source": "https://github.com/mg-chao/snow-shot/releases",
-  "syncedAt": "2026-11-24T21:38:48.227Z",
+  "syncedAt": "2026-11-25T17:40:13.955Z",
   "releases": [
+    {
+      "tag": "v1.6.5_snow-shot",
+      "version": "1.6.5",
+      "name": "Snow Shot 1.6.5",
+      "publishedAt": "2026-11-25T17:32:06Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.6.5_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 新增快捷键，可将选区内窗口的实时画面贴到屏幕上。贴图的锁定、鼠标穿透、显示、隐藏和关闭等操作也可以绑定快捷键或鼠标手势，首次触发标注手势即可进入编辑。\n- 可按普通截图、滚动截图、当前屏幕和焦点窗口分别设置截图后的操作，例如自动保存或贴图。\n- 修复了复制、保存和导出截图时结果可能与屏幕上显示的内容不一致的问题。\n- 改善了文字识别结果与原图的行对齐，并更新了本地文字识别组件。\n- 自定义视觉服务接收原始尺寸的 PNG 图片，保留截图细节。",
+        "en": "- Use a shortcut to pin a live view of the window you select. Assign shortcuts or mouse gestures to lock, hide, show, or close pins, or make clicks pass through. The annotation gesture now opens editing on the first try.\n- Set post-capture actions, such as auto-save or pinning, separately for regular screenshots, scrolling screenshots, the current display, and the focused window.\n- Fixed cases where copied, saved, or exported screenshots could differ from what you saw on screen.\n- Improved how recognized text lines align with the original image and updated the local text recognition engine.\n- Custom vision providers now receive PNG images at their original size, preserving screenshot detail."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
     {
       "tag": "v1.6.4_snow-shot",
       "version": "1.6.4",
