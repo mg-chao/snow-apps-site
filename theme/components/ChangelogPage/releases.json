@@ -1,7 +1,23 @@
 {
   "source": "https://github.com/mg-chao/snow-shot/releases",
-  "syncedAt": "2026-11-25T17:40:13.955Z",
+  "syncedAt": "2026-11-27T23:24:20.962Z",
   "releases": [
+    {
+      "tag": "v1.6.6_snow-shot",
+      "version": "1.6.6",
+      "name": "Snow Shot 1.6.6",
+      "publishedAt": "2026-11-27T23:04:27Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.6.6_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 在 Windows 文件资源管理器中右键点击图片，即可贴图、标注、拼接、拆分、编辑或压缩。也可以将普通截图绑定到全局鼠标拖动手势。\n- 滚动截图拼接更快，遇到重复内容时对齐更准确。处理大图、拼图和贴图时也更省内存。\n- 本地文字识别按截图原始分辨率检测文字，更容易识别小字。识别窗口也更少遮挡截图工具栏。\n- 修复长时间录屏时音画逐渐不同步的问题，并提高录屏裁剪导出的稳定性。\n- 改善截图快捷键和鼠标手势的响应。macOS 从睡眠唤醒后，截图会重新读取显示器布局。",
+        "en": "- Right-click images in Windows File Explorer to pin, annotate, stitch, split, edit, or compress them. You can also assign a global mouse drag gesture to regular screenshots.\n- Scrolling screenshots stitch faster and align repeated content more accurately. Large images, collages, and pinned images use less memory.\n- Local text recognition checks screenshots at their original resolution to better pick up small text. The recognition window is also less likely to cover the screenshot toolbar.\n- Fixed audio and video drifting out of sync in long screen recordings and improved the reliability of exporting trimmed recordings.\n- Screenshot shortcuts and mouse gestures respond more reliably. On macOS, screen capture refreshes the display layout after waking from sleep."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
     {
       "tag": "v1.6.5_snow-shot",
       "version": "1.6.5",
