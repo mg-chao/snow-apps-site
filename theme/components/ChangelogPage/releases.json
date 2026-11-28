@@ -1,7 +1,23 @@
 {
   "source": "https://github.com/mg-chao/snow-shot/releases",
-  "syncedAt": "2026-11-27T23:24:20.962Z",
+  "syncedAt": "2026-11-28T09:31:37.080Z",
   "releases": [
+    {
+      "tag": "v1.6.7_snow-shot",
+      "version": "1.6.7",
+      "name": "Snow Shot 1.6.7",
+      "publishedAt": "2026-11-28T09:11:47Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.6.7_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 滚动截图拼接更快，保存 PNG 图片所需的时间也更短。\n- 从剪贴板贴图时，图片显示更稳定，打开时也更少闪烁。\n- 文字识别结果在不同视图中复制更顺手。选中文本时可复制选中内容，也可以用“复制全部”获取完整结果。",
+        "en": "- Scrolling screenshots stitch faster, and PNG images save more quickly.\n- Images pinned from the clipboard display more reliably, with less flicker when they first appear.\n- Text recognition results are easier to copy across views. Copy a text selection or use Copy All to get the full result."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
     {
       "tag": "v1.6.6_snow-shot",
       "version": "1.6.6",
