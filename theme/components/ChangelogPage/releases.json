@@ -1,7 +1,23 @@
 {
   "source": "https://github.com/mg-chao/snow-shot/releases",
-  "syncedAt": "2026-11-28T09:31:37.080Z",
+  "syncedAt": "2026-11-28T18:40:41.068Z",
   "releases": [
+    {
+      "tag": "v1.6.8_snow-shot",
+      "version": "1.6.8",
+      "name": "Snow Shot 1.6.8",
+      "publishedAt": "2026-11-28T18:21:38Z",
+      "url": "https://github.com/mg-chao/snow-shot/releases/tag/v1.6.8_snow-shot",
+      "prerelease": false,
+      "notes": {
+        "zh": "- 触发截图后，选区和工具栏出现得更快。\n- 截图选区可显示网格辅助线，方便对齐。画线时按住 Ctrl（Mac 上为 ⌘），端点可吸附到附近的线条端点。\n- 编号、气泡、形状和箭头上的文字可分别设置样式，应用会记住你的选择。\n- 文字识别结果为表格时，可通过右键菜单复制选中的单元格。",
+        "en": "- The selection and toolbar appear faster when you start a screenshot.\n- Show grid guides around the screenshot selection for easier alignment. Hold Ctrl (⌘ on Mac) while drawing to snap to nearby line endpoints.\n- Set separate text styles for number markers, speech bubbles, shapes, and arrows. The app remembers your choices.\n- Right-click selected cells in a text recognition table to copy them."
+      },
+      "notesLanguage": {
+        "zh": "zh",
+        "en": "en"
+      }
+    },
     {
       "tag": "v1.6.7_snow-shot",
       "version": "1.6.7",
